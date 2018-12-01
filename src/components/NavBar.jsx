@@ -2,8 +2,8 @@ import React from "react";
 
 function RecipeDetail(){
   return (
-    <div>
-      We love recipe detail
+    <div className='navBar'>
+      MENU
     </div>
   );
 }

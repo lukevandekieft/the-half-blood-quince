@@ -3,7 +3,7 @@ import React from "react";
 function RecipeDetail(){
   return (
     <div>
-      We love recipe detail
+      Edit it #up
     </div>
   );
 }

@@ -1,9 +1,11 @@
 import React from "react";
+import RecipeList from './RecipeList';
 
 function HomePage(){
   return (
     <div>
-      <p>hi</p>heyo!
+      Welcome friend
+      <RecipeList />
     </div>
   );
 }
