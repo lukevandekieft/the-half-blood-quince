@@ -7,4 +7,15 @@ div {
 
 .navBar {
   background-color: yellow;
+  display: flex;
+  div {
+    p {
+      color: pink;
+    }
+    background-color: yellow;
+  }
+  img {
+    display: inline-block;
+    max-height: 80px;
+  }
 }
