@@ -3,10 +3,10 @@ import React, { Component } from 'react';
 import {BrowserRouter as Switch, Route } from 'react-router-dom';
 
 //local files
-import NavBar from './NavBar.jsx'
-import HomePage from './HomePage.jsx'
-import RecipeDetail from './RecipeDetail.jsx'
-import RecipeEdit from './RecipeEdit.jsx'
+import NavBar from './NavBar.jsx';
+import HomePage from './HomePage.jsx';
+import RecipeDetail from './RecipeDetail.jsx';
+import RecipeEdit from './RecipeEdit.jsx';
 
 //styles
 import './App.scss';

@@ -1,5 +1,5 @@
-import React from "react";
-import Logo from "./Logo.jsx"
+import React from 'react';
+import Logo from './Logo.jsx';
 
 function RecipeDetail(){
   return (

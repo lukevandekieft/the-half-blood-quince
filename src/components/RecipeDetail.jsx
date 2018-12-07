@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import AdditionalRecipeDisplay from './AdditionalRecipeDisplay';
 import MainRecipeDisplay from './MainRecipeDisplay';
 import IngredientDisplay from './IngredientDisplay';
