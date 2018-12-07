@@ -1,5 +1,5 @@
 import React from 'react';
-import NavButton from 
+import NavButton from './NavButton';
 
 function EditRecipeForm(){
   return (

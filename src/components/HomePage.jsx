@@ -4,7 +4,7 @@ import NavButton from './NavButton';
 
 function HomePage(){
   return (
-    <div>
+    <div className='pageContentSection'>
       Welcome friend
       <RecipeList />
       <NavButton />

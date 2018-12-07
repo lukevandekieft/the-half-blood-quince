@@ -7,7 +7,7 @@ import NavButton from './NavButton';
 
 function RecipeDetail(){
   return (
-    <div>
+    <div className='pageContentSection'>
       We love recipe detail
       <MainRecipeDisplay />
       <IngredientDisplay />

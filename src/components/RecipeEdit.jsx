@@ -1,9 +1,10 @@
 import React from 'react';
+import EditRecipeControl from './EditRecipeControl';
 
 function RecipeDetail(){
   return (
-    <div>
-      Edit it #up
+    <div className='pageContentSection'>
+      <EditRecipeControl />
     </div>
   );
 }

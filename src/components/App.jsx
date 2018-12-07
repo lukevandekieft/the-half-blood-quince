@@ -17,7 +17,7 @@ class App extends Component {
       <div>
         <NavBar />
         <Switch>
-          <div>
+          <div className="contentContainer">
             <Route exact path='/' component={HomePage}/>
             <Route exact path='/recipe-detail' component={RecipeDetail}/>
             <Route exact path='/edit-recipe' component={RecipeEdit}/>
