@@ -4,8 +4,8 @@ import RecipeList from './RecipeList';
 function HomePage(){
   return (
     <div>
-      Grandma's BEST Quince Recipe
-      <img src="https://images.freshop.com/produce_quince/6d15f731876d5ecf1a3c875d3ee1f473_medium.png" alt="You carry the fate of us all little one" />
+      <p>Mapo Tofu</p>
+      <img src="https://www.seriouseats.com/recipes/images/2013/02/20120206-vegan-mapo-tofu-12.jpg" alt="Mapo Tofu Recipe Image" />
     </div>
   );
 }

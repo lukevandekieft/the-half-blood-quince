@@ -5,8 +5,8 @@ function RecipeItem(){
   return (
     <div>
       <Link to='/recipe-detail'>
-        <p>Recipe!</p>
-        <img src="https://cdn1.iconfinder.com/data/icons/fruit-28/64/SET-154-128.png" alt="we tested bois"/>
+        <p>Mapo Tofu</p>
+        <img src="https://www.seriouseats.com/recipes/images/2013/02/20120206-vegan-mapo-tofu-12.jpg"/>
       </Link>
     </div>
   );
