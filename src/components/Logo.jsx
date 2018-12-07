@@ -4,7 +4,7 @@ function Logo(){
   return (
     <div>
       <p>The Half-Blood Quince</p>
-      <img src="https://image.flaticon.com/icons/png/128/271/271446.png" alt="Go back to the abyss! Fall into nothingness that awaits you" />
+      <img src="https://cdn1.iconfinder.com/data/icons/fruit-28/64/SET-154-128.png" alt="Half-Blood Quince Logo" />
     </div>
   );
 }

@@ -2,15 +2,8 @@ import React from 'react';
 import RecipeItem from './RecipeItem';
 
 function RecipeList(){
-  let recipeItemStyles = {
-    display: 'flex',
-    flexWrap: 'wrap',
-    justifyContent: 'center',
-    marginLeft: '-20px',
-    width: '100%'
-  };
   return (
-    <div style={recipeItemStyles}>
+    <div className='recipeItemStyles'>
       <RecipeItem />
       <RecipeItem />
       <RecipeItem />

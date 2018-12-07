@@ -1,12 +1,14 @@
-$recipe-item-picture-size: 200px;
-
-div {
-  background-color: pink;
-}
+$recipe-icon-size: 200px;
+$recipe-icon-padding: 40px;
+$navbar-height: 80px;
 
 .navBar {
   background-color: yellow;
-  display: flex;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: $navbar-height;
   div {
     p {
       color: pink;
@@ -22,14 +24,22 @@ div {
 .recipeItemBox {
   background-color: yellow;
   box-sizing: border-box;
-  margin: 0 0 20px 20px;
+  margin-bottom: $recipe-icon-padding;
+  margin-left: $recipe-icon-padding;
   max-width: 200px;
+  h3 {
+    padding: 10px;
+    text-align: center;
+    margin-block-start: 0;
+    margin-block-end: 0;
+  }
+  border-radius: 5%;
+  overflow: hidden;
 }
 
 .recipeItemImageContainer {
-  width: $recipe-item-picture-size;
-  height: $recipe-item-picture-size;
-  display: inline-block;
+  width: $recipe-icon-size;
+  height: $recipe-icon-size;
   position: relative;
   overflow: hidden;
   img {
@@ -39,16 +49,9 @@ div {
     bottom: 0;
     right: 0;
     left: 50%;
-    margin-left: -$recipe-item-picture-size / 2;
-    margin-top: -$recipe-item-picture-size / 2;
+    margin-left: -$recipe-icon-size / 2;
+    margin-top: -$recipe-icon-size / 2;
   }
-}
-
-.recipeItemImageContainer:after {
-  padding-top: 56.25%;
-  /* 16:9 ratio */
-  display: block;
-  content: '';
 }
 
 .pageContentSection {
@@ -56,12 +59,20 @@ div {
   width: 100%;
   border: solid blue;
   box-sizing: border-box;
+  padding: 0 $recipe-icon-padding/2;
 }
 
 .contentContainer {
-  margin: 0 auto;
+  margin: $navbar-height auto 0 auto;
   width: 100%;
   max-width: 1200px;
-  border: dashed green;
   box-sizing: border-box;
 }
+
+.recipeItemStyles {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-left: -$recipe-icon-padding/2;
+  width: 100%;
+};
