@@ -6,7 +6,8 @@ function RecipeList(){
     display: 'flex',
     flexWrap: 'wrap',
     justifyContent: 'center',
-    marginLeft: '-20px'
+    marginLeft: '-20px',
+    width: '100%'
   };
   return (
     <div style={recipeItemStyles}>
