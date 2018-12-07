@@ -1,9 +1,9 @@
 import React from "react";
-import { Link } from 'react-router-dom';
 import AdditionalRecipeDisplay from './AdditionalRecipeDisplay';
 import MainRecipeDisplay from './MainRecipeDisplay';
 import IngredientDisplay from './IngredientDisplay';
 import DirectionDisplay from './DirectionDisplay';
+import NavButton from './NavButton';
 
 function RecipeDetail(){
   return (
@@ -13,8 +13,7 @@ function RecipeDetail(){
       <IngredientDisplay />
       <DirectionDisplay />
       <AdditionalRecipeDisplay />
-      <Link to='/'><button>Go Back</button>
-      </Link>
+      <NavButton />
     </div>
   );
 }

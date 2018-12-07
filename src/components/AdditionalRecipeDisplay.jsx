@@ -1,11 +1,12 @@
 import React from "react";
+import NavButton from './NavButton';
 
 function AdditionalRecipeDisplay(){
   return (
     <div>
       Recipe Link:
-      ADD NOTES
-      EDIT RECIPE
+      <NavButton />
+      <NavButton />
     </div>
   );
 }
