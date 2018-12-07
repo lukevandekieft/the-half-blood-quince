@@ -3,26 +3,20 @@ $recipe-icon-padding: 40px;
 $navbar-height: 80px;
 
 .navBar {
-  background-color: yellow;
+  background-color: rgba(70, 70, 64, .7);
   overflow: hidden;
   position: absolute;
   top: 0;
   width: 100%;
   height: $navbar-height;
-  div {
-    p {
-      color: pink;
-    }
-    background-color: yellow;
-  }
   img {
-    display: inline-block;
     max-height: 80px;
   }
+  z-index: 1000;
 }
 
 .recipeItemBox {
-  background-color: yellow;
+  background-color: darkgrey;
   box-sizing: border-box;
   margin-bottom: $recipe-icon-padding;
   margin-left: $recipe-icon-padding;
@@ -57,22 +51,29 @@ $navbar-height: 80px;
 .pageContentSection {
   margin: 0 auto;
   width: 100%;
+  max-width: 1200px;
   border: solid blue;
   box-sizing: border-box;
-  padding: 0 $recipe-icon-padding/2;
+  padding: 0 $recipe-icon-padding;
 }
 
 .contentContainer {
   margin: $navbar-height auto 0 auto;
   width: 100%;
-  max-width: 1200px;
+
   box-sizing: border-box;
 }
 
 .recipeItemStyles {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-between;
   margin-left: -$recipe-icon-padding/2;
   width: 100%;
 };
+
+.homePageContainer {
+  margin-top: -$navbar-height;
+  position: relative;
+  z-index: 500;
+}
