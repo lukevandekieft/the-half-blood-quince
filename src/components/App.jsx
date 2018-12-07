@@ -10,7 +10,6 @@ import RecipeEdit from './RecipeEdit.jsx';
 
 //styles
 import './App.scss';
-import sassStyles from './test-sass.module.scss';
 
 class App extends Component {
   render() {
