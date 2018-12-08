@@ -12,11 +12,15 @@ function HomePage(){
     backgroundPosition: 'center',
     position: 'relative',
   };
+  let headlineStyles = {
+    fontSize: '2em',
+    padding: '20px 0'
+  }
   return (
     <div className='homePageContainer'>
       <div style={headerStyles}></div>
       <div className='pageContentSection'>
-        <p>Current Recipes</p>
+        <p style={headlineStyles}>Current Recipes</p>
           <RecipeList />
           <NavButton />
           <NavButton />

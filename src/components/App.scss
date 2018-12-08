@@ -2,25 +2,33 @@ $recipe-icon-size: 200px;
 $recipe-icon-padding: 40px;
 $navbar-height: 80px;
 
-.navBar {
+.navContainer {
   background-color: rgba(70, 70, 64, .7);
   overflow: hidden;
   position: absolute;
   top: 0;
   width: 100%;
   height: $navbar-height;
-  img {
-    max-height: 80px;
-  }
   z-index: 1000;
 }
 
+.navBar {
+  img {
+    max-height: 70px;
+  }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+
 .recipeItemBox {
-  background-color: darkgrey;
+  background-color: #fdffa0;
   box-sizing: border-box;
   margin-bottom: $recipe-icon-padding;
   margin-left: $recipe-icon-padding;
   max-width: 200px;
+  color: #7a5629;
   h3 {
     padding: 10px;
     text-align: center;
