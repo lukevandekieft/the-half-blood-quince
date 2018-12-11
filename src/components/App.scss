@@ -1,6 +1,33 @@
 $recipe-icon-size: 200px;
 $recipe-icon-padding: 40px;
 $navbar-height: 80px;
+$background-color: #E8ECF5;
+
+
+//Overarching stylesheet
+
+.contentContainer {
+  margin: 0 auto;
+  width: 100%;
+  background: $background-color;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 100;
+}
+
+.pageContentSection {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1200px;
+  box-sizing: border-box;
+  padding: 0 $recipe-icon-padding;
+  p {
+    text-align: center;
+  }
+  background: white;
+}
+
+//navbar
 
 .navContainer {
   background-color: rgba(70, 70, 64, .7);
@@ -23,7 +50,20 @@ $navbar-height: 80px;
   color: white;
   position: relative;
   z-index: 500;
+  background: none;
 }
+
+.navBarBackground {
+  background-image: url(https://images.unsplash.com/photo-1516211697506-8360dbcfe9a4?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=52e95cdd2653761514253e73eeb938ac&auto=format&fit=crop&w=1500&q=80);
+  height: $navbar-height;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  position: relative;
+  z-index: 250;
+};
+
+// component styles
 
 .recipeItemBox {
   background-color: #fdffa0;
@@ -57,24 +97,6 @@ $navbar-height: 80px;
   }
 }
 
-.pageContentSection {
-  margin: 0 auto;
-  width: 100%;
-  max-width: 1200px;
-  box-sizing: border-box;
-  padding: 0 $recipe-icon-padding;
-  p {
-    text-align: center;
-  }
-}
-
-.contentContainer {
-  margin: $navbar-height auto 0 auto;
-  width: 100%;
-
-  box-sizing: border-box;
-}
-
 .recipeItemStyles {
   display: flex;
   flex-wrap: wrap;
@@ -86,14 +108,4 @@ $navbar-height: 80px;
 .homePageContainer {
   margin-top: -$navbar-height;
   position: relative;
-};
-
-.navBarBackground {
-  background-image: url(https://images.unsplash.com/photo-1516211697506-8360dbcfe9a4?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=52e95cdd2653761514253e73eeb938ac&auto=format&fit=crop&w=1500&q=80);
-  height: $navbar-height;
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: center;
-  position: relative;
-  z-index: 250;
 };

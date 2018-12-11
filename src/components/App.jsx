@@ -15,9 +15,9 @@ class App extends Component {
   render() {
     return (
       <div>
-        <NavBar />
         <Switch>
           <div className="contentContainer">
+            <NavBar />
             <Route exact path='/' component={HomePage}/>
             <Route exact path='/recipe-detail' component={RecipeDetail}/>
             <Route exact path='/edit-recipe' component={RecipeEdit}/>

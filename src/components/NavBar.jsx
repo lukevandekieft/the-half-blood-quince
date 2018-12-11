@@ -1,5 +1,6 @@
 import React from 'react';
 import Logo from './Logo.jsx';
+import { Link } from 'react-router-dom';
 
 function RecipeDetail(){
   let headlineStyles = {
@@ -11,7 +12,7 @@ function RecipeDetail(){
     <div>
       <div className='navContainer'>
         <div className='pageContentSection navBar'>
-          <Logo />
+        <Link to='/'><Logo /></Link>
           <p style={headlineStyles}>The Half-Blood Quince</p>
           <p style={headlineStyles}>Menu</p>
         </div>
