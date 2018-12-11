@@ -6,13 +6,17 @@ function RecipeDetail(){
     fontSize: '2em',
     padding: '20px 0'
   }
+
   return (
-    <div className='navContainer'>
-      <div className='pageContentSection navBar'>
-        <Logo />
-        <p style={headlineStyles}>The Half-Blood Quince</p>
-        <p style={headlineStyles}>Menu</p>
+    <div>
+      <div className='navContainer'>
+        <div className='pageContentSection navBar'>
+          <Logo />
+          <p style={headlineStyles}>The Half-Blood Quince</p>
+          <p style={headlineStyles}>Menu</p>
+        </div>
       </div>
+      <div className='navBarBackground'></div>
     </div>
   );
 }
