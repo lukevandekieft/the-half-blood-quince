@@ -64,6 +64,12 @@ While Half-Blood Quince won’t be as powerful or flashy as Yummly it will allow
 
 ## Setup/Installation Requirements
 
+Live site is at https://half-blood-quince.firebaseapp.com/         
+<br>
+<br>
+
+To download & edit do the following:
+
 * Download file from Github.
 
       $ git clone https://github.com/lukevandekieft/half-blood-quince.git
@@ -74,11 +80,21 @@ While Half-Blood Quince won’t be as powerful or flashy as Yummly it will allow
 
       $ npm install
 
+* Create file src/constants/firebaseConfig.js and include the following. You will need to get the API key and sender ID from me.
+
+      export const masterFirebaseConfig = {
+          apiKey: "[YOUR KEY]",
+          authDomain: "thinkgeek-clone.firebaseapp.com",
+          databaseURL: "https://thinkgeek-clone.firebaseio.com",
+          projectId: "thinkgeek-clone",
+          storageBucket: "thinkgeek-clone.appspot.com",
+          messagingSenderId: "[YOUR ID]"
+        };
+
 * Compile and open webpage in developer mode.
 
       $ npm run start
 
-No production version of this site is available for viewing.
 
 For further support:
 Create React App: (https://github.com/facebookincubator/create-react-app)
