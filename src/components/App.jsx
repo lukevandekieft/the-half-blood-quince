@@ -1,6 +1,7 @@
 //dependencies
 import React, { Component } from 'react';
-import {BrowserRouter as Switch, Route } from 'react-router-dom';
+import {BrowserRouter as Switch, Route, withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 //local files
 import NavBar from './NavBar.jsx';
@@ -18,7 +19,7 @@ class App extends Component {
         <Switch>
           <div className="contentContainer">
             <NavBar />
-            <Route exact path='/' component={HomePage}/>
+            <Route exact path='/' render={()=><HomePage recipes={this.props.recipes} />}/>
             <Route exact path='/recipe-detail' component={RecipeDetail}/>
             <Route exact path='/edit-recipe' component={RecipeEdit}/>
           </div>
@@ -28,4 +29,10 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    recipes: state.users
+  };
+};
+
+export default withRouter(connect(mapStateToProps)(App));

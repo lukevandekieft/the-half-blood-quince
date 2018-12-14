@@ -82,7 +82,7 @@ To download & edit do the following:
 
 * Create file src/constants/firebaseConfig.js and include the following. You will need to get the API key and sender ID from me.
 
-      export const masterFirebaseConfig = {
+      const config = {
           apiKey: "[YOUR KEY]",
           authDomain: "thinkgeek-clone.firebaseapp.com",
           databaseURL: "https://thinkgeek-clone.firebaseio.com",

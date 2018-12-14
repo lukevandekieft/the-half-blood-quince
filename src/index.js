@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import rootReducer from './reducers';
 import middlewareLogger from './middleware/middleware-logger';
 import thunkMiddleware from 'redux-thunk';
+import { HashRouter } from 'react-router-dom';
 
 
 import App from './components/App.jsx';
@@ -16,9 +17,15 @@ let unsubscribe = store.subscribe(() =>
   console.log(store)
 );
 
-ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
-  document.getElementById('root')
-);
+const render = (Component) => {
+  ReactDOM.render(
+    <HashRouter>
+      <Provider store={store}>
+        <Component />
+      </Provider>
+    </HashRouter>,
+    document.getElementById('root')
+  );
+};
+
+render(App);
