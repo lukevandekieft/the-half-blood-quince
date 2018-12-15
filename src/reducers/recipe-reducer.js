@@ -1,7 +1,7 @@
 import constants from './../constants';
-const { types } = constants;
+const { types, initialState } = constants;
 
-export default (state = {}, action) => {
+export default (state = initialState.users['Luke'], action) => {
   switch (action.type) {
     default:
       return state;

@@ -19,7 +19,7 @@ class App extends Component {
         <Switch>
           <div className="contentContainer">
             <NavBar />
-            <Route exact path='/' render={()=><HomePage recipes={this.props.recipes} />}/>
+            <Route exact path='/' render={()=><HomePage recipes={this.props.user.recipes} />}/>
             <Route exact path='/recipe-detail' component={RecipeDetail}/>
             <Route exact path='/edit-recipe' component={RecipeEdit}/>
           </div>
@@ -31,7 +31,7 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
-    recipes: state.users
+    user: state.user
   };
 };
 
