@@ -7,7 +7,7 @@ function RecipeItem(props){
     <Link to='/recipe-detail' className='recipeItemBox'>
         <h3>{props.name}</h3>
         <div className='recipeItemImageContainer'>
-          <img src="https://www.seriouseats.com/recipes/images/2013/02/20120206-vegan-mapo-tofu-12.jpg" alt='Mapo Tofu'/>
+          <img src={props.image} alt='Mapo Tofu'/>
         </div>
     </Link>
   );

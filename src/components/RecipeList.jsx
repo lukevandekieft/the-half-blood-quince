@@ -10,8 +10,20 @@ function RecipeList(props){
 
         let recipe = props.recipes[index];
         return <RecipeItem
-                name = {recipe.name}
-                key = {index}
+                  name = {recipe.name}
+                  image = {recipe.image_link}
+                  key = {index}
+                />
+      })}
+
+      {/* This section added for volume - delete when more data is available */}
+      {Object.keys(props.recipes).map(index => {
+
+        let recipe = props.recipes[index];
+        return <RecipeItem
+                  name = {recipe.name}
+                  image = {recipe.image_link}
+                  key = {index}
                 />
       })}
     </div>
