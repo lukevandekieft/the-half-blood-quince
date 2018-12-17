@@ -175,7 +175,7 @@ export const initialState = {
             'Hearty enough for an entree but pair with something else for company (cucumber salad?)'
           ],
           "directions" : [
-            "Place the lentils in a small saucepan with 2 cups of the water. Bring the water to a boil over high heat, and then reduce the heat and simmer, cover until the lentils are par-boiled (10-12 minutes). Remove from the heat, drain the lentils and set them aside.',
+            'Place the lentils in a small saucepan with 2 cups of the water. Bring the water to a boil over high heat, and then reduce the heat and simmer, cover until the lentils are par-boiled (10-12 minutes). Remove from the heat, drain the lentils and set them aside.',
             'In a large saute pan with a lid, heat the oil over medium-high heat. Add the diced onions and cook until the onions are dark golden brown, darker than typical caramelized onions (about 40 minutes), sprinkle the onions with a teaspoon of salt as they cook.',
             'Carefully pour the remaining 2 cups of water, bring the water to a boil over high heat, and then reduce the heat to low and simmer for 2 minutes. Stir the rice and par-cooked lentils into the onion mixture. Cover and bring back to a boil. Stir in a healthy pinch of salt and the black pepper. Reduce the heat to low, cover, and cook until the liquid has been absorbed and the rice and lentils are both cooked through (about 20 minutes). Remove from the heat and season with salt and pepper to taste. Serve the Mujadara hot or at room temprature with a drizzle of extra virgin olive oil and parsley garnish, if you like.',
             'If you are adding the the fried onions, heat the oil over medium-high heat (to 375 degrees F) in a saucepan. When a small piece of onion bubbles vigorously, the oil is ready. Fry the onions in batches until they are golden brown. Transfer the onions to a paper towel-lined plate or try, and then arrange them on top of the Mjuadara.',
@@ -356,103 +356,108 @@ export const initialState = {
           "directions_notes" : [ 
           ]
         },
-        "mujadara" : {
-          "name" : "Mujadara",
-          "image_link" : "https://www.themediterraneandish.com/wp-content/uploads/2015/08/Mujadara-Recipe-111.jpg",
-          "url" : "https://www.themediterraneandish.com/mujadara-lentils-and-rice-with-crispy-onions/",
+        "fall_buddha_bowl" : {
+          "name" : "Fall Buddha Bowl",
+          "image_link" : "http://wholesomelicious-8101.kxcdn.com/wp-content/uploads/2016/10/Fall-Quinoa-Buddha-Bowl-with-Toasted-Pecan-Dressing.jpg",
+          "url" : "http://www.wholesomelicious.com/fall-buddha-bowl-quinoa-toasted-pecan-dressing/",
           "ingredients" : [
-            '1 cup small brown lentils, sorted and rinsed',
-            '4 cups water, divided',
-            '1/4 cup Private Reserve Greek extra virgin olive oil, more for later',
-            '2 large yellow onions, diced (4 cups)',
-            '1 tsp kosher salt, more to taste',
-            '1 cup long-grain white rice, soaked in water for 10-15 minutes and then drained',
-            'black pepper',
-            'Parsley or parsley flakes for garnish',
-            'FOR THE FRIED CRISPY ONION GARNISH (OPTIONAL)',
-            'Oil for frying',
-            '1 large yellow onion cut in very thin rings'
+           'For the Dressing:',
+           '1/2 cup pecan halves',
+           '2 tbsp maple syrup',
+           '3/4 olive oil',
+           '1/4 cup white wine vinegar',
+           '2 tbsp shallot',
+           'Vegetable broth or water to thin out',
+           'For the Buddha Bowl:',
+           '1 cup quinoa',
+           '2 cups water or vegetable broth',
+           '1 cup sliced brussel sprouts',
+           '1 sweet potato skinned and chopped',
+           '2 tbsp olive oil',
+           '1 cup arugula or any blend of greens',
+           '1/2 apple chopped',
+           '1/4 cup cranberries',
+           '1/4 cup pumpkin seeds'
           ],
           "ingredients_notes" : [
-            'Pairs great with cucumber raita',
-            'Recipe is fine as-is: the onions, salt, & raita add all the flavor you need',
-            'Hearty enough for an entree but pair with something else for company (cucumber salad?)'
+            'Dressing can be subbed for sweet store-bought',
+            'coconut flakes were a good touch'
           ],
           "directions" : [
-            "Place the lentils in a small saucepan with 2 cups of the water. Bring the water to a boil over high heat, and then reduce the heat and simmer, cover until the lentils are par-boiled (10-12 minutes). Remove from the heat, drain the lentils and set them aside.',
-            'In a large saute pan with a lid, heat the oil over medium-high heat. Add the diced onions and cook until the onions are dark golden brown, darker than typical caramelized onions (about 40 minutes), sprinkle the onions with a teaspoon of salt as they cook.',
-            'Carefully pour the remaining 2 cups of water, bring the water to a boil over high heat, and then reduce the heat to low and simmer for 2 minutes. Stir the rice and par-cooked lentils into the onion mixture. Cover and bring back to a boil. Stir in a healthy pinch of salt and the black pepper. Reduce the heat to low, cover, and cook until the liquid has been absorbed and the rice and lentils are both cooked through (about 20 minutes). Remove from the heat and season with salt and pepper to taste. Serve the Mujadara hot or at room temprature with a drizzle of extra virgin olive oil and parsley garnish, if you like.',
-            'If you are adding the the fried onions, heat the oil over medium-high heat (to 375 degrees F) in a saucepan. When a small piece of onion bubbles vigorously, the oil is ready. Fry the onions in batches until they are golden brown. Transfer the onions to a paper towel-lined plate or try, and then arrange them on top of the Mjuadara.',
-            'The original recipe does not call for soaking the rice in water before use. I have found that soaking the rice in water for 10-15 minutes, or until you are able to break one grain of rice between your fingers, provides better results.'
+            'Begin by preheating your oven to 400 degrees. On a large sheet pan, spread out the brussel sprouts and sweet potato slices. Drizzle with olive oil and salt. Place in the oven and bake for 20-25 minutes or until veggies are golden brown on the edges.',
+            'Meanwhile, make the dressing. Add the pecan halves with the veggies on the roasting pan. Cook only for 10 mins and remove from the oven. Chop into small pieces. Place pecans, shallots, maple syrup, and vinegar into a food processor or blender. While motor is running, slowly add in olive oil. Once completely mixed, dressing will be thick and will form a paste. Add in water or vegetable broth to thin to your liking. Season with salt and set aside.',
+            'Meanwhile, cook the quinoa. Add 2 cups water to 1 cup quinoa in a saucepan. Bring mixture to a boil, then reduce heat to low adding a lid. Let simmer for approximately 15 minutes until water is completely absorbed and quinoa is fluffy.',
+            'Assemble your Buddha Bowl: Begin with the greens, and approximately 1 cup quinoa on top. Next add in roasted veggies, nuts, and fruit. Drizzle with about 1/4 cup dressing and mix to combine. You should have plenty of dressing, quinoa, and veggies/fruits leftover. Assemble another bowl, or save the leftovers for another meal!'
           ],
           "directions_notes" : [
-            "Start caramelizing onions asap: these took close to an hour and there was plenty of time to do everything else while they cooked (frying, lentils, & raita included)"
           ]
         },
-        "mujadara" : {
-          "name" : "Mujadara",
-          "image_link" : "https://www.themediterraneandish.com/wp-content/uploads/2015/08/Mujadara-Recipe-111.jpg",
-          "url" : "https://www.themediterraneandish.com/mujadara-lentils-and-rice-with-crispy-onions/",
+        "dan_dan_noodles" : {
+          "name" : "Dan Dan Noodles",
+          "image_link" : "https://www.seriouseats.com/recipes/images/2013/02/20130221-vegan-dan-dan-mien-noodles-1.jpg",
+          "url" : "https://www.seriouseats.com/recipes/2013/02/vegan-dan-dan-noodles-recipe.html",
           "ingredients" : [
-            '1 cup small brown lentils, sorted and rinsed',
-            '4 cups water, divided',
-            '1/4 cup Private Reserve Greek extra virgin olive oil, more for later',
-            '2 large yellow onions, diced (4 cups)',
-            '1 tsp kosher salt, more to taste',
-            '1 cup long-grain white rice, soaked in water for 10-15 minutes and then drained',
-            'black pepper',
-            'Parsley or parsley flakes for garnish',
-            'FOR THE FRIED CRISPY ONION GARNISH (OPTIONAL)',
-            'Oil for frying',
-            '1 large yellow onion cut in very thin rings'
+            '6 ounces white button mushrooms, quartered',
+            '2 tablespoons vegetable oil',
+            '3 teaspoons light soy sauce',
+            '2 teaspoons Chinkiang vinegar (see note)',
+            '1 tablespoon tahini paste',
+            '2 teaspoons sugar',
+            '4 tablespoons roasted chili oil with some chili sediment (see note)',
+            '1 tablespoons fermented chili broad bean paste (see note)',
+            'Kosher salt',
+            '3 tablespoons finely chopped preserved Sichuan mustard root or stems (see note)',
+            '2 medium cloves garlic, finely minced',
+            '2 tablespoons shaoxing wine (see note)',
+            '8 ounces fresh Chinese wheat noodles',
+            'Chopped cilantro',
+            'Thinly sliced scallions'
           ],
           "ingredients_notes" : [
-            'Pairs great with cucumber raita',
-            'Recipe is fine as-is: the onions, salt, & raita add all the flavor you need',
-            'Hearty enough for an entree but pair with something else for company (cucumber salad?)'
+            'water content is WAY too high, slowly add until you reach desired consistency.',
+            'dry noodles taste just fine, fresh ones are expensive and weird-tasting',
+            'VERY heavy so watch out for gut rot'
           ],
           "directions" : [
-            "Place the lentils in a small saucepan with 2 cups of the water. Bring the water to a boil over high heat, and then reduce the heat and simmer, cover until the lentils are par-boiled (10-12 minutes). Remove from the heat, drain the lentils and set them aside.',
-            'In a large saute pan with a lid, heat the oil over medium-high heat. Add the diced onions and cook until the onions are dark golden brown, darker than typical caramelized onions (about 40 minutes), sprinkle the onions with a teaspoon of salt as they cook.',
-            'Carefully pour the remaining 2 cups of water, bring the water to a boil over high heat, and then reduce the heat to low and simmer for 2 minutes. Stir the rice and par-cooked lentils into the onion mixture. Cover and bring back to a boil. Stir in a healthy pinch of salt and the black pepper. Reduce the heat to low, cover, and cook until the liquid has been absorbed and the rice and lentils are both cooked through (about 20 minutes). Remove from the heat and season with salt and pepper to taste. Serve the Mujadara hot or at room temprature with a drizzle of extra virgin olive oil and parsley garnish, if you like.',
-            'If you are adding the the fried onions, heat the oil over medium-high heat (to 375 degrees F) in a saucepan. When a small piece of onion bubbles vigorously, the oil is ready. Fry the onions in batches until they are golden brown. Transfer the onions to a paper towel-lined plate or try, and then arrange them on top of the Mjuadara.',
-            'The original recipe does not call for soaking the rice in water before use. I have found that soaking the rice in water for 10-15 minutes, or until you are able to break one grain of rice between your fingers, provides better results.'
+            'Place mushrooms in the bowl of a food processor and process until pieces no larger than 1/2-inch remain, about 6 short pulses. Transfer to a small saucepan. Add vegetable oil stir to combine. Place over medium-high heat and cook, stirring occasionally, until mushroom places shrink and are deep golden brown, about 8 minutes. Pour through a fine mesh strainer set over a small bowl. Reserve mushroom pieces and discard all but 1 tablespoon oil.',
+            'While mushrooms are cooking, combine soy sauce, vinegar, tahini, sugar, chili oil (with its sediment), and broad bean chili paste in a medium bowl. Set aside. Bring 1 quart of salted water to a simmer in a medium pot and keep hot.',
+            'Heat reserved 1 tablespoon of mushroom oil in a large skillet or wok over high heat until shimmering. Add chopped sichuan vegetables, fried mushrooms, and garlic. Cook, stirring and tossing constantly until fragrant, about 45 seconds. Add shaoxing wine and stir to combine. Transfer mixture to bowl with sauce.',
+            'Return pot of water to a hard boil and add noodles. Cook, stirring regularly to prevent sticking to each other or the bottom, until barely cooked through with a springy bite, about 4 minutes. Drain, reserving 3/4 cup of cooking liquid. Add cooking liquid to bowl with sauce and stir to combine.',
+            'Place noodles in bowl and pour sauce with solids on top. Garnish with scallions and cilantro, and serve, stirring vigorously just before eating to pick up sauce.'
           ],
           "directions_notes" : [
-            "Start caramelizing onions asap: these took close to an hour and there was plenty of time to do everything else while they cooked (frying, lentils, & raita included)"
           ]
         },
-        "mujadara" : {
-          "name" : "Mujadara",
-          "image_link" : "https://www.themediterraneandish.com/wp-content/uploads/2015/08/Mujadara-Recipe-111.jpg",
-          "url" : "https://www.themediterraneandish.com/mujadara-lentils-and-rice-with-crispy-onions/",
+        "beef_in_hoison_sauce" : {
+          "name" : "Stir-Fried Beef with Hoison Sauce",
+          "image_link" : "https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe_images/recipe-image-legacy-id--4850_12.jpg?itok=2MNKlVBz",
+          "url" : "https://www.bbcgoodfood.com/recipes/3246/stirfried-beef-with-hoisin-sauce",
           "ingredients" : [
-            '1 cup small brown lentils, sorted and rinsed',
-            '4 cups water, divided',
-            '1/4 cup Private Reserve Greek extra virgin olive oil, more for later',
-            '2 large yellow onions, diced (4 cups)',
-            '1 tsp kosher salt, more to taste',
-            '1 cup long-grain white rice, soaked in water for 10-15 minutes and then drained',
-            'black pepper',
-            'Parsley or parsley flakes for garnish',
-            'FOR THE FRIED CRISPY ONION GARNISH (OPTIONAL)',
-            'Oil for frying',
-            '1 large yellow onion cut in very thin rings'
+            '1 tbsp soy sauce',
+            '1 tbsp dry sherry',
+            '2 tsp sesame oil',
+            '1 fat garlic clove, crushed',
+            '1 tsp finely chopped fresh root ginger (or fresh ginger paste in a jar)',
+            '200g lean sirloin steak, thinly sliced across the grain',
+            '1 tbsp sesame seeds',
+            '1 tbsp sunflower oil',
+            '1 large carrot, cut into matchsticks',
+            '100g mangetout, halved lengthways',
+            '140g mushrooms, sliced',
+            '3 tbsp hoisin sauce',
+            'Chinese noodles, to serve'
           ],
           "ingredients_notes" : [
-            'Pairs great with cucumber raita',
-            'Recipe is fine as-is: the onions, salt, & raita add all the flavor you need',
-            'Hearty enough for an entree but pair with something else for company (cucumber salad?)'
+            'Sub Field Roast for beef'
           ],
           "directions" : [
-            "Place the lentils in a small saucepan with 2 cups of the water. Bring the water to a boil over high heat, and then reduce the heat and simmer, cover until the lentils are par-boiled (10-12 minutes). Remove from the heat, drain the lentils and set them aside.',
-            'In a large saute pan with a lid, heat the oil over medium-high heat. Add the diced onions and cook until the onions are dark golden brown, darker than typical caramelized onions (about 40 minutes), sprinkle the onions with a teaspoon of salt as they cook.',
-            'Carefully pour the remaining 2 cups of water, bring the water to a boil over high heat, and then reduce the heat to low and simmer for 2 minutes. Stir the rice and par-cooked lentils into the onion mixture. Cover and bring back to a boil. Stir in a healthy pinch of salt and the black pepper. Reduce the heat to low, cover, and cook until the liquid has been absorbed and the rice and lentils are both cooked through (about 20 minutes). Remove from the heat and season with salt and pepper to taste. Serve the Mujadara hot or at room temprature with a drizzle of extra virgin olive oil and parsley garnish, if you like.',
-            'If you are adding the the fried onions, heat the oil over medium-high heat (to 375 degrees F) in a saucepan. When a small piece of onion bubbles vigorously, the oil is ready. Fry the onions in batches until they are golden brown. Transfer the onions to a paper towel-lined plate or try, and then arrange them on top of the Mjuadara.',
-            'The original recipe does not call for soaking the rice in water before use. I have found that soaking the rice in water for 10-15 minutes, or until you are able to break one grain of rice between your fingers, provides better results.'
+            'Mix together the soy sauce, sherry, sesame oil, garlic and ginger in a shallow dish. Add the steak and leave to marinate for about 20 minutes (or longer, if you have time).',
+            'Heat a large heavy-based frying pan or wok, add the sesame seeds and toast over a high heat, stirring, for a few minutes until golden. Tip on to a plate.',
+            'When ready to cook, heat the sunflower oil in a large frying pan or wok until hot. Add the steak with the marinade and stir fry for 3-4 minutes over a high heat until lightly browned. Remove, using a slotted spoon, on to a plate, leaving the juices in the pan.',
+            'Toss the carrots in the pan and stir fry for a few minutes, then add the mangetout and cook for a further 2 minutes.',
+            'Return the steak to the pan, add the mushrooms and toss everything together. Add the hoisin sauce and stir fry for a final minute. Sprinkle with the toasted sesame seeds and serve immediately.'
           ],
           "directions_notes" : [
-            "Start caramelizing onions asap: these took close to an hour and there was plenty of time to do everything else while they cooked (frying, lentils, & raita included)"
           ]
         }
       }
