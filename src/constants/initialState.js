@@ -353,7 +353,7 @@ export const initialState = {
             'Cauliflower: Bring the water or vegetable broth to a boil in a large pot. Add the cauliflower and cook, covered, for 7-10 minutes or until cauliflower is fork tender. Do not drain.',
             'Puree: Use a slotted spoon to transfer the cauliflower pieces to the blender. Add 1 cup vegetable broth or cooking liquid, sauteed garlic/butter, salt, pepper, and milk. Blend or puree for several minutes until the sauce is very smooth, adding more broth or milk depending on how thick you want the sauce. You may have to do this in batches depending on the size of your blender. Serve hot! If the sauce starts to look dry, add a few drops of water, milk, or olive oil.'
           ],
-          "directions_notes" : [ 
+          "directions_notes" : [
           ]
         },
         "fall_buddha_bowl" : {
@@ -429,7 +429,7 @@ export const initialState = {
           ]
         },
         "beef_in_hoison_sauce" : {
-          "name" : "Stir-Fried Beef with Hoison Sauce",
+          "name" : "Stir-Fried \'Beef\'",
           "image_link" : "https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe_images/recipe-image-legacy-id--4850_12.jpg?itok=2MNKlVBz",
           "url" : "https://www.bbcgoodfood.com/recipes/3246/stirfried-beef-with-hoisin-sauce",
           "ingredients" : [

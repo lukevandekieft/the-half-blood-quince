@@ -85,16 +85,9 @@ $background-color: #E8ECF5;
   height: $recipe-icon-size;
   position: relative;
   overflow: hidden;
-  img {
-    height: 100%;
-    position: absolute;
-    top: 50%;
-    bottom: 0;
-    right: 0;
-    left: 50%;
-    margin-left: -$recipe-icon-size / 2;
-    margin-top: -$recipe-icon-size / 2;
-  }
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .recipeItemStyles {

@@ -3,11 +3,14 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 function RecipeItem(props){
+
+  let backgroundImage = {
+    backgroundImage: `url(${props.image})`
+  };
   return (
     <Link to='/recipe-detail' className='recipeItemBox'>
         <h3>{props.name}</h3>
-        <div className='recipeItemImageContainer'>
-          <img src={props.image} alt='Mapo Tofu'/>
+        <div className='recipeItemImageContainer' style={backgroundImage}>
         </div>
     </Link>
   );
@@ -18,3 +21,6 @@ RecipeItem.propTypes = {
 }
 
 export default RecipeItem;
+
+
+// <img src={props.image} alt='Mapo Tofu'/>
