@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import AdditionalRecipeDisplay from './AdditionalRecipeDisplay';
 import MainRecipeDisplay from './MainRecipeDisplay';
 import IngredientsDisplay from './IngredientsDisplay';
 import DirectionsDisplay from './DirectionsDisplay';
@@ -13,17 +12,16 @@ function RecipeDetail(props){
     flexDirection: 'column'
   }
   let directionDisplayStyles = {
-    display: 'flex'
+    display: 'grid',
+    gridTemplate: 'auto / 1.3fr 3fr',
+    gridColumnGap: '50px'
   }
   return (
     <div className='pageContentSection' style={detailStyles}>
       <MainRecipeDisplay
         name = {props.recipes[props.currentRecipe].name}
         imageLink = {props.recipes[props.currentRecipe].imageLink}
-      />
-      <AdditionalRecipeDisplay
         url = {props.recipes[props.currentRecipe].url}
-        imageLink = {props.recipes[props.currentRecipe].imageLink}
       />
       <div style={directionDisplayStyles}>
         <IngredientsDisplay

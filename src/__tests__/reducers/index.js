@@ -22,9 +22,7 @@ describe('Recipe App', () => {
     it('Should change current recipe based on selected item.', () => {
       const selectedRecipe = 'mapo_tofu'
       const action = actions.selectRecipe(selectedRecipe);
-      const newStateEntry = {
-        currentRecipeId: 'mapo_tofu'
-      };
+      const newStateEntry = 'mapo_tofu';
       expect(currentRecipeReducer(initialState.users['Luke'], action)).toEqual(newStateEntry);
     });
   });

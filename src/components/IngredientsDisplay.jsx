@@ -6,15 +6,15 @@ function IngredientsDisplay(props){
     <div>
       <h3>Ingredients</h3>
       <ul>
-      {props.ingredients.map(index => {
-        return <li key={index}>{index}</li>
-      })}
+        {props.ingredients.map(index => {
+          return <li key={index} className="recipeDetailList">{index}</li>
+        })}
       </ul>
       <h3>Notes</h3>
       <ul>
-      {props.ingredientsNotes.map(index => {
-        return <li key={index}>{index}</li>
-      })}
+        {props.ingredientsNotes.map(index => {
+          return <li key={index} className="recipeDetailList">{index}</li>
+        })}
       </ul>
     </div>
   );
