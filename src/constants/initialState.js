@@ -1,7 +1,7 @@
 export const initialState = {
   users : {
     Luke : {
-      currentRecipeId : null,
+      currentRecipeId : 'mujadara',
       recipes : {
         pea_soup : {
           name : "Split Pea Soup",

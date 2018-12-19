@@ -1,12 +1,20 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-function MainRecipeDisplay(){
+function MainRecipeDisplay(props){
+  const altText = `${props.name} Recipe`
+
   return (
     <div>
-      <p>Mapo Tofu</p>
-      <img src="https://www.seriouseats.com/recipes/images/2013/02/20120206-vegan-mapo-tofu-12.jpg" alt="Mapo Tofu Recipe" />
+      <p>{props.name}</p>
+      <img src={props.image_link} alt={altText} />
     </div>
   );
+}
+
+MainRecipeDisplay.propTypes = {
+  name: PropTypes.string,
+  image_link: PropTypes.string
 }
 
 export default MainRecipeDisplay;
