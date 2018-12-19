@@ -8,15 +8,28 @@ function MainRecipeDisplay(props){
   const backgroundImage = {
     backgroundImage: `url(${props.imageLink})`
   };
+  const mainRecipeContainer = {
+    display: 'flex',
+    justifyContent: 'space-between',
+    margin: '2em -4em 2em 3em'
+  };
+  const mainDetailContainer = {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    margin: '0 auto'
+  };
   return (
-    <div>
-      <p>{props.name}</p>
+    <div style={mainRecipeContainer}>
       <div className='recipeDetailPicture' style={backgroundImage} alt={altText}>
       </div>
-      <a href={props.url}>Link to Original Recipe</a>
-      <NavButton />
-      <Link to='/edit-recipe'><button>Edit Recipe</button>
-      </Link>
+      <div style={mainDetailContainer}>
+        <h1>{props.name}</h1>
+        <a href={props.url}>Link to Original Recipe</a>
+        <NavButton />
+        <Link to='/edit-recipe'><button>Edit Recipe</button>
+        </Link>
+      </div>
     </div>
   );
 }
