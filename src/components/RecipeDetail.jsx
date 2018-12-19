@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 
 import AdditionalRecipeDisplay from './AdditionalRecipeDisplay';
 import MainRecipeDisplay from './MainRecipeDisplay';
-import IngredientDisplay from './IngredientDisplay';
-import DirectionDisplay from './DirectionDisplay';
+import IngredientsDisplay from './IngredientsDisplay';
+import DirectionsDisplay from './DirectionsDisplay';
 import NavButton from './NavButton';
 
 function RecipeDetail(props){
@@ -20,12 +20,21 @@ function RecipeDetail(props){
     <div className='pageContentSection' style={detailStyles}>
       <MainRecipeDisplay
         name = {props.recipes[props.currentRecipe].name}
-        image_link = {props.recipes[props.currentRecipe].image_link}
+        imageLink = {props.recipes[props.currentRecipe].imageLink}
       />
-      <AdditionalRecipeDisplay />
+      <AdditionalRecipeDisplay
+        url = {props.recipes[props.currentRecipe].url}
+        imageLink = {props.recipes[props.currentRecipe].imageLink}
+      />
       <div style={directionDisplayStyles}>
-        <IngredientDisplay />
-        <DirectionDisplay />
+        <IngredientsDisplay
+          ingredients = {props.recipes[props.currentRecipe].ingredients}
+          ingredientsNotes = {props.recipes[props.currentRecipe].ingredientsNotes}
+        />
+        <DirectionsDisplay
+          directions = {props.recipes[props.currentRecipe].directions}
+          directionsNotes = {props.recipes[props.currentRecipe].directionsNotes}
+        />
       </div>
       <NavButton />
     </div>

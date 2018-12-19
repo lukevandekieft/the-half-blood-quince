@@ -4,7 +4,7 @@
       "recipes" : {
         "mapo_tofu" : {
           "name" : "Mapo Tofu",
-          "image_link" : "https://www.seriouseats.com/recipes/images/2013/02/20120206-vegan-mapo-tofu-12.jpg",
+          "imageLink" : "https://www.seriouseats.com/recipes/images/2013/02/20120206-vegan-mapo-tofu-12.jpg",
           "url" : "https://www.seriouseats.com/recipes/2013/02/the-best-vegan-mapo-tofu-recipe.html#comments-23131",
           "ingredients" : ["4 whole dried woodear mushrooms (about 1/6 ounce)",
             "1/4 ounce dried morel or porcini mushrooms, or a mix",
@@ -26,7 +26,7 @@
             "2 tablespoons fermented chili broad bean paste (see note)",
             "2 tablespoons roasted chili oil (see note)",
             "1 1/2 pounds medium to firm silken tofu, cut into 1/2-inch cubes"],
-          "ingredients_notes" : ["Yacai is fine, you don't need traditional zhai cai.",
+          "ingredientsNotes" : ["Yacai is fine, you don't need traditional zhai cai.",
           "add 1 1/2 tsp MSG to mushroom water ;)",
           "Use heaped tablespoons of bean paste."],
           "directions" : ["Combine dried mushrooms and kombu (if using) in a small bowl or liquid measuring cup and cover with water. Place a paper towel or kitchen towel directly on surface of water to keep mushrooms mostly submerged. Set aside for ten minutes to rehydrate.",
@@ -35,7 +35,7 @@
           "Add whole Sichuan peppercorns and both chilis to oil in wok and return to high heat. Cook until fragrant and peppercorns have stopped sputtering. Do not overcook, or they will burn. Immediately strain through a fine mesh strainer, discard peppercorns and chilies, and return oil to wok.",
           "Heat oil over high heat until lightly smoking. Add garlic, ginger, scallion whites, chives, and yacai (if using). Stir-fry until fragrant, about 30 seconds. Add chopped mushrooms and stir-fry to combine. Add fermented chili broad bean paste and stir until all the vegetables are well coated. Stir mushroom liquid mixture to incorporate cornstarch, then add to wok. Cook, storring constantly, until lightly thickened and reduced, about 1 1/2 minutes. Add tofu and carefully fold in, trying not to break it.",
           "Cook until tofu is heated through. Transfer to a serving platter, drizzle with chili oil, and top with scallions and ground Sichuan peppercorns. Serve immediately with white rice."],
-          "directions_notes" : ["Morel mushrooms can be skipped. Throw away re-hydrated woodears after steeping because they have a bad texture when stir fried.",
+          "directionsNotes" : ["Morel mushrooms can be skipped. Throw away re-hydrated woodears after steeping because they have a bad texture when stir fried.",
           "Don't overcook mushrooms: you shouldn't have burn marks when you separate oil.",
           "break chilis before frying. Use 4 chilis for medium spicy. Let peppers & chilis fry for a couple minutes at lower heat.",
           "Rinse & mince yacai before adding.",

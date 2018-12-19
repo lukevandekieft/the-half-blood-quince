@@ -11,7 +11,7 @@ const RecipeList = (props) => {
         let recipe = props.recipes[index];
         return <RecipeItem
                   name = {recipe.name}
-                  image = {recipe.image_link}
+                  image = {recipe.imageLink}
                   key = {index}
                   keyName = {recipe}
                   currentRecipe = {props.currentRecipe}
@@ -24,7 +24,7 @@ const RecipeList = (props) => {
         let recipe = props.recipes[index];
         return <RecipeItem
                   name = {recipe.name}
-                  image = {recipe.image_link}
+                  image = {recipe.imageLink}
                   key = {index}
                 />
       })}

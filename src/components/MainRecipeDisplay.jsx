@@ -7,14 +7,14 @@ function MainRecipeDisplay(props){
   return (
     <div>
       <p>{props.name}</p>
-      <img src={props.image_link} alt={altText} />
+      <img src={props.imageLink} alt={altText} />
     </div>
   );
 }
 
 MainRecipeDisplay.propTypes = {
   name: PropTypes.string,
-  image_link: PropTypes.string
+  imageLink: PropTypes.string
 }
 
 export default MainRecipeDisplay;

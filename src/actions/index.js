@@ -7,15 +7,15 @@ export const selectRecipe = (selectedRecipeId) => ({
 });
 
 
-// export function addRecipe (_name, _url, _image_link, _directions, _directions_notes, _ingredients, _ingredients_notes) {
+// export function addRecipe (_name, _url, _imageLink, _directions, _directionsNotes, _ingredients, _ingredientsNotes) {
 //   return () => recipes.push({
 //     name: _name,
 //     url: _url,
-//     image_link: _image_link,
+//     imageLink: _imageLink,
 //     directions: _directions,
-//     directions_notes: _directions_notes,
+//     directionsNotes: _directionsNotes,
 //     ingredients: _ingredients,
-//     ingredients_notes: _ingredients_notes
+//     ingredientsNotes: _ingredientsNotes
 //   });
 // };
 
