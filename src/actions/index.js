@@ -5,6 +5,11 @@ import firebase from 'firebase';
 firebase.initializeApp(firebaseConfig);
 const recipes = firebase.database().ref('users/Luke/recipes');
 
+export const selectRecipe = (selectedRecipeId) => ({
+  type: types.SELECT_RECIPE,
+  selectedRecipeId
+});
+
 export function addRecipe (_name, _url, _image_link, _directions, _directions_notes, _ingredients, _ingredients_notes) {
   return () => recipes.push({
     name: _name,
@@ -15,4 +20,8 @@ export function addRecipe (_name, _url, _image_link, _directions, _directions_no
     ingredients: _ingredients,
     ingredients_notes: _ingredients_notes
   });
+};
+
+export function (selectedRecipeId) {
+      dispatch(selectRecipe(selectedRecipeId));
 }
