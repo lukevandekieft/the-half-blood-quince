@@ -19,6 +19,14 @@ describe('Recipe App', () => {
     it('Should accept and return initial state.', () => {
       expect(currentRecipeReducer(initialState, { type: null })).toEqual(initialState);
     });
+    it('Should change current recipe based on selected item.', () => {
+      const selectedRecipe = 'mapo_tofu'
+      const action = actions.selectRecipe(selectedRecipe);
+      const newStateEntry = {
+        currentRecipeId: 'mapo_tofu'
+      };
+      expect(currentRecipeReducer(initialState.users['Luke'], action)).toEqual(newStateEntry);
+    });
   });
 
   describe('rootReducer', () => {
