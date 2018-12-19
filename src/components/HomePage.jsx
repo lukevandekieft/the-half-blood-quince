@@ -3,35 +3,46 @@ import RecipeList from './RecipeList';
 import NavButton from './NavButton';
 import PropTypes from 'prop-types';
 
-function HomePage(props){
+class HomePage extends React.Component{
 
-  let headerStyles = {
+  constructor(props) {
+    super(props);
+  }
+
+  headerStyles = {
     backgroundImage: 'url(https://images.unsplash.com/photo-1516211697506-8360dbcfe9a4?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=52e95cdd2653761514253e73eeb938ac&auto=format&fit=crop&w=1500&q=80)',
     height: '50vh',
     backgroundSize: 'cover',
     backgroundAttachment: 'fixed',
     backgroundPosition: 'center',
     position: 'relative',
+    boxShadow: '0px -1px 5px 1px rgba(0,0,0,0.28)'
   };
-  let headlineStyles = {
+  headlineStyles = {
     fontSize: '2em',
     padding: '20px 0'
   };
 
-  return (
-    <div className='homePageContainer'>
-      <div style={headerStyles}></div>
-      <div className='pageContentSection'>
-        <p style={headlineStyles}>Current Recipes</p>
-          <RecipeList
-            recipes={props.recipes}
-            currentRecipe={props.currentRecipe}
-          />
-          <NavButton />
-          <NavButton />
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  };
+
+  render() {
+    return (
+      <div className='homePageContainer'>
+        <div style={this.headerStyles}></div>
+        <div className='pageContentSection'>
+          <p style={this.headlineStyles}>Current Recipes</p>
+            <RecipeList
+              recipes={this.props.recipes}
+              currentRecipe={this.props.currentRecipe}
+            />
+            <NavButton />
+            <NavButton />
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
 
 HomePage.propTypes = {

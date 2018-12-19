@@ -1,4 +1,3 @@
-import constants from './../constants';
 import * as types from './../constants/ActionTypes';
 
 export const selectRecipe = (selectedRecipeId) => ({

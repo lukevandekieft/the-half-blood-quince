@@ -1,12 +1,22 @@
 import React from 'react';
 import EditRecipeControl from './EditRecipeControl';
 
-function RecipeDetail(){
-  return (
-    <div className='pageContentSection'>
+class RecipeDetail extends React.Component{
+
+  constructor(props) {
+    super(props);
+  }
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  };
+
+  render() {
+    return (
+      <div className='pageContentSection'>
       <EditRecipeControl />
-    </div>
-  );
+      </div>
+    );
+  }
 }
 
 export default RecipeDetail;

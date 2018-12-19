@@ -5,11 +5,14 @@ import { Link } from 'react-router-dom';
 
 function MainRecipeDisplay(props){
   const altText = `${props.name} Recipe`
-
+  const backgroundImage = {
+    backgroundImage: `url(${props.imageLink})`
+  };
   return (
     <div>
       <p>{props.name}</p>
-      <img src={props.imageLink} alt={altText} />
+      <div className='recipeDetailPicture' style={backgroundImage} alt={altText}>
+      </div>
       <a href={props.url}>Link to Original Recipe</a>
       <NavButton />
       <Link to='/edit-recipe'><button>Edit Recipe</button>

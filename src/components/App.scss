@@ -66,13 +66,13 @@ $background-color: #E8ECF5;
 // component styles
 
 .recipeItemBox {
-  background-color: #fdffa0;
+  background-color: #fffc4c;
   box-sizing: border-box;
   margin-bottom: $recipe-icon-padding;
   margin-left: $recipe-icon-padding;
   max-width: 200px;
-  color: #7a5629;
   h3 {
+    color: #3d2a13;
     padding: 10px;
     text-align: center;
   }
@@ -83,6 +83,16 @@ $background-color: #E8ECF5;
 .recipeItemImageContainer {
   width: $recipe-icon-size;
   height: $recipe-icon-size;
+  position: relative;
+  overflow: hidden;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.recipeDetailPicture {
+  width: $recipe-icon-size * 2;
+  height: $recipe-icon-size * 2;
   position: relative;
   overflow: hidden;
   background-position: 50% 50%;
