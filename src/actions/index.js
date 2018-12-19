@@ -4,8 +4,8 @@ import constants from './../constants';
 const { firebaseConfig } = constants;
 
 firebase.initializeApp(firebaseConfig);
-const recipes = firebase.database().ref('users');
-const currentRecipeId = firebase.database().ref('users/Luke/currentRecipeId');
+const recipes = firebase.database().ref('users/Luke/recipes');
+const currentRecipeId = firebase.database().ref('users/Luke');
 
 export const selectRecipe = (selectedRecipeId) => ({
   type: types.SELECT_RECIPE,
@@ -13,7 +13,9 @@ export const selectRecipe = (selectedRecipeId) => ({
 });
 
 export function changeCurrentRecipe (_recipeId) {
-  return _recipeId;
+  return () => currentRecipeId.update({
+    currentRecipeId: _recipeId
+  });
 };
 
 

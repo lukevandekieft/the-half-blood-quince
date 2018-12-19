@@ -2,12 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { selectRecipe } from './../actions';
+import { selectRecipe, changeCurrentRecipe } from './../actions';
 
 function RecipeItem({currentRecipe, name, image, dispatch}) {
   const handleClick = (name) => {
     const updatedName = name.toLowerCase().split(' ').join('_');
-    dispatch(selectRecipe(updatedName));
+    dispatch(changeCurrentRecipe(updatedName));
   };
 
   const backgroundImage = {
