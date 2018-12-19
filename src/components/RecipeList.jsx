@@ -2,7 +2,7 @@ import React from 'react';
 import RecipeItem from './RecipeItem';
 import PropTypes from 'prop-types';
 
-function RecipeList(props){
+const RecipeList = (props) => {
   console.log(props);
   return (
     <div className='recipeItemStyles'>
@@ -13,10 +13,12 @@ function RecipeList(props){
                   name = {recipe.name}
                   image = {recipe.image_link}
                   key = {index}
+                  keyName = {recipe}
+                  currentRecipe = {props.currentRecipe}
                 />
       })}
 
-      {/* This section added for volume - delete when more data is available */}
+      {/* This section added to provide more recipes - delete when more data is available */}
       {Object.keys(props.recipes).map(index => {
 
         let recipe = props.recipes[index];
@@ -31,7 +33,8 @@ function RecipeList(props){
 }
 
 RecipeList.propTypes = {
-  recipes: PropTypes.object
+  recipes: PropTypes.object,
+  currentRecipe: PropTypes.string
 }
 
 export default RecipeList;

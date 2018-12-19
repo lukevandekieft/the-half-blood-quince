@@ -25,6 +25,7 @@ function HomePage(props){
         <p style={headlineStyles}>Current Recipes</p>
           <RecipeList
             recipes={props.recipes}
+            currentRecipe={props.currentRecipe}
           />
           <NavButton />
           <NavButton />
@@ -34,7 +35,8 @@ function HomePage(props){
 }
 
 HomePage.propTypes = {
-  recipes: PropTypes.object
+  recipes: PropTypes.object,
+  currentRecipe: PropTypes.string
 }
 
 export default HomePage;

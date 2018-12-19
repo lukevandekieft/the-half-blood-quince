@@ -11,7 +11,7 @@ describe('Recipe App', () => {
 
   describe('recipeReducer', () => {
     it('Should accept and return initial state.', () => {
-      expect(recipeReducer(initialState.songsById, { type: null })).toEqual(initialState.songsById);
+      expect(recipeReducer(initialState, { type: null })).toEqual(initialState);
     });
   });
 
@@ -23,7 +23,7 @@ describe('Recipe App', () => {
 
   describe('rootReducer', () => {
     it('Should accept and return initial state.', () => {
-      expect(rootReducer(initialState, { type: null })).toEqual(initialState);
+      expect(rootReducer(initialState, { type: null })).toEqual(initialState.users['Luke']);
     });
 
     it('Should contain logic from both reducers.', () => {

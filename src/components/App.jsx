@@ -19,7 +19,10 @@ class App extends Component {
         <Switch>
           <div className="contentContainer">
             <NavBar />
-            <Route exact path='/' render={()=><HomePage recipes={this.props.recipes} />}/>
+            <Route exact path='/' render={()=><HomePage
+              recipes={this.props.recipes}
+              currentRecipe={this.props.currentRecipe}
+            />}/>
             <Route exact path='/recipe-detail' render={()=><RecipeDetail recipes={this.props.recipes} />}/>
             <Route exact path='/edit-recipe' component={RecipeEdit}/>
           </div>
