@@ -8,11 +8,18 @@ import NavBar from './NavBar.jsx';
 import HomePage from './HomePage.jsx';
 import RecipeDetail from './RecipeDetail.jsx';
 import RecipeEdit from './RecipeEdit.jsx';
+import * as actions from './../actions';
 
 //styles
 import './App.scss';
 
 class App extends Component {
+  componentWillMount() {
+    const { dispatch } = this.props;
+    const { watchUserData } = actions;
+    dispatch(watchUserData());
+  }
+
   render() {
     return (
       <div>
