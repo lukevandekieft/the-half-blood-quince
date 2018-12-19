@@ -15,7 +15,6 @@ function RecipeDetail(props){
   let directionDisplayStyles = {
     display: 'flex'
   }
-  console.log(props)
   return (
     <div className='pageContentSection' style={detailStyles}>
       <MainRecipeDisplay

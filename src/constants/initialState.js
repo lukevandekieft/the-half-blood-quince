@@ -3,7 +3,7 @@ export const initialState = {
     Luke : {
       currentRecipeId : 'mujadara',
       recipes : {
-        pea_soup : {
+        split_pea_soup : {
           name : "Split Pea Soup",
           imageLink : "https://www.tasteofhome.com/wp-content/uploads/2017/10/exps22295_HWS1227354D43B.jpg",
           url : "https://www.tasteofhome.com/recipes/vegetarian-split-pea-soup/",
@@ -124,7 +124,7 @@ export const initialState = {
             'Paste is hard to make but VERY small chunks works fine'
           ]
         },
-        chickpea_tuna : {
+        "chickpea_'tuna'_salad" : {
           name : "Chickpea 'Tuna' Salad",
           imageLink : "https://minimalistbaker.com/wp-content/uploads/2014/12/Chickpea-Sandwic-SQUARE.jpg",
           url : "https://minimalistbaker.com/chickpea-sunflower-sandwich/",
@@ -186,7 +186,7 @@ export const initialState = {
             "Start caramelizing onions asap: these took close to an hour and there was plenty of time to do everything else while they cooked (frying, lentils, & raita included)"
           ]
         },
-        lentil_shepherds_pie : {
+        "lentil_shepherd's_pie" : {
           name : "Lentil Shepherd's Pie",
           imageLink : "https://yupitsvegan.com/wp-content/uploads/2017/10/vegan-shepherds-pie-lentil-vegetable-3.jpg",
           url : "https://yupitsvegan.com/vegan-shepherds-pie-lentil/",
@@ -429,7 +429,7 @@ export const initialState = {
           directionsNotes : [
           ]
         },
-        beef_in_hoison_sauce : {
+        "stir-fried_'beef'" : {
           name : "Stir-Fried 'Beef'",
           imageLink : "https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe_images/recipe-image-legacy-id--4850_12.jpg?itok=2MNKlVBz",
           url : "https://www.bbcgoodfood.com/recipes/3246/stirfried-beef-with-hoisin-sauce",

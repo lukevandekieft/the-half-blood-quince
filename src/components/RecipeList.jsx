@@ -3,7 +3,6 @@ import RecipeItem from './RecipeItem';
 import PropTypes from 'prop-types';
 
 const RecipeList = (props) => {
-  console.log(props);
   return (
     <div className='recipeItemStyles'>
       {Object.keys(props.recipes).map(index => {
