@@ -3,7 +3,7 @@ import * as types from './../constants/ActionTypes';
 
 export const selectRecipe = (selectedRecipeId) => ({
   type: types.SELECT_RECIPE,
-  selectedRecipeId
+  selectedRecipeId: selectedRecipeId
 });
 
 

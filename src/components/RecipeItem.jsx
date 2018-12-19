@@ -1,26 +1,38 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
-function RecipeItem(props){
-
+function RecipeItem({currentRecipe, name, image}) {
   let backgroundImage = {
-    backgroundImage: `url(${props.image})`
+    backgroundImage: `url(${image})`
   };
   return (
-    <Link to='/recipe-detail' className='recipeItemBox'>
-        <h3>{props.name}</h3>
+    <div className='recipeItemBox'
+    // onClick= {dispatch(selectRecipe(id))}
+    >
+      <Link to='/recipe-detail'>
+        <h3>{name}</h3>
         <div className='recipeItemImageContainer' style={backgroundImage}>
         </div>
-    </Link>
+      </Link>
+    </div>
   );
 }
 
+const mapStateToProps = state => {
+  return {
+    currentRecipe: state.currentRecipeId
+  };
+};
+
 RecipeItem.propTypes = {
-  recipes: PropTypes.object
+  name: PropTypes.string,
+  image: PropTypes.string,
+  keypair: PropTypes.string
 }
 
-export default RecipeItem;
+export default connect(mapStateToProps)(RecipeItem);
 
 
 // <img src={props.image} alt='Mapo Tofu'/>

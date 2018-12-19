@@ -13,8 +13,6 @@ const RecipeList = (props) => {
                   name = {recipe.name}
                   image = {recipe.imageLink}
                   key = {index}
-                  keyName = {recipe}
-                  currentRecipe = {props.currentRecipe}
                 />
       })}
 
