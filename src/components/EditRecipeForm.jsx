@@ -5,7 +5,7 @@ function EditRecipeForm(){
   return (
     <div>
       <form>
-        <button type="submit">Submit</button>
+        <button type="submit" className='navButtonStyle'>Submit</button>
         <NavButton
           linkPath='/'
           linkText='Cancel Changes'

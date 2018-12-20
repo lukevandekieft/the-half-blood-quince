@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 
 function NavButton(props){
   return (
-    <div>
-      <Link to={props.linkPath}><button>{props.linkText}</button>
+    <div className='centerMe'>
+      <Link to={props.linkPath}><button className='navButtonStyle'>{props.linkText}</button>
       </Link>
     </div>
   );

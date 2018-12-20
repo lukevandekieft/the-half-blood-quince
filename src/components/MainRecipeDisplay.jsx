@@ -11,6 +11,7 @@ function MainRecipeDisplay(props){
   const mainRecipeContainer = {
     display: 'flex',
     justifyContent: 'space-between',
+
     margin: '2em -4em 2em 3em'
   };
   const mainDetailContainer = {
@@ -21,19 +22,23 @@ function MainRecipeDisplay(props){
   };
   return (
     <div style={mainRecipeContainer}>
-      <div className='recipeDetailPicture' style={backgroundImage} alt={altText}>
-      </div>
+      <div className='recipeDetailPicture' style={backgroundImage} alt={altText}></div>
+
       <div style={mainDetailContainer}>
-        <h1>{props.name}</h1>
-        <a href={props.url}>Link to Original Recipe</a>
-        <NavButton
-          linkPath='/'
-          linkText='Delete Recipe'
-        />
-        <NavButton
-          linkPath='/edit-recipe'
-          linkText='Edit Recipe'
-        />
+      <h1 className='centerMe'>{props.name}</h1>
+        <div>
+          <div className='centerMe'>
+            <button className='navButtonStyle'><a className='linkStyle' href={props.url}>Link to Original Recipe</a></button>
+          </div>
+          <NavButton
+            linkPath='/'
+            linkText='Delete Recipe'
+          />
+          <NavButton
+            linkPath='/edit-recipe'
+            linkText='Edit Recipe'
+          />
+        </div>
       </div>
     </div>
   );
