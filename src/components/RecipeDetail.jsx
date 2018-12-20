@@ -50,7 +50,10 @@ class RecipeDetail extends React.Component{
         <NavButton />
       </div>
     } else {
-      domDisplay = <div class="lds-dual-ring"></div>
+      domDisplay =
+      <div className='loading'>
+        <div className='loader'></div>
+      </div>
     }
     return (
       <div>
