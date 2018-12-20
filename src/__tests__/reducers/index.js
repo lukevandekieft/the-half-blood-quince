@@ -13,6 +13,12 @@ describe('Recipe App', () => {
     it('Should accept and return initial state.', () => {
       expect(recipeReducer(initialState, { type: null })).toEqual(initialState);
     });
+    it('Should add a recipe when submitted.', () => {
+      const newRecipe = 'pickles';
+      const action = actions.addRecipe(newRecipe);
+      const newStateEntry = initialState.users['Luke'];
+      expect(recipeReducer(initialState.users['Luke'], action)).toEqual(newStateEntry);
+    });
   });
 
   describe('currentRecipeReducer', () => {
@@ -20,7 +26,7 @@ describe('Recipe App', () => {
       expect(currentRecipeReducer(initialState, { type: null })).toEqual(initialState);
     });
     it('Should change current recipe based on selected item.', () => {
-      const selectedRecipe = 'mapo_tofu'
+      const selectedRecipe = 'mapo_tofu';
       const action = actions.selectRecipe(selectedRecipe);
       const newStateEntry = 'mapo_tofu';
       expect(currentRecipeReducer(initialState.users['Luke'], action)).toEqual(newStateEntry);

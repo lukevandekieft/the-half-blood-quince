@@ -27,7 +27,10 @@ class RecipeDetail extends React.Component{
   };
 
   render(){
-    return (
+    const currentRecipe = this.props.currentRecipe;
+    let domDisplay;
+    if (currentRecipe) {
+      domDisplay =
       <div className='pageContentSection' style={this.detailStyles}>
         <MainRecipeDisplay
           name = {this.props.recipes[this.props.currentRecipe].name}
@@ -45,6 +48,13 @@ class RecipeDetail extends React.Component{
           />
         </div>
         <NavButton />
+      </div>
+    } else {
+      domDisplay = <div class="lds-dual-ring"></div>
+    }
+    return (
+      <div>
+        {domDisplay}
       </div>
     );
   }

@@ -2,6 +2,7 @@ $recipe-icon-size: 200px;
 $recipe-icon-padding: 40px;
 $navbar-height: 80px;
 $background-color: #E8ECF5;
+$brand-color: #fffc4c;
 
 
 //Overarching stylesheet
@@ -13,6 +14,7 @@ $background-color: #E8ECF5;
   box-sizing: border-box;
   position: relative;
   z-index: 100;
+  min-height: calc(100vh - $navbar-height);
 }
 
 .pageContentSection {
@@ -124,4 +126,32 @@ ul, ol {
   margin-bottom: 1.5em;
   line-height: 1.5;
   font-size: .9em;
+}
+
+
+//LOAD ANIMATION
+.lds-dual-ring {
+  display: absolute;
+  width: 25vw;
+  height: 25vw;
+}
+.lds-dual-ring:after {
+  content: " ";
+  display: block;
+  width: 25vw;
+  height: 25vw;
+  margin: 1px;
+  border-radius: 50%;
+  border: 3em solid $brand-color;
+  border-color: $brand-color transparent $brand-color transparent;
+  animation: lds-dual-ring 1.2s linear infinite;
+  background-color: none;
+}
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
