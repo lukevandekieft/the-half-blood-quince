@@ -6,8 +6,10 @@ function EditRecipeForm(){
     <div>
       <form>
         <button type="submit">Submit</button>
-        <NavButton />
-        <NavButton />
+        <NavButton
+          linkPath='/'
+          linkText='Cancel Changes'
+        />
       </form>
     </div>
   );

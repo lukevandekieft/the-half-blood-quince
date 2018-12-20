@@ -47,7 +47,10 @@ class RecipeDetail extends React.Component{
             directionsNotes = {this.props.recipes[this.props.currentRecipe].directionsNotes}
           />
         </div>
-        <NavButton />
+        <NavButton
+          linkPath='/'
+          linkText='Go Back'
+        />
       </div>
     } else {
       domDisplay =

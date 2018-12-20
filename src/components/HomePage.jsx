@@ -37,8 +37,14 @@ class HomePage extends React.Component{
               recipes={this.props.recipes}
               currentRecipe={this.props.currentRecipe}
             />
-            <NavButton />
-            <NavButton />
+            <NavButton
+              linkPath='/'
+              linkText='Delete Recipe(s)'
+            />
+            <NavButton
+              linkPath='/edit-recipe'
+              linkText='Add Recipe'
+            />
         </div>
       </div>
     );

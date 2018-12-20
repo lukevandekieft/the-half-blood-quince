@@ -26,9 +26,14 @@ function MainRecipeDisplay(props){
       <div style={mainDetailContainer}>
         <h1>{props.name}</h1>
         <a href={props.url}>Link to Original Recipe</a>
-        <NavButton />
-        <Link to='/edit-recipe'><button>Edit Recipe</button>
-        </Link>
+        <NavButton
+          linkPath='/'
+          linkText='Delete Recipe'
+        />
+        <NavButton
+          linkPath='/edit-recipe'
+          linkText='Edit Recipe'
+        />
       </div>
     </div>
   );
