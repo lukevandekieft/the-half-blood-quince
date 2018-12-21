@@ -8,24 +8,41 @@ function EditRecipeForm({currentRecipe, name, url, image, ingredients, ingredien
   let formatIngredientsNotes = ingredientsNotes;
   let formatDirections = directions;
   let formatDirectionsNotes = directionsNotes;
+
   return (
     <div>
-      <form>
-        <label>Recipe Name</label>
-        <input type="text" defaultValue={name}></input>
-        <label>Recipe Link</label>
-        <input type="text" defaultValue={url}></input>
-        <label>Recipe Picture (link to picture)</label>
-        <input type="text" defaultValue={image}></input>
-        <label>Ingredients</label>
-        <textarea defaultValue={formatIngredients}></textarea>
-        <label>Ingredient Notes</label>
-        <textarea defaultValue={formatIngredientsNotes}></textarea>
-        <label>Directions</label>
-        <textarea defaultValue={formatDirections}></textarea>
-        <label>Direction Notes</label>
-        <textarea defaultValue={formatDirectionsNotes}></textarea>
-        <button type="submit" className='navButtonStyle'>Submit</button>
+      <form className='formLayout'>
+        <div className='formInputLayout'>
+          <label>Recipe Name:</label>
+          <input type="text" defaultValue={name}></input>
+        </div>
+        <div className='formInputLayout'>
+          <label>Recipe Link:</label>
+          <input type="text" defaultValue={url}></input>
+        </div>
+        <div className='formInputLayout'>
+          <label>Recipe Picture (link to picture):</label>
+          <input type="text" defaultValue={image}></input>
+        </div>
+        <div className='formInputLayout'>
+          <label>Ingredients:</label>
+          <textarea defaultValue={formatIngredients}></textarea>
+        </div>
+        <div className='formInputLayout'>
+          <label>Ingredient Notes:</label>
+          <textarea defaultValue={formatIngredientsNotes}></textarea>
+        </div>
+        <div className='formInputLayout'>
+          <label>Directions:</label>
+          <textarea defaultValue={formatDirections}></textarea>
+        </div>
+        <div className='formInputLayout'>
+          <label>Direction Notes:</label>
+          <textarea defaultValue={formatDirectionsNotes}></textarea>
+        </div>
+        <div className='centerMe'>
+          <button type="submit" className='navButtonStyle'>Submit</button>
+        </div>
       </form>
       <NavButton
       linkPath='/'

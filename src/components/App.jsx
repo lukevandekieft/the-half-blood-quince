@@ -12,6 +12,7 @@ import * as actions from './../actions';
 
 //styles
 import './App.scss';
+import './animations.scss';
 
 class App extends Component {
   componentWillMount() {
