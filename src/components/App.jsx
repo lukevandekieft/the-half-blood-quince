@@ -34,7 +34,10 @@ class App extends Component {
               recipes={this.props.recipes}
               currentRecipe={this.props.currentRecipe}
             />}/>
-            <Route exact path='/edit-recipe' component={RecipeEdit}/>
+            <Route exact path='/edit-recipe' render={()=><RecipeEdit
+              recipes={this.props.recipes}
+              currentRecipe={this.props.currentRecipe}
+            />}/>
           </div>
         </Switch>
       </div>
