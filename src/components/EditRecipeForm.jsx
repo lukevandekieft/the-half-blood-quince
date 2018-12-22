@@ -4,10 +4,22 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 function EditRecipeForm({currentRecipe, name, url, image, ingredients, ingredientsNotes, directions, directionsNotes}){
-  let formatIngredients = ingredients;
-  let formatIngredientsNotes = ingredientsNotes;
-  let formatDirections = directions;
-  let formatDirectionsNotes = directionsNotes;
+  const readableArray = (array) => {
+    return `- ${array.join('\n\n- ')}`;
+  }
+  const createArray = (string) => {
+    string = `\n\n${string}`;
+    let newArray = string.split('\n\n- ');
+    const remove = newArray.shift();
+    return newArray;
+  }
+
+  let formatIngredients = readableArray(ingredients);
+  let formatIngredientsNotes = readableArray(ingredientsNotes);
+  let formatDirections = readableArray(directions);
+  let formatDirectionsNotes = readableArray(directionsNotes);
+
+  console.log(createArray(formatIngredients))
 
   return (
     <div>
