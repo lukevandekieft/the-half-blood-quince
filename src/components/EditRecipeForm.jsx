@@ -3,6 +3,7 @@ import NavButton from './NavButton';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { submitRecipe } from './../actions';
+import { Redirect } from 'react-router';
 
 class EditRecipeForm extends Component {
 
@@ -57,9 +58,12 @@ class EditRecipeForm extends Component {
       }
       dispatch(submitRecipe(recipes));
     }
+    if (currentRecipe == 'aloo_gobi') {
+      return <Redirect to='/' />
+    }
   return (
     <div>
-      <form className='formLayout' onSubmit={submitForm}>
+      <form className='formLayout' onSubmit={submitForm.bind(this)}>
         <div className='formInputLayout'>
           <label>Recipe Name:</label>
           <input

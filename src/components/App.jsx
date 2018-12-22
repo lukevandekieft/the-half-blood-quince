@@ -24,6 +24,7 @@ class App extends Component {
   }
 
   render() {
+    console.log(this.props)
     return (
       <div>
         <Switch>
@@ -43,6 +44,7 @@ class App extends Component {
               recipes={this.props.recipes}
               currentRecipe={this.props.currentRecipe}
               loadedInitialState={this.props.loadedInitialState}
+              history={this.props.history}
             />}/>
           </div>
         </Switch>

@@ -12,7 +12,8 @@ class RecipeEdit extends React.Component{
     if (this.props.loadedInitialState) {
       domDisplay =
       <div className='pageContentSection'>
-        <EditRecipeForm />
+        <EditRecipeForm
+        history={this.props.history}/>
       </div>
     } else {
       domDisplay =
