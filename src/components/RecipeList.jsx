@@ -6,12 +6,12 @@ const RecipeList = (props) => {
   return (
     <div className='recipeItemStyles'>
       {Object.keys(props.recipes).map(index => {
-
         let recipe = props.recipes[index];
         return <RecipeItem
                   name = {recipe.name}
                   image = {recipe.imageLink}
                   key = {index}
+                  valueKey = {index}
                 />
       })}
 

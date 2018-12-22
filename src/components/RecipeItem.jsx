@@ -4,10 +4,9 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { changeCurrentRecipe } from './../actions';
 
-function RecipeItem({currentRecipe, name, image, dispatch}) {
-  const handleClick = (name) => {
-    const updatedName = name.toLowerCase().split(' ').join('_');
-    dispatch(changeCurrentRecipe(updatedName));
+function RecipeItem({currentRecipe, name, image, valueKey, dispatch}) {
+  const handleClick = (key) => {
+    dispatch(changeCurrentRecipe(key));
   };
 
   const backgroundImage = {
@@ -15,7 +14,7 @@ function RecipeItem({currentRecipe, name, image, dispatch}) {
   };
 
   return (
-    <div className='recipeItemBox' onClick={() => {handleClick(name)}}>
+    <div className='recipeItemBox' onClick={() => {handleClick(valueKey)}}>
       <Link to='/recipe-detail'>
         <h3>{name}</h3>
         <div className='recipeItemImageContainer' style={backgroundImage}>
@@ -34,7 +33,8 @@ const mapStateToProps = state => {
 RecipeItem.propTypes = {
   name: PropTypes.string,
   image: PropTypes.string,
-  keypair: PropTypes.string
+  keypair: PropTypes.string,
+  valueKey: PropTypes.string
 }
 
 export default connect(mapStateToProps)(RecipeItem);
