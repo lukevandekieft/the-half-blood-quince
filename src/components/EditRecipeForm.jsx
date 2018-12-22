@@ -5,7 +5,11 @@ import { connect } from 'react-redux';
 
 function EditRecipeForm({currentRecipe, name, url, image, ingredients, ingredientsNotes, directions, directionsNotes}){
   const readableArray = (array) => {
-    return `- ${array.join('\n\n- ')}`;
+    if(array) {
+      return `- ${array.join('\n\n- ')}`;
+    } else {
+      return [];
+    }
   }
   const createArray = (string) => {
     string = `\n\n${string}`;

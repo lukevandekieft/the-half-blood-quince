@@ -37,10 +37,12 @@ class App extends Component {
             <Route exact path='/recipe-detail' render={()=><RecipeDetail
               recipes={this.props.recipes}
               currentRecipe={this.props.currentRecipe}
+              loadedInitialState={this.props.loadedInitialState}
             />}/>
             <Route exact path='/edit-recipe' render={()=><RecipeEdit
               recipes={this.props.recipes}
               currentRecipe={this.props.currentRecipe}
+              loadedInitialState={this.props.loadedInitialState}
             />}/>
           </div>
         </Switch>

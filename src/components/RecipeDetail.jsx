@@ -23,9 +23,8 @@ class RecipeDetail extends React.Component{
   };
 
   render(){
-    const currentRecipe = this.props.currentRecipe;
     let domDisplay;
-    if (currentRecipe) {
+    if (this.props.loadedInitialState) {
       domDisplay =
       <div className='pageContentSection' style={this.detailStyles}>
         <MainRecipeDisplay

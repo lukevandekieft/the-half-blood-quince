@@ -8,9 +8,8 @@ class RecipeEdit extends React.Component{
     window.scrollTo(0, 0);
   };
   render() {
-    const currentRecipe = this.props.currentRecipe;
     let domDisplay;
-    if (currentRecipe) {
+    if (this.props.loadedInitialState) {
       domDisplay =
       <div className='pageContentSection'>
         <EditRecipeForm />
@@ -27,11 +26,6 @@ class RecipeEdit extends React.Component{
       </div>
     );
   }
-}
-
-RecipeEdit.propTypes = {
-  recipes: PropTypes.object,
-  currentRecipe: PropTypes.string
 }
 
 export default RecipeEdit;
