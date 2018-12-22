@@ -1,6 +1,7 @@
 {
   "users" : {
     "Luke" : {
+      "loadedInitialState" : "true",
       "currentRecipeId" : "mujadara",
       "recipes" : {
         "split_pea_soup" : {

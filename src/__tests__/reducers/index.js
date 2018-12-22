@@ -35,16 +35,7 @@ describe('Recipe App', () => {
             }
           };
       const action = actions.updateRecipeList(newRecipeList);
-      const newStateEntry = {
-        currentUser : 'Luke',
-        users : {
-          Luke : {
-            currentRecipeId : null,
-            recipes : newRecipeList
-          }
-        }
-      };
-      expect(recipeReducer(initialState.users['Luke'].recipes, action)).toEqual(newStateEntry);
+      expect(recipeReducer(initialState.users['Luke'].recipes, action)).toEqual(newRecipeList);
     });
   });
 

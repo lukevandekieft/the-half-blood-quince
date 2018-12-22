@@ -23,7 +23,7 @@ export function changeCurrentRecipe (_recipeId) {
 export function watchUserData() {
   return function(dispatch) {
     currentRecipe.on('value', data => {
-      dispatch(selectRecipe(data.val()))
+      dispatch(selectRecipe(data.val()));
     });
   };
 }
@@ -37,7 +37,7 @@ export const updateRecipeList = (recipeList) => ({
 export function watchRecipes() {
   return function(dispatch) {
     recipeList.on('value', data => {
-      console.log((data.val()));
+      dispatch(updateRecipeList(data.val()));
     });
   };
 }
