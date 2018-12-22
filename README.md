@@ -100,28 +100,10 @@ For further support:
 Create React App: (https://github.com/facebookincubator/create-react-app)
 Custom React Scripts: (https://www.npmjs.com/package/custom-react-scripts)
 
-## Technologies Used
+## Current notes
 
-* _React Library_
-* _HTML_
-* _JavaScript_
-* _Sass preprocessor_
-* _CSS_
-* _Firebase_
-* _JSX_
-* _Webpack_
-* _Sketch_
-
-## Support and contact details
-
-If you have any concerns or suggestions please contact Luke Vandekieft at vandekie@gmail.com
-
-### License
-
-*This software is licensed under the MIT License.*
-
-Copyright (c) 2018 **_Luke Vandekieft_**
-
+* _Prevent Default needed when form submit completed._
+* _Need Edit and Add Recipe functions. Can those be the same form? Do those need another reducer or no?_
 
 ## Technologies Used
 

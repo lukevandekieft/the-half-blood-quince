@@ -3,7 +3,16 @@ import NavButton from './NavButton';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-function EditRecipeForm({currentRecipe, name, url, image, ingredients, ingredientsNotes, directions, directionsNotes}){
+function EditRecipeForm({currentRecipe, name, url, image, ingredients, ingredientsNotes, directions, directionsNotes, dispatch}){
+
+  let _name = null;
+  let _url = null;
+  let _imageLink = null;
+  let _ingredients = null;
+  let _ingredientsNotes = null;
+  let _directions = null;
+  let _directionsNotes = null;
+
   const readableArray = (array) => {
     if(array) {
       return `- ${array.join('\n\n- ')}`;
@@ -12,10 +21,27 @@ function EditRecipeForm({currentRecipe, name, url, image, ingredients, ingredien
     }
   }
   const createArray = (string) => {
-    string = `\n\n${string}`;
-    let newArray = string.split('\n\n- ');
-    newArray.shift();
-    return newArray;
+    if(string) {
+      string = `\n\n${string}`;
+      let newArray = string.split('\n\n- ');
+      newArray.shift();
+      return newArray;
+    } else {
+      return [];
+    }
+  }
+  const submitRecipe = (event) => {
+    event.preventDefault();
+    let recipeInfo = {
+      name: _name.value,
+      url: _url.value,
+      imageLink: _imageLink.value,
+      ingredients: createArray(_ingredients.value),
+      ingredientsNotes: createArray(_ingredientsNotes.value),
+      directions: createArray(_directions.value),
+      directionsNotes: createArray(_directionsNotes.value)
+    }
+    console.log(recipeInfo);
   }
 
   let formatIngredients = readableArray(ingredients);
@@ -25,34 +51,65 @@ function EditRecipeForm({currentRecipe, name, url, image, ingredients, ingredien
 
   return (
     <div>
-      <form className='formLayout'>
+      <form className='formLayout' onSubmit={submitRecipe}>
         <div className='formInputLayout'>
           <label>Recipe Name:</label>
-          <input type="text" defaultValue={name}></input>
+          <input
+            type="text"
+            defaultValue={name}
+            id='name'
+            ref={(input) => {_name = input;}}
+          ></input>
         </div>
         <div className='formInputLayout'>
           <label>Recipe Link:</label>
-          <input type="text" defaultValue={url}></input>
+          <input
+            type="text"
+            defaultValue={url}
+            id='url'
+            ref={(input) => {_url = input;}}
+          ></input>
         </div>
         <div className='formInputLayout'>
           <label>Recipe Picture (link to picture):</label>
-          <input type="text" defaultValue={image}></input>
+          <input
+            type="text"
+            defaultValue={image}
+            id='imageLink'
+            ref={(input) => {_imageLink = input;}}
+          ></input>
         </div>
         <div className='formInputLayout'>
           <label>Ingredients:</label>
-          <textarea defaultValue={formatIngredients}></textarea>
+          <textarea
+            defaultValue={formatIngredients}
+            id='ingredients'
+            ref={(input) => {_ingredients = input;}}
+          ></textarea>
         </div>
         <div className='formInputLayout'>
           <label>Ingredient Notes:</label>
-          <textarea defaultValue={formatIngredientsNotes}></textarea>
+          <textarea
+            defaultValue={formatIngredientsNotes}
+            id='ingredientsNotes'
+            ref={(input) => {_ingredientsNotes = input;}}
+          ></textarea>
         </div>
         <div className='formInputLayout'>
           <label>Directions:</label>
-          <textarea defaultValue={formatDirections}></textarea>
+          <textarea
+            defaultValue={formatDirections}
+            id='directions'
+            ref={(input) => {_directions = input;}}
+          ></textarea>
         </div>
         <div className='formInputLayout'>
           <label>Direction Notes:</label>
-          <textarea defaultValue={formatDirectionsNotes}></textarea>
+          <textarea
+            defaultValue={formatDirectionsNotes}
+            id='directionsNotes'
+            ref={(input) => {_directionsNotes = input;}}
+          ></textarea>
         </div>
         <div className='centerMe'>
           <button type="submit" className='navButtonStyle'>Submit</button>
