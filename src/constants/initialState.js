@@ -3,6 +3,7 @@ export const initialState = {
   users : {
     Luke : {
       loadedInitialState: false,
+      isRouting: false,
       currentRecipeId : null,
       recipes : {
         split_pea_soup : {

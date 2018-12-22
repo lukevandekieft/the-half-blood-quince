@@ -1,6 +1,8 @@
 import constants from "./../../constants";
 import recipeReducer from './../../reducers/recipe-reducer';
 import currentRecipeReducer from './../../reducers/current-recipe-reducer';
+import isRoutingReducer from './../../reducers/is-routing-reducer';
+import initialStateReducer from './../../reducers/initial-state-reducer';
 import rootReducer from './../../reducers/';
 import { createStore } from 'redux';
 import * as actions from './../../actions';
@@ -48,6 +50,32 @@ describe('Recipe App', () => {
       const action = actions.selectRecipe(selectedRecipe);
       const newStateEntry = 'mapo_tofu';
       expect(currentRecipeReducer(initialState.users['Luke'], action)).toEqual(newStateEntry);
+    });
+  });
+
+  describe('initialStateReducer', () => {
+    it('Should accept and return initial state.', () => {
+      expect(initialStateReducer(initialState, { type: null })).toEqual(initialState);
+    });
+    it('Should change state to true once information is received.', () => {
+      const sampleState = {
+        loadedInitialState: true
+      }
+      const action = actions.loadState(sampleState);
+      expect(initialStateReducer(initialState.users['Luke'], action)).toEqual(sampleState);
+    });
+  });
+
+  describe('isRoutingReducer', () => {
+    it('Should accept and return initial state.', () => {
+      expect(isRoutingReducer(initialState, { type: null })).toEqual(initialState);
+    });
+    it('Should change state to true when routing.', () => {
+      const sampleState = {
+        isRouting: true
+      }
+      const action = actions.changeRouteStatus(sampleState);
+      expect(isRoutingReducer(initialState.users['Luke'], action)).toEqual(sampleState);
     });
   });
 
