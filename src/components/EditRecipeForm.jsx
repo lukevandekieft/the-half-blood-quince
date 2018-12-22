@@ -10,7 +10,7 @@ function EditRecipeForm({currentRecipe, name, url, image, ingredients, ingredien
   const createArray = (string) => {
     string = `\n\n${string}`;
     let newArray = string.split('\n\n- ');
-    const remove = newArray.shift();
+    newArray.shift();
     return newArray;
   }
 
@@ -18,8 +18,6 @@ function EditRecipeForm({currentRecipe, name, url, image, ingredients, ingredien
   let formatIngredientsNotes = readableArray(ingredientsNotes);
   let formatDirections = readableArray(directions);
   let formatDirectionsNotes = readableArray(directionsNotes);
-
-  console.log(createArray(formatIngredients))
 
   return (
     <div>

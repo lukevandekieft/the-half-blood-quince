@@ -6,6 +6,7 @@ const { firebaseConfig } = constants;
 firebase.initializeApp(firebaseConfig);
 const userData = firebase.database().ref('users/Luke');
 const currentRecipe = firebase.database().ref('users/Luke/currentRecipeId');
+const recipeList = firebase.database().ref('users/Luke/recipes');
 
 //CHANGING CURRENT USER
 export const selectRecipe = (selectedRecipeId) => ({
@@ -22,8 +23,21 @@ export function changeCurrentRecipe (_recipeId) {
 export function watchUserData() {
   return function(dispatch) {
     currentRecipe.on('value', data => {
-      console.log(data.val());
       dispatch(selectRecipe(data.val()))
+    });
+  };
+}
+
+//UPDATE RECIPE LIST
+export const updateRecipeList = (recipeList) => ({
+  type: types.UPDATE_RECIPE_LIST,
+  recipeList: recipeList
+})
+
+export function watchRecipes() {
+  return function(dispatch) {
+    recipeList.on('value', data => {
+      console.log((data.val()));
     });
   };
 }

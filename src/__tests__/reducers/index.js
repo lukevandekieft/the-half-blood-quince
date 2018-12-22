@@ -13,11 +13,38 @@ describe('Recipe App', () => {
     it('Should accept and return initial state.', () => {
       expect(recipeReducer(initialState, { type: null })).toEqual(initialState);
     });
-    it('Should add a recipe when submitted.', () => {
-      const newRecipe = 'pickles';
-      const action = actions.addRecipe(newRecipe);
-      const newStateEntry = initialState.users['Luke'];
-      expect(recipeReducer(initialState.users['Luke'], action)).toEqual(newStateEntry);
+    it('Should update recipe list when change is recieved.', () => {
+      const newRecipeList =
+          {
+            split_pea_soup : {
+              name : "Split Pea Soup",
+              imageLink : "https://www.tasteofhome.com/wp-content/uploads/2017/10/exps22295_HWS1227354D43B.jpg",
+              url : "https://www.tasteofhome.com/recipes/vegetarian-split-pea-soup/",
+              ingredients : [
+                '2 green onions, sliced'
+              ],
+              ingredientsNotes : [
+                'add a little bit of liquid smoke before blending, add bacon bits at the end'
+              ],
+              directions : [
+                'In a large saucepan, combine the first nine ingredients; bring to a boil. Reduce heat; cover and simmer for 1 hour or until peas are tender, stirring occasionally.'
+              ],
+              directionsNotes : [
+                'add a little bit of liquid smoke before blending, add bacon bits at the end'
+              ]
+            }
+          };
+      const action = actions.updateRecipeList(newRecipeList);
+      const newStateEntry = {
+        currentUser : 'Luke',
+        users : {
+          Luke : {
+            currentRecipeId : null,
+            recipes : newRecipeList
+          }
+        }
+      };
+      expect(recipeReducer(initialState.users['Luke'].recipes, action)).toEqual(newStateEntry);
     });
   });
 

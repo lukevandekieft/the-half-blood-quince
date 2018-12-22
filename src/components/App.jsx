@@ -17,8 +17,9 @@ import './animations.scss';
 class App extends Component {
   componentWillMount() {
     const { dispatch } = this.props;
-    const { watchUserData } = actions;
+    const { watchUserData, watchRecipes } = actions;
     dispatch(watchUserData());
+      dispatch(watchRecipes());
   }
 
   render() {

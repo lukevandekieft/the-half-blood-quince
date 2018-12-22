@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import NavButton from './NavButton';
-import { Link } from 'react-router-dom';
 
 function MainRecipeDisplay(props){
   const altText = `${props.name} Recipe`

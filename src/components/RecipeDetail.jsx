@@ -8,10 +8,6 @@ import NavButton from './NavButton';
 
 class RecipeDetail extends React.Component{
 
-  constructor(props) {
-    super(props);
-  }
-
   detailStyles = {
     display: 'flex',
     flexDirection: 'column'
