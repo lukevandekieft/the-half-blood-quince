@@ -43,6 +43,12 @@ export function watchRecipes() {
   };
 }
 
+export function submitRecipe (recipeList) {
+  return () => userData.update({
+    recipes: recipeList
+  });
+};
+
 //LOAD STATE
 export const loadState = (stateLoaded) => ({
   type: types.LOAD_STATE,

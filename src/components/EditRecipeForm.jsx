@@ -2,8 +2,9 @@ import React from 'react';
 import NavButton from './NavButton';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { submitRecipe } from './../actions';
 
-function EditRecipeForm({currentRecipe, name, url, image, ingredients, ingredientsNotes, directions, directionsNotes, dispatch}){
+function EditRecipeForm({currentRecipe, recipes, name, url, image, ingredients, ingredientsNotes, directions, directionsNotes, dispatch}){
 
   let _name = null;
   let _url = null;
@@ -30,9 +31,9 @@ function EditRecipeForm({currentRecipe, name, url, image, ingredients, ingredien
       return [];
     }
   }
-  const submitRecipe = (event) => {
+  const submitForm = (event) => {
     event.preventDefault();
-    let recipeInfo = {
+    recipes[currentRecipe] = {
       name: _name.value,
       url: _url.value,
       imageLink: _imageLink.value,
@@ -41,7 +42,7 @@ function EditRecipeForm({currentRecipe, name, url, image, ingredients, ingredien
       directions: createArray(_directions.value),
       directionsNotes: createArray(_directionsNotes.value)
     }
-    console.log(recipeInfo);
+    dispatch(submitRecipe(recipes));
   }
 
   let formatIngredients = readableArray(ingredients);
@@ -51,7 +52,7 @@ function EditRecipeForm({currentRecipe, name, url, image, ingredients, ingredien
 
   return (
     <div>
-      <form className='formLayout' onSubmit={submitRecipe}>
+      <form className='formLayout' onSubmit={submitForm}>
         <div className='formInputLayout'>
           <label>Recipe Name:</label>
           <input
@@ -126,6 +127,7 @@ function EditRecipeForm({currentRecipe, name, url, image, ingredients, ingredien
 const mapStateToProps = state => {
   return {
     currentRecipe: state.currentRecipeId,
+    recipes: state.recipes,
     url: state.recipes[state.currentRecipeId].url,
     image: state.recipes[state.currentRecipeId].imageLink,
     name: state.recipes[state.currentRecipeId].name,
