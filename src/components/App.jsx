@@ -17,9 +17,10 @@ import './animations.scss';
 class App extends Component {
   componentWillMount() {
     const { dispatch } = this.props;
-    const { watchUserData, watchRecipes } = actions;
+    const { watchUserData, watchRecipes, watchUserLoad } = actions;
     dispatch(watchUserData());
-      dispatch(watchRecipes());
+    dispatch(watchRecipes());
+    dispatch(watchUserLoad());
   }
 
   render() {
@@ -31,6 +32,7 @@ class App extends Component {
             <Route exact path='/' render={()=><HomePage
               recipes={this.props.recipes}
               currentRecipe={this.props.currentRecipe}
+              loadedInitialState={this.props.loadedInitialState}
             />}/>
             <Route exact path='/recipe-detail' render={()=><RecipeDetail
               recipes={this.props.recipes}
@@ -50,7 +52,8 @@ class App extends Component {
 const mapStateToProps = state => {
   return {
     recipes: state.recipes,
-    currentRecipe: state.currentRecipeId
+    currentRecipe: state.currentRecipeId,
+    loadedInitialState: state.loadedInitialState
   };
 };
 

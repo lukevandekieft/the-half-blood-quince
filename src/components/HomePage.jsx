@@ -24,32 +24,33 @@ class HomePage extends React.Component{
   };
 
   render() {
-    const loadingRecipe = this.props.recipes['loading'];
+    const loadingRecipe = this.props.loadedInitialState;
     let domDisplay;
-    if(loadingRecipe) {
+    if(loadingRecipe === false) {
       domDisplay =
       <div className='loading'>
-        <div className='loader'></div>
+      <div style={this.headerStyles}></div>
+        <div className='loaderHome'></div>
       </div>
     } else {
       domDisplay =
       <div className='homePageContainer'>
-      <div style={this.headerStyles}></div>
-      <div className='pageContentSection'>
-      <p style={this.headlineStyles}>Current Recipes</p>
-      <RecipeList
-      recipes={this.props.recipes}
-      currentRecipe={this.props.currentRecipe}
-      />
-      <NavButton
-      linkPath='/'
-      linkText='Delete Recipe(s)'
-      />
-      <NavButton
-      linkPath='/edit-recipe'
-      linkText='Add Recipe'
-      />
-      </div>
+        <div style={this.headerStyles}></div>
+        <div className='pageContentSection'>
+        <p style={this.headlineStyles}>Current Recipes</p>
+        <RecipeList
+        recipes={this.props.recipes}
+        currentRecipe={this.props.currentRecipe}
+        />
+        <NavButton
+        linkPath='/'
+        linkText='Delete Recipe(s)'
+        />
+        <NavButton
+        linkPath='/edit-recipe'
+        linkText='Add Recipe'
+        />
+        </div>
       </div>
     }
     return (

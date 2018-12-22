@@ -7,6 +7,7 @@ firebase.initializeApp(firebaseConfig);
 const userData = firebase.database().ref('users/Luke');
 const currentRecipe = firebase.database().ref('users/Luke/currentRecipeId');
 const recipeList = firebase.database().ref('users/Luke/recipes');
+const initialLoad = firebase.database().ref('users/Luke/loadedInitialState');
 
 //CHANGING CURRENT USER
 export const selectRecipe = (selectedRecipeId) => ({
@@ -38,6 +39,20 @@ export function watchRecipes() {
   return function(dispatch) {
     recipeList.on('value', data => {
       dispatch(updateRecipeList(data.val()));
+    });
+  };
+}
+
+//LOAD STATE
+export const loadState = (stateLoaded) => ({
+  type: types.LOAD_STATE,
+  stateLoaded: stateLoaded
+})
+
+export function watchUserLoad() {
+  return function(dispatch) {
+    initialLoad.on('value', data => {
+      dispatch(loadState(data.val()));
     });
   };
 }
