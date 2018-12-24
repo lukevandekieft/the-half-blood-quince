@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import NavButton from './NavButton';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { submitRecipe } from './../actions';
+import { submitRecipe, changeRoute } from './../actions';
 import { Redirect } from 'react-router';
 
 class EditRecipeForm extends Component {
@@ -35,7 +35,7 @@ class EditRecipeForm extends Component {
 
   render() {
     //destructure props from mapStateToProps
-    const {currentRecipe, recipes, name, url, image, ingredients, ingredientsNotes, directions, directionsNotes, dispatch} = this.props;
+    const {currentRecipe, recipes, name, url, image, ingredients, ingredientsNotes, directions, directionsNotes, isRouting, dispatch} = this.props;
 
     //format array props
     const formatIngredients = this.readableArray(ingredients);
@@ -57,9 +57,10 @@ class EditRecipeForm extends Component {
         directionsNotes: this.createArray(this._directionsNotes.value)
       }
       dispatch(submitRecipe(recipes));
+      dispatch(changeRoute(true));
     }
-    if (currentRecipe == 'aloo_gobi') {
-      return <Redirect to='/' />
+    if (isRouting == true) {
+      return <Redirect to='/recipe-detail' />
     }
   return (
     <div>
@@ -139,6 +140,7 @@ const mapStateToProps = state => {
   return {
     currentRecipe: state.currentRecipeId,
     recipes: state.recipes,
+    isRouting: state.isRouting,
     url: state.recipes[state.currentRecipeId].url,
     image: state.recipes[state.currentRecipeId].imageLink,
     name: state.recipes[state.currentRecipeId].name,

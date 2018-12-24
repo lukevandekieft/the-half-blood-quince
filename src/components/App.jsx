@@ -39,6 +39,7 @@ class App extends Component {
               recipes={this.props.recipes}
               currentRecipe={this.props.currentRecipe}
               loadedInitialState={this.props.loadedInitialState}
+              dispatch={this.props.dispatch}
             />}/>
             <Route exact path='/edit-recipe' render={()=><RecipeEdit
               recipes={this.props.recipes}
@@ -57,7 +58,8 @@ const mapStateToProps = state => {
   return {
     recipes: state.recipes,
     currentRecipe: state.currentRecipeId,
-    loadedInitialState: state.loadedInitialState
+    loadedInitialState: state.loadedInitialState,
+    isRouting: state.isRouting
   };
 };
 

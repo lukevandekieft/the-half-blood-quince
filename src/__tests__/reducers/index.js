@@ -74,7 +74,7 @@ describe('Recipe App', () => {
       const sampleState = {
         isRouting: true
       }
-      const action = actions.changeRouteStatus(sampleState);
+      const action = actions.changeRoute(sampleState);
       expect(isRoutingReducer(initialState.users['Luke'], action)).toEqual(sampleState);
     });
   });

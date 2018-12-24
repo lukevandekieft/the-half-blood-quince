@@ -63,6 +63,12 @@ export function watchUserLoad() {
   };
 }
 
+//LOAD STATE
+export const changeRoute = (newRoute) => ({
+  type: types.CHANGE_ROUTE,
+  newRoute: newRoute
+})
+
 //ADDING RECIPE
 export const addRecipe = (newRecipeObject) => ({
   type: types.ADD_RECIPE,

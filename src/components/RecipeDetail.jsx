@@ -5,6 +5,7 @@ import MainRecipeDisplay from './MainRecipeDisplay';
 import IngredientsDisplay from './IngredientsDisplay';
 import DirectionsDisplay from './DirectionsDisplay';
 import NavButton from './NavButton';
+import { changeRoute } from './../actions';
 
 class RecipeDetail extends React.Component{
 
@@ -20,6 +21,7 @@ class RecipeDetail extends React.Component{
 
   componentDidMount() {
     window.scrollTo(0, 0);
+    this.props.dispatch(changeRoute(false));
   };
 
   render(){
