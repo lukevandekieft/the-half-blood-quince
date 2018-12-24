@@ -18,9 +18,11 @@ class EditRecipeForm extends Component {
 //turn array into display text
   readableArray = (array) => {
     if(array) {
-      return `- ${array.join('\n\n- ')}`;
-    } else {
-      return [];
+      if(array.length === 0) {
+        return;
+      } else {
+        return `- ${array.join('\n\n- ')}`;
+      }
     }
   }
 

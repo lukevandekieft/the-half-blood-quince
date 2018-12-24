@@ -8,11 +8,17 @@ function IngredientsDisplay(props){
   } else {
     formattedIngredientsNotes = [];
   }
+  let formattedIngredients;
+  if (props.ingredients) {
+    formattedIngredients = props.ingredients;
+  } else {
+    formattedIngredients = [];
+  }
   return (
     <div>
       <h3>Ingredients</h3>
       <ul>
-        {props.ingredients.map(index => {
+        {formattedIngredients.map(index => {
           return <li key={index} className="recipeDetailList">{index}</li>
         })}
       </ul>

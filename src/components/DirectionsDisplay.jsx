@@ -8,11 +8,19 @@ function DirectionsDisplay(props){
   } else {
     formattedDirectionsNotes = [];
   }
+
+  let formattedDirections;
+  if (props.directions) {
+    formattedDirections = props.directions;
+  } else {
+    formattedDirections = [];
+  }
+
   return (
     <div>
       <h3>Directions</h3>
       <ol>
-        {props.directions.map(index => {
+        {formattedDirections.map(index => {
           return <li key={index} className="recipeDetailList">{index}</li>
         })}
       </ol>
