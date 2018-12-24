@@ -64,7 +64,7 @@ While Half-Blood Quince won’t be as powerful or flashy as Yummly it will allow
 
 ## Setup/Installation Requirements
 
-Live site is at https://half-blood-quince.firebaseapp.com/         
+Live site is at https://www.halfbloodquince.com/         
 <br>
 <br>
 

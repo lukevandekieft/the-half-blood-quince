@@ -5,7 +5,7 @@ import MainRecipeDisplay from './MainRecipeDisplay';
 import IngredientsDisplay from './IngredientsDisplay';
 import DirectionsDisplay from './DirectionsDisplay';
 import NavButton from './NavButton';
-import { changeRoute } from './../actions';
+import { changeRoute, changePopupStatus, removeRecipe } from './../actions';
 
 class RecipeDetail extends React.Component{
 
@@ -26,6 +26,16 @@ class RecipeDetail extends React.Component{
 
   componentWillUnmount() {
     this.props.dispatch(changeRoute(false));
+    this.props.dispatch(changePopupStatus(false));
+  };
+
+  handleClickDelete = () => {
+    this.props.dispatch(removeRecipe(this.props.currentRecipe));
+  };
+
+  handleClickCancel = () => {
+    const newPopup = !this.props.showPopup;
+    this.props.dispatch(changePopupStatus(newPopup));
   };
 
   render(){
@@ -55,8 +65,14 @@ class RecipeDetail extends React.Component{
         {this.props.showPopup ?
           <div className='popup'>
             <div className='popup_inner'>
-              <h1>Hello!</h1>
-            <button onClick={this.props.closePopup}>close me</button>
+              <h1>Are you sure you want to delete this recipe?</h1>
+            <button onClick={this.handleClickCancel}>Cancel</button>
+            <div onClick={this.handleClickDelete}>
+              <NavButton
+                linkPath='/'
+                linkText='Delete'
+              />
+            </div>
             </div>
           </div>
           : null

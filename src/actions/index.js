@@ -74,6 +74,12 @@ export const changeRoute = (newRoute) => ({
   newRoute: newRoute
 })
 
+//CHANGE POPUP STATUS
+export const changePopupStatus = (newStatus) => ({
+  type: types.CHANGE_POPUP_STATUS,
+  newStatus: newStatus
+})
+
 //ADDING RECIPE
 export const addRecipe = (newRecipeObject) => ({
   type: types.ADD_RECIPE,

@@ -3,6 +3,7 @@ import recipeReducer from './../../reducers/recipe-reducer';
 import currentRecipeReducer from './../../reducers/current-recipe-reducer';
 import isRoutingReducer from './../../reducers/is-routing-reducer';
 import initialStateReducer from './../../reducers/initial-state-reducer';
+import popupReducer from './../../reducers/popup-reducer';
 import rootReducer from './../../reducers/';
 import { createStore } from 'redux';
 import * as actions from './../../actions';
@@ -76,6 +77,19 @@ describe('Recipe App', () => {
       }
       const action = actions.changeRoute(sampleState);
       expect(isRoutingReducer(initialState.users['Luke'], action)).toEqual(sampleState);
+    });
+  });
+
+  describe('popupReducer', () => {
+    it('Should accept and return initial state.', () => {
+      expect(currentRecipeReducer(initialState, { type: null })).toEqual(initialState);
+    });
+    it('Should toggle popup status on firing.', () => {
+      const sampleState = {
+        showPopup: true
+      }
+      const action = actions.changePopupStatus(sampleState);
+      expect(popupReducer(initialState.users['Luke'], action)).toEqual(sampleState);
     });
   });
 

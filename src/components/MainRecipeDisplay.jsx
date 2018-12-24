@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import NavButton from './NavButton';
 import { connect } from 'react-redux';
-import { removeRecipe } from './../actions';
+import { changePopupStatus } from './../actions';
 
-function MainRecipeDisplay({name, url, imageLink, currentRecipe, dispatch}){
+function MainRecipeDisplay({name, url, imageLink, currentRecipe, showPopup, dispatch}){
   const altText = `${name} Recipe`
   const backgroundImage = {
     backgroundImage: `url(${imageLink})`
@@ -22,9 +22,9 @@ function MainRecipeDisplay({name, url, imageLink, currentRecipe, dispatch}){
     margin: '0 auto'
   };
 
-  const handleClick = (recipeId) => {
-    console.log(recipeId)
-    dispatch(removeRecipe(recipeId));
+  const handleClick = () => {
+    const newPopup = !showPopup;
+    dispatch(changePopupStatus(newPopup));
   };
 
   return (
@@ -37,11 +37,8 @@ function MainRecipeDisplay({name, url, imageLink, currentRecipe, dispatch}){
           <div className='centerMe'>
             <button className='navButtonStyle'><a className='linkStyle' href={url}>Link to Original Recipe</a></button>
           </div>
-          <div onClick={() => {handleClick(currentRecipe)}}>
-            <NavButton
-              linkPath='/'
-              linkText='Delete Recipe'
-            />
+          <div className='centerMe' onClick={() => {handleClick()}}>
+            <button className='navButtonStyle'>Delete Recipe</button>
           </div>
           <NavButton
             linkPath='/edit-recipe'
@@ -55,7 +52,8 @@ function MainRecipeDisplay({name, url, imageLink, currentRecipe, dispatch}){
 
 const mapStateToProps = state => {
   return {
-    currentRecipe: state.currentRecipeId
+    currentRecipe: state.currentRecipeId,
+    showPopup: state.showPopup
   };
 };
 

@@ -4,7 +4,7 @@ export const initialState = {
     Luke : {
       loadedInitialState: false,
       isRouting: false,
-      showPopup: true,
+      showPopup: false,
       currentRecipeId : null,
       recipes : {
         split_pea_soup : {
