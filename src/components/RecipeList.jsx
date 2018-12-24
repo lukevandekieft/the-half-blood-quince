@@ -14,18 +14,6 @@ const RecipeList = (props) => {
                   valueKey = {index}
                 />
       })}
-
-      {/* This section added to provide more recipes - delete when more data is available */}
-      {Object.keys(props.recipes).map(index => {
-
-        let recipe = props.recipes[index];
-        return <RecipeItem
-                  name = {recipe.name}
-                  image = {recipe.imageLink}
-                  key = {index}
-                  valueKey = {index}
-                />
-      })}
     </div>
   );
 }

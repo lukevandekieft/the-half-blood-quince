@@ -1,466 +1,243 @@
 {
   "users" : {
     "Luke" : {
+      "currentRecipeId" : "773c3b3d-7c08-416a-951b-d7e3c6e13f03",
       "loadedInitialState" : "true",
-      "currentRecipeId" : "mujadara",
       "recipes" : {
-        "split_pea_soup" : {
-          "name" : "Split Pea Soup",
-          "imageLink" : "https://www.tasteofhome.com/wp-content/uploads/2017/10/exps22295_HWS1227354D43B.jpg",
-          "url" : "https://www.tasteofhome.com/recipes/vegetarian-split-pea-soup/",
-          "ingredients" : [
-            "6 cups vegetable broth",
-            "2 cups dried green split peas, rinsed",
-            "1 medium onion, chopped",
-            "1 cup chopped carrots",
-            "2 celery ribs with leaves, chopped",
-            "2 garlic cloves, minced",
-            "1/2 teaspoon dried marjoram",
-            "1/2 teaspoon dried basil",
-            "1/4 teaspoon ground cumin",
-            "1/2 teaspoon salt",
-            "1/4 teaspoon pepper",
-            "5 tablespoons shredded carrots",
-            "2 green onions, sliced"
-          ],
-          "ingredientsNotes" : [
-            "Can sub oregano for marjoram",
-            "add clove powder for ham flavor",
-            "add bay leaf",
-            "consider half-blended for somewhat chunky texture",
-            "get whole wheat baguette",
-            "add a little bit of liquid smoke before blending, add bacon bits at the end"
-          ],
-          "directions" : [
-            "In a large saucepan, combine the first nine ingredients; bring to a boil. Reduce heat; cover and simmer for 1 hour or until peas are tender, stirring occasionally.",
-            "Add salt and pepper; simmer 10 minutes longer. Cool slightly. In small batches, puree soup in a blender; return to the pan. Heat for 5 minutes. Garnish with shredded carrots and green onions."
-          ],
-          "directionsNotes" : [
-            "consider half-blended for somewhat chunky texture",
-            "add a little bit of liquid smoke before blending, add bacon bits at the end"
-          ]
+        "10c83132-7bfa-4e0e-9798-0b3bd4dbb160" : {
+          "directions" : [ "Preheat oven to 425 degrees F (220 degrees C).", "Combine 3 1/2 cups berries with the sugar and flour. Spoon the mixture into an unbaked pie shell. Spread the remaining 1/2 cup berries on top of the sweetened berries, and cover with the top crust. Seal and crimp the edges, and cut vents in the top crust for steam to escape.", "Brush the top crust with milk, and sprinkle with 1/4 cup sugar.", "Bake in the preheated oven for 15 minutes. Reduce the temperature of the oven to 375 degrees F (190 degrees C), and bake for an additional 20 to 25 minutes, or until the filling is bubbly and the crust is golden brown. Cool on wire rack." ],
+          "imageLink" : "https://www.saveur.com/g00/3_c-3ccc.ygbkax78.ius_/c-3SUXKVNKAY76x24nzzvyx3ax2fx2fccc.ygbkax78.iusx2fyozkyx2fygbkax78.iusx2florkyx2fyzerkyx2f7666_7d_x2fvahroix2fosvux78zx2f8670x2f8670-61x2fx78kiovk_hrgiqhkx78x78e-vok_466d7866.pvmx3fozuqx3dwMj05SPsx26o76i.sgx78qx3dosgmk_$/$/$/$/$/$/$/$/$/$/$",
+          "ingredients" : [ "4 cups fresh blackberries1/2 cup white sugar", "1/2 cup white sugar", "1/2 cup all-purpose flour", "1 recipe pastry for a 9 inch double crust pie", "2 tablespoons milk", "1/4 cup white sugar" ],
+          "ingredientsNotes" : [ "I've made this as written as well as with recommendations from reviews. The additions make this a stellar dessert. I can't imagine why anyone would want 1/4 cup sugar on top of their pie and saturate it with 2 whole tablespoons of milk. One tablespoon milk is enough, and and 1-2 tsps of sugar is really all you need on top. The pie was runny with flour, so I replaced the flour with 1/4 cup of instant, granulated tapioca. Once it cooled completely, the pie didn't run at all. Squeeze half a lemon over the berries and sprinkle 2 tablespoons of chopped butter over them as well before topping off the pie with the second crust. Brushing the bottom with egg saves the pie from getting soggy on the bottom. Absolutely amazing on a hot summer day with French Vanilla ice cream " ],
+          "name" : "Blackberry Pie",
+          "url" : "https://www.allrecipes.com/recipe/12284/blackberry-pie-i/"
         },
-        "mapo_tofu" : {
-          "name" : "Mapo Tofu",
-          "imageLink" : "https://www.seriouseats.com/recipes/images/2013/02/20120206-vegan-mapo-tofu-12.jpg",
-          "url" : "https://www.seriouseats.com/recipes/2013/02/the-best-vegan-mapo-tofu-recipe.html#comments-23131",
-          "ingredients" : [
-            "4 whole dried woodear mushrooms (about 1/6 ounce)",
-            "1/4 ounce dried morel or porcini mushrooms, or a mix",
-            "1 (2-inch) piece of kombu (optional, see note)",
-            "1 1/2 cups boiling water",
-            "6 ounces white button mushrooms, stems trimmed, quartered",
-            "1/3 cup vegetable oil",
-            "1 teaspoon cornstarch",
-            "2 tablespoons Shaoxing wine (see note)",
-            "1 tablespoon dark soy sauce",
-            "2 tablespoons whole Sichuan peppercorns, divided (see note)",
-            "2 tablespoons Sichuan peppercorns, one tablespoon left whole, the other toasted and ground in a spice grinder or mortar and pestle",
-            "2 whole dried chinese hot chilies",
-            "2 garlic cloves grated on a microplane grater",
-            "1 tablespoon fresh ginger grated on a microplane grater",
-            "4 scallions, whites finely chopped, greens thinly sliced, reserved separately",
-            "12 chinese chives or regular chives cut into 1/2-inch segments",
-            "3 tablespoons minced yacai (Chinese preserved mustard root, see note, optional)",
-            "2 tablespoons fermented chili broad bean paste (see note)",
-            "2 tablespoons roasted chili oil (see note)",
-            "1 1/2 pounds medium to firm silken tofu, cut into 1/2-inch cubes"
-          ],
-          "ingredientsNotes" : [
-            "Yacai is fine, you don't need traditional zhai cai.",
-            "add 1 1/2 tsp MSG to mushroom water ;)",
-            "Use heaped tablespoons of bean paste."
-          ],
-          "directions" : [
-            "Combine dried mushrooms and kombu (if using) in a small bowl or liquid measuring cup and cover with water. Place a paper towel or kitchen towel directly on surface of water to keep mushrooms mostly submerged. Set aside for ten minutes to rehydrate.",
-            "Meanwhile, place button mushrooms in the bowl of a food processor and pulse until chopped into rough 1/4-inch pieces, about 6 to 8 one-second pulses. Combine chopped button mushrooms and oil in the bottom of a large wok. Heat over high heat, stirring constantly, until mushrooms are shriveled and well browned, 6 to 10 minutes. Strain through a fine mesh strainer set over a small saucepan. Transfer fried mushrooms to a medium bowl and return oil to wok.",
-            "When dried mushrooms are rehydrated, strain through a fine mesh strainer set over a small bowl. Discard kombu. Discard all but 3/4 cups soaking liquid. Add cornstarch, wine, and soy sauce to liquid. Transfer drained mushrooms to a cutting board. Remove and discard hard central stems from woodear mushrooms, then finely chope all the mushrooms. Add to bowl with fried mushrooms.",
-            "Add whole Sichuan peppercorns and both chilis to oil in wok and return to high heat. Cook until fragrant and peppercorns have stopped sputtering. Do not overcook, or they will burn. Immediately strain through a fine mesh strainer, discard peppercorns and chilies, and return oil to wok.",
-            "Heat oil over high heat until lightly smoking. Add garlic, ginger, scallion whites, chives, and yacai (if using). Stir-fry until fragrant, about 30 seconds. Add chopped mushrooms and stir-fry to combine. Add fermented chili broad bean paste and stir until all the vegetables are well coated. Stir mushroom liquid mixture to incorporate cornstarch, then add to wok. Cook, storring constantly, until lightly thickened and reduced, about 1 1/2 minutes. Add tofu and carefully fold in, trying not to break it.",
-            "Cook until tofu is heated through. Transfer to a serving platter, drizzle with chili oil, and top with scallions and ground Sichuan peppercorns. Serve immediately with white rice."
-          ],
-          "directionsNotes" : [
-            "Morel mushrooms can be skipped. Throw away re-hydrated woodears after steeping because they have a bad texture when stir fried.",
-            "Don't overcook mushrooms: you shouldn't have burn marks when you separate oil.",
-            "break chilis before frying. Use 4 chilis for medium spicy. Let peppers & chilis fry for a couple minutes at lower heat.",
-            "Rinse & mince yacai before adding.",
-            "Don't reduce liquid very much, you want the dish to be a bit soupy. Feel free to go ham on the chili paste and even add regular vegetable oil to stretch your chili oil out further."
-          ]
+        "1ee55fb4-3296-41a1-aaae-816eaef147d9" : {
+          "directions" : [ "Heat the olive oil over medium heat in large saucepan. When the oil is hot, add the onion and sauté until soft and translucent, about five minutes. Add the garlic and ginger and sauté for another minute.", "Add the broth and all remaining ingredients except for the cilantro. Stir and bring to a boil.", "Lower the heat, cover and allow to simmer for about one hour, stirring occasionally, until the split peas fall apart, adding up to 1 cup of water during cooking if it becomes too thick.", "Divide among bowls and top with cilantro. Serve over basmati rice." ],
+          "directionsNotes" : [ "Doubled recipe fits in large sauce pan", "doubled recipe needs to cook ~75 mins not 60" ],
+          "imageLink" : "https://www.connoisseurusveg.com/wp-content/uploads/2014/05/yellow-split-pea-dal-4.jpg",
+          "ingredients" : [ "2 tablespoons olive oil", "1 large onion, chopped", "3 garlic cloves, minced", "1 teaspoon fresh grated ginger", "3 cups vegetable broth", "1 1/2 cups dried split peas", "1/2 tablespoon ground turmeric", "1/2 tablespoon ground cumin", "4 whole cloves", "1 2-inch cinnamon stick", "2 tablespoons tomato paste", "1 tablespoon Asian chili paste, or to taste", "Salt and pepper to taste", "1/4 cup fresh cilantro leaves, for serving" ],
+          "name" : "Dal Chalaw (Peas)",
+          "url" : "https://www.connoisseurusveg.com/yellow-split-pea-dal/#comment-157460"
         },
-        "chana_masala" : {
-          "name" : "Chana Masala",
-          "imageLink" : "https://www.seriouseats.com/recipes/images/2016/03/20160328-channa-masala-recipe-6.jpg",
-          "url" : "https://www.seriouseats.com/recipes/2016/04/channa-masala-recipe.html",
-          "ingredients" : [
-            "4 medium cloves garlic, roughly chopped",
-            "1 (1-inch) knob ginger, peeled, roughly chopped",
-            "1 to 6 green Thai chilies (to taste), roughly chopped",
-            "2 tablespoons (30ml) juice from 1 lemon, divided",
-            "Kosher salt",
-            "2 tablespoons (30ml) vegetable oil or ghee",
-            "2 teaspoons (8g) black mustard seed",
-            "1 teaspoon (4g) whole cumin seed",
-            "1 large onion, finely diced (about 1 1/2 cups; 300g)",
-            "1/4 teaspoon (1g) baking soda",
-            "2 teaspoons (8g) ground coriander",
-            "1/2 teaspoon (2g) freshly ground black pepper",
-            "1/2 teaspoon (2g) ground turmeric",
-            "1 1/2 teaspoons (6g) store-bought or homemade garam masala, divided",
-            "1 (14-ounce) can whole peeled tomatoes",
-            "2 (14-ounce) cans chickpeas, drained and rinsed",
-            "1 cup cilantro leaves, roughly chopped (1 ounce; 25g)"
-          ],
-          "ingredientsNotes" : [
-            "Serrano peppers can substitute Thai chilis - 3 is quite spicy."
-          ],
-          "directions" : [
-            "Combine garlic, ginger, chilies, 1 tablespoon lemon juice, and 1/2 teaspoon kosher salt in a mortar and pestle or in the small work bowl of a food processor and pound or process until a fine paste is produced. Set aside.",
-            "Heat oil or ghee in a large saucepan or Dutch oven over medium-high heat until shimmering. All at once, add mustard seed and cumin. They will sputter and spit for a few seconds. As soon as they are aromatic (about 15 seconds), add onion all at once, along with baking soda. Cook, stirring frequently, until onions start to leave a brown coating on bottom of pan, 3 to 4 minutes. Add 1 tablespoon water, scrape up browned bits from pan, and continue cooking. Repeat this process until onions are a deep brown, about 10 minutes total.",
-            "Immediately add garlic/ginger/chili paste all at once and stir to combine. Add coriander, black pepper, turmeric, and 1 teaspoon garam masala. Stir until fragrant, about 30 seconds. Add tomatoes and crush them using a whisk or potato masher. Add drained, rinsed chickpeas and cilantro, reserving a little cilantro for garnish. Add 1/2 cup water.",
-            "Bring to a simmer, cover with lid slightly cracked, and reduce heat to maintain a gentle bubbling. Cook, stirring occasionally, until liquid has reduced into a thick stew and spices have melded, about 30 minutes.",
-            "Stir in remaining garam masala and lemon juice. Season to taste with salt. Serve with rice and/or naan, sprinkling additional cilantro on top."
-          ],
-          "directionsNotes" : [
-            "Makes 3 large servings - feel free to double",
-            "Paste is hard to make but VERY small chunks works fine"
-          ]
+        "256773aa-1a3b-46e8-9f40-cd8efb9a8945" : {
+          "directions" : [ "Preparation", "Wash urad dal and rajma together several times and soak overnight or at least for 4 to 5 hours.", "Rinse both the lentils a few times. ", "Then drain and add them to the cooker or pot. Also add bay leaf. Pour 2½ to 3 cups of water.", "Pressure cook for 8 to 10 whistles on a medium heat. You can also cook in a pot until soft and tender adding more water whenever needed.", "Both urad dal and rajma must cook to very soft. When mashed with a spoon the dal and rajma must be soft and get mashed well easily.  If not then pour another half cup water and continue to cook for another 3 whistles on a medium heat. ", "How to make dal makhani", "Heat a heavy bottom pot / pan or handi with butter or oil. ", "Add all whole spices - cumin, cardamoms, cloves & cinnamon. All spices are optional except cumin. Allow to crackle. ", "Then add hing, ginger garlic and green chilli. Saute until aromatic.", "Next throw in the onions and fry until they turn golden. ", "Then transfer tomato puree, turmeric, chilli powder, garam masala, coriander powder (optional) and salt. ", "Saute well until the masala leaves the pan.", "Pour the cooked dal or lentils along with the stock.", "Slow cooking dal makhani", "Stir and cook on a a low flame until the dal thickens. I cook for about 60 mins stirring often in between to prevent burning the bottom.  Slow cooked dal tastes best.", "You will need to add half cup water when ever the dal thickens. It may need about 1 to 2 cups water more as and when needed. ", "You will be left with a thick creamy dal makhani. Sprinkle kasuri methi if using. Pour cream and stir. Turn off the stove & keep it covered.", "Garnish dal makhani with butter or cream, coriander leaves & ginger juliennes. Serve dal makhani with naan, basmati rice, roti or jeera rice.", "Dhungar method or char coal smoking dal makhani (optional)", "Place a small piece of foil on the dal makhani. Hold 1 to 2 inch piece of natural wood charcoal with a tong and burn it on fire until red hot. Then place it on the foil kept over dal. Quickly pour half tsp ghee on the hot coal. Immediately cover the dal and allow to smoke for 1 to 2 mins." ],
+          "directionsNotes" : [ "Get dal & beans boiling before you feel like cooking: simmer 40 minutes before starting on anything else and continue boiling until kidney beans are mushy" ],
+          "imageLink" : "https://www.indianhealthyrecipes.com/wp-content/uploads/2018/11/dal-makhani-recipe.jpg",
+          "ingredients" : [ "Ingredients for dal makhani", "½ cup whole black lentil or sabut urad dal or black gram", "2 to 3 tbsp rajma or red kidney beans (substitute with black gram)", "2½ to 3 cups water for pressure cooking - more for pot", "1 small bay leaf or tej patta (optional)", "Tempering ingredients for dal makhani", "2 to 3 tbsp unsalted butter or oil", "1 medium onion finely chopped", "2 medium tomatoes fine chopped deseeded or ¾ cup tomato puree", "1½ tsp ginger garlic paste or 2 tsps finely chopped or crushed well", "1 green chilies slit optional or hari mirch", "Salt as needed", "1 to 1 ½ cups water to add later (half cup each time while simmering)", "3 to 4 tbsps cream", "Whole spices (or substitute with ¼ tsp garam masala)", "¼ to ½ tsp cumin or jeera", "2 green cardamoms or elaichi (optional)", "½ inch cinnamon piece or dalchini (optional)", "2 cloves or laung (optional)", "1 small black cardamom or badi elaichi (optional)", "Spice powders", "¼ tsp turmeric powder or haldi", "½ to ¾ tsp red chilli powder or lal mirch powder", "½ tsp garam masala", "1 tsp coriander powder or daniya powder (optional)", "¼ tsp kasuri methi or dry fenugreek leaves (optional)", "1/8 tsp hing or asafoetida (optional)", "For garnish", "1 tbsps butter or 1 tbsp cream" ],
+          "ingredientsNotes" : [ "Best to make this as a 3x recipe because 4x gets too much", "4 habanero for 3x servings is adequately spicy", "cream garnish not needed. Butter garnish is good but not needed" ],
+          "name" : "Dal Makhani",
+          "url" : "https://indianhealthyrecipes.com/dal-makhani-recipe/"
         },
-        "chickpea_'tuna'_salad" : {
-          "name" : "Chickpea 'Tuna' Salad",
-          "imageLink" : "https://minimalistbaker.com/wp-content/uploads/2014/12/Chickpea-Sandwic-SQUARE.jpg",
-          "url" : "https://minimalistbaker.com/chickpea-sunflower-sandwich/",
-          "ingredients" : [
-            "1 15- ounce can chickpeas (rinsed and drained)",
-            "1/4 cup roasted unsalted sunflower seeds (if salted, scale back on added salt)",
-            "3 Tbsp vegan mayo (sub tahini for a more earthy, nutty flavor)",
-            "1/2 tsp dijon or spicy mustard (if using tahini instead of mayo, use half as much mustard)",
-            "1 Tbsp maple syrup (or sub agave or honey if not vegan)",
-            "1/4 cup chopped red onion",
-            "2 Tbsp fresh dill* (finely chopped)",
-            "1 healthy pinch each salt and pepper (to taste)",
-            "4 pieces rustic bread (lightly toasted // gluten-free for GF eaters)",
-            "Sliced avocado, onion, tomato, and or lettuce (optional // for serving)"
-          ],
-          "ingredientsNotes" : [
-            "Feel free to make subs as needed - sunflower seeds are nice but not vital, just the crunch is."
-          ],
-          "directions" : [
-            "Add chickpeas to a mixing bowl and lightly mash with a fork for texture. Then add sunflower seeds, mayo, mustard, maple syrup, red onion, dill, salt, and pepper and mix with a spoon. Taste and adjust seasonings as needed.",
-            "Toast bread (if desired) and prepare any other sandwich toppings you desire (tomato, onion, lettuce).",
-            "Scoop a healthy amount of filling onto two of the pieces of bread, add desired toppings and sauce, and top with other two slices of bread.",
-            "Sunflower-chickpea mixture will keep covered in the fridge for up to a few days, making it great for quick weekday lunches!"
-          ],
-          "directionsNotes" : [
-            "Consistency suffers if it’s in the fridge too long"
-          ]
+        "2b47ea3f-5519-4bcc-98aa-b40e57afa673" : {
+          "directions" : [ "Preheat oven to 350 degrees.", "Generously butter a 9x13 pan. Spread 2 cups of mashed potatoes on the bottom pan. Sprinkle with 1 cup of cheese. Place 3 noodles over the layer of cheese. Repear layers. For the final layer, spread the remaining potatoes over the last layer of noodles. Sprinkle with the remaining cheese (use anywhere from 1-2 cups on this final layer), bacon (if using) and then cover with foil.", "Bake for 40 minutes and then remove foil. Bake for another 20 minutes, until cheese is browned.", "Allow to cool before slicing.", "Serve as is, or with caramelized onions and a dollop of Greek yogurt or sour cream." ],
+          "imageLink" : "https://amindfullmom.com/wp-content/uploads/2015/04/Square-Potato-Lasanga.jpg",
+          "ingredients" : [ "butter for greasing pan", "6 cups leftover mashed potatoes this was from about 5 pounds of potatoes", "3-4 cups shredded sharp cheddar cheese", "6 lasgana noodles boiled (I used whole wheat)", "4 strips of bacon cooked and crumbled optional", "sour cream/Greek yogurt for serving" ],
+          "ingredientsNotes" : [ "GET MASHED POTATOES RIGHT BEFORE ATTEMPTING.", "Add fake bacon.", "Don't skimp on yogurt/cream." ],
+          "name" : "Pierogi Lasagna",
+          "url" : "https://amindfullmom.com/pierogi-lasagna-a-perfect-dish-for-leftover-mashed-potatoes/"
         },
-        "mujadara" : {
-          "name" : "Mujadara",
-          "imageLink" : "https://www.themediterraneandish.com/wp-content/uploads/2015/08/Mujadara-Recipe-111.jpg",
-          "url" : "https://www.themediterraneandish.com/mujadara-lentils-and-rice-with-crispy-onions/",
-          "ingredients" : [
-            "1 cup small brown lentils, sorted and rinsed",
-            "4 cups water, divided",
-            "1/4 cup Private Reserve Greek extra virgin olive oil, more for later",
-            "2 large yellow onions, diced (4 cups)",
-            "1 tsp kosher salt, more to taste",
-            "1 cup long-grain white rice, soaked in water for 10-15 minutes and then drained",
-            "black pepper",
-            "Parsley or parsley flakes for garnish",
-            "FOR THE FRIED CRISPY ONION GARNISH (OPTIONAL)",
-            "Oil for frying",
-            "1 large yellow onion cut in very thin rings"
-          ],
-          "ingredientsNotes" : [
-            "Pairs great with cucumber raita",
-            "Recipe is fine as-is: the onions, salt, & raita add all the flavor you need",
-            "Hearty enough for an entree but pair with something else for company (cucumber salad?)"
-          ],
-          "directions" : [
-            "Place the lentils in a small saucepan with 2 cups of the water. Bring the water to a boil over high heat, and then reduce the heat and simmer, cover until the lentils are par-boiled (10-12 minutes). Remove from the heat, drain the lentils and set them aside.",
-            "In a large saute pan with a lid, heat the oil over medium-high heat. Add the diced onions and cook until the onions are dark golden brown, darker than typical caramelized onions (about 40 minutes), sprinkle the onions with a teaspoon of salt as they cook.",
-            "Carefully pour the remaining 2 cups of water, bring the water to a boil over high heat, and then reduce the heat to low and simmer for 2 minutes. Stir the rice and par-cooked lentils into the onion mixture. Cover and bring back to a boil. Stir in a healthy pinch of salt and the black pepper. Reduce the heat to low, cover, and cook until the liquid has been absorbed and the rice and lentils are both cooked through (about 20 minutes). Remove from the heat and season with salt and pepper to taste. Serve the Mujadara hot or at room temprature with a drizzle of extra virgin olive oil and parsley garnish, if you like.",
-            "If you are adding the the fried onions, heat the oil over medium-high heat (to 375 degrees F) in a saucepan. When a small piece of onion bubbles vigorously, the oil is ready. Fry the onions in batches until they are golden brown. Transfer the onions to a paper towel-lined plate or try, and then arrange them on top of the Mjuadara.",
-            "The original recipe does not call for soaking the rice in water before use. I have found that soaking the rice in water for 10-15 minutes, or until you are able to break one grain of rice between your fingers, provides better results."
-          ],
-          "directionsNotes" : [
-            "Start caramelizing onions asap: these took close to an hour and there was plenty of time to do everything else while they cooked (frying, lentils, & raita included)"
-          ]
+        "448873be-1778-4852-925f-82d11ef52355" : {
+          "directions" : [ "Preparation for pongal recipe", "Dry roast dal till they begin to smell nice. This step is optional.", "Add rice and dal to a pot or cooker. Wash them at least three times.", "Pour 1 ¾ to 2 cups water. Add salt.  Adjust the water as needed.", "Cook until rice is soft. If cooking in cooker cook for 1 to 2 whistles on a medium flame.", "When the pressure goes off, open the lid.", "If you desire, you can mash up a bit to get creamy consistency. Let the water evaporate and the rice reach a mushy and creamy stage. It should not be very runny or dry. Add more salt if needed and stir.", "Making ven pongal recipe", "Heat a pan with ghee. ", "Fry cashews till golden. Set aside. ", "Add cumin & pepper corn. Allow them to splutter then add ginger and turmeric. Add hing.", "Pour this to the pongali. Mix and simmer for a minutes. Off the stove.", "Serve ven pongal with chutney or sambar." ],
+          "directionsNotes" : [ "Don't make it like the pictures, try to make it much goopier next time with more water and a longer cook time." ],
+          "imageLink" : "https://www.indianhealthyrecipes.com/wp-content/uploads/2018/07/pongal-recipe.jpg",
+          "ingredients" : [ "½ cup rice", "½ cup moong dal or pesara pappu or skinned split mung beans", "8 Cashew nuts (or as needed optional)", "1 inch ginger (grated or paste or sliced or chopped)", "1 sprig curry leaves", "½ tsp cumin or jeera", "Pinch asafoetida or hing", "½ tsp pepper corn", "1 tbsp ghee (you can add more)", "1 pinch Turmeric or haldi" ],
+          "name" : "Venn Pongal",
+          "url" : "https://indianhealthyrecipes.com/pongal-recipe-venn-pongal/"
         },
-        "lentil_shepherd's_pie" : {
-          "name" : "Lentil Shepherd's Pie",
-          "imageLink" : "https://yupitsvegan.com/wp-content/uploads/2017/10/vegan-shepherds-pie-lentil-vegetable-3.jpg",
-          "url" : "https://yupitsvegan.com/vegan-shepherds-pie-lentil/",
-          "ingredients" : [
-            "For cooking the lentils:",
-            "1 cup dry green lentils rinsed",
-            "3 cups low-sodium vegetable broth",
-            "1 bay leaf (optional)",
-            "For the lentil layer:",
-            "1 and 1/2 tbsp olive oil",
-            "3 shallots thinly sliced",
-            "1 clove garlic minced",
-            "1 large carrot peeled and finely diced",
-            "1/4 tsp smoked paprika (or regular)",
-            "1/4 tsp dried thyme",
-            "1 red apple diced (any variety)",
-            "1/4 cup tomato paste",
-            "3 tbsp low-sodium soy sauce",
-            "1/2 tbsp maple syrup",
-            "salt and pepper to taste",
-            "For the garlic chive mashed potato layer:",
-            "2 lbs red potatoes (32oz/907g)",
-            "1/4 cup plain, unsweetened non-dairy milk",
-            "2 tbsp olive oil",
-            "3/4 tsp salt",
-            "4 cloves garlic minced or grated",
-            "1/2 bunch chives finely chopped (0.33oz/9g)"
-          ],
-          "ingredientsNotes" : [
-            "Good for company! Looks great and potato flavor is great.",
-            "Skip maple syrup and try replacing some of the tomato paste - the base layer tasted a little ketchupy"
-          ],
-          "directions" : [
-            "For cooking the lentils:",
-            "Add the lentils, vegetable broth, and bay leaf (if using) to a small saucepan. Bring the mixture to a boil, then reduce to a simmer. Continue to cook, stirring occasionally, until lentils are cooked through, 15-20 minutes. If they run out of liquid before cooking thoroughly, add more broth or water. Remove the bay leaf and drain any excess broth.",
-
-            "For the lentil vegetable layer:",
-            "In a large skillet, heat the olive oil over medium heat. Add the sliced shallot with a pinch of salt, and stir. Continue to cook, stirring occasionally, until shallot is softened and starting to lightly brown, 3-5 minutes. Add the carrot and stir well, cooking for another 3-5 minutes until carrot starts to soften.",
-
-            "Stir in the minced garlic, smoked paprika and dried thyme, and cook for about 60 seconds until fragrant. Add the apple, tomato paste, soy sauce, and maple syrup.",
-
-            "Turn off the heat and stir in the cooked lentils. Adjust salt, pepper and other seasoning to taste.",
-
-            "For the mashed potatoes layer:",
-            "Add the red potatoes to a saucepan with cold water. (If your potatoes are on the larger side, you can roughly chop them first to save time.)",
-
-            "Bring to a boil and cook for about 20 minutes or until the potatoes are tender. Drain the potatoes, and once cool enough to handle, remove the skins (if desired).",
-
-            "Use a potato masher or ricer to mash the potatoes. Add the non-dairy milk, olive oil, salt and garlic, and continue mashing until well-combined and smooth. Stir in the chopped chives; add more salt and pepper to taste.",
-
-            "For assembling and baking the vegan shepherd's pie:",
-            "Preheat the oven to 350 degrees Fahrenheit. Spread out the lentil mixture on the bottom of a casserole dish (mine is 7' by 10' and this recipe fills it to the brim; slightly larger sizes will also work). Use a spatula to press the lentils into a flat, compact layer. Dollop the mashed potatoes on top and gently spread them out into an even layer. Optionally, brush or spray additional olive oil on top of the mashed potato layer for better browning.",
-
-            "Bake for approximately 30 minutes, or until the casserole is hot through, and the top of the potatoes are crusted and lightly browned. Optionally, broil for 3-4 minutes to get even more color on the surface.",
-
-            "Serve hot; once cooled, leftovers store nicely in both the refrigerator or the freezer."
-          ],
-          "directionsNotes" : [
-          ]
+        "51e98c89-8b8c-4b61-a693-aa0021d70b75" : {
+          "directions" : [ "Blend together coconut, dal, garlic, salt , chili and cumin well.", "Add water just enough to blend and make a thick chutney.", "Heat oil in a pan. Add cumin, red chili and dal.", "When the dal turns golden, add curry leaves & hing .", "Add it to the coconut chutney. Serve with breakfast or snacks." ],
+          "directionsNotes" : [ "Turns out a little chunky - consider more water & blending for a long time", "mustard, dal, & chili cook quickly: add curry leaves sooner than you'd think so the others don't burn", "remove chilis & [maybe] leaves before mixing all together" ],
+          "imageLink" : "https://www.indianhealthyrecipes.com/wp-content/uploads/2016/02/coconut-chutney-recipe.jpg",
+          "ingredients" : [ "½ cup coconut fresh, grated or chopped", "2 tbsp fried gram or roasted chana dal", "½ tsp cumin or jeera", "1 to 2 green chilies", "Salt as needed", "1 clove garlic (optional or replace with small piece of ginger)", "Tempering ingredients", "¾ tbsp oil", "¼ tsp mustard", "½ to ¾ tsp urad dal or skinned & split black lentils", "1 Pinch asafoetida or hing", "1 sprig curry leaves", "1 red chili broken" ],
+          "name" : "Coconut Chutney",
+          "url" : "https://indianhealthyrecipes.com/coconut-chutney-recipe-idli-dosa-chutney/"
         },
-        "bread_upma" : {
-          "name" : "Bread Upma",
-          "imageLink" : "https://www.indianhealthyrecipes.com/wp-content/uploads/2017/05/bread-upma-414x600.jpg",
-          "url" : "https://indianhealthyrecipes.com/bread-upma-recipe/",
-          "ingredients" : [
-            "2 to 3 slices bread (prefer brown bread)",
-            "1 tbsp oil",
-            "½ tsp mustard seeds",
-            "½ tsp urad dal (skip if you don\"t have)",
-            "1 sprig curry leaves",
-            "¾ tsp ginger paste or grated",
-            "1 green chili slit or chopped",
-            "8 to 10 cashew nuts split or peanuts",
-            "¼ cup onions chopped finely (1 medium)",
-            "½ cup ripe tomatoes chopped finely (1 large) (adjust as needed)",
-            "Salt as needed",
-            "2 pinches turmeric or haldi",
-            "½ tsp chili powder (less spicy variety)",
-            "½ tsp sugar (skip if using milk bread)",
-            "3 to 4 tbsp water",
-            "2 tbsp coriander leaves chopped finely",
-            "Lemon juice to serve (optional)"
-          ],
-          "ingredientsNotes" : [
-            "Use chewy breads like baguette if possible"
-          ],
-          "directions" : [
-            "Heat a pan and toast the bread until crisp on both the sides. Cool completely. Cut them to small cubes and set aside.",
-            "Pour oil to the same pan and fry cashews or peanuts until golden. Set these aside with bread.",
-            "Add mustard and urad dal. Saute till urad dal turns lightly golden.",
-            "Next add green chilies and curry leaves. Saute until the leaves turn crisp.",
-            "Sprinkle hing. Add onions and saute until they turn golden. Saute the ginger paste as well.",
-            "Next add tomatoes, salt and turmeric. Saute until tomatoes turn soft and mushy.",
-            "Then add chili powder and sugar. Saute for 2 mins until the raw smell goes off.",
-            "Pour 3 to 4 tbsp water and mix.",
-            "Cook until the mixture turns thick. Check spice and salt. Add more if needed.",
-            "Add bread cubes and cashews. Mix to coat the spice mixture to bread.",
-            "Sprinkle coriander leaves.",
-            "Serve bread upma hot. Sprinkle some lemon juice if desired"
-          ],
-          "directionsNotes" : [
-            "Try blending or processing the onions & tomatoes since the texture wasn\"t very gravy-like",
-            "Adding bread at the last minute works"
-          ]
+        "5982b437-4d79-406e-9477-1afa693342ea" : {
+          "directions" : [ "Preparation for matar paneer recipe", "Heat a pan with 1 tbsp oil.", "Add ginger and garlic. Saute for a min.", "Next add onions and fry until they turn transparent.", "Put in tomatoes, turmeric and salt. Saute for 2 to 3 mins.", "Cover and cook until tomatoes turn soft.", "Add cashews.", "Cool this completely. Make a fine paste of this in the blender.", "How to make matar paneer", "Pour 2 tbsps oil in the same pan.", "Add cinnamon, cardamoms and bay leaf. Saute for a minute.", "Pour the pureed onion tomato mixture.", "Add chili powder, garam masala and coriander powder.", "Saute this mixture until it leaves the pan. Keep stirring to prevent burning.", "Add green peas. If using fresh peas, boil them until tender in a pot, drain and use. If using frozen peas then you can rinse and use.", "Pour 1 to 1 ¼ cups water. Mix well to make a gravy. Add more water if needed.", "Mix and cover the pan. Cook on a medium heat until the gravy thickens and traces of oil appear over the gravy.", "Check salt and add more if needed.", "Add green chilli, paneer and kasuri methi.", "Mix well. Cover and cook just for 2 mins.", "Sprinkle coriander leaves and cream.", "Mix well.", "Serve matar paneer with rice, naan or paratha." ],
+          "imageLink" : "https://www.indianhealthyrecipes.com/wp-content/uploads/2018/11/matar-paneer.jpg",
+          "ingredients" : [ "To fry & puree", "1 tbsp oil", "3 cloves garlic or lahsun chopped", "1 inch ginger or adrak chopped", "1 cup onions chopped (1 large)", "1 to 1 ¼ cup tomatoes (2 medium) chopped", "8 cashewnuts", "½ tsp Salt", "For matar paneer gravy", "2 tbsp oil", "1 inch cinnamon or dalchini", "2 cardamoms or elaichi", "1 small bay leaf (optional)", "¾ to 1 tsp red chili powder (less spicy variety)", "1/8 tsp turmeric or haldi", "½ to ¾ tsp garam masala", "½ to ¾ tsp coriander powder", "½ to ¾ cup peas or matar (boiled or frozen)", "1 to 1 ¼ cup water (use more if needed)", "1 green chili deseeded & slit", "250 grams paneer or indian cottage cheese", "¾ to 1 tsp Kasuri methi or dried fenugreek leaves", "Salt as needed (about ¼ to ½ tsp)", "Handful coriander leaves", "2 tbsp milk cream" ],
+          "ingredientsNotes" : [ "Indulgent: ", "4x recipe + 4x ghee rice [my way] + 900g tofu (my way) = 900 calories for 5 big servings.", "Cutting 3 tbsp oil & all cream was still very rich at 750 cal. Consider cutting more tbsps", "Add more spice and maybe more peas, otherwise the flavor & salt given are perfect.", "Turmeric missed again, 1/8 tsp per serving was fine" ],
+          "name" : "Matar Paneer",
+          "url" : "https://indianhealthyrecipes.com/matar-paneer-mutter-masala/"
+        },
+        "5d700906-e6bd-4e1f-901f-e582114032f8" : {
+          "directions" : [ "Place mint leaves and 1 lime wedge into a sturdy glass. Use a muddler to crush the mint and lime to release the mint oils and lime juice. Add 2 more lime wedges and the sugar, and muddle again to release the lime juice. Do not strain the mixture. Fill the glass almost to the top with ice. Pour the rum over the ice, and fill the glass with carbonated water. Stir, taste, and add more sugar if desired. Garnish with the remaining lime wedge." ],
+          "imageLink" : "https://www.mightymrs.com/wp-content/uploads/simple-syrup-mojito-recipe.jpg",
+          "ingredients" : [ "10 fresh mint leaves", "1/2 lime, cut into 4 wedges", "2 tablespoons white sugar, or to taste", "1 cup ice cubes", "1 1/2 fluid ounces white rum", "1/2 cup club soda" ],
+          "ingredientsNotes" : [ "Tastes great as-is, too bad it's so unhealthy!" ],
+          "name" : "Mojitos",
+          "url" : "https://www.allrecipes.com/recipe/147363/the-real-mojito/"
+        },
+        "6d35b491-74d7-4521-8d88-e16b0c9f67cb" : {
+          "directions" : [ "Preparation for ghee rice", "Wash rice until the water runs clear. Soak it for at least 20 to 30 minutes. Drain and set aside.", "While the rice soaks, slice the onion thinly and green chilies", "Heat a pressure cooker or a pan with ghee. Fry cashews till lightly golden, add raisins and stir up. When they turn plump set them aside in a plate.", "To the same pan, add onions. You can also skip onions.", "Fry them till golden to make the fried onions / barista. You can skip this step. These onions are used for garnishing and they add flavor to the rice.", "Pour little more ghee to the pan. ", "How to make ghee rice", "Add in bay leaf, 1 star anise, 4 to 6 cloves, small cinnamon stick and a strand of mace. Fry for a min. ", "Next put in 2 sliced green chilis and fry for a min.", "Add drained rice. ", "Fry on a medium flame for about 3 to 4 minutes. Stir to prevent burning.", "Pour water and salt. You may need to add more or less water depending on the rice. I used 2.5 cups water. Taste the water and check the salt. If needed add more.", "Cook the rice till fully done. If making in a pressure cooker allow the cooker to whistle once on a medium flame if using basmati rice. If using normal rice, cook on a medium flame for 1 whistle.", "When the pressure goes down, gently fluff up the rice with a fork.", "Transfer ghee rice to a serving bowl or plate.", "Garnish with raisins, cashews, fried onions and coriander leaves.", "Serve ghee rice with any gravy like kurma, curry or even with egg roast. You can also eat it plain." ],
+          "directionsNotes" : [ "I just threw the spices in a rice cooker with 1 tsp ghee and loved it. Stop stirring early into recipe!" ],
+          "imageLink" : "https://www.indianhealthyrecipes.com/wp-content/uploads/2014/11/ghee-rice-recipe.jpg",
+          "ingredients" : [ "Ingredients for ghee rice", "1½ cups basmati rice", "3 tbsp ghee or clarified butter", "1 medium onion thinly sliced (optional)", "2½ cups water (use more if using normal rice)", "2 green chilies slit", "Salt as needed", "14 cashewnuts or kaju", "14 raisins", "spices for ghee rice", "2 inch cinnamon or dalchini", "6 cloves or laung", "4 green cardamoms or elaichi", "1 strand mace or javitri", "1 star anise or chakri phool", "1 bay leaf or tej patta" ],
+          "name" : "Spiced Rice",
+          "url" : "https://indianhealthyrecipes.com/ghee-rice-recipe-how-to-make-ghee-rice-in-andhra-style/"
+        },
+        "773c3b3d-7c08-416a-951b-d7e3c6e13f03" : {
+          "directions" : [ "Preparation for masoor dal", "Add masoor dal to a pot or pressure cooker. Wash it a few times until the water runs clear.", "Next add chopped tomatoes, water and green chili.", "Pressure cook for 1 to 2 whistles on a medium heat. If cooking in a pot, cook on a medium heat until soft.", "Once the pressure goes down, open the cooker.", "Mash the dal to suit your liking. You can make it smooth or keep it grainy. If needed you can pour 2 to 3 tbsp water to bring it to a consistency.", "Tempering masoor dal", "Heat 1 tbsp ghee in a small pan.", "Add mustard, cumin, red chilies and garlic.", "Saute until the garlic turns slightly golden.", "Turn off the heat and add hing, chili powder and turmeric. You can also add in garam masala if using.", "Quickly pour this off to the dal.", "Time to add salt and kasuri methi if using.", "Mix and simmer for 2 mins. If using coriander leaves add them now. ", "Squeeze in some lemon before serving. Masoor dal is ready to serve with roti or rice." ],
+          "directionsNotes" : [ "20 minutes pressure cooker worked for 5x serving" ],
+          "imageLink" : "https://www.indianhealthyrecipes.com/wp-content/uploads/2018/01/masoor-dal-recipe.jpg",
+          "ingredients" : [ "½ cup masoor dal or red lentils", "2 tbsp moong dal or split skinned mung beans", "2 medium tomatoes chopped & deseeded", "1 green chili (optional)", "1 ¼ cup water", "Seasoning", "1 tbsp ghee or oil or butter", "1 red chili broken", "2 garlic cloves chopped", "¼ tsp mustard (optional)", "½ tsp cumin or jeera", "1 pinch asafoetida or hing", "salt as needed", "¼ to ½ tsp red chili powder", "optional", "1 pinch garam masala (or 1/8 tsp)", "¼ tsp kasuri methi (dried fenugreek leaves) or 2 tbsp coriander leaves", "lemon juice as needed" ],
+          "ingredientsNotes" : [ "Be generous with salt and kasuri methi", "Cracked dried chilis + green chilis gives solid spice level" ],
+          "name" : "Masoor Dal",
+          "url" : "https://www.indianhealthyrecipes.com/masoor-dal-recipe/"
+        },
+        "77d7b024-c84a-4d1b-85f3-f8fdb60bcc8e" : {
+          "directions" : [ "Preparation for paneer do pyaza", "Make a fine puree of capsicum, tomatoes and cashews. Set this aside.", "Add oil to a pan and heat it.", "Add jeera and cardamoms.", "When they splutter, add chopped onions.", "Fry until they turn golden.", "Add ginger garlic paste and fry until the raw smell of ginger garlic goes away.", "Pour the tomato puree and saute on a low to medium flame.", "Within minutes the mixture begins to leave the pan.", "Add salt, turmeric, red chili powder, garam masala and coriander powder.", "Saute till oil separates. After frying the mixture for few minutes, oil begins to ooze out.", "How to make paneer do pyaza gravy", "Pour water and mix well.", "Cook covered until the gravy thickens. Traces of oil would be seen on the gravy.", "Lower the flame completely. Add paneer and sprinkle crushed kasuri methi.", "Cook covered just for 2 to 3 mins. Turn off the stove. Do not overcook the paneer.", "Meanwhile add 1 to 1.5 tbsp oil or ghee to a hot pan. Fry onions and green chiles on a high flame just for 2 to 3 mins. The onions must be partially cooked but must retain the crunch.", "Pour this over the paneer gravy and sprinkle some corainder leaves. You can set aside few onions for garnish.", "Paneer do pyaza is ready to serve." ],
+          "directionsNotes" : [ "mixture sputters, use splatter guard" ],
+          "imageLink" : "https://www.indianhealthyrecipes.com/wp-content/uploads/2017/12/paneer-do-pyaza-recipe.jpg",
+          "ingredients" : [ "200 grams Paneer or Indian cottage cheese or tofu", "¾ cup onions finely chopped", "1/3 cup tomatoes chopped (1 large,or replace with curd)", "1/3 cup capsicum cubed (any color)", "7 to 8 cashews", "2 to 3 tbsps oil", "½ tsp cumin or jeera", "2 green cardamoms or elaichi", "1 ¼ tsp ginger garlic paste", "1 tsp red chilli powder", "¾ tsp garam masala", "¾ tsp coriander powder or daniya powder", "½ tsp Salt (use as needed)", "¾ cup water (use as needed)", "½ tsp kasuri methi or dried fenugreek leaves", "Tempering Paneer do pyaza", "1 ½ tbsp oil or ghee", "12 shallots – small onions or ¼ heaped cup cubed, layers separated", "2 green chilies deseeded and sliced" ],
+          "ingredientsNotes" : [ "include cilantro & turmeric: they are missing on ingredient list", "forget baby onions, they're forgettable. Replace with sweet onion chunks or similar", "tofu is overpowered by strong flavor: opt for paneer or other flavorful protein", "I did 1 tomato & 1 red pepper per batch, worked fine", "add more spice like cayenne" ],
+          "name" : "Paneer Do Pyaza",
+          "url" : "https://indianhealthyrecipes.com/paneer-do-pyaza-recipe/"
+        },
+        "7b80410a-b3d9-4ca9-9af8-d57b19e3baa6" : {
+          "directions" : [ "In a skillet add the canola oil and heat on high heat.", "Add in the cumin seeds and cook for 15-20 seconds.", "In a medium bowl mix all the ingredients together including the cumin seeds and refrigerate for at least 1 hour before serving." ],
+          "imageLink" : "https://dinnerthendessert.com/wp-content/uploads/2018/03/Indian-Raita-2-688x1032.jpg",
+          "ingredients" : [ "1 teaspoon canola oil", "1/2 teaspoon whole cumin seeds", "1 cup plain yogurt", "1/2 cup cucumber minced finely", "1/2 teaspoon kosher salt", "1 tablespoon chopped green onions whites only", "1/2 teaspoon ground coriander", "1/2 teaspoon ground cumin" ],
+          "ingredientsNotes" : [ "Good for biryani" ],
+          "name" : "Cucumber Raita",
+          "url" : "https://dinnerthendessert.com/indian-raita/"
+        },
+        "8c81e847-f21e-4e01-9b51-02bb42eb5580" : {
+          "directions" : [ "To prepare the paneer, press the tofu between two plates or cutting boards and cover it with a heavy book or two. Leave it for at least an hour and up to overnight. Drain the liquid, pat the tofu dry, and cut it into 3/4-inch cubes. Place them in the bottom of a flat, airtight container. Whisk together the lemon, water, salt, and nutritional yeast. Pour this mixture over the tofu cubes and cover the container. Place in the refrigerator for at least 6 hours, or overnight (up to 2 days is fine, too). ", "When the tofu is marinated, preheat your oven to 400° F and lightly oil a baking sheet. Bake the tofu for 20 minutes, or until the cubes are golden brown, flipping them halfway through. ", "Bring a large pot of water to boil and fill a large bowl with ice water. Submerge the spinach leaves in the boiling water for 1 to 2 minutes, or until they're just tender. Transfer them to the cold water to stop cooking and preserve the lovely green color. When the spinach leaves are cool, drain and squeeze-dry completely. Transfer the spinach to a food processor and process into a thick paste. (Note: If you prefer a silky smooth palak paneer, you can add the spinach leaves to the blender with about 1/3 cup water and blend until the mixture is totally smooth. Some people prefer this, while others like a palak paneer that has a bit more texture, in which case a food processor is ideal.) ", "Heat the olive oil in the skillet over medium-high heat. Add the pepper and onion. Sauté for 8 to 10 minutes, or until the onion is very tender and soft and browning slightly. Add the ginger and garlic. Cook for 2 minutes, until the garlic is very fragrant. Add the tomato, salt, garam masala, cumin, coriander, pepper flakes, and lime juice, along with the spinach purée and the cashew cream. Stir and cook everything for 5 to 10 minutes, until the mixture is flavorful and thick. Stir in the tofu paneer. Season everything to taste with additional salt and red pepper flakes. ", "Serve the palak paneer over cooked rice and top with cilantro or onions if desired." ],
+          "imageLink" : "https://images.food52.com/wWO_h_Drrb3f1WCdtWG2IId9yus=/753x502/847750b6-cbfb-4c75-a8cb-da6b65cd1699--2015-0728_palak-paneer-with-pressing-tofu_james-ransom-029_1-.jpg",
+          "ingredients" : [ "For the tofu paneer", "1\t14-ounce block extra-firm tofu", "2\ttablespoons lemon juice", "3\ttablespoons water", "1/2\tteaspoon salt", "3\ttablespoons nutritional yeast", "For the palak paneer", "10\tounces (about 8 cups) spinach leaves", "1\ttablespoon olive oil", "1\tpoblano or serrano chili, seeds removed and diced", "1\twhite or yellow onion, chopped", "1\ttablespoon grated or minced fresh ginger", "3\tcloves garlic, minced", "1\ttomato, chopped (about 1 or 1 1/2 cups, or you can use 1 can diced tomatoes, draining the excess liquid before adding them to the recipe)", "1/2\tteaspoon salt", "1\tteaspoon garam masala", "1\tteaspoon ground cumin", "2\tteaspoons ground coriander", "1\tdash red pepper flakes", "1\ttablespoon lime juice", "1/2\tcup cashew cream (see headnote) or coconut milk", "1\tcup Basmati rice, for serving (optional)", "1\thandful Chopped cilantro or chopped green onions, for serving (optional)" ],
+          "ingredientsNotes" : [ "1,238 calories per recipe with 1/2 gallon whole milk paneer", "800 calories per recipe with tofu block" ],
+          "name" : "Palak Paneer",
+          "url" : "http://www.geniuskitchen.com/recipe/paneer-fresh-cheese-46900"
         },
         "aloo_gobi" : {
-          "name" : "Aloo Gobi",
+          "directions" : [ "Heat 3 cups water in a pot. Turn off when the water turns slightly hot. Clean and cut the cauliflower florets to medium size. Add them to the hot water and leave for 3 mins.", "Discard the water and rinse them in fresh water. Drain them and set aside.", "Pour oil to a pan and heat it. When the oil turns hot, add cumin seeds.", "When the cumin seeds begin to splutter, add onions and green chilies. Saute till they turn golden. Keep stirring to fry them evenly.", "Add ginger garlic paste. Saute for 2 mins till the raw smell goes away.", "Next time to add in potatoes. Then saute for 2 to 3 mins. Cover and cook on a low to medium heat until the potatoes are half cooked. Keep stirring in between. If needed sprinkle 2 tbsp water.", "Transfer cauliflower and stir fry for another 2 mins.", "Add salt, turmeric and red chilli powder.", "Stir and mix to coat the spice powders well.", "Cover and cook until the potatoes and cauliflower both turn soft and are fully cooked. If your veggies are too dry then you can sprinkle very little water and continue to cook covered.", "Keep stirring occasionally to prevent burning.", "Check if the potatoes are completely cooked. Sprinkle garam masala and kasuri methi. Add coriander leaves. Mix well.", "Cook covered for another 2 mins.", "Serve aloo gobi with rice or roti." ],
           "imageLink" : "https://www.indianhealthyrecipes.com/wp-content/uploads/2017/10/aloo-gobi-recipe-414x600.jpg",
-          "url" : "https://www.indianhealthyrecipes.com/aloo-gobi/",
-          "ingredients" : [
-            "2 to 4 tbsp oil",
-            "½ to ¾ tsp cumin or jeera",
-            "¾ cup onions finely chopped",
-            "1 green chili slit",
-            "¾ tbsp ginger garlic paste",
-            "2 potatoes (medium sized) or 1 & ½ cups cubed",
-            "1 ½ to 2 cups cauliflower",
-            "salt as needed",
-            "¼ tsp turmeric or haldi",
-            "¾ to 1 tsp red chili powder",
-            "½ to ¾ tsp garam masala powder",
-            "½ to ¾ tsp kasuri methi or dry fenugreek leaves",
-            "2 tbsp Coriander leaves chopped finely"
-          ],
-          "ingredientsNotes" : [
-          ],
-          "directions" : [
-            "Heat 3 cups water in a pot. Turn off when the water turns slightly hot. Clean and cut the cauliflower florets to medium size. Add them to the hot water and leave for 3 mins.",
-            "Discard the water and rinse them in fresh water. Drain them and set aside.",
-            "Pour oil to a pan and heat it. When the oil turns hot, add cumin seeds.",
-            "When the cumin seeds begin to splutter, add onions and green chilies. Saute till they turn golden. Keep stirring to fry them evenly.",
-            "Add ginger garlic paste. Saute for 2 mins till the raw smell goes away.",
-            "Next time to add in potatoes. Then saute for 2 to 3 mins. Cover and cook on a low to medium heat until the potatoes are half cooked. Keep stirring in between. If needed sprinkle 2 tbsp water.",
-            "Transfer cauliflower and stir fry for another 2 mins.",
-            "Add salt, turmeric and red chilli powder.",
-            "Stir and mix to coat the spice powders well.",
-            "Cover and cook until the potatoes and cauliflower both turn soft and are fully cooked. If your veggies are too dry then you can sprinkle very little water and continue to cook covered.",
-            "Keep stirring occasionally to prevent burning.",
-            "Check if the potatoes are completely cooked. Sprinkle garam masala and kasuri methi. Add coriander leaves. Mix well.",
-            "Cook covered for another 2 mins.",
-            "Serve aloo gobi with rice or roti."
-          ],
-          "directionsNotes" : [
-          ]
+          "ingredients" : [ "2 to 4 tbsp oil", "½ to ¾ tsp cumin or jeera", "¾ cup onions finely chopped", "1 green chili slit", "¾ tbsp ginger garlic paste", "2 potatoes (medium sized) or 1 & ½ cups cubed", "1 ½ to 2 cups cauliflower", "salt as needed", "¼ tsp turmeric or haldi", "¾ to 1 tsp red chili powder", "½ to ¾ tsp garam masala powder", "½ to ¾ tsp kasuri methi or dry fenugreek leaves", "2 tbsp Coriander leaves chopped finely" ],
+          "name" : "Aloo Gobi",
+          "url" : "https://www.indianhealthyrecipes.com/aloo-gobi/"
+        },
+        "bb3f8bbf-53c8-4486-bf89-b104c04556ba" : {
+          "directions" : [ "In a blender, combine the chopped cucumber with the yogurt, lemon juice, shallot, garlic, dill, parsley, tarragon and the 1/4 cup of olive oil. Blend until smooth. Season with salt and white pepper, cover and refrigerate for at least 8 hours or overnight.", "Season the soup again just before serving. Pour the soup into bowls. Garnish with the finely diced cucumber, red onion and a drizzle of olive oil and serve." ],
+          "directionsNotes" : [ "put cucumber and onion garnish in immediately, it keeps the crunch but mellows out flavor-wise", "watch the salt, don’t fully season until 8 hour mark." ],
+          "imageLink" : "http://images.media-allrecipes.com/userphotos/960x960/3756516.jpg",
+          "ingredients" : [ "2 large European cucumbers (2 1/4 pounds), halved and seeded—1/2 cup finely diced, the rest coarsely chopped ", "1 1/2 cups plain Greek yogurt ", "3 tablespoons fresh lemon juice ", "1 small shallot, chopped ", "1 garlic clove ", "1/3 cup loosely packed dill ", "1/4 cup loosely packed flat-leaf parsley leaves ", "2 tablespoons loosely packed tarragon leaves ", "1/4 cup olive oil, plus more for drizzling ", "Salt ", "Fresh ground white pepper ", "1/2 red onion, finely chopped" ],
+          "ingredientsNotes" : [ "fine w/o tarragon, just sub rosemary. parsley can probably be dry too to save $$." ],
+          "name" : "Cucumber Soup",
+          "url" : "https://www.foodandwine.com/recipes/cold-cucumber-soup-yogurt-and-dill"
+        },
+        "bread_upma" : {
+          "directions" : [ "Heat a pan and toast the bread until crisp on both the sides. Cool completely. Cut them to small cubes and set aside.", "Pour oil to the same pan and fry cashews or peanuts until golden. Set these aside with bread.", "Add mustard and urad dal. Saute till urad dal turns lightly golden.", "Next add green chilies and curry leaves. Saute until the leaves turn crisp.", "Sprinkle hing. Add onions and saute until they turn golden. Saute the ginger paste as well.", "Next add tomatoes, salt and turmeric. Saute until tomatoes turn soft and mushy.", "Then add chili powder and sugar. Saute for 2 mins until the raw smell goes off.", "Pour 3 to 4 tbsp water and mix.", "Cook until the mixture turns thick. Check spice and salt. Add more if needed.", "Add bread cubes and cashews. Mix to coat the spice mixture to bread.", "Sprinkle coriander leaves.", "Serve bread upma hot. Sprinkle some lemon juice if desired" ],
+          "directionsNotes" : [ "Try blending or processing the onions & tomatoes since the texture wasn\"t very gravy-like", "Adding bread at the last minute works" ],
+          "imageLink" : "https://www.indianhealthyrecipes.com/wp-content/uploads/2017/05/bread-upma-414x600.jpg",
+          "ingredients" : [ "2 to 3 slices bread (prefer brown bread)", "1 tbsp oil", "½ tsp mustard seeds", "½ tsp urad dal (skip if you don\"t have)", "1 sprig curry leaves", "¾ tsp ginger paste or grated", "1 green chili slit or chopped", "8 to 10 cashew nuts split or peanuts", "¼ cup onions chopped finely (1 medium)", "½ cup ripe tomatoes chopped finely (1 large) (adjust as needed)", "Salt as needed", "2 pinches turmeric or haldi", "½ tsp chili powder (less spicy variety)", "½ tsp sugar (skip if using milk bread)", "3 to 4 tbsp water", "2 tbsp coriander leaves chopped finely", "Lemon juice to serve (optional)" ],
+          "ingredientsNotes" : [ "Use chewy breads like baguette if possible" ],
+          "name" : "Bread Upma",
+          "url" : "https://indianhealthyrecipes.com/bread-upma-recipe/"
         },
         "cauliflower_sauce" : {
-          "name" : "Cauliflower Sauce",
+          "directions" : [ "Garlic: Saute the minced garlic with the butter in a large nonstick skillet over low heat. Cook for several minutes or until the garlic is soft and fragrant but not browned (browned or burnt garlic will taste bitter). Remove from heat and set aside.", "Cauliflower: Bring the water or vegetable broth to a boil in a large pot. Add the cauliflower and cook, covered, for 7-10 minutes or until cauliflower is fork tender. Do not drain.", "Puree: Use a slotted spoon to transfer the cauliflower pieces to the blender. Add 1 cup vegetable broth or cooking liquid, sauteed garlic/butter, salt, pepper, and milk. Blend or puree for several minutes until the sauce is very smooth, adding more broth or milk depending on how thick you want the sauce. You may have to do this in batches depending on the size of your blender. Serve hot! If the sauce starts to look dry, add a few drops of water, milk, or olive oil." ],
           "imageLink" : "https://pinchofyum.com/wp-content/uploads/2013/03/Cauliflower-Sauce-31.jpg",
-          "url" : "https://pinchofyum.com/creamy-cauliflower-sauce",
-          "ingredients" : [
-            "8 large cloves garlic, minced",
-            "2 tablespoons butter",
-            "5-6 cups cauliflower florets",
-            "6-7 cups vegetable broth or water",
-            "1 teaspoon salt (more to taste)",
-            "1/2 teaspoon pepper (more to taste)",
-            "1/2 cup milk (more to taste)"
-          ],
-          "ingredientsNotes" : [
-            "Garlic broth goes well",
-            "Add olive oil & Parmesan for richer taste"
-          ],
-          "directions" : [
-            "Garlic: Saute the minced garlic with the butter in a large nonstick skillet over low heat. Cook for several minutes or until the garlic is soft and fragrant but not browned (browned or burnt garlic will taste bitter). Remove from heat and set aside.",
-            "Cauliflower: Bring the water or vegetable broth to a boil in a large pot. Add the cauliflower and cook, covered, for 7-10 minutes or until cauliflower is fork tender. Do not drain.",
-            "Puree: Use a slotted spoon to transfer the cauliflower pieces to the blender. Add 1 cup vegetable broth or cooking liquid, sauteed garlic/butter, salt, pepper, and milk. Blend or puree for several minutes until the sauce is very smooth, adding more broth or milk depending on how thick you want the sauce. You may have to do this in batches depending on the size of your blender. Serve hot! If the sauce starts to look dry, add a few drops of water, milk, or olive oil."
-          ],
-          "directionsNotes" : [
-          ]
+          "ingredients" : [ "8 large cloves garlic, minced", "2 tablespoons butter", "5-6 cups cauliflower florets", "6-7 cups vegetable broth or water", "1 teaspoon salt (more to taste)", "1/2 teaspoon pepper (more to taste)", "1/2 cup milk (more to taste)" ],
+          "ingredientsNotes" : [ "Garlic broth goes well", "Add olive oil & Parmesan for richer taste" ],
+          "name" : "Cauliflower Sauce",
+          "url" : "https://pinchofyum.com/creamy-cauliflower-sauce"
         },
-        "fall_buddha_bowl" : {
-          "name" : "Fall Buddha Bowl",
-          "imageLink" : "http://wholesomelicious-8101.kxcdn.com/wp-content/uploads/2016/10/Fall-Quinoa-Buddha-Bowl-with-Toasted-Pecan-Dressing.jpg",
-          "url" : "http://www.wholesomelicious.com/fall-buddha-bowl-quinoa-toasted-pecan-dressing/",
-          "ingredients" : [
-           "For the Dressing:",
-           "1/2 cup pecan halves",
-           "2 tbsp maple syrup",
-           "3/4 olive oil",
-           "1/4 cup white wine vinegar",
-           "2 tbsp shallot",
-           "Vegetable broth or water to thin out",
-           "For the Buddha Bowl:",
-           "1 cup quinoa",
-           "2 cups water or vegetable broth",
-           "1 cup sliced brussel sprouts",
-           "1 sweet potato skinned and chopped",
-           "2 tbsp olive oil",
-           "1 cup arugula or any blend of greens",
-           "1/2 apple chopped",
-           "1/4 cup cranberries",
-           "1/4 cup pumpkin seeds"
-          ],
-          "ingredientsNotes" : [
-            "Dressing can be subbed for sweet store-bought",
-            "coconut flakes were a good touch"
-          ],
-          "directions" : [
-            "Begin by preheating your oven to 400 degrees. On a large sheet pan, spread out the brussel sprouts and sweet potato slices. Drizzle with olive oil and salt. Place in the oven and bake for 20-25 minutes or until veggies are golden brown on the edges.",
-            "Meanwhile, make the dressing. Add the pecan halves with the veggies on the roasting pan. Cook only for 10 mins and remove from the oven. Chop into small pieces. Place pecans, shallots, maple syrup, and vinegar into a food processor or blender. While motor is running, slowly add in olive oil. Once completely mixed, dressing will be thick and will form a paste. Add in water or vegetable broth to thin to your liking. Season with salt and set aside.",
-            "Meanwhile, cook the quinoa. Add 2 cups water to 1 cup quinoa in a saucepan. Bring mixture to a boil, then reduce heat to low adding a lid. Let simmer for approximately 15 minutes until water is completely absorbed and quinoa is fluffy.",
-            "Assemble your Buddha Bowl: Begin with the greens, and approximately 1 cup quinoa on top. Next add in roasted veggies, nuts, and fruit. Drizzle with about 1/4 cup dressing and mix to combine. You should have plenty of dressing, quinoa, and veggies/fruits leftover. Assemble another bowl, or save the leftovers for another meal!"
-          ],
-          "directionsNotes" : [
-          ]
+        "chana_masala" : {
+          "directions" : [ "Combine garlic, ginger, chilies, 1 tablespoon lemon juice, and 1/2 teaspoon kosher salt in a mortar and pestle or in the small work bowl of a food processor and pound or process until a fine paste is produced. Set aside.", "Heat oil or ghee in a large saucepan or Dutch oven over medium-high heat until shimmering. All at once, add mustard seed and cumin. They will sputter and spit for a few seconds. As soon as they are aromatic (about 15 seconds), add onion all at once, along with baking soda. Cook, stirring frequently, until onions start to leave a brown coating on bottom of pan, 3 to 4 minutes. Add 1 tablespoon water, scrape up browned bits from pan, and continue cooking. Repeat this process until onions are a deep brown, about 10 minutes total.", "Immediately add garlic/ginger/chili paste all at once and stir to combine. Add coriander, black pepper, turmeric, and 1 teaspoon garam masala. Stir until fragrant, about 30 seconds. Add tomatoes and crush them using a whisk or potato masher. Add drained, rinsed chickpeas and cilantro, reserving a little cilantro for garnish. Add 1/2 cup water.", "Bring to a simmer, cover with lid slightly cracked, and reduce heat to maintain a gentle bubbling. Cook, stirring occasionally, until liquid has reduced into a thick stew and spices have melded, about 30 minutes.", "Stir in remaining garam masala and lemon juice. Season to taste with salt. Serve with rice and/or naan, sprinkling additional cilantro on top." ],
+          "directionsNotes" : [ "Makes 3 large servings - feel free to double", "Paste is hard to make but VERY small chunks works fine" ],
+          "imageLink" : "https://www.seriouseats.com/recipes/images/2016/03/20160328-channa-masala-recipe-6.jpg",
+          "ingredients" : [ "4 medium cloves garlic, roughly chopped", "1 (1-inch) knob ginger, peeled, roughly chopped", "1 to 6 green Thai chilies (to taste), roughly chopped", "2 tablespoons (30ml) juice from 1 lemon, divided", "Kosher salt", "2 tablespoons (30ml) vegetable oil or ghee", "2 teaspoons (8g) black mustard seed", "1 teaspoon (4g) whole cumin seed", "1 large onion, finely diced (about 1 1/2 cups; 300g)", "1/4 teaspoon (1g) baking soda", "2 teaspoons (8g) ground coriander", "1/2 teaspoon (2g) freshly ground black pepper", "1/2 teaspoon (2g) ground turmeric", "1 1/2 teaspoons (6g) store-bought or homemade garam masala, divided", "1 (14-ounce) can whole peeled tomatoes", "2 (14-ounce) cans chickpeas, drained and rinsed", "1 cup cilantro leaves, roughly chopped (1 ounce; 25g)" ],
+          "ingredientsNotes" : [ "Serrano peppers can substitute Thai chilis - 3 is quite spicy." ],
+          "name" : "Chana Masala",
+          "url" : "https://www.seriouseats.com/recipes/2016/04/channa-masala-recipe.html"
+        },
+        "chickpea_'tuna'_salad" : {
+          "directions" : [ "Add chickpeas to a mixing bowl and lightly mash with a fork for texture. Then add sunflower seeds, mayo, mustard, maple syrup, red onion, dill, salt, and pepper and mix with a spoon. Taste and adjust seasonings as needed.", "Toast bread (if desired) and prepare any other sandwich toppings you desire (tomato, onion, lettuce).", "Scoop a healthy amount of filling onto two of the pieces of bread, add desired toppings and sauce, and top with other two slices of bread.", "Sunflower-chickpea mixture will keep covered in the fridge for up to a few days, making it great for quick weekday lunches!" ],
+          "directionsNotes" : [ "Consistency suffers if it’s in the fridge too long" ],
+          "imageLink" : "https://minimalistbaker.com/wp-content/uploads/2014/12/Chickpea-Sandwic-SQUARE.jpg",
+          "ingredients" : [ "1 15- ounce can chickpeas (rinsed and drained)", "1/4 cup roasted unsalted sunflower seeds (if salted, scale back on added salt)", "3 Tbsp vegan mayo (sub tahini for a more earthy, nutty flavor)", "1/2 tsp dijon or spicy mustard (if using tahini instead of mayo, use half as much mustard)", "1 Tbsp maple syrup (or sub agave or honey if not vegan)", "1/4 cup chopped red onion", "2 Tbsp fresh dill* (finely chopped)", "1 healthy pinch each salt and pepper (to taste)", "4 pieces rustic bread (lightly toasted // gluten-free for GF eaters)", "Sliced avocado, onion, tomato, and or lettuce (optional // for serving)" ],
+          "ingredientsNotes" : [ "Feel free to make subs as needed - sunflower seeds are nice but not vital, just the crunch is." ],
+          "name" : "Chickpea 'Tuna' Salad",
+          "url" : "https://minimalistbaker.com/chickpea-sunflower-sandwich/"
+        },
+        "d2929128-f00a-4073-a6e5-f620cb270c5f" : {
+          "directions" : [ "To prepare the Berbere, mix all the spices and set aside. ", "Time to cook the lentils. Heat a pan (or Instant Pot, or a Stovetop Pressure Cooker). Add oil.", "Once it's hot, add onion and saute for 2-3 minutes or until translucent.", "Add ginger and garlic. Stir and cook for 3-4 minutes.", "Add the tomatoes, berbere spice, and salt. Mix well and cook for 6-8 minutes or until the tomatoes are wilted and the mixture thickens.", "Now add the lentils, potatoes, and 2 cups of water. Give it a good stir and close the lid.", "For Instant Pot, cook for 15 minutes on High settings. For stovetop pressure cooker, cook until 8-10 whistles on medium-high heat. For a normal pan, cook for 20-25 minutes on low-medium heat.", "That's it, your Ethiopian Lentil Stew is ready! Garnish with freshly chopped cilantro and serve over rice, quinoa, or naan." ],
+          "directionsNotes" : [ "Time on lentils is correct: the top looks watery but the bottom is actually cooked through" ],
+          "imageLink" : "https://www.veganbell.com/wp-content/uploads/2018/09/Mushroom-new4-14-1024x1024.jpg",
+          "ingredients" : [ "Berbere Spice Mix", "1 tablespoon smoked paprika *", "1 teaspoon cayenne pepper *", "1/2 teaspoon onion powder", "1/2 teaspoon garlic powder", "1/2 teaspoon cumin powder", "1/2 teaspoon coriander powder", "1/4 teaspoon cardamom ground", "1/4 teaspoon clove ground", "1/4 teaspoon cinnamon ground", "Pinch of nutmeg", "Pinch of allspice", "Lentils", "1.5 tablespoons olive oil", "1/2 cup diced onion", "1 teaspoon grated ginger", "4 garlic cloves minced", "1/2 cup tomatoes chopped", "Salt", "1 cup red lentils", "5-6 small-medium potatoes quartered", "2 cups water", "Cilantro" ],
+          "ingredientsNotes" : [ "Recipe is medium spicy, tone down for guests or ramp up for super spicy", "Recipe wants 3 medium potatoes per batch. Cut into bite-size cubes not quarters", "Each batch makes 3 hearty or 4 normal meals. Giant pot worked great for x2 batch" ],
+          "name" : "Ethiopian Lentils",
+          "url" : "https://www.veganbell.com/vegan-meals/ethiopian-lentil-stew/"
         },
         "dan_dan_noodles" : {
-          "name" : "Dan Dan Noodles",
+          "directions" : [ "Place mushrooms in the bowl of a food processor and process until pieces no larger than 1/2-inch remain, about 6 short pulses. Transfer to a small saucepan. Add vegetable oil stir to combine. Place over medium-high heat and cook, stirring occasionally, until mushroom places shrink and are deep golden brown, about 8 minutes. Pour through a fine mesh strainer set over a small bowl. Reserve mushroom pieces and discard all but 1 tablespoon oil.", "While mushrooms are cooking, combine soy sauce, vinegar, tahini, sugar, chili oil (with its sediment), and broad bean chili paste in a medium bowl. Set aside. Bring 1 quart of salted water to a simmer in a medium pot and keep hot.", "Heat reserved 1 tablespoon of mushroom oil in a large skillet or wok over high heat until shimmering. Add chopped sichuan vegetables, fried mushrooms, and garlic. Cook, stirring and tossing constantly until fragrant, about 45 seconds. Add shaoxing wine and stir to combine. Transfer mixture to bowl with sauce.", "Return pot of water to a hard boil and add noodles. Cook, stirring regularly to prevent sticking to each other or the bottom, until barely cooked through with a springy bite, about 4 minutes. Drain, reserving 3/4 cup of cooking liquid. Add cooking liquid to bowl with sauce and stir to combine.", "Place noodles in bowl and pour sauce with solids on top. Garnish with scallions and cilantro, and serve, stirring vigorously just before eating to pick up sauce." ],
           "imageLink" : "https://www.seriouseats.com/recipes/images/2013/02/20130221-vegan-dan-dan-mien-noodles-1.jpg",
-          "url" : "https://www.seriouseats.com/recipes/2013/02/vegan-dan-dan-noodles-recipe.html",
-          "ingredients" : [
-            "6 ounces white button mushrooms, quartered",
-            "2 tablespoons vegetable oil",
-            "3 teaspoons light soy sauce",
-            "2 teaspoons Chinkiang vinegar (see note)",
-            "1 tablespoon tahini paste",
-            "2 teaspoons sugar",
-            "4 tablespoons roasted chili oil with some chili sediment (see note)",
-            "1 tablespoons fermented chili broad bean paste (see note)",
-            "Kosher salt",
-            "3 tablespoons finely chopped preserved Sichuan mustard root or stems (see note)",
-            "2 medium cloves garlic, finely minced",
-            "2 tablespoons shaoxing wine (see note)",
-            "8 ounces fresh Chinese wheat noodles",
-            "Chopped cilantro",
-            "Thinly sliced scallions"
-          ],
-          "ingredientsNotes" : [
-            "water content is WAY too high, slowly add until you reach desired consistency.",
-            "dry noodles taste just fine, fresh ones are expensive and weird-tasting",
-            "VERY heavy so watch out for gut rot"
-          ],
-          "directions" : [
-            "Place mushrooms in the bowl of a food processor and process until pieces no larger than 1/2-inch remain, about 6 short pulses. Transfer to a small saucepan. Add vegetable oil stir to combine. Place over medium-high heat and cook, stirring occasionally, until mushroom places shrink and are deep golden brown, about 8 minutes. Pour through a fine mesh strainer set over a small bowl. Reserve mushroom pieces and discard all but 1 tablespoon oil.",
-            "While mushrooms are cooking, combine soy sauce, vinegar, tahini, sugar, chili oil (with its sediment), and broad bean chili paste in a medium bowl. Set aside. Bring 1 quart of salted water to a simmer in a medium pot and keep hot.",
-            "Heat reserved 1 tablespoon of mushroom oil in a large skillet or wok over high heat until shimmering. Add chopped sichuan vegetables, fried mushrooms, and garlic. Cook, stirring and tossing constantly until fragrant, about 45 seconds. Add shaoxing wine and stir to combine. Transfer mixture to bowl with sauce.",
-            "Return pot of water to a hard boil and add noodles. Cook, stirring regularly to prevent sticking to each other or the bottom, until barely cooked through with a springy bite, about 4 minutes. Drain, reserving 3/4 cup of cooking liquid. Add cooking liquid to bowl with sauce and stir to combine.",
-            "Place noodles in bowl and pour sauce with solids on top. Garnish with scallions and cilantro, and serve, stirring vigorously just before eating to pick up sauce."
-          ],
-          "directionsNotes" : [
-          ]
+          "ingredients" : [ "6 ounces white button mushrooms, quartered", "2 tablespoons vegetable oil", "3 teaspoons light soy sauce", "2 teaspoons Chinkiang vinegar (see note)", "1 tablespoon tahini paste", "2 teaspoons sugar", "4 tablespoons roasted chili oil with some chili sediment (see note)", "1 tablespoons fermented chili broad bean paste (see note)", "Kosher salt", "3 tablespoons finely chopped preserved Sichuan mustard root or stems (see note)", "2 medium cloves garlic, finely minced", "2 tablespoons shaoxing wine (see note)", "8 ounces fresh Chinese wheat noodles", "Chopped cilantro", "Thinly sliced scallions" ],
+          "ingredientsNotes" : [ "water content is WAY too high, slowly add until you reach desired consistency.", "dry noodles taste just fine, fresh ones are expensive and weird-tasting", "VERY heavy so watch out for gut rot" ],
+          "name" : "Dan Dan Noodles",
+          "url" : "https://www.seriouseats.com/recipes/2013/02/vegan-dan-dan-noodles-recipe.html"
+        },
+        "f94255e0-361a-4a86-8bf2-5c983399c4b2" : {
+          "directions" : [ "Preparation", "Thinly slice onions and fry them in oil till golden and crisp. Set these aside half of this. If you are using store bought fried onions, you can skip this", "In the same pan, add spices and saute till they begin to sizzle.", "Add ginger garlic paste and fry till the raw smell goes off.", "Add parboiled potatoes and the rest of vegetables. Fry for 2 to 3 minutes.", "Add turmeric, masala powder and red chili powder. Mix and fry well for 2 minutes till you begin to get an aroma.", "Pour 100 ml yogurt and mix. Cook till the vegetables are done to tender. You can cover and cook. Cook uncovered if there is lot of moisture after the veggies are cooked.", "While the veggies cook. Bring lot of water to a boil and cook rice till al dente along with bay leaf and shahi jeera. The rice has to be cooked grainy and not mushy. Drain it off in a colander. Soak saffron in 3 tbsps of this hot water or hot milk. Set aside.", "If you like to make a 2 layer veg biryani, set aside 1/3 of the cooked vegetable mix. Now mix together the rest of the cooked veggies, rest of the yogurt, mint, coriander, nuts and raisins, few fried onions. you can do it in a pressure cooker or any heavy bottom utensil.", "Making hyderabadi veg biryani", "Layer the rice over the vegetable mix. Then layer the 1/3 cooked vegetable mix or 2 pinches of masala powder. Sprinkle some fried onions, mint and coriander.", "Layer rice over it again, then the fried onions, mint and coriander leaves and pour off the saffron milk. Fry nuts in a tbsp ghee, saute raisins and then pour this over the rice. Place a moist clean cloth to seal the rim. You can even use a foil or atta to seal the utensil.", "Place the dum utensil on a hot tawa and cook for 5 minutes on a medium flame and then on low for 5 to 7 minutes based on the thickness of your utensil.", "Serve hyderabadi veg biryani hot or warm in layers of rice and gravy.", "For the oven method:", "Preheat the oven to 180 C and bake for 20 mins. if you feel it is still very moist beneath, bake for another 5 to 10 mins. This depends on what kind of baking dish you use. Usually ceramic ones get done faster." ],
+          "directionsNotes" : [ "err on the side of under-boiling potatoes, they'll be there a while" ],
+          "imageLink" : "https://www.indianhealthyrecipes.com/wp-content/uploads/2013/03/hyderabadi-vegetable-dum-biryani-recipe.jpg",
+          "ingredients" : [ "1 tbsp ginger garlic paste", "1 tsp biryani masala powder or garam masala(any ready made powder is ok, adjust to suit the spice levels)", "1/3 tsp red chili powder (adjust as needed)", "1/8 tsp turmeric", "1 cup curd or 250 ml yogurt / dahi (not very thick and not very thin)", "4 tbsp ghee or oil", "strands saffron Few", "3 tbsps milk hot or water to soak the saffron strands", "Raisins as needed", "Cashews as needed", "Fried onions", "1 onion large , thinly sliced about 1/2 to 3/4 cup or store bought fried onions", "Veggies", "8 florets cauliflower medium sized", "1 potato large , boiled, cubed (peel the skin and boil till ¾ done)", "1 carrot large, chopped", "1 handful green peas", "4 to 5 beans chopped", "1 ½ tbsp Mint leaves / pudina minced", "2 tbsp Coriander leaves chopped very finely", "2 green chilies slit", "dry spices", "2 inch cinnamon stick", "4 green cardamoms", "1 black cardamom", "2 strands mace big", "1 star anise", "6 cloves", "1 bay leaf", "½ tsp shahi jeera", "cooking rice", "1 ½ cups basmathi rice aged", "¼ tsp shahi jeera", "1 bay leaf", "Salt to taste" ],
+          "ingredientsNotes" : [ "bigger recipe with 6-7 big servings when doubled", "pair with cucumber raita: so good it's almost mandatory", "all ingredients are crucial except cashews; I'm leery of adding protein that doesn't have its own seasoning" ],
+          "name" : "Vegetable Biryani",
+          "url" : "https://indianhealthyrecipes.com/hyderabadi-vegetable-dum-biryani-recipe/"
+        },
+        "fall_buddha_bowl" : {
+          "directions" : [ "Begin by preheating your oven to 400 degrees. On a large sheet pan, spread out the brussel sprouts and sweet potato slices. Drizzle with olive oil and salt. Place in the oven and bake for 20-25 minutes or until veggies are golden brown on the edges.", "Meanwhile, make the dressing. Add the pecan halves with the veggies on the roasting pan. Cook only for 10 mins and remove from the oven. Chop into small pieces. Place pecans, shallots, maple syrup, and vinegar into a food processor or blender. While motor is running, slowly add in olive oil. Once completely mixed, dressing will be thick and will form a paste. Add in water or vegetable broth to thin to your liking. Season with salt and set aside.", "Meanwhile, cook the quinoa. Add 2 cups water to 1 cup quinoa in a saucepan. Bring mixture to a boil, then reduce heat to low adding a lid. Let simmer for approximately 15 minutes until water is completely absorbed and quinoa is fluffy.", "Assemble your Buddha Bowl: Begin with the greens, and approximately 1 cup quinoa on top. Next add in roasted veggies, nuts, and fruit. Drizzle with about 1/4 cup dressing and mix to combine. You should have plenty of dressing, quinoa, and veggies/fruits leftover. Assemble another bowl, or save the leftovers for another meal!" ],
+          "imageLink" : "http://wholesomelicious-8101.kxcdn.com/wp-content/uploads/2016/10/Fall-Quinoa-Buddha-Bowl-with-Toasted-Pecan-Dressing.jpg",
+          "ingredients" : [ "For the Dressing:", "1/2 cup pecan halves", "2 tbsp maple syrup", "3/4 olive oil", "1/4 cup white wine vinegar", "2 tbsp shallot", "Vegetable broth or water to thin out", "For the Buddha Bowl:", "1 cup quinoa", "2 cups water or vegetable broth", "1 cup sliced brussel sprouts", "1 sweet potato skinned and chopped", "2 tbsp olive oil", "1 cup arugula or any blend of greens", "1/2 apple chopped", "1/4 cup cranberries", "1/4 cup pumpkin seeds" ],
+          "ingredientsNotes" : [ "Dressing can be subbed for sweet store-bought", "coconut flakes were a good touch" ],
+          "name" : "Fall Buddha Bowl",
+          "url" : "http://www.wholesomelicious.com/fall-buddha-bowl-quinoa-toasted-pecan-dressing/"
+        },
+        "lentil_shepherd's_pie" : {
+          "directions" : [ "For cooking the lentils:", "Add the lentils, vegetable broth, and bay leaf (if using) to a small saucepan. Bring the mixture to a boil, then reduce to a simmer. Continue to cook, stirring occasionally, until lentils are cooked through, 15-20 minutes. If they run out of liquid before cooking thoroughly, add more broth or water. Remove the bay leaf and drain any excess broth.", "For the lentil vegetable layer:", "In a large skillet, heat the olive oil over medium heat. Add the sliced shallot with a pinch of salt, and stir. Continue to cook, stirring occasionally, until shallot is softened and starting to lightly brown, 3-5 minutes. Add the carrot and stir well, cooking for another 3-5 minutes until carrot starts to soften.", "Stir in the minced garlic, smoked paprika and dried thyme, and cook for about 60 seconds until fragrant. Add the apple, tomato paste, soy sauce, and maple syrup.", "Turn off the heat and stir in the cooked lentils. Adjust salt, pepper and other seasoning to taste.", "For the mashed potatoes layer:", "Add the red potatoes to a saucepan with cold water. (If your potatoes are on the larger side, you can roughly chop them first to save time.)", "Bring to a boil and cook for about 20 minutes or until the potatoes are tender. Drain the potatoes, and once cool enough to handle, remove the skins (if desired).", "Use a potato masher or ricer to mash the potatoes. Add the non-dairy milk, olive oil, salt and garlic, and continue mashing until well-combined and smooth. Stir in the chopped chives; add more salt and pepper to taste.", "For assembling and baking the vegan shepherd's pie:", "Preheat the oven to 350 degrees Fahrenheit. Spread out the lentil mixture on the bottom of a casserole dish (mine is 7' by 10' and this recipe fills it to the brim; slightly larger sizes will also work). Use a spatula to press the lentils into a flat, compact layer. Dollop the mashed potatoes on top and gently spread them out into an even layer. Optionally, brush or spray additional olive oil on top of the mashed potato layer for better browning.", "Bake for approximately 30 minutes, or until the casserole is hot through, and the top of the potatoes are crusted and lightly browned. Optionally, broil for 3-4 minutes to get even more color on the surface.", "Serve hot; once cooled, leftovers store nicely in both the refrigerator or the freezer." ],
+          "imageLink" : "https://yupitsvegan.com/wp-content/uploads/2017/10/vegan-shepherds-pie-lentil-vegetable-3.jpg",
+          "ingredients" : [ "For cooking the lentils:", "1 cup dry green lentils rinsed", "3 cups low-sodium vegetable broth", "1 bay leaf (optional)", "For the lentil layer:", "1 and 1/2 tbsp olive oil", "3 shallots thinly sliced", "1 clove garlic minced", "1 large carrot peeled and finely diced", "1/4 tsp smoked paprika (or regular)", "1/4 tsp dried thyme", "1 red apple diced (any variety)", "1/4 cup tomato paste", "3 tbsp low-sodium soy sauce", "1/2 tbsp maple syrup", "salt and pepper to taste", "For the garlic chive mashed potato layer:", "2 lbs red potatoes (32oz/907g)", "1/4 cup plain, unsweetened non-dairy milk", "2 tbsp olive oil", "3/4 tsp salt", "4 cloves garlic minced or grated", "1/2 bunch chives finely chopped (0.33oz/9g)" ],
+          "ingredientsNotes" : [ "Good for company! Looks great and potato flavor is great.", "Skip maple syrup and try replacing some of the tomato paste - the base layer tasted a little ketchupy" ],
+          "name" : "Lentil Shepherd's Pie",
+          "url" : "https://yupitsvegan.com/vegan-shepherds-pie-lentil/"
+        },
+        "mapo_tofu" : {
+          "directions" : [ "Combine dried mushrooms and kombu (if using) in a small bowl or liquid measuring cup and cover with water. Place a paper towel or kitchen towel directly on surface of water to keep mushrooms mostly submerged. Set aside for ten minutes to rehydrate.", "Meanwhile, place button mushrooms in the bowl of a food processor and pulse until chopped into rough 1/4-inch pieces, about 6 to 8 one-second pulses. Combine chopped button mushrooms and oil in the bottom of a large wok. Heat over high heat, stirring constantly, until mushrooms are shriveled and well browned, 6 to 10 minutes. Strain through a fine mesh strainer set over a small saucepan. Transfer fried mushrooms to a medium bowl and return oil to wok.", "When dried mushrooms are rehydrated, strain through a fine mesh strainer set over a small bowl. Discard kombu. Discard all but 3/4 cups soaking liquid. Add cornstarch, wine, and soy sauce to liquid. Transfer drained mushrooms to a cutting board. Remove and discard hard central stems from woodear mushrooms, then finely chope all the mushrooms. Add to bowl with fried mushrooms.", "Add whole Sichuan peppercorns and both chilis to oil in wok and return to high heat. Cook until fragrant and peppercorns have stopped sputtering. Do not overcook, or they will burn. Immediately strain through a fine mesh strainer, discard peppercorns and chilies, and return oil to wok.", "Heat oil over high heat until lightly smoking. Add garlic, ginger, scallion whites, chives, and yacai (if using). Stir-fry until fragrant, about 30 seconds. Add chopped mushrooms and stir-fry to combine. Add fermented chili broad bean paste and stir until all the vegetables are well coated. Stir mushroom liquid mixture to incorporate cornstarch, then add to wok. Cook, storring constantly, until lightly thickened and reduced, about 1 1/2 minutes. Add tofu and carefully fold in, trying not to break it.", "Cook until tofu is heated through. Transfer to a serving platter, drizzle with chili oil, and top with scallions and ground Sichuan peppercorns. Serve immediately with white rice." ],
+          "directionsNotes" : [ "Morel mushrooms can be skipped. Throw away re-hydrated woodears after steeping because they have a bad texture when stir fried.", "Don't overcook mushrooms: you shouldn't have burn marks when you separate oil.", "break chilis before frying. Use 4 chilis for medium spicy. Let peppers & chilis fry for a couple minutes at lower heat.", "Rinse & mince yacai before adding.", "Don't reduce liquid very much, you want the dish to be a bit soupy. Feel free to go ham on the chili paste and even add regular vegetable oil to stretch your chili oil out further." ],
+          "imageLink" : "https://www.seriouseats.com/recipes/images/2013/02/20120206-vegan-mapo-tofu-12.jpg",
+          "ingredients" : [ "4 whole dried woodear mushrooms (about 1/6 ounce)", "1/4 ounce dried morel or porcini mushrooms, or a mix", "1 (2-inch) piece of kombu (optional, see note)", "1 1/2 cups boiling water", "6 ounces white button mushrooms, stems trimmed, quartered", "1/3 cup vegetable oil", "1 teaspoon cornstarch", "2 tablespoons Shaoxing wine (see note)", "1 tablespoon dark soy sauce", "2 tablespoons whole Sichuan peppercorns, divided (see note)", "2 tablespoons Sichuan peppercorns, one tablespoon left whole, the other toasted and ground in a spice grinder or mortar and pestle", "2 whole dried chinese hot chilies", "2 garlic cloves grated on a microplane grater", "1 tablespoon fresh ginger grated on a microplane grater", "4 scallions, whites finely chopped, greens thinly sliced, reserved separately", "12 chinese chives or regular chives cut into 1/2-inch segments", "3 tablespoons minced yacai (Chinese preserved mustard root, see note, optional)", "2 tablespoons fermented chili broad bean paste (see note)", "2 tablespoons roasted chili oil (see note)", "1 1/2 pounds medium to firm silken tofu, cut into 1/2-inch cubes" ],
+          "ingredientsNotes" : [ "Yacai is fine, you don't need traditional zhai cai.", "add 1 1/2 tsp MSG to mushroom water ;)", "Use heaped tablespoons of bean paste." ],
+          "name" : "Mapo Tofu",
+          "url" : "https://www.seriouseats.com/recipes/2013/02/the-best-vegan-mapo-tofu-recipe.html#comments-23131"
+        },
+        "mujadara" : {
+          "directions" : [ "Place the lentils in a small saucepan with 2 cups of the water. Bring the water to a boil over high heat, and then reduce the heat and simmer, cover until the lentils are par-boiled (10-12 minutes). Remove from the heat, drain the lentils and set them aside.", "In a large saute pan with a lid, heat the oil over medium-high heat. Add the diced onions and cook until the onions are dark golden brown, darker than typical caramelized onions (about 40 minutes), sprinkle the onions with a teaspoon of salt as they cook.", "Carefully pour the remaining 2 cups of water, bring the water to a boil over high heat, and then reduce the heat to low and simmer for 2 minutes. Stir the rice and par-cooked lentils into the onion mixture. Cover and bring back to a boil. Stir in a healthy pinch of salt and the black pepper. Reduce the heat to low, cover, and cook until the liquid has been absorbed and the rice and lentils are both cooked through (about 20 minutes). Remove from the heat and season with salt and pepper to taste. Serve the Mujadara hot or at room temprature with a drizzle of extra virgin olive oil and parsley garnish, if you like.", "If you are adding the the fried onions, heat the oil over medium-high heat (to 375 degrees F) in a saucepan. When a small piece of onion bubbles vigorously, the oil is ready. Fry the onions in batches until they are golden brown. Transfer the onions to a paper towel-lined plate or try, and then arrange them on top of the Mjuadara.", "The original recipe does not call for soaking the rice in water before use. I have found that soaking the rice in water for 10-15 minutes, or until you are able to break one grain of rice between your fingers, provides better results." ],
+          "directionsNotes" : [ "Start caramelizing onions asap: these took close to an hour and there was plenty of time to do everything else while they cooked (frying, lentils, & raita included)" ],
+          "imageLink" : "https://www.themediterraneandish.com/wp-content/uploads/2015/08/Mujadara-Recipe-111.jpg",
+          "ingredients" : [ "1 cup small brown lentils, sorted and rinsed", "4 cups water, divided", "1/4 cup Private Reserve Greek extra virgin olive oil, more for later", "2 large yellow onions, diced (4 cups)", "1 tsp kosher salt, more to taste", "1 cup long-grain white rice, soaked in water for 10-15 minutes and then drained", "black pepper", "Parsley or parsley flakes for garnish", "FOR THE FRIED CRISPY ONION GARNISH (OPTIONAL)", "Oil for frying", "1 large yellow onion cut in very thin rings" ],
+          "ingredientsNotes" : [ "Pairs great with cucumber raita", "Recipe is fine as-is: the onions, salt, & raita add all the flavor you need", "Hearty enough for an entree but pair with something else for company (cucumber salad?)" ],
+          "name" : "Mujadara",
+          "url" : "https://www.themediterraneandish.com/mujadara-lentils-and-rice-with-crispy-onions/"
+        },
+        "split_pea_soup" : {
+          "directions" : [ "In a large saucepan, combine the first nine ingredients; bring to a boil. Reduce heat; cover and simmer for 1 hour or until peas are tender, stirring occasionally.", "Add salt and pepper; simmer 10 minutes longer. Cool slightly. In small batches, puree soup in a blender; return to the pan. Heat for 5 minutes. Garnish with shredded carrots and green onions." ],
+          "directionsNotes" : [ "consider half-blended for somewhat chunky texture", "add a little bit of liquid smoke before blending, add bacon bits at the end" ],
+          "imageLink" : "https://www.tasteofhome.com/wp-content/uploads/2017/10/exps22295_HWS1227354D43B.jpg",
+          "ingredients" : [ "6 cups vegetable broth", "2 cups dried green split peas, rinsed", "1 medium onion, chopped", "1 cup chopped carrots", "2 celery ribs with leaves, chopped", "2 garlic cloves, minced", "1/2 teaspoon dried marjoram", "1/2 teaspoon dried basil", "1/4 teaspoon ground cumin", "1/2 teaspoon salt", "1/4 teaspoon pepper", "5 tablespoons shredded carrots", "2 green onions, sliced" ],
+          "ingredientsNotes" : [ "Can sub oregano for marjoram", "add clove powder for ham flavor", "add bay leaf", "consider half-blended for somewhat chunky texture", "get whole wheat baguette", "add a little bit of liquid smoke before blending, add bacon bits at the end" ],
+          "name" : "Split Pea Soup",
+          "url" : "https://www.tasteofhome.com/recipes/vegetarian-split-pea-soup/"
         },
         "stir-fried_'beef'" : {
-          "name" : "Stir-Fried 'Beef'",
+          "directions" : [ "Mix together the soy sauce, sherry, sesame oil, garlic and ginger in a shallow dish. Add the steak and leave to marinate for about 20 minutes (or longer, if you have time).", "Heat a large heavy-based frying pan or wok, add the sesame seeds and toast over a high heat, stirring, for a few minutes until golden. Tip on to a plate.", "When ready to cook, heat the sunflower oil in a large frying pan or wok until hot. Add the steak with the marinade and stir fry for 3-4 minutes over a high heat until lightly browned. Remove, using a slotted spoon, on to a plate, leaving the juices in the pan.", "Toss the carrots in the pan and stir fry for a few minutes, then add the mangetout and cook for a further 2 minutes.", "Return the steak to the pan, add the mushrooms and toss everything together. Add the hoisin sauce and stir fry for a final minute. Sprinkle with the toasted sesame seeds and serve immediately." ],
           "imageLink" : "https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe_images/recipe-image-legacy-id--4850_12.jpg?itok=2MNKlVBz",
-          "url" : "https://www.bbcgoodfood.com/recipes/3246/stirfried-beef-with-hoisin-sauce",
-          "ingredients" : [
-            "1 tbsp soy sauce",
-            "1 tbsp dry sherry",
-            "2 tsp sesame oil",
-            "1 fat garlic clove, crushed",
-            "1 tsp finely chopped fresh root ginger (or fresh ginger paste in a jar)",
-            "200g lean sirloin steak, thinly sliced across the grain",
-            "1 tbsp sesame seeds",
-            "1 tbsp sunflower oil",
-            "1 large carrot, cut into matchsticks",
-            "100g mangetout, halved lengthways",
-            "140g mushrooms, sliced",
-            "3 tbsp hoisin sauce",
-            "Chinese noodles, to serve"
-          ],
-          "ingredientsNotes" : [
-            "Sub Field Roast for beef"
-          ],
-          "directions" : [
-            "Mix together the soy sauce, sherry, sesame oil, garlic and ginger in a shallow dish. Add the steak and leave to marinate for about 20 minutes (or longer, if you have time).",
-            "Heat a large heavy-based frying pan or wok, add the sesame seeds and toast over a high heat, stirring, for a few minutes until golden. Tip on to a plate.",
-            "When ready to cook, heat the sunflower oil in a large frying pan or wok until hot. Add the steak with the marinade and stir fry for 3-4 minutes over a high heat until lightly browned. Remove, using a slotted spoon, on to a plate, leaving the juices in the pan.",
-            "Toss the carrots in the pan and stir fry for a few minutes, then add the mangetout and cook for a further 2 minutes.",
-            "Return the steak to the pan, add the mushrooms and toss everything together. Add the hoisin sauce and stir fry for a final minute. Sprinkle with the toasted sesame seeds and serve immediately."
-          ],
-          "directionsNotes" : [
-          ]
+          "ingredients" : [ "1 tbsp soy sauce", "1 tbsp dry sherry", "2 tsp sesame oil", "1 fat garlic clove, crushed", "1 tsp finely chopped fresh root ginger (or fresh ginger paste in a jar)", "200g lean sirloin steak, thinly sliced across the grain", "1 tbsp sesame seeds", "1 tbsp sunflower oil", "1 large carrot, cut into matchsticks", "100g mangetout, halved lengthways", "140g mushrooms, sliced", "3 tbsp hoisin sauce", "Chinese noodles, to serve" ],
+          "ingredientsNotes" : [ "Sub Field Roast for beef" ],
+          "name" : "Stir-Fried 'Beef'",
+          "url" : "https://www.bbcgoodfood.com/recipes/3246/stirfried-beef-with-hoisin-sauce"
         }
       }
     }
