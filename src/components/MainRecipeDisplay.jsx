@@ -37,13 +37,13 @@ function MainRecipeDisplay({name, url, imageLink, currentRecipe, showPopup, disp
           <div className='centerMe'>
             <button className='navButtonStyle'><a className='linkStyle' href={url}>Link to Original Recipe</a></button>
           </div>
-          <div className='centerMe' onClick={() => {handleClick()}}>
-            <button className='navButtonStyle'>Delete Recipe</button>
-          </div>
           <NavButton
             linkPath='/edit-recipe'
             linkText='Edit Recipe'
           />
+          <div className='centerMe' onClick={() => {handleClick()}}>
+            <button className='navButtonStyle navButtonStyleRed'>Delete Recipe</button>
+          </div>
         </div>
       </div>
     </div>

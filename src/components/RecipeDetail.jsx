@@ -5,6 +5,7 @@ import MainRecipeDisplay from './MainRecipeDisplay';
 import IngredientsDisplay from './IngredientsDisplay';
 import DirectionsDisplay from './DirectionsDisplay';
 import NavButton from './NavButton';
+import { Link } from 'react-router-dom';
 import { changeRoute, changePopupStatus, removeRecipe } from './../actions';
 
 class RecipeDetail extends React.Component{
@@ -66,13 +67,15 @@ class RecipeDetail extends React.Component{
           <div className='popup'>
             <div className='popup_inner'>
               <h1>Are you sure you want to delete this recipe?</h1>
-            <button onClick={this.handleClickCancel}>Cancel</button>
-            <div onClick={this.handleClickDelete}>
-              <NavButton
-                linkPath='/'
-                linkText='Delete'
-              />
-            </div>
+              <div>
+                <div className='centerMe'>
+                  <Link to='/'><button className='navButtonStyle navButtonStyleRed' onClick={this.handleClickDelete}>Delete</button>
+                  </Link>
+                </div>
+                <div className='centerMe'>
+                  <button onClick={this.handleClickCancel} className='navButtonStyle'>Cancel</button>
+                </div>
+              </div>
             </div>
           </div>
           : null
