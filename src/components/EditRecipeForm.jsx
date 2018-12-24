@@ -30,7 +30,7 @@ class EditRecipeForm extends Component {
   createArray = (string) => {
     if(string) {
       string = `\n\n${string}`;
-      let newArray = string.split('\n\n- ');
+      let newArray = string.split(/\n+-*\s*/i);
       newArray.shift();
       return newArray;
     } else {
