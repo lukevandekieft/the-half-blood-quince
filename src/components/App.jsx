@@ -39,6 +39,7 @@ class App extends Component {
               currentRecipe={this.props.currentRecipe}
               loadedInitialState={this.props.loadedInitialState}
               dispatch={this.props.dispatch}
+              showPopup={this.props.showPopup}
             />}/>
             <Route exact path='/edit-recipe' render={()=><RecipeEdit
               recipes={this.props.recipes}
@@ -57,7 +58,8 @@ const mapStateToProps = state => {
     recipes: state.recipes,
     currentRecipe: state.currentRecipeId,
     loadedInitialState: state.loadedInitialState,
-    isRouting: state.isRouting
+    isRouting: state.isRouting,
+    showPopup: state.showPopup
   };
 };
 

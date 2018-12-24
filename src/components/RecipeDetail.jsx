@@ -24,6 +24,10 @@ class RecipeDetail extends React.Component{
     this.props.dispatch(changeRoute(false));
   };
 
+  componentWillUnmount() {
+    this.props.dispatch(changeRoute(false));
+  };
+
   render(){
     let domDisplay;
     if (this.props.loadedInitialState) {
@@ -48,6 +52,15 @@ class RecipeDetail extends React.Component{
           linkPath='/'
           linkText='Go Back'
         />
+        {this.props.showPopup ?
+          <div className='popup'>
+            <div className='popup_inner'>
+              <h1>Hello!</h1>
+            <button onClick={this.props.closePopup}>close me</button>
+            </div>
+          </div>
+          : null
+        }
       </div>
     } else {
       domDisplay =

@@ -111,7 +111,7 @@ class AddRecipeForm extends Component {
       </form>
       <NavButton
       linkPath='/'
-      linkText='Cancel Changes'
+      linkText='Cancel Add'
       />
     </div>
   )};
