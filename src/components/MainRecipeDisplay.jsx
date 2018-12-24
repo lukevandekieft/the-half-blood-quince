@@ -1,11 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import NavButton from './NavButton';
+import { connect } from 'react-redux';
+import { removeRecipe } from './../actions';
 
-function MainRecipeDisplay(props){
-  const altText = `${props.name} Recipe`
+function MainRecipeDisplay({name, url, imageLink, currentRecipe, dispatch}){
+  const altText = `${name} Recipe`
   const backgroundImage = {
-    backgroundImage: `url(${props.imageLink})`
+    backgroundImage: `url(${imageLink})`
   };
   const mainRecipeContainer = {
     display: 'flex',
@@ -19,20 +21,28 @@ function MainRecipeDisplay(props){
     justifyContent: 'space-between',
     margin: '0 auto'
   };
+
+  const handleClick = (recipeId) => {
+    console.log(recipeId)
+    dispatch(removeRecipe(recipeId));
+  };
+
   return (
     <div style={mainRecipeContainer}>
       <div className='recipeDetailPicture' style={backgroundImage} alt={altText}></div>
 
       <div style={mainDetailContainer}>
-      <h1 className='centerMe'>{props.name}</h1>
+      <h1 className='centerMe'>{name}</h1>
         <div>
           <div className='centerMe'>
-            <button className='navButtonStyle'><a className='linkStyle' href={props.url}>Link to Original Recipe</a></button>
+            <button className='navButtonStyle'><a className='linkStyle' href={url}>Link to Original Recipe</a></button>
           </div>
-          <NavButton
-            linkPath='/'
-            linkText='Delete Recipe'
-          />
+          <div onClick={() => {handleClick(currentRecipe)}}>
+            <NavButton
+              linkPath='/'
+              linkText='Delete Recipe'
+            />
+          </div>
           <NavButton
             linkPath='/edit-recipe'
             linkText='Edit Recipe'
@@ -43,10 +53,16 @@ function MainRecipeDisplay(props){
   );
 }
 
+const mapStateToProps = state => {
+  return {
+    currentRecipe: state.currentRecipeId
+  };
+};
+
 MainRecipeDisplay.propTypes = {
   name: PropTypes.string,
   imageLink: PropTypes.string,
   url: PropTypes.string
 }
 
-export default MainRecipeDisplay;
+export default connect(mapStateToProps)(MainRecipeDisplay);

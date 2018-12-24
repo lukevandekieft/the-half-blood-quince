@@ -49,6 +49,11 @@ export function submitRecipe (recipeList) {
   });
 };
 
+//REMOVE RECIPE
+export function removeRecipe (recipeId) {
+  return () => recipeList.child(recipeId).remove();
+};
+
 //LOAD STATE
 export const loadState = (stateLoaded) => ({
   type: types.LOAD_STATE,
@@ -63,7 +68,7 @@ export function watchUserLoad() {
   };
 }
 
-//LOAD STATE
+//CHANGE ROUTE
 export const changeRoute = (newRoute) => ({
   type: types.CHANGE_ROUTE,
   newRoute: newRoute
