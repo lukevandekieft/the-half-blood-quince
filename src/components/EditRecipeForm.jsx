@@ -15,6 +15,7 @@ class EditRecipeForm extends Component {
   _directions = null;
   _directionsNotes = null;
 
+//turn array into display text
   readableArray = (array) => {
     if(array) {
       return `- ${array.join('\n\n- ')}`;
@@ -22,6 +23,8 @@ class EditRecipeForm extends Component {
       return [];
     }
   }
+
+//turn display text into array
   createArray = (string) => {
     if(string) {
       string = `\n\n${string}`;
@@ -30,6 +33,15 @@ class EditRecipeForm extends Component {
       return newArray;
     } else {
       return [];
+    }
+  }
+
+//checks for null prop values
+  checkValue = (propValue) => {
+    if(propValue) {
+      return propValue;
+    } else {
+      return "";
     }
   }
 
@@ -43,8 +55,7 @@ class EditRecipeForm extends Component {
     const formatDirections = this.readableArray(directions);
     const formatDirectionsNotes = this.readableArray(directionsNotes);
 
-    console.log(this.props)
-
+    //on submission send added/edited recipe and route to said recipe
     const submitForm = (event) => {
       event.preventDefault();
       recipes[currentRecipe] = {
@@ -59,6 +70,7 @@ class EditRecipeForm extends Component {
       dispatch(submitRecipe(recipes));
       dispatch(changeRoute(true));
     }
+
     if (isRouting == true) {
       return <Redirect to='/recipe-detail' />
     }
@@ -69,7 +81,7 @@ class EditRecipeForm extends Component {
           <label>Recipe Name:</label>
           <input
             type="text"
-            defaultValue={name}
+            defaultValue={this.checkValue(name)}
             id='name'
             ref={(input) => {this._name = input;}}
           ></input>
@@ -78,7 +90,7 @@ class EditRecipeForm extends Component {
           <label>Recipe Link:</label>
           <input
             type="text"
-            defaultValue={url}
+            defaultValue={this.checkValue(url)}
             id='url'
             ref={(input) => {this._url = input;}}
           ></input>
@@ -87,7 +99,7 @@ class EditRecipeForm extends Component {
           <label>Recipe Picture (link to picture):</label>
           <input
             type="text"
-            defaultValue={image}
+            defaultValue={this.checkValue(image)}
             id='imageLink'
             ref={(input) => {this._imageLink = input;}}
           ></input>

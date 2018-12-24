@@ -2,6 +2,9 @@ import React from 'react';
 import RecipeList from './RecipeList';
 import NavButton from './NavButton';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { changeCurrentRecipe } from './../actions';
+import { v4 } from 'uuid';
 
 class HomePage extends React.Component{
 
@@ -24,6 +27,14 @@ class HomePage extends React.Component{
   };
 
   render() {
+    const {dispatch, currentRecipe} = this.props;
+
+    const handleClick = () => {
+      const newId = v4();
+      console.log(newId);
+      dispatch(changeCurrentRecipe(newId));
+    };
+
     const loadingRecipe = this.props.loadedInitialState;
     let domDisplay;
     if(loadingRecipe === false) {
@@ -40,16 +51,18 @@ class HomePage extends React.Component{
         <p style={this.headlineStyles}>Current Recipes</p>
         <RecipeList
         recipes={this.props.recipes}
-        currentRecipe={this.props.currentRecipe}
+        currentRecipe={currentRecipe}
         />
         <NavButton
         linkPath='/'
         linkText='Delete Recipe(s)'
         />
-        <NavButton
-        linkPath='/edit-recipe'
-        linkText='Add Recipe'
-        />
+        <div onClick={() => {handleClick()}}>
+          <NavButton
+          linkPath='/edit-recipe'
+          linkText='Add Recipe'
+          />
+        </div>
         </div>
       </div>
     }
@@ -61,9 +74,15 @@ class HomePage extends React.Component{
   }
 }
 
+const mapStateToProps = state => {
+  return {
+    currentRecipe: state.currentRecipeId
+  };
+};
+
 HomePage.propTypes = {
   recipes: PropTypes.object,
   currentRecipe: PropTypes.string
 }
 
-export default HomePage;
+export default connect(mapStateToProps)(HomePage);

@@ -23,6 +23,7 @@ const RecipeList = (props) => {
                   name = {recipe.name}
                   image = {recipe.imageLink}
                   key = {index}
+                  valueKey = {index}
                 />
       })}
     </div>

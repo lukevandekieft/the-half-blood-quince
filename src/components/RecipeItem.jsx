@@ -5,7 +5,9 @@ import { connect } from 'react-redux';
 import { changeCurrentRecipe } from './../actions';
 
 function RecipeItem({currentRecipe, name, image, valueKey, dispatch}) {
+
   const handleClick = (key) => {
+    console.log(key)
     dispatch(changeCurrentRecipe(key));
   };
 
