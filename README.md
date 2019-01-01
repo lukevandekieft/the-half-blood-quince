@@ -82,7 +82,7 @@ To download & edit do the following:
 
 * Create file src/constants/firebaseConfig.js and include the following. You will need to get the API key and sender ID from me.
 
-      const config = {
+      const firebaseConfig = {
           apiKey: "[YOUR KEY]",
           authDomain: "thinkgeek-clone.firebaseapp.com",
           databaseURL: "https://thinkgeek-clone.firebaseio.com",
@@ -90,6 +90,8 @@ To download & edit do the following:
           storageBucket: "thinkgeek-clone.appspot.com",
           messagingSenderId: "[YOUR ID]"
         };
+
+      export default firebaseConfig;
 
 * Compile and open webpage in developer mode.
 
