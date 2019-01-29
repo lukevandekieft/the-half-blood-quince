@@ -73,7 +73,7 @@ class EditRecipeForm extends Component {
       dispatch(changeRoute(true));
     }
 
-    if (isRouting == true) {
+    if (isRouting === true) {
       return <Redirect to='/recipe-detail' />
     }
   return (
@@ -164,5 +164,18 @@ const mapStateToProps = state => {
     directionsNotes: state.recipes[state.currentRecipeId].directionsNotes
   };
 };
+
+EditRecipeForm.propTypes = {
+  currentRecipe: PropTypes.string,
+  recipes: PropTypes.object,
+  isRouting: PropTypes.boolean,
+  url: PropTypes.string,
+  image: PropTypes.string,
+  name: PropTypes.string,
+  ingredients: PropTypes.array,
+  ingredientsNotes: PropTypes.array,
+  directions: PropTypes.array,
+  directionsNotes: PropTypes.array
+}
 
 export default connect(mapStateToProps)(EditRecipeForm);

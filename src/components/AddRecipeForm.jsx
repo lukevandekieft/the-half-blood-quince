@@ -47,7 +47,7 @@ class AddRecipeForm extends Component {
       dispatch(changeRoute(true));
     }
 
-    if (isRouting == true) {
+    if (isRouting === true) {
       return <Redirect to='/recipe-detail' />
     }
   return (
@@ -124,5 +124,11 @@ const mapStateToProps = state => {
     isRouting: state.isRouting
   };
 };
+
+AddRecipeForm.propTypes = {
+  currentRecipe: PropTypes.string,
+  recipes: PropTypes.object,
+  isRouting: PropTypes.boolean
+}
 
 export default connect(mapStateToProps)(AddRecipeForm);
