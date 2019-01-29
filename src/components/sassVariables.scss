@@ -1,6 +1,10 @@
 $recipe-icon-size: 200px;
 $recipe-icon-padding: 40px;
 $navbar-height: 80px;
+$icon-height: $navbar-height*.9;
 $background-color: #E8ECF5;
 $brand-color: lighten(#fffc4c, 5%);
 $off-brand-color: #009933;
+$small-breakpoint: 600px;
+$medium-breakpoint: 900px;
+$large-breakpoint: 1200px;

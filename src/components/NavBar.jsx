@@ -4,8 +4,7 @@ import { Link } from 'react-router-dom';
 
 function RecipeDetail(){
   let headlineStyles = {
-    fontSize: '2em',
-    padding: '20px 0'
+    
   }
 
   return (
@@ -13,8 +12,8 @@ function RecipeDetail(){
       <div className='navContainer'>
         <div className='pageContentSection navBar'>
         <Link to='/'><Logo /></Link>
-          <p style={headlineStyles}>The Half-Blood Quince</p>
-          <p style={headlineStyles}>Menu</p>
+          <h1 style={headlineStyles}>The Half-Blood Quince</h1>
+          <h1 style={headlineStyles}>Menu</h1>
         </div>
       </div>
       <div className='navBarBackground'></div>
