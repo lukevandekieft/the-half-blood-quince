@@ -41,6 +41,7 @@
   img {
     max-height: 70px;
   }
+  height: 100%;
   display: flex;
   z-index: 500;
   justify-content: space-between;
@@ -60,6 +61,24 @@
   position: relative;
   z-index: 250;
 };
+
+
+  @media (max-width: $small-breakpoint) {
+    .navContainer, .navBarBackground {
+      height: $navbar-height*.6;
+    }
+  }
+  @media (min-width: $small-breakpoint+1) and (max-width: $medium-breakpoint) {
+    .navContainer, .navBarBackground {
+      height: $navbar-height*.7;
+    }
+  }
+  @media (min-width: $medium-breakpoint+1) and (max-width: $large-breakpoint) {
+    .navContainer, .navBarBackground {
+      height: $navbar-height*.8;
+    }
+  }
+
 
 // component styles
 
