@@ -66,6 +66,7 @@
 .recipeItemBox {
   background-color: $brand-color;
   box-sizing: border-box;
+  white-space: nowrap;
   margin-bottom: $recipe-icon-padding;
   margin-left: $recipe-icon-padding;
   max-width: 200px;
@@ -73,6 +74,8 @@
     color: #3d2a13;
     padding: 10px;
     text-align: center;
+    text-overflow: ellipsis;
+    overflow: hidden;
   }
   border-radius: 5%;
   overflow: hidden;
