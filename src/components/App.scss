@@ -39,7 +39,11 @@
 
 .navBar {
   img {
-    max-height: 70px;
+    height: $icon-height;
+  }
+  h1 {
+    font-size: 2em;
+    padding: 20px 0;
   }
   height: 100%;
   display: flex;
@@ -66,16 +70,32 @@
   @media (max-width: $small-breakpoint) {
     .navContainer, .navBarBackground {
       height: $navbar-height*.6;
+      img {
+        height: $icon-height*.6;
+      }
+      h1 {
+        display: none;
+      }
     }
   }
   @media (min-width: $small-breakpoint+1) and (max-width: $medium-breakpoint) {
     .navContainer, .navBarBackground {
       height: $navbar-height*.7;
+      img {
+        height: $icon-height*.7;
+      }
+      h1 {
+        font-size: 1.75em;
+        padding: 0;
+      }
     }
   }
   @media (min-width: $medium-breakpoint+1) and (max-width: $large-breakpoint) {
     .navContainer, .navBarBackground {
       height: $navbar-height*.8;
+      img {
+        height: $icon-height*.8;
+      }
     }
   }
 
