@@ -1,8 +1,20 @@
 @import '../sassVariables.scss';
 
+
+//HEADER SECTION
 .homePageContainer {
   margin-top: -$navbar-height;
   position: relative;
+};
+
+.headerSection {
+  background-image: url(https://images.unsplash.com/photo-1516211697506-8360dbcfe9a4?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=52e95cdd2653761514253e73eeb938ac&auto=format&fit=crop&w=1500&q=80);
+  height: 50vh;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  position: relative;
+  box-shadow: 0px -1px 5px 1px rgba(0,0,0,0.28);
 };
 
 //RECIPE GRID
@@ -37,14 +49,23 @@
 .recipeItemStyles {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-around;
   margin-left: -$recipe-icon-padding/2;
   width: 100%;
 };
 
 @media (max-width: $small-breakpoint) {
+  .headerSection {
+    height: 30vh;
+  }
 }
 @media (min-width: $small-breakpoint+1) and (max-width: $medium-breakpoint) {
+  .headerSection {
+    height: 40vh;
+  }
 }
 @media (min-width: $medium-breakpoint+1) and (max-width: $large-breakpoint) {
+  .headerSection {
+    height: 45vh;
+  }
 }
