@@ -1,0 +1,72 @@
+@import '../sassVariables.scss';
+
+/*Resize the wrap to see the search bar change!*/
+.searchBox {
+  width: 30%;
+  display: flex;
+  position: absolute;
+  top: calc(50% + (#{$navbar-height}/2));
+  left: 50%;
+  -webkit-box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.75);
+  border-radius: 35px;
+  padding: 0 10px;
+  overflow: hidden;
+  background-color: white;
+  & > input {
+    font-size: 20px;
+  }
+  & > button {
+    font-size: 25px;
+  }
+  transform: translate(-50%, -50%);
+
+  .searchButton {
+    background-color: white;
+    width: 40px;
+    height: inherit;
+    text-align: center;
+    color: lighten($offsetColor, 10%);
+    border: none;
+    cursor: pointer;
+  }
+  .searchInput {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    outline: none;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    &:focus{
+      color: lighten($offsetColor, 10%);
+    }
+    &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+      color: $offsetColor;
+      opacity: 1; /* Firefox */
+    }
+    &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+      color: $offsetColor;
+    }
+    &::-ms-input-placeholder { /* Microsoft Edge */
+      color: $offsetColor;
+    }
+  }
+}
+
+@media (max-width: $small-breakpoint) {
+  .searchBox {
+    width: 70%;
+  }
+}
+@media (min-width: $small-breakpoint+1) and (max-width: $medium-breakpoint) {
+  .searchBox {
+    width: 50%;
+  }
+}
+@media (min-width: $medium-breakpoint+1) and (max-width: $large-breakpoint) {
+  .searchBox {
+    width: 40%;
+  }
+}

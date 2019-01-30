@@ -1,0 +1,85 @@
+@import '../sassVariables.scss';
+
+
+//HEADER SECTION
+.homePageContainer {
+  margin-top: -$navbar-height;
+  position: relative;
+};
+
+.headerSection {
+  background-image: url('../../assets/images/header_background.jpeg');
+  height: 50vh;
+  max-height: 700px;
+  min-height: 170px;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  position: relative;
+  box-shadow: 0px -1px 5px 1px rgba(0,0,0,0.28);
+};
+
+//RECIPE GRID
+.recipeItemBox {
+  background-color: $brand-color;
+  box-sizing: border-box;
+  white-space: nowrap;
+  margin-bottom: $recipe-icon-padding;
+  margin-left: $recipe-icon-padding;
+  width:200px;
+  h3 {
+    color: #3d2a13;
+    padding: .5em;
+    text-align: center;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+  border-radius: 5%;
+  overflow: hidden;
+}
+
+.recipeItemImageContainer {
+  width: $recipe-icon-size;
+  height: $recipe-icon-size;
+  position: relative;
+  overflow: hidden;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.recipeItemStyles {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-left: -$recipe-icon-padding/2;
+  width: 100%;
+};
+
+@media (max-width: 399px) {
+  .headerSection {
+    background-size: 450px 300px;
+    background-image: url('../../assets/images/header_background_sm.png');
+  }
+}
+@media (min-width: 400px) and (max-width: 700px) {
+  .headerSection {
+    background-image: url('../../assets/images/header_background_md.png');
+  }
+}
+
+@media (max-width: $small-breakpoint) {
+  .headerSection {
+    height: 30vh;
+  }
+}
+@media (min-width: $small-breakpoint+1) and (max-width: $medium-breakpoint) {
+  .headerSection {
+    height: 40vh;
+  }
+}
+@media (min-width: $medium-breakpoint+1) and (max-width: $large-breakpoint) {
+  .headerSection {
+    height: 45vh;
+  }
+}

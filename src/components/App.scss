@@ -25,135 +25,34 @@
   background: white;
 }
 
-//navbar
-
-.navContainer {
-  background-color: rgba(70, 70, 64, .7);
-  overflow: hidden;
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: $navbar-height;
-  z-index: 1000;
+@media (max-width: $small-breakpoint) {
+  .pageContentSection {
+    padding: 0 $recipe-icon-padding*.5;
+  }
+}
+@media (min-width: $small-breakpoint+1) and (max-width: $medium-breakpoint) {
+  .pageContentSection {
+    padding: 0 $recipe-icon-padding*.5;
+  }
+}
+@media (min-width: $medium-breakpoint+1) and (max-width: $large-breakpoint) {
+  .pageContentSection {
+    padding: 0 $recipe-icon-padding*.5;
+  }
 }
 
-.navBar {
-  img {
-    height: $icon-height;
-  }
-  h1 {
-    font-size: 2em;
-    padding: 20px 0;
-  }
-  height: 100%;
-  display: flex;
-  z-index: 500;
-  justify-content: space-between;
-  align-items: center;
-  color: white;
-  position: relative;
-  z-index: 500;
-  background: none;
-}
-
-.navBarBackground {
-  background-image: url(https://images.unsplash.com/photo-1516211697506-8360dbcfe9a4?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=52e95cdd2653761514253e73eeb938ac&auto=format&fit=crop&w=1500&q=80);
-  height: $navbar-height;
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: center;
-  position: relative;
-  z-index: 250;
-};
-
-
-  @media (max-width: $small-breakpoint) {
-    .navContainer, .navBarBackground {
-      height: $navbar-height*.6;
-      img {
-        height: $icon-height*.6;
-      }
-      h1 {
-        display: none;
-      }
-    }
-  }
-  @media (min-width: $small-breakpoint+1) and (max-width: $medium-breakpoint) {
-    .navContainer, .navBarBackground {
-      height: $navbar-height*.7;
-      img {
-        height: $icon-height*.7;
-      }
-      h1 {
-        font-size: 1.75em;
-        padding: 0;
-      }
-    }
-  }
-  @media (min-width: $medium-breakpoint+1) and (max-width: $large-breakpoint) {
-    .navContainer, .navBarBackground {
-      height: $navbar-height*.8;
-      img {
-        height: $icon-height*.8;
-      }
-    }
-  }
-
-
-// component styles
-
-.recipeItemBox {
-  background-color: $brand-color;
-  box-sizing: border-box;
-  white-space: nowrap;
-  margin-bottom: $recipe-icon-padding;
-  margin-left: $recipe-icon-padding;
-  max-width: 200px;
-  h3 {
-    color: #3d2a13;
-    padding: 10px;
-    text-align: center;
-    text-overflow: ellipsis;
-    overflow: hidden;
-  }
-  border-radius: 5%;
-  overflow: hidden;
-}
-
-.recipeItemImageContainer {
-  width: $recipe-icon-size;
-  height: $recipe-icon-size;
-  position: relative;
-  overflow: hidden;
-  background-position: 50% 50%;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.recipeDetailPicture {
-  width: $recipe-icon-size * 2;
-  height: $recipe-icon-size * 2;
-  position: relative;
-  overflow: hidden;
-  background-position: 50% 50%;
-  background-repeat: no-repeat;
-  background-size: cover;
-  box-shadow: 0px 0px 5px 0px rgba(0,0,5px,0.25);
-  border-radius: 10%;
-}
-
-.recipeItemStyles {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-left: -$recipe-icon-padding/2;
-  width: 100%;
-};
-
-.homePageContainer {
-  margin-top: -$navbar-height;
-  position: relative;
-};
+ //OTHER
+ .recipeDetailPicture {
+   width: $recipe-icon-size * 2;
+   height: $recipe-icon-size * 2;
+   position: relative;
+   overflow: hidden;
+   background-position: 50% 50%;
+   background-repeat: no-repeat;
+   background-size: cover;
+   box-shadow: 0px 0px 5px 0px rgba(0,0,5px,0.25);
+   border-radius: 10%;
+ }
 
 ul, ol {
     padding-left: 1.8em;
