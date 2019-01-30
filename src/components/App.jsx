@@ -14,6 +14,7 @@ import * as actions from './../actions';
 import './App.scss';
 import './HomePage/HomePage.scss';
 import './NavBar/NavBar.scss';
+import './Widgets/SearchBar.scss'
 import './Widgets/Animations.scss';
 
 class App extends Component {

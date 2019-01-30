@@ -1,5 +1,6 @@
 import React from 'react';
 import RecipeList from './RecipeList';
+import SearchBar from '../Widgets/SearchBar';
 import NavButton from '../Widgets/NavButton';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -37,7 +38,9 @@ class HomePage extends React.Component{
     } else {
       domDisplay =
       <div className='homePageContainer'>
-        <div className='headerSection'></div>
+        <div className='headerSection'>
+          <SearchBar />
+        </div>
         <div className='pageContentSection'>
         <p style={this.headlineStyles}>Current Recipes</p>
         <RecipeList
