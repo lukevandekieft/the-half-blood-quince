@@ -30,15 +30,15 @@
     color: lighten($offsetColor, 10%);
     border: none;
     cursor: pointer;
-    i {
-      padding: 5px;
-    }
   }
   .searchInput {
     width: 100%;
     padding: 10px;
     border: none;
     outline: none;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
     &:focus{
       color: lighten($offsetColor, 10%);
     }
