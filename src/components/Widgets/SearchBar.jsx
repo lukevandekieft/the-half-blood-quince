@@ -2,13 +2,11 @@ import React from 'react';
 
 function SearchBar(){
   return (
-    <div class="searchWrapper">
-       <div class="searchBox">
-          <input type="text" class="searchInput" placeholder="What are you looking for?"/>
-          <button type="submit" class="searchButton">
-            <i class="fa fa-search"></i>
-         </button>
-       </div>
+    <div className="searchBox">
+      <input type="text" className="searchInput" placeholder="Search Your Recipes..."/>
+      <button type="submit" className="searchButton">
+        <i className="fa fa-search"></i>
+     </button>
     </div>
   );
 }

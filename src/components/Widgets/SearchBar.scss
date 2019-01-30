@@ -1,42 +1,61 @@
+@import '../sassVariables.scss';
+
+$searchIconWidth: 40px;
+$offsetColor: rgb(50, 50, 30);
+
+/*Resize the wrap to see the search bar change!*/
 .searchBox {
-  width: 100%;
-  position: relative
+  width: 30%;
+  display: flex;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.75);
+  border-radius: 35px;
+  padding: 0 10px;
+  overflow: hidden;
+  background-color: white;
+  & > input {
+    font-size: 20px;
+  }
+  & > button {
+    font-size: 25px;
+  }
+  transform: translate(-50%, -50%);
 }
 
 .searchInput {
-  float: left;
   width: 100%;
-  border: 3px solid #00B4CC;
-  padding: 5px;
-  height: 20px;
-  border-radius: 5px;
+  padding: 10px;
+  border: none;
   outline: none;
-  color: #9DBFAF;
   &:focus{
-    color: #00B4CC;
+    color: lighten($offsetColor, 10%);
+  }
+  &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: $offsetColor;
+    opacity: 1; /* Firefox */
+  }
+  &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: $offsetColor;
+  }
+  &::-ms-input-placeholder { /* Microsoft Edge */
+    color: $offsetColor;
   }
 }
 
 
 .searchButton {
-  position: absolute;
-  right: -50px;
-  width: 40px;
-  height: 36px;
-  border: 1px solid #00B4CC;
-  background: #00B4CC;
+  background-color: white;
+  width: $searchIconWidth;
+  height: inherit;
   text-align: center;
-  color: #fff;
-  border-radius: 5px;
+  color: lighten($offsetColor, 10%);
+  border: none;
   cursor: pointer;
-  font-size: 20px;
-}
-
-/*Resize the wrap to see the search bar change!*/
-.searchWrapper {
-  width: 30%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  i {
+    padding: 5px;
+  }
 }
