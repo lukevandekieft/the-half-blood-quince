@@ -4,15 +4,17 @@ import {BrowserRouter as Switch, Route, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 //local files
-import NavBar from './NavBar.jsx';
-import HomePage from './HomePage.jsx';
-import RecipeDetail from './RecipeDetail.jsx';
+import NavBar from './NavBar/NavBar.jsx';
+import HomePage from './HomePage/HomePage.jsx';
+import RecipeDetail from './RecipeDetail/RecipeDetail.jsx';
 import RecipeEdit from './RecipeEdit.jsx';
 import * as actions from './../actions';
 
 //styles
 import './App.scss';
-import './animations.scss';
+import './HomePage/HomePage.scss';
+import './NavBar/NavBar.scss';
+import './Widgets/Animations.scss';
 
 class App extends Component {
   componentWillMount() {

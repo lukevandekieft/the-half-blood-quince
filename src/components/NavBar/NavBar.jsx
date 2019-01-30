@@ -11,7 +11,7 @@ function RecipeDetail(){
           <h1>The Half-Blood Quince</h1>
           <Link to='/'>
             <h1>Menu</h1>
-            <i class="fas fa-bars"></i>
+            <i className="fas fa-bars"></i>
           </Link>
         </div>
       </div>

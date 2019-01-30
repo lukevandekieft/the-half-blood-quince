@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 import MainRecipeDisplay from './MainRecipeDisplay';
 import IngredientsDisplay from './IngredientsDisplay';
 import DirectionsDisplay from './DirectionsDisplay';
-import NavButton from './NavButton';
+import NavButton from '../Widgets/NavButton';
 import { Link } from 'react-router-dom';
-import { changeRoute, changePopupStatus, removeRecipe } from './../actions';
+import { changeRoute, changePopupStatus, removeRecipe } from '../../actions';
 
 class RecipeDetail extends React.Component{
 

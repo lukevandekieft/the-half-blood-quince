@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import NavButton from './NavButton';
+import NavButton from '../Widgets/NavButton';
 import { connect } from 'react-redux';
-import { changePopupStatus } from './../actions';
+import { changePopupStatus } from '../../actions';
 
 function MainRecipeDisplay({name, url, imageLink, currentRecipe, showPopup, dispatch}){
   const altText = `${name} Recipe`

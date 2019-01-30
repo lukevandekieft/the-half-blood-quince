@@ -1,9 +1,9 @@
 import React from 'react';
 import RecipeList from './RecipeList';
-import NavButton from './NavButton';
+import NavButton from '../Widgets/NavButton';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { changeCurrentRecipe } from './../actions';
+import { changeCurrentRecipe } from '../../actions';
 import { v4 } from 'uuid';
 
 class HomePage extends React.Component{

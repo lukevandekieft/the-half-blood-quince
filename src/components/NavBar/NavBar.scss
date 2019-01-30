@@ -1,0 +1,83 @@
+@import '../sassVariables.scss';
+
+.navContainer {
+  background-color: rgba(70, 70, 64, .7);
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: $navbar-height;
+  z-index: 1000;
+}
+
+.navBar {
+  img {
+    height: $icon-height;
+  }
+  h1 {
+    font-size: 2em;
+    padding: 20px 0;
+  }
+  i {
+    display: none;
+  }
+  a {
+    color: white;
+  }
+  height: 100%;
+  display: flex;
+  z-index: 500;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  position: relative;
+  z-index: 500;
+  background: none;
+}
+
+.navBarBackground {
+  background-image: url(https://images.unsplash.com/photo-1516211697506-8360dbcfe9a4?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=52e95cdd2653761514253e73eeb938ac&auto=format&fit=crop&w=1500&q=80);
+  height: $navbar-height;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  position: relative;
+  z-index: 250;
+};
+
+
+  @media (max-width: $small-breakpoint) {
+    .navContainer, .navBarBackground {
+      height: $navbar-height*.8;
+      img {
+        height: $icon-height*.8;
+      }
+      h1 {
+        display: none;
+      }
+      i {
+        display: block;
+        font-size: 2.5em;
+      }
+    }
+  }
+  @media (min-width: $small-breakpoint+1) and (max-width: $medium-breakpoint) {
+    .navContainer, .navBarBackground {
+      height: $navbar-height*.8;
+      img {
+        height: $icon-height*.8;
+      }
+      h1 {
+        font-size: 1.75em;
+        padding: 0;
+      }
+    }
+  }
+  @media (min-width: $medium-breakpoint+1) and (max-width: $large-breakpoint) {
+    .navContainer, .navBarBackground {
+      height: $navbar-height*.8;
+      img {
+        height: $icon-height*.8;
+      }
+    }
+  }
