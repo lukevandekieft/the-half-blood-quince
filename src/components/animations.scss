@@ -54,7 +54,7 @@
   text-decoration: none;
   font-size: 1.2em;
   font-weight: 600;
-  margin: 15px;
+  margin: .8em;
 }
 
 .navButtonStyleRed {
@@ -87,6 +87,25 @@
 
 .navButtonStyleRed:active {
   background: darken(red, 10%);
+}
+
+@media (max-width: $small-breakpoint) {
+  .navButtonStyle {
+    font-size: 1em;
+    margin: .9em;
+  }
+}
+@media (min-width: $small-breakpoint+1) and (max-width: $medium-breakpoint) {
+  .navButtonStyle {
+    font-size: 1em;
+    margin: .9em;
+  }
+}
+@media (min-width: $medium-breakpoint+1) and (max-width: $large-breakpoint) {
+  .navButtonStyle {
+    font-size: 1em;
+    margin: 1em;
+  }
 }
 
 @-webkit-keyframes active {

@@ -27,7 +27,7 @@
 
 @media (max-width: $small-breakpoint) {
   .pageContentSection {
-    padding: 0;
+    padding: 0 $recipe-icon-padding*.5;
   }
 }
 @media (min-width: $small-breakpoint+1) and (max-width: $medium-breakpoint) {
@@ -128,7 +128,7 @@
 
 // component styles
 
-//RECIPE BOX COMPONENT
+//RECIPE GRID STYLES
 .recipeItemBox {
   background-color: $brand-color;
   box-sizing: border-box;
@@ -157,18 +157,6 @@
   background-size: cover;
 }
 
-.recipeDetailPicture {
-  width: $recipe-icon-size * 2;
-  height: $recipe-icon-size * 2;
-  position: relative;
-  overflow: hidden;
-  background-position: 50% 50%;
-  background-repeat: no-repeat;
-  background-size: cover;
-  box-shadow: 0px 0px 5px 0px rgba(0,0,5px,0.25);
-  border-radius: 10%;
-}
-
 .recipeItemStyles {
   display: flex;
   flex-wrap: wrap;
@@ -185,6 +173,18 @@
 }
 
  //OTHER
+ .recipeDetailPicture {
+   width: $recipe-icon-size * 2;
+   height: $recipe-icon-size * 2;
+   position: relative;
+   overflow: hidden;
+   background-position: 50% 50%;
+   background-repeat: no-repeat;
+   background-size: cover;
+   box-shadow: 0px 0px 5px 0px rgba(0,0,5px,0.25);
+   border-radius: 10%;
+ }
+
 .homePageContainer {
   margin-top: -$navbar-height;
   position: relative;
