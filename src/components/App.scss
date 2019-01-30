@@ -25,6 +25,22 @@
   background: white;
 }
 
+@media (max-width: $small-breakpoint) {
+  .pageContentSection {
+    padding: 0;
+  }
+}
+@media (min-width: $small-breakpoint+1) and (max-width: $medium-breakpoint) {
+  .pageContentSection {
+    padding: 0 $recipe-icon-padding*.5;
+  }
+}
+@media (min-width: $medium-breakpoint+1) and (max-width: $large-breakpoint) {
+  .pageContentSection {
+    padding: 0 $recipe-icon-padding*.5;
+  }
+}
+
 //navbar
 
 .navContainer {
@@ -44,6 +60,12 @@
   h1 {
     font-size: 2em;
     padding: 20px 0;
+  }
+  i {
+    display: none;
+  }
+  a {
+    color: white;
   }
   height: 100%;
   display: flex;
@@ -69,20 +91,24 @@
 
   @media (max-width: $small-breakpoint) {
     .navContainer, .navBarBackground {
-      height: $navbar-height*.6;
+      height: $navbar-height*.8;
       img {
-        height: $icon-height*.6;
+        height: $icon-height*.8;
       }
       h1 {
         display: none;
+      }
+      i {
+        display: block;
+        font-size: 2.5em;
       }
     }
   }
   @media (min-width: $small-breakpoint+1) and (max-width: $medium-breakpoint) {
     .navContainer, .navBarBackground {
-      height: $navbar-height*.7;
+      height: $navbar-height*.8;
       img {
-        height: $icon-height*.7;
+        height: $icon-height*.8;
       }
       h1 {
         font-size: 1.75em;
@@ -102,16 +128,17 @@
 
 // component styles
 
+//RECIPE BOX COMPONENT
 .recipeItemBox {
   background-color: $brand-color;
   box-sizing: border-box;
   white-space: nowrap;
   margin-bottom: $recipe-icon-padding;
   margin-left: $recipe-icon-padding;
-  max-width: 200px;
+  width:200px;
   h3 {
     color: #3d2a13;
-    padding: 10px;
+    padding: .5em;
     text-align: center;
     text-overflow: ellipsis;
     overflow: hidden;
@@ -150,6 +177,14 @@
   width: 100%;
 };
 
+@media (max-width: $small-breakpoint) {
+}
+@media (min-width: $small-breakpoint+1) and (max-width: $medium-breakpoint) {
+}
+@media (min-width: $medium-breakpoint+1) and (max-width: $large-breakpoint) {
+}
+
+ //OTHER
 .homePageContainer {
   margin-top: -$navbar-height;
   position: relative;

@@ -3,17 +3,16 @@ import Logo from './Logo.jsx';
 import { Link } from 'react-router-dom';
 
 function RecipeDetail(){
-  let headlineStyles = {
-    
-  }
-
   return (
     <div>
       <div className='navContainer'>
         <div className='pageContentSection navBar'>
-        <Link to='/'><Logo /></Link>
-          <h1 style={headlineStyles}>The Half-Blood Quince</h1>
-          <h1 style={headlineStyles}>Menu</h1>
+          <Link to='/'><Logo /></Link>
+          <h1>The Half-Blood Quince</h1>
+          <Link to='/'>
+            <h1>Menu</h1>
+            <i class="fas fa-bars"></i>
+          </Link>
         </div>
       </div>
       <div className='navBarBackground'></div>
