@@ -24,7 +24,7 @@ function DirectionsDisplay(props){
           return <li key={index} className="recipeDetailList">{index}</li>
         })}
       </ol>
-      <h3>Notes</h3>
+      <h3>Direction Notes</h3>
       <ul>
         {formattedDirectionsNotes.map(index => {
           return <li key={index} className="recipeDetailList">{index}</li>

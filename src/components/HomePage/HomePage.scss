@@ -3,15 +3,14 @@
 
 //HEADER SECTION
 .homePageContainer {
-  margin-top: -$navbar-height;
   position: relative;
 };
 
 .headerSection {
   background-image: url('../../assets/images/header_background.jpeg');
-  height: 50vh;
+  height: 35vh;
   max-height: 700px;
-  min-height: 170px;
+  min-height: 110px;
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
@@ -51,14 +50,13 @@
 .recipeItemStyles {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: center;
   margin-left: -$recipe-icon-padding/2;
   width: 100%;
 };
 
 @media (max-width: 399px) {
   .headerSection {
-    background-size: 450px 300px;
     background-image: url('../../assets/images/header_background_sm.png');
   }
 }
@@ -70,16 +68,16 @@
 
 @media (max-width: $small-breakpoint) {
   .headerSection {
-    height: 30vh;
+    height: 15vh;
   }
 }
 @media (min-width: $small-breakpoint+1) and (max-width: $medium-breakpoint) {
   .headerSection {
-    height: 40vh;
+    height: 25vh;
   }
 }
 @media (min-width: $medium-breakpoint+1) and (max-width: $large-breakpoint) {
   .headerSection {
-    height: 45vh;
+    height: 30vh;
   }
 }

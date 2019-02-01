@@ -9,18 +9,6 @@ function MainRecipeDisplay({name, url, imageLink, currentRecipe, showPopup, disp
   const backgroundImage = {
     backgroundImage: `url(${imageLink})`
   };
-  const mainRecipeContainer = {
-    display: 'flex',
-    justifyContent: 'space-between',
-
-    margin: '2em -4em 2em 3em'
-  };
-  const mainDetailContainer = {
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'space-between',
-    margin: '0 auto'
-  };
 
   const handleClick = () => {
     const newPopup = !showPopup;
@@ -28,14 +16,14 @@ function MainRecipeDisplay({name, url, imageLink, currentRecipe, showPopup, disp
   };
 
   return (
-    <div style={mainRecipeContainer}>
+    <div className='mainRecipeContainer'>
       <div className='recipeDetailPicture' style={backgroundImage} alt={altText}></div>
 
-      <div style={mainDetailContainer}>
+      <div className='mainDetailContainer'>
       <h1 className='centerMe'>{name}</h1>
         <div>
           <div className='centerMe'>
-            <button className='navButtonStyle'><a className='linkStyle' href={url}>Link to Original Recipe</a></button>
+            <button className='navButtonStyle'><a className='linkStyle' href={url}>Link to Page</a></button>
           </div>
           <NavButton
             linkPath='/edit-recipe'
