@@ -1,18 +1,6 @@
 @import '../sassVariables.scss';
 
 //OVERALL STYLE
-.recipeDetailPicture {
-  width: $recipe-icon-size * 2;
-  height: $recipe-icon-size * 2;
-  position: relative;
-  overflow: hidden;
-  background-position: 50% 50%;
-  background-repeat: no-repeat;
-  background-size: cover;
-  box-shadow: 0px 0px 5px 0px rgba(0,0,5px,0.25);
-  border-radius: 10%;
-}
-
 .recipeDetailList {
   margin-bottom: 1.5em;
   line-height: 1.5;
@@ -34,15 +22,76 @@
 //MAIN RECIPE DISPLAY
 .mainRecipeContainer {
     display: flex;
+    width: 100%;
     justify-content: space-between;
-    margin: 2em -4em 2em 3em;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 2em;
+    .recipeDetailPicture {
+      width: $recipe-icon-size * 2;
+      height: $recipe-icon-size * 2;
+      position: relative;
+      overflow: hidden;
+      background-position: 50% 50%;
+      background-repeat: no-repeat;
+      background-size: cover;
+      box-shadow: 0px 0px 5px 0px rgba(0,0,5px,0.25);
+      border-radius: 10%;
+    }
+    .mainDetailContainer {
+      max-width: calc(100% - (#{$recipe-icon-size}*2));
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-sizing: border-box;
+      margin: 0 auto;
+      padding-left: 5em;
+      h1 {
+        margin-bottom: 1em;
+        max-height: 4.88em;
+        line-height: 1.22em;
+        overflow: hidden;
+      }
+    };
   };
-.mainDetailContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin: 0 auto;
-  };
+
+@media (max-width: $small-breakpoint) {
+  .mainRecipeContainer {
+    padding: 1em 0;
+    .recipeDetailPicture {
+      width: $recipe-icon-size;
+      height: $recipe-icon-size;
+    }
+    .mainDetailContainer {
+      padding-left: 2em;
+      max-width: calc(100% - #{$recipe-icon-size});
+    }
+  }
+}
+@media (min-width: $small-breakpoint+1) and (max-width: $medium-breakpoint) {
+  .mainRecipeContainer {
+    .recipeDetailPicture {
+      width: $recipe-icon-size * 1.25;
+      height: $recipe-icon-size * 1.25;
+    }
+    .mainDetailContainer {
+      padding-left: 3em;
+      max-width: calc(100% - (#{$recipe-icon-size}*1.25));
+    }
+  }
+}
+@media (min-width: $medium-breakpoint+1) and (max-width: $large-breakpoint) {
+  .mainRecipeContainer {
+    .recipeDetailPicture {
+      width: $recipe-icon-size * 1.5;
+      height: $recipe-icon-size * 1.5;
+    }
+    .mainDetailContainer {
+      padding-left: 4em;
+      max-width: calc(100% - (#{$recipe-icon-size}*1.5));
+    }
+  }
+}
 
 //DELETION POPUP
 .popup {
