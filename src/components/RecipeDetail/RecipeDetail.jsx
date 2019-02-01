@@ -10,16 +10,6 @@ import { changeRoute, changePopupStatus, removeRecipe } from '../../actions';
 
 class RecipeDetail extends React.Component{
 
-  detailStyles = {
-    display: 'flex',
-    flexDirection: 'column'
-  };
-  directionDisplayStyles = {
-    display: 'grid',
-    gridTemplate: 'auto / 1.3fr 3fr',
-    gridColumnGap: '50px'
-  };
-
   componentDidMount() {
     window.scrollTo(0, 0);
     this.props.dispatch(changeRoute(false));
@@ -43,13 +33,13 @@ class RecipeDetail extends React.Component{
     let domDisplay;
     if (this.props.loadedInitialState) {
       domDisplay =
-      <div className='pageContentSection' style={this.detailStyles}>
+      <div className='pageContentSection detailFlex'>
         <MainRecipeDisplay
           name = {this.props.recipes[this.props.currentRecipe].name}
           imageLink = {this.props.recipes[this.props.currentRecipe].imageLink}
           url = {this.props.recipes[this.props.currentRecipe].url}
         />
-        <div style={this.directionDisplayStyles}>
+        <div className='directionDisplay'>
           <IngredientsDisplay
             ingredients = {this.props.recipes[this.props.currentRecipe].ingredients}
             ingredientsNotes = {this.props.recipes[this.props.currentRecipe].ingredientsNotes}

@@ -16,6 +16,7 @@ import './HomePage/HomePage.scss';
 import './NavBar/NavBar.scss';
 import './Widgets/SearchBar.scss'
 import './Widgets/Animations.scss';
+import './RecipeDetail/RecipeDetail.scss';
 
 class App extends Component {
   componentWillMount() {
