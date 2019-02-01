@@ -23,7 +23,7 @@ function MainRecipeDisplay({name, url, imageLink, currentRecipe, showPopup, disp
       <h1 className='centerMe'>{name}</h1>
         <div>
           <div className='centerMe'>
-            <button className='navButtonStyle'><a className='linkStyle' href={url}>Link to Original Recipe</a></button>
+            <button className='navButtonStyle'><a className='linkStyle' href={url}>Link to Page</a></button>
           </div>
           <NavButton
             linkPath='/edit-recipe'

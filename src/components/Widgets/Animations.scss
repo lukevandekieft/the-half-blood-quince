@@ -75,6 +75,7 @@
 .navButtonStyle:hover {
   -webkit-animation: hover 1200ms linear 2 alternate;
   animation: hover 1200ms linear 2 alternate;
+  cursor: pointer;
 }
 
 .navButtonStyle:active {

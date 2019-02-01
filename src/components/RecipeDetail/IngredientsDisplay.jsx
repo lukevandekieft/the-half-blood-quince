@@ -22,7 +22,7 @@ function IngredientsDisplay(props){
           return <li key={index} className="recipeDetailList">{index}</li>
         })}
       </ul>
-      <h3>Notes</h3>
+      <h3>Ingredient Notes</h3>
       <ul>
         {formattedIngredientsNotes.map(index => {
           return <li key={index} className="recipeDetailList">{index}</li>
