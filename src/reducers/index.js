@@ -4,12 +4,14 @@ import currentRecipeReducer from './current-recipe-reducer';
 import initialStateReducer from './initial-state-reducer';
 import isRoutingReducer from './is-routing-reducer';
 import popupReducer from './popup-reducer';
+import searchReducer from './search-reducer';
 
 const rootReducer = combineReducers({
-  recipes: recipeReducer,
   currentRecipeId: currentRecipeReducer,
-  loadedInitialState: initialStateReducer,
   isRouting: isRoutingReducer,
+  loadedInitialState: initialStateReducer,
+  recipes: recipeReducer,
+  searchValue: searchReducer,
   showPopup: popupReducer
 });
 
