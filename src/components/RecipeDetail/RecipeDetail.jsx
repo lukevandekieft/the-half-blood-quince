@@ -55,9 +55,9 @@ class RecipeDetail extends React.Component{
         />
         {this.props.showPopup ?
           <div className='popup'>
-            <div className='popup_inner'>
+            <div className='popup-inner'>
               <h1>Are you sure you want to delete this recipe?</h1>
-              <div>
+              <div className='popup-buttons'>
                 <div className='centerMe'>
                   <Link to='/'><button className='navButtonStyle navButtonStyleRed' onClick={this.handleClickDelete}>Delete</button>
                   </Link>
