@@ -86,15 +86,8 @@ export const addRecipe = (newRecipeObject) => ({
   newRecipeObject: newRecipeObject
 });
 
-//
-// export function addRecipe (_name, _url, _imageLink, _directions, _directionsNotes, _ingredients, _ingredientsNotes) {
-//   return () => recipes.push({
-//     name: _name,
-//     url: _url,
-//     imageLink: _imageLink,
-//     directions: _directions,
-//     directionsNotes: _directionsNotes,
-//     ingredients: _ingredients,
-//     ingredientsNotes: _ingredientsNotes
-//   });
-// };
+//SEARCH RECIPES
+export const updateSearchValue = (searchValue) => ({
+  type: types.SEARCH,
+  searchValue: searchValue
+});
