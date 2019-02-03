@@ -61,7 +61,7 @@
   };
 
   .mainRecipeContainer {
-    padding: 1em 0;
+    padding: 2em 0;
     flex-direction: column;
     .recipeDetailPicture {
       width: $recipe-icon-size * 1.25;
@@ -71,7 +71,7 @@
       max-width: 100%;
       padding: 0 2rem;
       h1 {
-        margin-top: 1rem;
+        margin: 2rem 0 3rem 0;
         font-size: 1.5rem;
       }
     }

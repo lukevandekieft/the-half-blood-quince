@@ -31,9 +31,13 @@ class HomePage extends React.Component{
     let domDisplay;
     if(loadingRecipe === false) {
       domDisplay =
-      <div className='loading'>
-      <div className='headerSection'></div>
-        <div className='loaderHome'></div>
+      <div className='homePageContainer'>
+        <div className='headerSection'>
+          <SearchBar />
+        </div>
+        <div className='loading'>
+          <div className='loaderHome'></div>
+        </div>
       </div>
     } else {
       domDisplay =
