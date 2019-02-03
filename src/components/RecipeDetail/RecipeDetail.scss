@@ -2,7 +2,7 @@
 
 //OVERALL STYLE
 .recipeDetailList {
-  margin-bottom: 1.5em;
+  margin-bottom: 1.5rem;
   line-height: 1.5;
   font-size: .9em;
 }
@@ -26,7 +26,7 @@
     justify-content: space-between;
     align-items: center;
     box-sizing: border-box;
-    padding: 2em;
+    padding: 3rem 2rem;
     .recipeDetailPicture {
       width: $recipe-icon-size * 2;
       height: $recipe-icon-size * 2;
@@ -45,9 +45,9 @@
       justify-content: space-between;
       box-sizing: border-box;
       margin: 0 auto;
-      padding-left: 5em;
+      padding-left: 5rem;
       h1 {
-        margin-bottom: 1em;
+        margin-bottom: 3rem;
         max-height: 4.88em;
         line-height: 1.22em;
         overflow: hidden;
@@ -61,7 +61,7 @@
   };
 
   .mainRecipeContainer {
-    padding: 1em 0;
+    padding: 2em 0;
     flex-direction: column;
     .recipeDetailPicture {
       width: $recipe-icon-size * 1.25;
@@ -69,25 +69,25 @@
     }
     .mainDetailContainer {
       max-width: 100%;
-      padding: 0 2em;
+      padding: 0 2rem;
       h1 {
-        margin-top: 1em;
-        font-size: 1.5em;
+        margin: 2rem 0 3rem 0;
+        font-size: 1.5rem;
       }
     }
   }
 }
 @media (min-width: $small-breakpoint + 101) and (max-width: $medium-breakpoint) {
   .mainRecipeContainer {
-    padding: 2em 1.5em;
+    padding: 2rem 1.5rem;
     .recipeDetailPicture {
       width: $recipe-icon-size * 1.25;
       height: $recipe-icon-size * 1.25;
     }
     .mainDetailContainer {
-      padding-left: 3em;
+      padding-left: 3rem;
       h1 {
-        font-size: 1.5em;
+        font-size: 1.5rem;
       }
       max-width: calc(100% - (#{$recipe-icon-size} * 1.25));
     }
@@ -100,7 +100,7 @@
       height: $recipe-icon-size * 1.5;
     }
     .mainDetailContainer {
-      padding-left: 4em;
+      padding-left: 4rem;
       max-width: calc(100% - (#{$recipe-icon-size} * 1.5));
     }
   }
@@ -109,6 +109,7 @@
 //DELETION POPUP
 .popup {
   position: fixed;
+  box-sizing: border-box;
   width: 100%;
   height: 100%;
   top: 0;
@@ -117,19 +118,74 @@
   bottom: 0;
   margin: auto;
   background-color: rgba(0,0,0, 0.5);
+  .popup-inner {
+    position: absolute;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: center;
+    padding: 3rem;
+    left: 25%;
+    right: 25%;
+    top: 25%;
+    bottom: 25%;
+    margin: auto;
+    border-radius: 30px;
+    background: white;
+    h1 {
+      height: 50%;
+      box-sizing: border-box;
+      margin-bottom: 1rem;
+    }
+    .popup-buttons {
+      display: flex;
+    }
+  }
 }
-.popup_inner {
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  text-align: center;
-  padding: 3em;
-  left: 25%;
-  right: 25%;
-  top: 25%;
-  bottom: 25%;
-  margin: auto;
-  border-radius: 30px;
-  background: white;
+@media (max-width: $small-breakpoint - 150) {
+  .popup {
+    .popup-inner {
+      left: 15%;
+      right: 15%;
+      top: 20%;
+      bottom: 20%;
+      padding: 2rem;
+      h1 {
+        font-size: 1.5rem;
+      }
+      .popup-buttons {
+        display: block;
+      }
+    }
+  }
+}
+@media (min-width: $small-breakpoint - 149) and (max-width: $small-breakpoint + 100) {
+  .popup {
+    .popup-inner {
+      left: 20%;
+      right: 20%;
+      top: 20%;
+      bottom: 20%;
+      padding: 2.5rem;
+      h1 {
+        font-size: 1.5rem;
+      }
+      .popup-buttons {
+        display: block;
+      }
+    }
+  }
+}
+@media (min-width: $small-breakpoint + 101) and (max-width: $medium-breakpoint) {
+  .popup {
+    .popup-inner {
+      h1 {
+        font-size: 1.5em;
+      }
+    }
+  }
+}
+@media (min-width: $medium-breakpoint + 1) and (max-width: $large-breakpoint) {
+
 }
