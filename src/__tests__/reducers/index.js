@@ -113,8 +113,8 @@ describe('Recipe App', () => {
       const sampleState = {
         searchValue: "peanuts"
       }
-      const action = actions.updateSearchValue("peanuts");
-      expect(recipeReducer(initialState.users['Luke'], action)).toEqual(sampleState);
+      const action = actions.updateSearchValue(sampleState);
+      expect(searchReducer(initialState.users['Luke'], action)).toEqual(sampleState);
     });
   });
 

@@ -89,5 +89,5 @@ export const addRecipe = (newRecipeObject) => ({
 //SEARCH RECIPES
 export const updateSearchValue = (searchValue) => ({
   type: types.SEARCH,
-  searchValue: searchValue
+  searchTerm: searchValue
 });
