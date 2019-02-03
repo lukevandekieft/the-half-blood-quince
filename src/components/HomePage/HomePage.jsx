@@ -20,7 +20,7 @@ class HomePage extends React.Component{
 
 
   render() {
-    const {dispatch, currentRecipe} = this.props;
+    const {dispatch, currentRecipe, searchValue} = this.props;
 
     const handleRecipeClick = () => {
       const newId = v4();
@@ -51,6 +51,7 @@ class HomePage extends React.Component{
         <RecipeList
         recipes={this.props.recipes}
         currentRecipe={currentRecipe}
+        searchValue={searchValue}
         />
         <NavButton
         linkPath='/'
@@ -75,7 +76,8 @@ class HomePage extends React.Component{
 
 const mapStateToProps = state => {
   return {
-    currentRecipe: state.currentRecipeId
+    currentRecipe: state.currentRecipeId,
+    searchValue: state.searchValue
   };
 };
 
