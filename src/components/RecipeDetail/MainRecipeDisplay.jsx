@@ -11,8 +11,7 @@ function MainRecipeDisplay({name, url, imageLink, currentRecipe, showPopup, disp
   };
 
   const handleClick = () => {
-    const newPopup = !showPopup;
-    dispatch(changePopupStatus(newPopup));
+    dispatch(changePopupStatus(!showPopup));
   };
 
   return (

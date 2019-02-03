@@ -18,10 +18,11 @@ class HomePage extends React.Component{
     window.scrollTo(0, 0);
   };
 
+
   render() {
     const {dispatch, currentRecipe} = this.props;
 
-    const handleClick = () => {
+    const handleRecipeClick = () => {
       const newId = v4();
       console.log(newId);
       dispatch(changeCurrentRecipe(newId));
@@ -55,7 +56,7 @@ class HomePage extends React.Component{
         linkPath='/'
         linkText='Delete Recipe(s)'
         />
-        <div onClick={() => {handleClick()}}>
+        <div onClick={() => {handleRecipeClick()}}>
           <NavButton
           linkPath='/edit-recipe'
           linkText='Add Recipe'
