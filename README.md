@@ -6,60 +6,29 @@
 
 ## Project Description
 
-**Goal:**
-
 At its core this app is a virtual cookbook. Where existing cooking apps emphasize ease of use this project focuses on improving the traditional cookbook model with modern technology.
 
 Plenty of powerful cooking apps exist like Pinterest, Yummly, and AllRecipes. My personal favorite Yummly provides over 2 million recipes, easy serving adjustments, a shopping list, and suggested recipes. With all those benefits why bother making yet another contender?
 
-I feel that popular cooking apps gain functionality at the expense of flexibility and personalization. In a printed book I can add any recipe I want simply by inserting a page and I can add notes by simply writing in the margins, a la Harry Potter’s Half-Blood Prince. By contrast you cannot edit an online recipe without the author’s permission and recipe-hosting apps rarely include meaningful note-taking or authorship options. These are basic but important needs that have prevented me from going all-in with an existing platform.
+I feel that popular cooking apps gain functionality at the expense of personalization. In a printed book I can add any recipe I want simply by inserting a page and I can add notes by simply writing in the margins, a la Harry Potter’s Half-Blood Prince. By contrast I cannot edit an online recipe without the author’s permission and recipe apps don't always include meaningful note-taking or authorship options. Furthermore every app has a limited repetoire so more obscure recipes can't be included (looking at you, vegan mapo tofu). These are basic but important needs that have prevented me from going all-in with an existing platform.
 
-While Half-Blood Quince won’t be as powerful or flashy as Yummly it will allow unprecedented customization in the cooking arena: all your recipes can be added and edited just like in a print cooking binder. The Half-Blood Quince is home base for storing, editing, and growing your recipe collection and will act as a helpful companion for all your other cooking technologies.
+While Half-Blood Quince isn't as powerful or flashy as others it allows unprecedented customization: all your recipes can be added and edited just like a print cooking binder! Welcome to home base for storing, editing, and growing your recipe collection.
 <br>
 <br>
 <br>
-**MVP Goals:**
 
-* Persistent data that stores recipe objects.
-* CRUD functionality for recipes. "Add" section will have ingredients, ingredient notes, directions, direction notes, and a link to recipe page (if applicable).
-* Adding notes to directions and ingredients (e.g. " '-2 peppers' <-- use 4 for spicy")
-* Editing directions and ingredients permanently (e.g. change 'salt to taste' to '1 tsp salt').</ul>
-
-
-
-**Tools, frameworks, libraries, etc. needed for MVP:**
-
-* React library for CRUD, UI, creating modular recipe components, etc.
-* JavaScript and JSX as needed for program logic to implement the above.
-* HTML and JSX as needed for program structuring in React.
-* CSS, Sass, and JSX as needed for layout and appearance.
-* Firebase for persistent data storage.
-* Webpack for package management.
-* ESLint for linting.
-* Jest for testing.
-
-
-
-**Post-MVP Stretch Goals:**
+**Current Goals:**
 
 * 'Suggested Recipes' and 'Search Recipes' sections from 3rd parties.
 * User authentication with unique persistent data for each user.
-* Organize directions and instructions as individual line items.
-* Add logic to create breaks in user-added ingredients and directions (bullets, returns, hyphens with no preceding letters, etc.)
-* Add logic/UI that pinpoint number values in user-added ingredients.
+* Improve functions for parsing user-submitted data like ingredients. 
+* Improve forms for mobile and set restrictions for null/poorly formatted content.
 * Add servings feature that alters ingredient list amounts multiplicatively based on user-entered serving number.
 * Allow each individual ingredient/direction to have its own note(s) - MVP data structure just has a lump of notes alluding to a lump of data.
 * Add “considered” note type to be distinguished from “confirmed” notes (e.g. “Try serving with rice” vs. “can sub rice for flatbread”).
 * Add specific 'Add Note' UI process that is easier to use, incapable of editing core recipe features, and less severe-looking than the basic update function.
 * Give recipes tags & categories for searching & organizing.
-
-
-**Tools, frameworks, libraries, etc. needed for Stretch Goals:**
-
 * API calls to spoontacular’s Food API, Edamam’s Recipe Search API, or similar database.
-* Research user authentication options for current skillset: will Firebase work for this?
-* JS research: how hard is it to program a “smart” number reader or line break reader? Are there already code blocks out there that achieve these tasks?
-
 
 
 ## Setup/Installation Requirements
@@ -84,10 +53,10 @@ To download & edit do the following:
 
       const firebaseConfig = {
           apiKey: "[YOUR KEY]",
-          authDomain: "thinkgeek-clone.firebaseapp.com",
-          databaseURL: "https://thinkgeek-clone.firebaseio.com",
-          projectId: "thinkgeek-clone",
-          storageBucket: "thinkgeek-clone.appspot.com",
+          authDomain: "half-blood-quince.firebaseapp.com",
+          databaseURL: "https://half-blood-quince.firebaseio.com",
+          projectId: "half-blood-quince",
+          storageBucket: "half-blood-quince.appspot.com",
           messagingSenderId: "[YOUR ID]"
         };
 
@@ -97,15 +66,6 @@ To download & edit do the following:
 
       $ npm run start
 
-
-For further support:
-Create React App: (https://github.com/facebookincubator/create-react-app)
-Custom React Scripts: (https://www.npmjs.com/package/custom-react-scripts)
-
-## Current notes
-
-* _Prevent Default needed when form submit completed._
-* _Need Edit and Add Recipe functions. Can those be the same form? Do those need another reducer or no?_
 
 ## Technologies Used
 
@@ -118,6 +78,7 @@ Custom React Scripts: (https://www.npmjs.com/package/custom-react-scripts)
 * _JSX_
 * _Webpack_
 * _Sketch_
+* [_Custom React Scripts_](https://www.npmjs.com/package/custom-react-scripts)
 
 ## Support and contact details
 
