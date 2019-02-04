@@ -4,68 +4,68 @@ import SearchBar from '../Widgets/SearchBar';
 import NavButton from '../Widgets/NavButton';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { changeCurrentRecipe } from '../../actions';
+import { changeCurrentRecipe, updateSearchValue } from '../../actions';
 import { v4 } from 'uuid';
 
 class HomePage extends React.Component{
-
-  headlineStyles = {
-    fontSize: '2em',
-    padding: '20px 0'
-  };
 
   componentDidMount() {
     window.scrollTo(0, 0);
   };
 
-  render() {
-    const {dispatch, currentRecipe} = this.props;
+  componentWillUnmount() {
+    this.props.dispatch(updateSearchValue(null));
+  };
 
-    const handleClick = () => {
+  render() {
+    const {dispatch, currentRecipe, searchValue} = this.props;
+
+    const handleRecipeClick = () => {
       const newId = v4();
       console.log(newId);
       dispatch(changeCurrentRecipe(newId));
     };
 
+    let headerMessage;
+    if (searchValue) {
+      headerMessage = 'Search Results:';
+    } else {
+      headerMessage = 'Current Recipes';
+    }
+
     const loadingRecipe = this.props.loadedInitialState;
     let domDisplay;
     if(loadingRecipe === false) {
       domDisplay =
-      <div className='homePageContainer'>
-        <div className='headerSection'>
-          <SearchBar />
-        </div>
         <div className='loading'>
           <div className='loaderHome'></div>
         </div>
-      </div>
     } else {
       domDisplay =
-      <div className='homePageContainer'>
-        <div className='headerSection'>
-          <SearchBar />
-        </div>
         <div className='pageContentSection'>
-        <p style={this.headlineStyles}>Current Recipes</p>
+        <h1 className='headline'>{headerMessage}</h1>
         <RecipeList
         recipes={this.props.recipes}
         currentRecipe={currentRecipe}
+        searchValue={searchValue}
         />
         <NavButton
         linkPath='/'
         linkText='Delete Recipe(s)'
         />
-        <div onClick={() => {handleClick()}}>
+        <div onClick={() => {handleRecipeClick()}}>
           <NavButton
           linkPath='/edit-recipe'
           linkText='Add Recipe'
           />
         </div>
         </div>
-      </div>
     }
     return (
-      <div>
+      <div className='homePageContainer'>
+        <div className='headerSection'>
+          <SearchBar />
+        </div>
         {domDisplay}
       </div>
     );
@@ -74,7 +74,8 @@ class HomePage extends React.Component{
 
 const mapStateToProps = state => {
   return {
-    currentRecipe: state.currentRecipeId
+    currentRecipe: state.currentRecipeId,
+    searchValue: state.searchValue
   };
 };
 

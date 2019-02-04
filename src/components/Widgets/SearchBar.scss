@@ -17,19 +17,23 @@
   & > input {
     font-size: 20px;
   }
-  & > button {
-    font-size: 25px;
-  }
   transform: translate(-50%, -50%);
 
   .searchButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: white;
     width: 40px;
     height: inherit;
     text-align: center;
     color: lighten($offsetColor, 10%);
     border: none;
+    font-size: 25px;
     cursor: pointer;
+    &:focus {
+      outline: none;
+    }
   }
   .searchInput {
     width: 100%;

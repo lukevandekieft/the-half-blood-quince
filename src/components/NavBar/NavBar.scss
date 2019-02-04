@@ -45,12 +45,7 @@
   z-index: 250;
 };
 
-@media (max-width: 399px) {
-  .navBarBackground {
-    background-image: url('../../assets/images/header_background_sm.png');
-  }
-}
-@media (min-width: 400px) and (max-width: 700px) {
+@media (max-width: 700px) {
   .navBarBackground {
     background-image: url('../../assets/images/header_background_md.png');
   }

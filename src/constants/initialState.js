@@ -2,10 +2,11 @@ export const initialState = {
   currentUser : 'Luke',
   users : {
     Luke : {
-      loadedInitialState: false,
-      isRouting: false,
-      showPopup: false,
       currentRecipeId : null,
+      isRouting: false,
+      loadedInitialState: false,
+      searchValue: null,
+      showPopup: false,
       recipes : {
         split_pea_soup : {
           name : "Split Pea Soup",
