@@ -4,18 +4,20 @@ import { updateSearchValue } from '../../actions';
 
 function SearchBar({dispatch}){
 
-  const handleSearch = (userInput) => {
+  const handleSearch = (event) => {
+    event.preventDefault();
+    let userInput = document.getElementById("recipeSearch").value;
     console.log(userInput);
     dispatch(updateSearchValue(userInput));
   };
 
   return (
-    <div className="searchBox">
+    <form className="searchBox" onSubmit={handleSearch.bind(this)}>
       <input type="text" className="searchInput" id='recipeSearch' placeholder="Search Your Recipes..."/>
-      <button onClick={() => {handleSearch(document.getElementById("recipeSearch").value)}} className="searchButton">
+      <button className="searchButton" type='submit'>
         <i className="fa fa-search"></i>
      </button>
-    </div>
+    </form>
   );
 }
 

@@ -9,11 +9,6 @@ import { v4 } from 'uuid';
 
 class HomePage extends React.Component{
 
-  headlineStyles = {
-    fontSize: '2em',
-    padding: '20px 0'
-  };
-
   componentDidMount() {
     window.scrollTo(0, 0);
   };
@@ -48,7 +43,7 @@ class HomePage extends React.Component{
     } else {
       domDisplay =
         <div className='pageContentSection'>
-        <p style={this.headlineStyles}>{headerMessage}</p>
+        <h1 className='headline'>{headerMessage}</h1>
         <RecipeList
         recipes={this.props.recipes}
         currentRecipe={currentRecipe}
