@@ -11,15 +11,19 @@ class SearchBar extends React.Component{
     this.props.dispatch(updateSearchValue(userInput));
   };
 
+  handleCancelSearch = () => {
+    this.props.dispatch(updateSearchValue(null));
+  };
+
   render() {
     const {dispatch, searchValue} = this.props;
 
     let searchButton;
     if (searchValue) {
       searchButton =
-      <button className="searchButton" type='submit'>
-        <i className="fa fa-search"></i>
-      </button>
+      <a className="searchButton" type='button' onClick={() => {this.handleCancelSearch()}}>
+        <i className="fas fa-times"></i>
+      </a>
     } else {
       searchButton =
       <button className="searchButton" type='submit'>
