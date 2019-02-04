@@ -30,6 +30,9 @@
     color: lighten($offsetColor, 10%);
     border: none;
     cursor: pointer;
+    &:focus {
+      outline: none;
+    }
   }
   .searchInput {
     width: 100%;

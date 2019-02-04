@@ -4,7 +4,7 @@ import SearchBar from '../Widgets/SearchBar';
 import NavButton from '../Widgets/NavButton';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { changeCurrentRecipe } from '../../actions';
+import { changeCurrentRecipe, updateSearchValue } from '../../actions';
 import { v4 } from 'uuid';
 
 class HomePage extends React.Component{
@@ -18,6 +18,9 @@ class HomePage extends React.Component{
     window.scrollTo(0, 0);
   };
 
+  componentWillUnmount() {
+    this.props.dispatch(updateSearchValue(null));
+  };
 
   render() {
     const {dispatch, currentRecipe, searchValue} = this.props;
@@ -28,26 +31,24 @@ class HomePage extends React.Component{
       dispatch(changeCurrentRecipe(newId));
     };
 
+    let headerMessage;
+    if (searchValue) {
+      headerMessage = 'Search Results:';
+    } else {
+      headerMessage = 'Current Recipes';
+    }
+
     const loadingRecipe = this.props.loadedInitialState;
     let domDisplay;
     if(loadingRecipe === false) {
       domDisplay =
-      <div className='homePageContainer'>
-        <div className='headerSection'>
-          <SearchBar />
-        </div>
         <div className='loading'>
           <div className='loaderHome'></div>
         </div>
-      </div>
     } else {
       domDisplay =
-      <div className='homePageContainer'>
-        <div className='headerSection'>
-          <SearchBar />
-        </div>
         <div className='pageContentSection'>
-        <p style={this.headlineStyles}>Current Recipes</p>
+        <p style={this.headlineStyles}>{headerMessage}</p>
         <RecipeList
         recipes={this.props.recipes}
         currentRecipe={currentRecipe}
@@ -64,10 +65,12 @@ class HomePage extends React.Component{
           />
         </div>
         </div>
-      </div>
     }
     return (
-      <div>
+      <div className='homePageContainer'>
+        <div className='headerSection'>
+          <SearchBar />
+        </div>
         {domDisplay}
       </div>
     );

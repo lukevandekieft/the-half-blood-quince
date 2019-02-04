@@ -19,6 +19,33 @@
   box-shadow: 0px -1px 5px 1px rgba(0,0,0,0.28);
 };
 
+@media (max-width: 399px) {
+  .headerSection {
+    background-image: url('../../assets/images/header_background_sm.png');
+  }
+}
+@media (min-width: 400px) and (max-width: 700px) {
+  .headerSection {
+    background-image: url('../../assets/images/header_background_md.png');
+  }
+}
+
+@media (max-width: $small-breakpoint) {
+  .headerSection {
+    height: 15vh;
+  }
+}
+@media (min-width: $small-breakpoint+1) and (max-width: $medium-breakpoint) {
+  .headerSection {
+    height: 25vh;
+  }
+}
+@media (min-width: $medium-breakpoint+1) and (max-width: $large-breakpoint) {
+  .headerSection {
+    height: 30vh;
+  }
+}
+
 //RECIPE GRID
 .recipeItemBox {
   background-color: $brand-color;
@@ -27,6 +54,7 @@
   margin-bottom: $recipe-icon-padding;
   margin-left: $recipe-icon-padding;
   width:200px;
+  height: calc(238px;
   h3 {
     color: #3d2a13;
     padding: .5rem;
@@ -55,30 +83,11 @@
   margin-left: -$recipe-icon-padding/2;
   width: 100%;
 };
-
-@media (max-width: 399px) {
-  .headerSection {
-    background-image: url('../../assets/images/header_background_sm.png');
-  }
-}
-@media (min-width: 400px) and (max-width: 700px) {
-  .headerSection {
-    background-image: url('../../assets/images/header_background_md.png');
-  }
-}
-
-@media (max-width: $small-breakpoint) {
-  .headerSection {
-    height: 15vh;
-  }
-}
-@media (min-width: $small-breakpoint+1) and (max-width: $medium-breakpoint) {
-  .headerSection {
-    height: 25vh;
-  }
-}
-@media (min-width: $medium-breakpoint+1) and (max-width: $large-breakpoint) {
-  .headerSection {
-    height: 30vh;
-  }
-}
+//
+// @media (max-width: $small-breakpoint) {
+//   .recipeItemBox {
+//     h3 {
+//       padding: 0;
+//     }
+//   }
+// }
