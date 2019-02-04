@@ -2,23 +2,38 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { updateSearchValue } from '../../actions';
 
-function SearchBar({dispatch}){
+class SearchBar extends React.Component{
 
-  const handleSearch = (event) => {
+  handleSearch = (event) => {
     event.preventDefault();
     let userInput = document.getElementById("recipeSearch").value;
     console.log(userInput);
-    dispatch(updateSearchValue(userInput));
+    this.props.dispatch(updateSearchValue(userInput));
   };
 
-  return (
-    <form className="searchBox" onSubmit={handleSearch.bind(this)}>
-      <input type="text" className="searchInput" id='recipeSearch' placeholder="Search Your Recipes..."/>
+  render() {
+    const {dispatch, searchValue} = this.props;
+
+    let searchButton;
+    if (searchValue) {
+      searchButton =
       <button className="searchButton" type='submit'>
         <i className="fa fa-search"></i>
-     </button>
-    </form>
-  );
+      </button>
+    } else {
+      searchButton =
+      <button className="searchButton" type='submit'>
+        <i className="fa fa-search"></i>
+      </button>
+    }
+
+    return (
+      <form className="searchBox" onSubmit={this.handleSearch.bind(this)}>
+        <input type="text" className="searchInput" id='recipeSearch' placeholder="Search Your Recipes..."/>
+        {searchButton}
+      </form>
+    );
+  }
 }
 
 const mapStateToProps = state => {
