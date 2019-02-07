@@ -2,12 +2,25 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function IngredientsDisplay(props){
+
+// Format Display Text
+  let headerSection = null;
   let formattedIngredientsNotes;
   if (props.ingredientsNotes) {
     formattedIngredientsNotes = props.ingredientsNotes;
+    headerSection =
+    <React.Fragment>
+      <h3>Ingredient Notes</h3>
+      <ul>
+        {formattedIngredientsNotes.map(index => {
+          return <li key={index} className="recipeDetailList">{index}</li>
+        })}
+      </ul>
+    </React.Fragment>
   } else {
-    formattedIngredientsNotes = [];
+    formattedIngredientsNotes = null;
   }
+
   let formattedIngredients;
   if (props.ingredients) {
     formattedIngredients = props.ingredients;
@@ -22,12 +35,7 @@ function IngredientsDisplay(props){
           return <li key={index} className="recipeDetailList">{index}</li>
         })}
       </ul>
-      <h3>Ingredient Notes</h3>
-      <ul>
-        {formattedIngredientsNotes.map(index => {
-          return <li key={index} className="recipeDetailList">{index}</li>
-        })}
-      </ul>
+      {headerSection}
     </div>
   );
 }

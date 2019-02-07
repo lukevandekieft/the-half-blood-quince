@@ -2,11 +2,23 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function DirectionsDisplay(props){
+
+//Format Display Text
+  let headerSection = null;
   let formattedDirectionsNotes;
   if (props.directionsNotes) {
     formattedDirectionsNotes = props.directionsNotes;
+    headerSection =
+    <React.Fragment>
+      <h3>Directions Notes</h3>
+      <ul>
+        {formattedDirectionsNotes.map(index => {
+          return <li key={index} className="recipeDetailList">{index}</li>
+        })}
+      </ul>
+    </React.Fragment>;
   } else {
-    formattedDirectionsNotes = [];
+    formattedDirectionsNotes = null;
   }
 
   let formattedDirections;
@@ -24,12 +36,7 @@ function DirectionsDisplay(props){
           return <li key={index} className="recipeDetailList">{index}</li>
         })}
       </ol>
-      <h3>Direction Notes</h3>
-      <ul>
-        {formattedDirectionsNotes.map(index => {
-          return <li key={index} className="recipeDetailList">{index}</li>
-        })}
-      </ul>
+      {headerSection}
     </div>
   );
 }
