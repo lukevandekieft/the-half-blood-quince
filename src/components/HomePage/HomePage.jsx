@@ -37,21 +37,17 @@ class HomePage extends React.Component{
     let domDisplay;
     if(loadingRecipe === false) {
       domDisplay =
-        <div className='loading'>
-          <div className='loaderHome'></div>
-        </div>
+      <div className='loading'>
+        <div className='loaderHome'></div>
+      </div>
     } else {
       domDisplay =
-        <div className='pageContentSection'>
+      <div className='pageContentSection'>
         <h1 className='headline'>{headerMessage}</h1>
         <RecipeList
-        recipes={this.props.recipes}
-        currentRecipe={currentRecipe}
-        searchValue={searchValue}
-        />
-        <NavButton
-        linkPath='/'
-        linkText='Delete Recipe(s)'
+          recipes={this.props.recipes}
+          currentRecipe={currentRecipe}
+          searchValue={searchValue}
         />
         <div onClick={() => {handleRecipeClick()}}>
           <NavButton
@@ -59,7 +55,7 @@ class HomePage extends React.Component{
           linkText='Add Recipe'
           />
         </div>
-        </div>
+      </div>
     }
     return (
       <div className='homePageContainer'>
@@ -71,7 +67,6 @@ class HomePage extends React.Component{
     );
   }
 }
-
 const mapStateToProps = state => {
   return {
     currentRecipe: state.currentRecipeId,
@@ -85,3 +80,9 @@ HomePage.propTypes = {
 }
 
 export default connect(mapStateToProps)(HomePage);
+
+// 
+// <NavButton
+// linkPath='/'
+// linkText='Delete Recipe(s)'
+// />
