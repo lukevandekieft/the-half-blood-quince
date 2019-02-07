@@ -3,40 +3,63 @@
 //Overarching stylesheet
 .contentContainer {
   margin: 0 auto;
+  padding-bottom: $margin-lg;
   width: 100%;
   background: $background-color;
   box-sizing: border-box;
   position: relative;
   z-index: 100;
-  min-height: 100vh;
+  min-height: 50vh;
 }
 
 .pageContentSection {
-  margin: 0 auto 3rem auto;
+  margin: 0 auto;
   width: 100%;
   max-width: 1200px;
   box-sizing: border-box;
   overflow: hidden;
-  padding: 0 $recipe-icon-padding;
+  position: relative;
+  min-height: calc(100vh - #{$navbar-height}  - #{$margin-lg});
+  padding: $margin-lg;
+  padding-top: 0;
   p {
     text-align: center;
   }
   background: white;
 }
 
+.pageContentSection.homepage {
+  min-height: calc(100vh - #{$header-height} - #{$navbar-height}  - #{$margin-lg});
+}
+
 @media (max-width: $small-breakpoint) {
   .pageContentSection {
-    padding: 0 $recipe-icon-padding*.5;
+    padding: $margin-md;
+    padding-top: 0;
+    min-height: calc(100vh - #{$navbar-height-md}  - #{$margin-lg});
+  }
+  .pageContentSection.homepage {
+    min-height: calc(100vh - #{$header-height-sm} - #{$navbar-height-md}  - #{$margin-lg});
   }
 }
 @media (min-width: $small-breakpoint+1) and (max-width: $medium-breakpoint) {
   .pageContentSection {
-    padding: 0 $recipe-icon-padding*.5;
+    padding: $margin-md;
+    padding-top: 0;
+    min-height: calc(100vh - #{$navbar-height-md}  - #{$margin-lg});
+  }
+  .pageContentSection.homepage {
+    min-height: calc(100vh - #{$header-height-md} - #{$navbar-height-md}  - #{$margin-lg});
   }
 }
 @media (min-width: $medium-breakpoint+1) and (max-width: $large-breakpoint) {
   .pageContentSection {
-    padding: 0 $recipe-icon-padding*.5;
+    padding: $margin-md;
+    padding-top: 0;
+    min-height: calc(100vh - #{$navbar-height-md}  - #{$margin-lg});
+  }
+  .pageContentSection.homepage {
+    min-height: calc(100vh - #{$header-height-lg} - #{$navbar-height-md}  - #{$margin-lg});
   }
 }
 

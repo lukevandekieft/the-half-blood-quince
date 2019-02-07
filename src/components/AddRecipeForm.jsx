@@ -106,12 +106,13 @@ class AddRecipeForm extends Component {
           ></textarea>
         </div>
         <div className='centerMe'>
-          <button type="submit" className='navButtonStyle'>Submit</button>
+          <button type="submit" className='navButtonStyle button-green'>Submit</button>
         </div>
       </form>
       <NavButton
       linkPath='/'
-      linkText='Cancel Add'
+      linkText='Cancel'
+      color='red'
       />
     </div>
   )};

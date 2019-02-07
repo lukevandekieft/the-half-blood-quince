@@ -46,7 +46,6 @@
 
 //BUTTON ANIMATION
 .navButtonStyle {
-  background: $off-brand-color;
   border-radius: 35px;
   padding: .8rem;
   color: #fff;
@@ -57,7 +56,11 @@
   margin: .8rem;
 }
 
-.navButtonStyleRed {
+.button-green {
+  background: $off-brand-color;
+}
+
+.button-red {
   background: red;
 }
 
@@ -82,10 +85,13 @@
 .navButtonStyle:active {
   -webkit-animation: active 1200ms ease 1 alternate;
   animation: active 1200ms ease 1 alternate;
+}
+
+.navButtonStyle.button-green:active {
   background: darken($off-brand-color, 10%);
 }
 
-.navButtonStyleRed:active {
+.navButtonStyle.button-red:active {
   background: darken(red, 10%);
 }
 
