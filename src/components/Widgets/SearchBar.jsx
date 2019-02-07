@@ -7,7 +7,6 @@ class SearchBar extends React.Component{
   handleSearch = (event) => {
     event.preventDefault();
     let userInput = document.getElementById("recipeSearch").value;
-    console.log(userInput);
     this.props.dispatch(updateSearchValue(userInput));
   };
 
@@ -21,7 +20,7 @@ class SearchBar extends React.Component{
     let searchButton;
     if (searchValue) {
       searchButton =
-      <a className="searchButton" type='button' onClick={() => {this.handleCancelSearch()}}>
+      <a className="searchButton" type='reset' onClick={() => {this.handleCancelSearch()}}>
         <i className="fas fa-times"></i>
       </a>
     } else {
