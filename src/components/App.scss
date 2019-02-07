@@ -19,7 +19,7 @@
   box-sizing: border-box;
   overflow: hidden;
   position: relative;
-  min-height: calc(100vh - #{$header-height} - #{$navbar-height}  - #{$margin-lg});
+  min-height: calc(100vh - #{$navbar-height}  - #{$margin-lg});
   padding: $margin-lg;
   padding-top: 0;
   p {
@@ -28,10 +28,17 @@
   background: white;
 }
 
+.pageContentSection.homepage {
+  min-height: calc(100vh - #{$header-height} - #{$navbar-height}  - #{$margin-lg});
+}
+
 @media (max-width: $small-breakpoint) {
   .pageContentSection {
     padding: $margin-md;
     padding-top: 0;
+    min-height: calc(100vh - #{$navbar-height-md}  - #{$margin-lg});
+  }
+  .pageContentSection.homepage {
     min-height: calc(100vh - #{$header-height-sm} - #{$navbar-height-md}  - #{$margin-lg});
   }
 }
@@ -39,6 +46,9 @@
   .pageContentSection {
     padding: $margin-md;
     padding-top: 0;
+    min-height: calc(100vh - #{$navbar-height-md}  - #{$margin-lg});
+  }
+  .pageContentSection.homepage {
     min-height: calc(100vh - #{$header-height-md} - #{$navbar-height-md}  - #{$margin-lg});
   }
 }
@@ -46,6 +56,9 @@
   .pageContentSection {
     padding: $margin-md;
     padding-top: 0;
+    min-height: calc(100vh - #{$navbar-height-md}  - #{$margin-lg});
+  }
+  .pageContentSection.homepage {
     min-height: calc(100vh - #{$header-height-lg} - #{$navbar-height-md}  - #{$margin-lg});
   }
 }

@@ -42,7 +42,7 @@ class HomePage extends React.Component{
       </div>
     } else {
       domDisplay =
-      <div className='pageContentSection'>
+      <div className='pageContentSection homepage'>
         <h1 className='headline'>{headerMessage}</h1>
         <RecipeList
           recipes={this.props.recipes}
@@ -81,7 +81,7 @@ HomePage.propTypes = {
 
 export default connect(mapStateToProps)(HomePage);
 
-// 
+//
 // <NavButton
 // linkPath='/'
 // linkText='Delete Recipe(s)'
