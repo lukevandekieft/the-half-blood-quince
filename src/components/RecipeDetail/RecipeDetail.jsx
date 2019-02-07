@@ -59,11 +59,11 @@ class RecipeDetail extends React.Component{
               <h1>Are you sure you want to delete this recipe?</h1>
               <div className='popup-buttons'>
                 <div className='centerMe'>
-                  <Link to='/'><button className='navButtonStyle navButtonStyleRed' onClick={this.handleClickDelete}>Delete</button>
+                  <Link to='/'><button className='navButtonStyle button-red' onClick={this.handleClickDelete}>Delete</button>
                   </Link>
                 </div>
                 <div className='centerMe'>
-                  <button onClick={this.handleClickCancel} className='navButtonStyle'>Cancel</button>
+                  <button onClick={this.handleClickCancel} className='navButtonStyle button-green'>Cancel</button>
                 </div>
               </div>
             </div>
