@@ -13,7 +13,7 @@
   height: 35vh;
   max-height: 700px;
   min-height: 110px;
-  background-size: cover;
+  background-size: 100%;
   background-attachment: fixed;
   background-position: top;
   background-repeat: no-repeat;
@@ -52,12 +52,11 @@
   margin-bottom: $recipe-icon-padding;
   margin-left: $recipe-icon-padding;
   width:200px;
-  height: calc(200px + 2em);
+  height: 238px;
   h3 {
     box-sizing: border-box;
-    height: 2em;
-    padding: .4em;
-    padding-bottom: 0;
+    height: 38px;
+    padding: 8px;
     color: #3d2a13;
     text-align: center;
     text-overflow: ellipsis;
