@@ -47,16 +47,18 @@
 
 .recipeItemBox {
   background-color: $brand-color;
-  box-sizing: border-box;
+  box-sizing: border-box !important;
   white-space: nowrap;
   margin-bottom: $recipe-icon-padding;
   margin-left: $recipe-icon-padding;
-  width:200px;
-  height: 238px;
+  width:200px !important;
+  height: 238px !important;
   h3 {
     box-sizing: border-box;
-    height: 38px;
-    padding: 8px;
+    font-size: 19px !important;
+    height: 38px !important;
+    padding: 8px !important;
+    margin: 0 !important;
     color: #3d2a13;
     text-align: center;
     text-overflow: ellipsis;
