@@ -57,10 +57,13 @@
   margin-bottom: $recipe-icon-padding;
   margin-left: $recipe-icon-padding;
   width:200px;
-  height: calc(238px;
+  height: calc(200px + 2em);
   h3 {
+    box-sizing: border-box;
+    height: 2em;
+    padding: .4em;
+    padding-bottom: 0;
     color: #3d2a13;
-    padding: .5rem;
     text-align: center;
     text-overflow: ellipsis;
     overflow: hidden;
