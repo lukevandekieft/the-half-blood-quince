@@ -6,7 +6,13 @@ $offsetColor: rgb(50, 50, 30);
 
 //LAYOUT SIZES
 $navbar-height: 80px;
+$navbar-height-md: 64px;
 $header-height: 35vh;
+$header-height-sm: 15vh;
+$header-height-md: 25vh;
+$header-height-lg: 30vh;
+$margin-md: 20px;
+$margin-lg: $margin-md * 2;
 $small-breakpoint: 600px;
 $medium-breakpoint: 900px;
 $large-breakpoint: 1200px;
@@ -14,4 +20,5 @@ $large-breakpoint: 1200px;
 //ICON SIZES
 $recipe-icon-size: 200px;
 $recipe-icon-padding: 40px;
-$icon-height: $navbar-height*.9;
+$icon-height: $navbar-height * .9;
+$icon-height-md: $navbar-height-md * .9;

@@ -27,17 +27,17 @@
 
 @media (max-width: $small-breakpoint) {
   .headerSection {
-    height: 15vh;
+    height: $header-height-sm;
   }
 }
 @media (min-width: $small-breakpoint+1) and (max-width: $medium-breakpoint) {
   .headerSection {
-    height: 25vh;
+    height: $header-height-md;
   }
 }
 @media (min-width: $medium-breakpoint+1) and (max-width: $large-breakpoint) {
   .headerSection {
-    height: 30vh;
+    height: $header-height-lg;
   }
 }
 
@@ -83,7 +83,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-left: -$recipe-icon-padding/2;
+  margin-left: -$margin-md;
   width: 100%;
 };
 

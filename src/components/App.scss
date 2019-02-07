@@ -3,6 +3,7 @@
 //Overarching stylesheet
 .contentContainer {
   margin: 0 auto;
+  padding-bottom: $margin-lg;
   width: 100%;
   background: $background-color;
   box-sizing: border-box;
@@ -18,9 +19,9 @@
   box-sizing: border-box;
   overflow: hidden;
   position: relative;
-  min-height: calc(100vh - #{$header-height} - #{$navbar-height});
-  bottom: 0;
-  padding: 0 $recipe-icon-padding $recipe-icon-padding $recipe-icon-padding;
+  min-height: calc(100vh - #{$header-height} - #{$navbar-height}  - #{$margin-lg});
+  padding: $margin-lg;
+  padding-top: 0;
   p {
     text-align: center;
   }
@@ -29,17 +30,23 @@
 
 @media (max-width: $small-breakpoint) {
   .pageContentSection {
-    padding: 0 $recipe-icon-padding*.5 $recipe-icon-padding * .5 $recipe-icon-padding * .5;
+    padding: $margin-md;
+    padding-top: 0;
+    min-height: calc(100vh - #{$header-height-sm} - #{$navbar-height-md}  - #{$margin-lg});
   }
 }
 @media (min-width: $small-breakpoint+1) and (max-width: $medium-breakpoint) {
   .pageContentSection {
-    padding: 0 $recipe-icon-padding * .5 $recipe-icon-padding * .5 $recipe-icon-padding * .5;
+    padding: $margin-md;
+    padding-top: 0;
+    min-height: calc(100vh - #{$header-height-md} - #{$navbar-height-md}  - #{$margin-lg});
   }
 }
 @media (min-width: $medium-breakpoint+1) and (max-width: $large-breakpoint) {
   .pageContentSection {
-    padding: 0 $recipe-icon-padding*.5 $recipe-icon-padding * .5 $recipe-icon-padding * .5;
+    padding: $margin-md;
+    padding-top: 0;
+    min-height: calc(100vh - #{$header-height-lg} - #{$navbar-height-md}  - #{$margin-lg});
   }
 }
 

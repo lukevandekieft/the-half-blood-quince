@@ -57,9 +57,9 @@
 }
 @media (max-width: $small-breakpoint) {
   .navContainer, .navBarBackground {
-    height: $navbar-height*.8;
+    height: $navbar-height-md;
     img {
-      height: $icon-height*.8;
+      height: $icon-height-md;
     }
     h1 {
       display: none;
@@ -72,9 +72,9 @@
 }
 @media (min-width: $small-breakpoint+1) and (max-width: $medium-breakpoint) {
   .navContainer, .navBarBackground {
-    height: $navbar-height*.8;
+    height: $navbar-height-md;
     img {
-      height: $icon-height*.8;
+      height: $icon-height-md;
     }
     h1 {
       font-size: 1.75rem;
@@ -84,9 +84,9 @@
 }
 @media (min-width: $medium-breakpoint+1) and (max-width: $large-breakpoint) {
   .navContainer, .navBarBackground {
-    height: $navbar-height*.8;
+    height: $navbar-height-md;
     img {
-      height: $icon-height*.8;
+      height: $icon-height-md;
     }
   }
 }
