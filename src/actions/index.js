@@ -4,12 +4,48 @@ import constants from './../constants';
 const { firebaseConfig } = constants;
 
 firebase.initializeApp(firebaseConfig);
+
+const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
 const userData = firebase.database().ref('users/Luke');
 const currentRecipe = firebase.database().ref('users/Luke/currentRecipeId');
 const recipeList = firebase.database().ref('users/Luke/recipes');
 const initialLoad = firebase.database().ref('users/Luke/loadedInitialState');
 
-//CHANGING CURRENT USER
+firebase.auth().signInWithPopup(googleAuthProvider).then(result => {
+    // Google Access Token.
+    const token = result.credential.accessToken;
+    console.log(token);
+    // user info.
+    const user = result.user;
+    console.log(user);
+    // ...
+}).catch(error => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    const email = error.email;
+    // Firebase Auth Credential type
+    const credential = error.credential;
+    // ...
+});
+
+firebase.auth().onAuthStateChanged(user => {
+    if (user) {
+        const uid = user.uid;
+        const name = user.displayName;
+        const email = user.email;
+        // ...
+    } else {
+        // no user...
+    }
+});
+
+firebase.auth().signOut().then(result => {
+    // successful...
+}).catch(error => {
+    // ...
+});
+
+//CHANGING CURRENT RECIPE
 export const selectRecipe = (selectedRecipeId) => ({
   type: types.SELECT_RECIPE,
   selectedRecipeId: selectedRecipeId

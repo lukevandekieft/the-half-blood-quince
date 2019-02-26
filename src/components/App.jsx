@@ -1,7 +1,8 @@
 //dependencies
 import React, { Component } from 'react';
-import {BrowserRouter as Switch, Route, withRouter } from 'react-router-dom';
+import {BrowserRouter as Switch, Route, Router, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
+import createHistory from 'history/createBrowserHistory';
 
 //local files
 import NavBar from './NavBar/NavBar.jsx';
@@ -18,6 +19,8 @@ import './Widgets/SearchBar.scss'
 import './Widgets/Animations.scss';
 import './RecipeDetail/RecipeDetail.scss';
 
+export const history = createHistory();
+
 class App extends Component {
   componentWillMount() {
     const { dispatch } = this.props;
@@ -30,6 +33,7 @@ class App extends Component {
   render() {
     return (
       <div>
+        <Router history={history}>
         <Switch>
           <div className="contentContainer">
             <NavBar />
@@ -52,6 +56,7 @@ class App extends Component {
             />}/>
           </div>
         </Switch>
+        </Router>
       </div>
     );
   }
