@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import {BrowserRouter as Switch, Route, Router, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import createHistory from 'history/createBrowserHistory';
+import firebase from 'firebase';
+import { login, logout } from './../actions';
 
 //local files
 import NavBar from './NavBar/NavBar.jsx';
@@ -40,10 +42,10 @@ class App extends Component {
         <Switch>
           <div className="contentContainer">
             <NavBar />
-            <PrivateRoute path="/home" component={HomePage} />
-            <PublicRoute path='/' component={Login}/>
-            <Route exact path='/recipe-detail' render={()=><RecipeDetail/>}/>
-            <Route exact path='/edit-recipe' render={()=><RecipeEdit/>}/>
+            <PublicRoute path='/' component={Login} exact={true}/>
+            <PrivateRoute path="/home" component={HomePage}/>
+            <PrivateRoute path='/recipe-detail' component={RecipeDetail}/>
+            <PrivateRoute path="/edit-recipe" component={RecipeEdit}/>
           </div>
         </Switch>
         </Router>

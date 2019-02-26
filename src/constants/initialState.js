@@ -1,5 +1,8 @@
 export const initialState = {
   currentUser : 'Luke',
+  auth: {
+      uid : '123uid'
+  },
   users : {
     Luke : {
       currentRecipeId : null,

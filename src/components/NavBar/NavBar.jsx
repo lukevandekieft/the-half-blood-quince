@@ -9,7 +9,7 @@ function RecipeDetail(){
         <div className='pageContentSection navBar'>
           <Link to='/'><Logo /></Link>
           <h1>The Half-Blood Quince</h1>
-          <Link to='/'>
+          <Link to='/home'>
             <h1>Menu</h1>
             <i className="fas fa-bars"></i>
           </Link>
