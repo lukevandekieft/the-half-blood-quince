@@ -6,6 +6,9 @@ import createHistory from 'history/createBrowserHistory';
 
 //local files
 import NavBar from './NavBar/NavBar.jsx';
+import PrivateRoute from './PrivateRoute';
+import PublicRoute from './PublicRoute';
+import Login from './Login';
 import HomePage from './HomePage/HomePage.jsx';
 import RecipeDetail from './RecipeDetail/RecipeDetail.jsx';
 import RecipeEdit from './RecipeEdit.jsx';
@@ -37,7 +40,8 @@ class App extends Component {
         <Switch>
           <div className="contentContainer">
             <NavBar />
-            <Route exact path='/' render={()=><HomePage/>}/>
+            <PrivateRoute path="/home" component={HomePage} />
+            <PublicRoute path='/' component={Login}/>
             <Route exact path='/recipe-detail' render={()=><RecipeDetail/>}/>
             <Route exact path='/edit-recipe' render={()=><RecipeEdit/>}/>
           </div>
