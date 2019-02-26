@@ -37,23 +37,9 @@ class App extends Component {
         <Switch>
           <div className="contentContainer">
             <NavBar />
-            <Route exact path='/' render={()=><HomePage
-              recipes={this.props.recipes}
-              currentRecipe={this.props.currentRecipe}
-              loadedInitialState={this.props.loadedInitialState}
-            />}/>
-            <Route exact path='/recipe-detail' render={()=><RecipeDetail
-              recipes={this.props.recipes}
-              currentRecipe={this.props.currentRecipe}
-              loadedInitialState={this.props.loadedInitialState}
-              dispatch={this.props.dispatch}
-              showPopup={this.props.showPopup}
-            />}/>
-            <Route exact path='/edit-recipe' render={()=><RecipeEdit
-              recipes={this.props.recipes}
-              currentRecipe={this.props.currentRecipe}
-              loadedInitialState={this.props.loadedInitialState}
-            />}/>
+            <Route exact path='/' render={()=><HomePage/>}/>
+            <Route exact path='/recipe-detail' render={()=><RecipeDetail/>}/>
+            <Route exact path='/edit-recipe' render={()=><RecipeEdit/>}/>
           </div>
         </Switch>
         </Router>

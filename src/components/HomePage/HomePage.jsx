@@ -18,7 +18,7 @@ class HomePage extends React.Component{
   };
 
   render() {
-    const {dispatch, currentRecipe, searchValue} = this.props;
+    const {dispatch, currentRecipe, loadedInitialState, recipes, searchValue } = this.props;
 
     const handleRecipeClick = () => {
       const newId = v4();
@@ -33,7 +33,7 @@ class HomePage extends React.Component{
       headerMessage = 'Current Recipes';
     }
 
-    const loadingRecipe = this.props.loadedInitialState;
+    const loadingRecipe = loadedInitialState;
     let domDisplay;
     if(loadingRecipe === false) {
       domDisplay =
@@ -45,7 +45,7 @@ class HomePage extends React.Component{
       <div className='pageContentSection homepage'>
         <h1 className='headline'>{headerMessage}</h1>
         <RecipeList
-          recipes={this.props.recipes}
+          recipes={recipes}
           currentRecipe={currentRecipe}
           searchValue={searchValue}
         />
@@ -70,13 +70,18 @@ class HomePage extends React.Component{
 const mapStateToProps = state => {
   return {
     currentRecipe: state.currentRecipeId,
-    searchValue: state.searchValue
+    loadedInitialState: state.loadedInitialState,
+    recipes: state.recipes,
+    searchValue: state.searchValue,
   };
 };
 
 HomePage.propTypes = {
+  currentRecipe: PropTypes.string,
+  loadedInitialState: PropTypes.bool,
   recipes: PropTypes.object,
-  currentRecipe: PropTypes.string
+  searchValue: PropTypes.any,
+
 }
 
 export default connect(mapStateToProps)(HomePage);

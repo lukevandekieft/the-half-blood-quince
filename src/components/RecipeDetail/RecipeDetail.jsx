@@ -6,6 +6,7 @@ import IngredientsDisplay from './IngredientsDisplay';
 import DirectionsDisplay from './DirectionsDisplay';
 import NavButton from '../Widgets/NavButton';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 import { changeRoute, changePopupStatus, removeRecipe } from '../../actions';
 
 class RecipeDetail extends React.Component{
@@ -85,9 +86,20 @@ class RecipeDetail extends React.Component{
   }
 }
 
+const mapStateToProps = state => {
+  return {
+    currentRecipe: state.currentRecipeId,
+    loadedInitialState: state.loadedInitialState,
+    recipes: state.recipes,
+    showPopup: state.showPopup,
+  };
+};
+
 RecipeDetail.propTypes = {
+  currentRecipe: PropTypes.string,
+  loadedInitialState: PropTypes.bool,
   recipes: PropTypes.object,
-  currentRecipe: PropTypes.string
+  showPopup: PropTypes.bool,
 }
 
-export default RecipeDetail;
+export default connect(mapStateToProps)(RecipeDetail);
