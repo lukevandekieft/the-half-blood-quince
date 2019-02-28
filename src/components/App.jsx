@@ -7,7 +7,6 @@ import { connect } from 'react-redux';
 import NavBar from './NavBar/NavBar.jsx';
 import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
-import Login from './Login';
 import HomePage from './HomePage/HomePage.jsx';
 import RecipeDetail from './RecipeDetail/RecipeDetail.jsx';
 import RecipeEdit from './RecipeEdit.jsx';
@@ -34,14 +33,12 @@ class App extends Component {
   render() {
     console.log(this.props.state);
     const routes = (this.props.user) ?
-    <React.Fragment>
-      <Route exact path='/' component={Login}/>
-      <Route exact path='/home' component={HomePage}/>
-      <Route exact path='/recipe-detail' component={RecipeDetail}/>
-      <Route exact path='/edit-recipe' component={RecipeEdit}/>
+      <React.Fragment>
+        <Route exact path='/' component={HomePage}/>
+        <Route exact path='/recipe-detail' component={RecipeDetail}/>
+        <Route exact path='/edit-recipe' component={RecipeEdit}/>
       </React.Fragment>
-    :
-    <div>Please Log In</div>
+      : <div>Please Log In</div>
 
 
     return (

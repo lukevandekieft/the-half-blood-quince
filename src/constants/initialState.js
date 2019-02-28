@@ -1,8 +1,7 @@
 export const initialState = {
-  currentUser : 'Luke',
-  user: null,
+  user: 'initialStateUser',
   users : {
-    Luke : {
+    initialStateUser : {
       currentRecipeId : null,
       isRouting: false,
       loadedInitialState: false,

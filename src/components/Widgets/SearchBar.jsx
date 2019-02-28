@@ -12,6 +12,7 @@ class SearchBar extends React.Component{
 
   handleCancelSearch = () => {
     this.props.dispatch(updateSearchValue(null));
+    this.recipeSearch.value = null;
   };
 
   render() {
@@ -32,7 +33,7 @@ class SearchBar extends React.Component{
 
     return (
       <form className="searchBox" onSubmit={this.handleSearch.bind(this)}>
-        <input type="text" className="searchInput" id='recipeSearch' placeholder="Search Your Recipes..."/>
+        <input type="text" className="searchInput" id='recipeSearch' ref={ el => this.recipeSearch = el} placeholder="Search Your Recipes..."/>
         {searchButton}
       </form>
     );
