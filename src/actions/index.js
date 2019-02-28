@@ -1,5 +1,7 @@
 import * as types from './../constants/ActionTypes';
+/* eslint-disable */
 import firebase from 'firebase';
+import FirebaseAuth from 'react-firebaseui';
 import constants from './../constants';
 const { firebaseConfig } = constants;
 
@@ -10,6 +12,38 @@ const userData = firebase.database().ref('users/Luke');
 const currentRecipe = firebase.database().ref('users/Luke/currentRecipeId');
 const recipeList = firebase.database().ref('users/Luke/recipes');
 const initialLoad = firebase.database().ref('users/Luke/loadedInitialState');
+const auth = firebase.auth();
+
+//FB 2
+export function newUserLogin() {
+  return function (dispatch) {
+    auth.signInWithPopup(googleAuthProvider).then(result => {
+      // const token = result.credential.accessToken;
+      const user = result.user;
+      dispatch(userLogin(result.user));
+    })
+  }
+}
+
+export const userLogin = (user) => {
+return ({
+  type: types.USER_LOGIN,
+  user
+});
+}
+
+export function newUserLogout() {
+  return function (dispatch) {
+    auth.signOut().then(result => {
+      dispatch(userLogout());
+    });
+  }
+}
+
+export const userLogout = (user = null) => ({
+  type: types.USER_LOGOUT,
+  user: null,
+})
 
 //FIREBASE LOGIN
 export const login = (uid) => ({

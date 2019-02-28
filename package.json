@@ -5,9 +5,11 @@
   "dependencies": {
     "custom-react-scripts": "0.2.2",
     "firebase": "^4.12.0",
+    "firebaseui": "^3.5.2",
     "normalize.css": "^8.0.1",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
+    "react-firebaseui": "^3.1.2",
     "react-redux": "^6.0.0",
     "react-router-dom": "^4.3.1",
     "redux": "^4.0.1",

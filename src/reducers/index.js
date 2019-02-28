@@ -8,7 +8,7 @@ import recipeReducer from './recipe-reducer';
 import searchReducer from './search-reducer';
 
 const rootReducer = combineReducers({
-  auth: authReducer,
+  user: authReducer,
   currentRecipeId: currentRecipeReducer,
   isRouting: isRoutingReducer,
   loadedInitialState: initialStateReducer,

@@ -12,6 +12,7 @@ import HomePage from './HomePage/HomePage.jsx';
 import RecipeDetail from './RecipeDetail/RecipeDetail.jsx';
 import RecipeEdit from './RecipeEdit.jsx';
 import * as actions from './../actions';
+import { auth, googleAuthProvider } from '../actions';
 
 //styles
 import './App.scss';
@@ -31,14 +32,23 @@ class App extends Component {
   }
 
   render() {
+    console.log(this.props.state);
+    const routes = (this.props.user) ?
+    <React.Fragment>
+      <Route exact path='/' component={Login}/>
+      <Route exact path='/home' component={HomePage}/>
+      <Route exact path='/recipe-detail' component={RecipeDetail}/>
+      <Route exact path='/edit-recipe' component={RecipeEdit}/>
+      </React.Fragment>
+    :
+    <div>Please Log In</div>
+
+
     return (
       <Switch>
         <div className="contentContainer">
           <NavBar />
-          <Route exact path='/' component={Login}/>
-          <Route exact path='/home' component={HomePage}/>
-          <Route exact path='/recipe-detail' component={RecipeDetail}/>
-          <Route exact path='/edit-recipe' component={RecipeEdit}/>
+          {routes}
         </div>
       </Switch>
     );
@@ -47,11 +57,13 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
-    recipes: state.recipes,
+    state: state,
     currentRecipe: state.currentRecipeId,
-    loadedInitialState: state.loadedInitialState,
     isRouting: state.isRouting,
-    showPopup: state.showPopup
+    loadedInitialState: state.loadedInitialState,
+    recipes: state.recipes,
+    showPopup: state.showPopup,
+    user: state.user,
   };
 };
 

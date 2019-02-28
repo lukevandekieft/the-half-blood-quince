@@ -78,7 +78,7 @@ const mapStateToProps = state => {
 
 HomePage.propTypes = {
   currentRecipe: PropTypes.string,
-  loadedInitialState: PropTypes.bool,
+  loadedInitialState: PropTypes.any,
   recipes: PropTypes.object,
   searchValue: PropTypes.any,
 
