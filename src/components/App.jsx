@@ -37,8 +37,6 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <Router history={history}>
         <Switch>
           <div className="contentContainer">
             <NavBar />
@@ -48,8 +46,6 @@ class App extends Component {
             <PrivateRoute path="/edit-recipe" component={RecipeEdit}/>
           </div>
         </Switch>
-        </Router>
-      </div>
     );
   }
 }
