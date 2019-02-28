@@ -49,7 +49,7 @@ class EditRecipeForm extends Component {
 
   render() {
     //destructure props from mapStateToProps
-    const {currentRecipe, recipes, name, url, image, ingredients, ingredientsNotes, directions, directionsNotes, isRouting, dispatch} = this.props;
+    const {currentRecipe, directions, directionsNotes, dispatch, image, ingredients, ingredientsNotes, isRouting, name, recipes, url} = this.props;
 
     //format array props
     const formatIngredients = this.readableArray(ingredients);
@@ -156,13 +156,14 @@ const mapStateToProps = state => {
     currentRecipe: state.currentRecipeId,
     recipes: state.recipes,
     isRouting: state.isRouting,
-    url: state.recipes[state.currentRecipeId].url,
+
+    directions: state.recipes[state.currentRecipeId].directions,
+    directionsNotes: state.recipes[state.currentRecipeId].directionsNotes,
     image: state.recipes[state.currentRecipeId].imageLink,
-    name: state.recipes[state.currentRecipeId].name,
     ingredients: state.recipes[state.currentRecipeId].ingredients,
     ingredientsNotes: state.recipes[state.currentRecipeId].ingredientsNotes,
-    directions: state.recipes[state.currentRecipeId].directions,
-    directionsNotes: state.recipes[state.currentRecipeId].directionsNotes
+    name: state.recipes[state.currentRecipeId].name,
+    url: state.recipes[state.currentRecipeId].url,
   };
 };
 
@@ -170,13 +171,14 @@ EditRecipeForm.propTypes = {
   currentRecipe: PropTypes.string,
   recipes: PropTypes.object,
   isRouting: PropTypes.boolean,
-  url: PropTypes.string,
+
+  directions: PropTypes.array,
+  directionsNotes: PropTypes.array,
   image: PropTypes.string,
-  name: PropTypes.string,
   ingredients: PropTypes.array,
   ingredientsNotes: PropTypes.array,
-  directions: PropTypes.array,
-  directionsNotes: PropTypes.array
+  name: PropTypes.string,
+  url: PropTypes.string,
 }
 
 export default connect(mapStateToProps)(EditRecipeForm);
