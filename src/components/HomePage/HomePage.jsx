@@ -85,9 +85,3 @@ HomePage.propTypes = {
 }
 
 export default connect(mapStateToProps)(HomePage);
-
-//
-// <NavButton
-// linkPath='/'
-// linkText='Delete Recipe(s)'
-// />
