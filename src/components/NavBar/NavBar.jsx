@@ -23,15 +23,16 @@ class NavBar extends React.Component{
           <div className='pageContentSection navBar'>
             <Link to='/'><Logo /></Link>
             <h1>The Half-Blood Quince</h1>
-            <Link to='/home'>
-              <h1>Menu</h1>
+            <div>
+              <Link to='/home'>
               <i className="fas fa-bars"></i>
-            </Link>
-            { !this.props.user && (
-            <button className='loginLogout' onClick={handleNewLogin}>Login</button>)
-            || this.props.user && (
-            <button className='loginLogout' onClick={handleLogout}>Logout</button>
-            )}
+              </Link>
+              { !this.props.user && (
+                <button className='loginLogout' onClick={handleNewLogin}>Login</button>)
+                || this.props.user && (
+                  <button className='loginLogout' onClick={handleLogout}>Logout</button>
+                )}
+            </div>
           </div>
         </div>
         <div className='navBarBackground'></div>
