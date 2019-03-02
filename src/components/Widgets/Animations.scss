@@ -205,6 +205,7 @@ keyframes active {
 .loginLogout {
   @extend .navButtonStyle;
   background: none;
-  border: 2px solid $bright-color;
+  border: .15em solid $bright-color;
   padding: .5em;
+  margin: 0;
 }

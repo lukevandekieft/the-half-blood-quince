@@ -23,16 +23,13 @@ class NavBar extends React.Component{
           <div className='pageContentSection navBar'>
             <Link to='/'><Logo /></Link>
             <h1>The Half-Blood Quince</h1>
-            <div>
-              <Link to='/home'>
-              <i className="fas fa-bars"></i>
-              </Link>
               { !this.props.user && (
                 <button className='loginLogout' onClick={handleNewLogin}>Login</button>)
                 || this.props.user && (
-                  <button className='loginLogout' onClick={handleLogout}>Logout</button>
+                  <Link to='/home'>
+                  <i className="fas fa-bars"></i>
+                  </Link>
                 )}
-            </div>
           </div>
         </div>
         <div className='navBarBackground'></div>
@@ -48,3 +45,5 @@ const mapStateToProps = state => {
 };
 
 export default connect(mapStateToProps)(NavBar);
+
+// <button className='loginLogout' onClick={handleLogout}>Logout</button>
