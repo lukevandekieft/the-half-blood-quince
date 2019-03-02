@@ -1,11 +1,12 @@
 import React from 'react';
-import RecipeList from './RecipeList';
-import SearchBar from '../Widgets/SearchBar';
-import NavButton from '../Widgets/NavButton';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { changeCurrentRecipe, updateSearchValue } from '../../actions';
 import { v4 } from 'uuid';
+
+import NavButton from '../Widgets/NavButton';
+import RecipeList from './RecipeList';
+import SearchBar from '../Widgets/SearchBar/SearchBar';
 
 class HomePage extends React.Component{
 

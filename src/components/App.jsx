@@ -4,6 +4,7 @@ import {BrowserRouter as Switch, Route, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 //local files
+import MenuModal from './Widgets/MenuModal/MenuModal.jsx';
 import NavBar from './NavBar/NavBar.jsx';
 import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
@@ -16,8 +17,9 @@ import { auth, googleAuthProvider } from '../actions';
 //styles
 import './App.scss';
 import './HomePage/HomePage.scss';
+import './Widgets/MenuModal/MenuModal.scss';
 import './NavBar/NavBar.scss';
-import './Widgets/SearchBar.scss'
+import './Widgets/SearchBar/SearchBar.scss'
 import './Widgets/Animations.scss';
 import './RecipeDetail/RecipeDetail.scss';
 
@@ -43,10 +45,13 @@ class App extends Component {
 
     return (
       <Switch>
+        <React.Fragment>
         <div className="contentContainer">
           <NavBar />
           {routes}
         </div>
+        <MenuModal />
+        </React.Fragment>
       </Switch>
     );
   }

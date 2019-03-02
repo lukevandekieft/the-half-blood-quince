@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { updateSearchValue } from '../../actions';
+import { updateSearchValue } from '../../../actions';
 
 class SearchBar extends React.Component{
 

@@ -2,7 +2,7 @@ import React from 'react';
 import Logo from './Logo.jsx';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { newUserLogin, newUserLogout } from '../../actions';
+import { newUserLogin } from '../../actions';
 
 class NavBar extends React.Component{
 
@@ -10,11 +10,6 @@ class NavBar extends React.Component{
     const handleNewLogin = (event) => {
       event.preventDefault();
       this.props.dispatch(newUserLogin());
-    };
-
-    const handleLogout = (event) => {
-      event.preventDefault();
-      this.props.dispatch(newUserLogout());
     };
 
     return (
@@ -45,5 +40,3 @@ const mapStateToProps = state => {
 };
 
 export default connect(mapStateToProps)(NavBar);
-
-// <button className='loginLogout' onClick={handleLogout}>Logout</button>
