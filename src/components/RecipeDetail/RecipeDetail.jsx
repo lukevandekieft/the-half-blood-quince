@@ -22,7 +22,7 @@ class RecipeDetail extends React.Component{
   };
 
   handleClickDelete = () => {
-    this.props.dispatch(removeRecipe(this.props.currentRecipe));
+    this.props.dispatch(removeRecipe(this.props.currentRecipe, this.props.user));
   };
 
   handleClickCancel = () => {
@@ -93,14 +93,16 @@ const mapStateToProps = state => {
     loadedInitialState: state.loadedInitialState,
     recipes: state.recipes,
     showPopup: state.showPopup,
+    user: state.user,
   };
 };
 
 RecipeDetail.propTypes = {
   currentRecipe: PropTypes.string,
-  loadedInitialState: PropTypes.bool,
+  loadedInitialState: PropTypes.any,
   recipes: PropTypes.object,
   showPopup: PropTypes.bool,
+  user: PropTypes.object,
 }
 
 export default connect(mapStateToProps)(RecipeDetail);

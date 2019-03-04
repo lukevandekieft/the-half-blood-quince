@@ -49,7 +49,7 @@ class EditRecipeForm extends Component {
 
   render() {
     //destructure props from mapStateToProps
-    const {currentRecipe, directions, directionsNotes, dispatch, image, ingredients, ingredientsNotes, isRouting, name, recipes, url} = this.props;
+    const {currentRecipe, directions, directionsNotes, dispatch, image, ingredients, ingredientsNotes, isRouting, name, recipes, url, user} = this.props;
 
     //format array props
     const formatIngredients = this.readableArray(ingredients);
@@ -69,7 +69,7 @@ class EditRecipeForm extends Component {
         directions: this.createArray(this._directions.value),
         directionsNotes: this.createArray(this._directionsNotes.value)
       }
-      dispatch(submitRecipe(recipes));
+      dispatch(submitRecipe(recipes, user));
       dispatch(changeRoute(true));
     }
 
@@ -156,6 +156,7 @@ const mapStateToProps = state => {
     currentRecipe: state.currentRecipeId,
     recipes: state.recipes,
     isRouting: state.isRouting,
+    user: state.user,
 
     directions: state.recipes[state.currentRecipeId].directions,
     directionsNotes: state.recipes[state.currentRecipeId].directionsNotes,
@@ -171,6 +172,7 @@ EditRecipeForm.propTypes = {
   currentRecipe: PropTypes.string,
   recipes: PropTypes.object,
   isRouting: PropTypes.boolean,
+  user: PropTypes.object,
 
   directions: PropTypes.array,
   directionsNotes: PropTypes.array,

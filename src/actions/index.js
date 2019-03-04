@@ -90,13 +90,13 @@ export function watchRecipes(user) {
 }
 
 export function submitRecipe (recipeList, user) {
-  return () => firebase.database().ref(`users/${user.uid}/recipes`).update({
+  return () => firebase.database().ref(`users/${user.uid}`).update({
     recipes: recipeList
   });
 };
 
 //REMOVE RECIPE
-export function removeRecipe (recipeId) {
+export function removeRecipe (recipeId, user) {
   return () => firebase.database().ref(`users/${user.uid}/recipes`).child(recipeId).remove();
 };
 
