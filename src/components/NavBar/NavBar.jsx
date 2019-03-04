@@ -1,8 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Logo from './Logo.jsx';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { newUserLogin } from '../../actions';
+import { newUserLogin, toggleMainMenu } from '../../actions';
 
 class NavBar extends React.Component{
 
@@ -10,6 +11,10 @@ class NavBar extends React.Component{
     const handleNewLogin = (event) => {
       event.preventDefault();
       this.props.dispatch(newUserLogin());
+    };
+
+    const handleToggleMenu = (menuState) => {
+      this.props.dispatch(toggleMainMenu(menuState));
     };
 
     return (
@@ -22,9 +27,7 @@ class NavBar extends React.Component{
                 <button className='loginLogout' onClick={handleNewLogin}>Login</button>)
               }
               { (this.props.user.uid && this.props.user.uid !== 'initialLoadUser') && (
-                  <Link to='/home'>
-                  <i className="fas fa-bars"></i>
-                  </Link>
+                <i className="fas fa-bars" onClick={() => {handleToggleMenu(this.props.mainMenuShowing)}}></i>
                 )}
           </div>
         </div>
@@ -36,8 +39,14 @@ class NavBar extends React.Component{
 
 const mapStateToProps = state => {
   return {
+    mainMenuShowing: state.mainMenuShowing,
     user: state.user,
   };
 };
+
+NavBar.propTypes = {
+  mainMenuShowing: PropTypes.bool,
+  user: PropTypes.any,
+}
 
 export default connect(mapStateToProps)(NavBar);

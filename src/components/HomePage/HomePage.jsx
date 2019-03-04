@@ -83,6 +83,7 @@ HomePage.propTypes = {
   loadedInitialState: PropTypes.any,
   recipes: PropTypes.object,
   searchValue: PropTypes.any,
+  user: PropTypes.any,
 
 }
 

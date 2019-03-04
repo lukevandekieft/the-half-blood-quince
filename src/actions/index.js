@@ -44,6 +44,15 @@ export const userLogout = (user = null) => ({
   user: null,
 })
 
+export const login = (uid) => ({
+    type: 'LOGIN',
+    uid
+});
+
+export const logout = () => ({
+    type: 'LOGOUT'
+});
+
 //CHANGING CURRENT RECIPE
 export const selectRecipe = (selectedRecipeId) => ({
   type: types.SELECT_RECIPE,
@@ -51,7 +60,6 @@ export const selectRecipe = (selectedRecipeId) => ({
 });
 
 export function changeCurrentRecipe (_recipeId, user) {
-  console.log(user);
   return () => firebase.database().ref(`users/${user.uid}`).update({
     currentRecipeId: _recipeId
   });
