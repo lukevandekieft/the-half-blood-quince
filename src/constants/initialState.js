@@ -2,9 +2,11 @@ export const initialState = {
   isRouting: false,
   searchValue: null,
   showPopup: false,
-  user: 'Luke',
+  user: {
+    uid: 'initialLoadUser',
+  },
   users : {
-    Luke : {
+    initialLoadUser : {
       currentRecipeId : null,
       loadedInitialState: false,
       recipes : {

@@ -34,7 +34,7 @@ class App extends Component {
 
   render() {
     console.log(this.props.state);
-    const routes = (this.props.user) ?
+    const routes = (this.props.user.uid && this.props.user.uid !=='initialLoadUser') ?
       <React.Fragment>
         <Route exact path='/' component={HomePage}/>
         <Route exact path='/recipe-detail' component={RecipeDetail}/>

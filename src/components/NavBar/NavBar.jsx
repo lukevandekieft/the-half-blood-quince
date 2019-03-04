@@ -18,9 +18,10 @@ class NavBar extends React.Component{
           <div className='pageContentSection navBar'>
             <Link to='/'><Logo /></Link>
             <h1>The Half-Blood Quince</h1>
-              { !this.props.user && (
+              { !this.props.user.uid || this.props.user.uid === 'initialLoadUser' && (
                 <button className='loginLogout' onClick={handleNewLogin}>Login</button>)
-                || this.props.user && (
+              }
+              { this.props.user.uid && this.props.user.uid !== 'initialLoadUser' && (
                   <Link to='/home'>
                   <i className="fas fa-bars"></i>
                   </Link>
