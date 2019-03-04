@@ -8,10 +8,6 @@ const { firebaseConfig } = constants;
 firebase.initializeApp(firebaseConfig);
 
 const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
-const userData = firebase.database().ref('users/Luke');
-const currentRecipe = firebase.database().ref('users/Luke/currentRecipeId');
-const recipeList = firebase.database().ref('users/Luke/recipes');
-const initialLoad = firebase.database().ref('users/Luke/loadedInitialState');
 const auth = firebase.auth();
 
 //FB 2
@@ -93,15 +89,15 @@ export function watchRecipes(user) {
   };
 }
 
-export function submitRecipe (recipeList) {
-  return () => userData.update({
+export function submitRecipe (recipeList, user) {
+  return () => firebase.database().ref(`users/${user.uid}/recipes`).update({
     recipes: recipeList
   });
 };
 
 //REMOVE RECIPE
 export function removeRecipe (recipeId) {
-  return () => recipeList.child(recipeId).remove();
+  return () => firebase.database().ref(`users/${user.uid}/recipes`).child(recipeId).remove();
 };
 
 //LOAD STATE

@@ -6,13 +6,10 @@ import { connect } from 'react-redux';
 //local files
 import MenuModal from './Widgets/MenuModal/MenuModal.jsx';
 import NavBar from './NavBar/NavBar.jsx';
-import PrivateRoute from './PrivateRoute';
-import PublicRoute from './PublicRoute';
 import HomePage from './HomePage/HomePage.jsx';
 import RecipeDetail from './RecipeDetail/RecipeDetail.jsx';
 import RecipeEdit from './RecipeEdit.jsx';
 import * as actions from './../actions';
-import { auth, googleAuthProvider } from '../actions';
 
 //styles
 import './App.scss';
