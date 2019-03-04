@@ -5,10 +5,10 @@ export const initialState = {
   searchValue: null,
   showPopup: false,
   user: {
-    uid: 'N7IWOtaeQvV3rCuQQ7Ph3uSJNWE3',
+    uid: '8oanJXOqIweqVDR8hwuuAQkZoGJ3',
   },
   users : {
-    N7IWOtaeQvV3rCuQQ7Ph3uSJNWE3 : {
+    '8oanJXOqIweqVDR8hwuuAQkZoGJ3' : {
       currentRecipeId : null,
       recipes : {
         split_pea_soup : {

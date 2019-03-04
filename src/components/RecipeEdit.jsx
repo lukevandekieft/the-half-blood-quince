@@ -10,11 +10,17 @@ class RecipeEdit extends React.Component{
   };
   render() {
     let domDisplay;
-    if (this.props.loadedInitialState && this.props.recipes[this.props.currentRecipe]) {
-      domDisplay =
-      <div className='pageContentSection'>
+    if (this.props.loadedInitialState && this.props.recipes) {
+      if (this.props.recipes[this.props.currentRecipe]) {
+        domDisplay =
+        <div className='pageContentSection'>
         <EditRecipeForm />
-      </div>
+        </div>
+      } else {
+        <div className='pageContentSection'>
+          <AddRecipeForm />
+        </div>
+      }
     } else if (this.props.loadedInitialState) {
       domDisplay =
       <div className='pageContentSection'>

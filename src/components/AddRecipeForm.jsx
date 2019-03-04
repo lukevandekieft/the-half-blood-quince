@@ -34,7 +34,8 @@ class AddRecipeForm extends Component {
     //on submission send added/edited recipe and route to said recipe
     const submitForm = (event) => {
       event.preventDefault();
-      recipes[currentRecipe] = {
+      let newRecipeList;
+      let newRecipeInfo = {
         name: this._name.value,
         url: this._url.value,
         imageLink: this._imageLink.value,
@@ -43,7 +44,17 @@ class AddRecipeForm extends Component {
         directions: this.createArray(this._directions.value),
         directionsNotes: this.createArray(this._directionsNotes.value)
       }
-      dispatch(submitRecipe(recipes, user));
+      if (recipes) {
+        recipes[currentRecipe] = newRecipeInfo;
+        newRecipeList = recipes;
+      } else {
+        const newRecipeObject = {
+          recipes: {}
+        };
+        newRecipeObject[currentRecipe] = newRecipeInfo;
+        newRecipeList = newRecipeObject;
+      }
+      dispatch(submitRecipe(newRecipeList, user));
       dispatch(changeRoute(true));
     }
 
