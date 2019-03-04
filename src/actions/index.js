@@ -104,6 +104,12 @@ export function watchUserLoad(user) {
   };
 }
 
+//TOGGLE MAIN MENU
+export const toggleMainMenu = (currentMenuState) => ({
+  type: types.TOGGLE_MAIN_MENU,
+  currentMenuState: currentMenuState
+})
+
 //CHANGE ROUTE
 export const changeRoute = (newRoute) => ({
   type: types.CHANGE_ROUTE,

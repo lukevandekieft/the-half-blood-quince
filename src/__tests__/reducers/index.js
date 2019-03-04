@@ -96,8 +96,8 @@ describe('Recipe App', () => {
       expect(mainMenuReducer(initialState, { type: null })).toEqual(initialState);
     });
     it('Should toggle main menu state.', () => {
-      const action = actions.toggleMainMenu();
-      expect(currentRecipeReducer(initialState.mainMenuShowing, action)).toEqual(true);
+      const action = actions.toggleMainMenu(false);
+      expect(mainMenuReducer(initialState.mainMenuShowing, action)).toEqual(true);
     });
   });
 
