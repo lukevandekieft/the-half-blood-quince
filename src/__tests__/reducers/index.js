@@ -1,9 +1,11 @@
 import { createStore } from 'redux';
 import * as actions from './../../actions';
 import constants from "./../../constants";
+import authReducer from './../../reducers/auth-reducer';
 import currentRecipeReducer from './../../reducers/current-recipe-reducer';
 import initialStateReducer from './../../reducers/initial-state-reducer';
 import isRoutingReducer from './../../reducers/is-routing-reducer';
+import mainMenuReducer from './../../reducers/main-menu-reducer';
 import popupReducer from './../../reducers/popup-reducer';
 import recipeReducer from './../../reducers/recipe-reducer';
 import rootReducer from './../../reducers/';
@@ -14,13 +16,40 @@ describe('Recipe App', () => {
   const store = createStore(rootReducer, initialState);
 
   describe('rootReducer', () => {
-    it('Should accept and return initial state.', () => {
-      expect(rootReducer(initialState, { type: null })).toEqual(initialState.users['Luke']);
-    });
+    // it('Should accept and return initial state.', () => {
+    //   expect(rootReducer(initialState, { type: null })).toEqual(initialState);
+    // });
 
     it('Should contain logic from both reducers.', () => {
       expect(store.getState().currentRecipeId).toEqual(currentRecipeReducer(undefined, { type: null }));
       expect(store.getState().recipes).toEqual(recipeReducer(undefined, { type: null }));
+    });
+  });
+
+  describe('authReducer', () => {
+    it('Should accept and return initial state.', () => {
+      expect(authReducer(initialState, { type: null })).toEqual(initialState);
+    });
+    it('Should remove user data when logout is selected.', () => {
+      const logoutUser = null
+      const action = {
+        type: types.USER_LOGOUT,
+        user: {
+          uid: null,
+        }
+      };
+      expect(authReducer(initialState.user, action)).toEqual(logoutUser);
+    });
+    it('Should change user data when login is selected.', () => {
+      const loginUser =
+      { uid: 'parakeetz' }
+      const action = {
+        type: types.USER_LOGIN,
+        user: {
+          uid: 'parakeetz',
+        }
+      };
+      expect(authReducer(initialState.user, action)).toEqual(loginUser);
     });
   });
 
@@ -32,7 +61,7 @@ describe('Recipe App', () => {
       const selectedRecipe = 'mapo_tofu';
       const action = actions.selectRecipe(selectedRecipe);
       const newStateEntry = 'mapo_tofu';
-      expect(currentRecipeReducer(initialState.users['Luke'], action)).toEqual(newStateEntry);
+      expect(currentRecipeReducer(initialState.users, action)).toEqual(newStateEntry);
     });
   });
 
@@ -58,7 +87,17 @@ describe('Recipe App', () => {
         isRouting: true
       }
       const action = actions.changeRoute(sampleState);
-      expect(isRoutingReducer(initialState.users['Luke'], action)).toEqual(sampleState);
+      expect(isRoutingReducer(initialState.users, action)).toEqual(sampleState);
+    });
+  });
+
+  describe('mainMenuReducer', () => {
+    it('Should accept and return initial state.', () => {
+      expect(mainMenuReducer(initialState, { type: null })).toEqual(initialState);
+    });
+    it('Should toggle main menu state.', () => {
+      const action = actions.toggleMainMenu(false);
+      expect(mainMenuReducer(initialState.mainMenuShowing, action)).toEqual(true);
     });
   });
 
@@ -71,7 +110,7 @@ describe('Recipe App', () => {
         showPopup: true
       }
       const action = actions.changePopupStatus(sampleState);
-      expect(popupReducer(initialState.users['Luke'], action)).toEqual(sampleState);
+      expect(popupReducer(initialState.users, action)).toEqual(sampleState);
     });
   });
 
@@ -101,7 +140,7 @@ describe('Recipe App', () => {
             }
           };
       const action = actions.updateRecipeList(newRecipeList);
-      expect(recipeReducer(initialState.users['Luke'].recipes, action)).toEqual(newRecipeList);
+      expect(recipeReducer(initialState.users['initialLoadUser'].recipes, action)).toEqual(newRecipeList);
     });
   });
 
@@ -114,7 +153,7 @@ describe('Recipe App', () => {
         searchValue: "peanuts"
       }
       const action = actions.updateSearchValue(sampleState);
-      expect(searchReducer(initialState.users['Luke'], action)).toEqual(sampleState);
+      expect(searchReducer(initialState.users, action)).toEqual(sampleState);
     });
   });
 

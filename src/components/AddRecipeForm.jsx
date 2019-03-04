@@ -29,7 +29,7 @@ class AddRecipeForm extends Component {
 
   render() {
     //destructure props from mapStateToProps
-    const {currentRecipe, recipes, isRouting, dispatch} = this.props;
+    const {currentRecipe, dispatch, isRouting, recipes, user } = this.props;
 
     //on submission send added/edited recipe and route to said recipe
     const submitForm = (event) => {
@@ -43,7 +43,7 @@ class AddRecipeForm extends Component {
         directions: this.createArray(this._directions.value),
         directionsNotes: this.createArray(this._directionsNotes.value)
       }
-      dispatch(submitRecipe(recipes));
+      dispatch(submitRecipe(recipes, user));
       dispatch(changeRoute(true));
     }
 
@@ -122,14 +122,16 @@ const mapStateToProps = state => {
   return {
     currentRecipe: state.currentRecipeId,
     recipes: state.recipes,
-    isRouting: state.isRouting
+    isRouting: state.isRouting,
+    user: state.user,
   };
 };
 
 AddRecipeForm.propTypes = {
   currentRecipe: PropTypes.string,
   recipes: PropTypes.object,
-  isRouting: PropTypes.boolean
+  isRouting: PropTypes.boolean,
+  user: PropTypes.object,
 }
 
 export default connect(mapStateToProps)(AddRecipeForm);

@@ -3,18 +3,20 @@ import authReducer from './auth-reducer';
 import currentRecipeReducer from './current-recipe-reducer';
 import initialStateReducer from './initial-state-reducer';
 import isRoutingReducer from './is-routing-reducer';
+import mainMenuReducer from './main-menu-reducer';
 import popupReducer from './popup-reducer';
 import recipeReducer from './recipe-reducer';
 import searchReducer from './search-reducer';
 
 const rootReducer = combineReducers({
-  user: authReducer,
   currentRecipeId: currentRecipeReducer,
   isRouting: isRoutingReducer,
   loadedInitialState: initialStateReducer,
+  mainMenuShowing: mainMenuReducer,
   recipes: recipeReducer,
   searchValue: searchReducer,
-  showPopup: popupReducer
+  showPopup: popupReducer,
+  user: authReducer,
 });
 
 export default rootReducer;

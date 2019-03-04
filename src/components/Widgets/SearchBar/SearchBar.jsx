@@ -16,7 +16,7 @@ class SearchBar extends React.Component{
   };
 
   render() {
-    const {dispatch, searchValue} = this.props;
+    const {searchValue} = this.props;
 
     let searchButton;
     if (searchValue) {

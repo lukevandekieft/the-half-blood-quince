@@ -1,18 +1,14 @@
 import constants from './../constants';
 const { initialState, types } = constants;
 
-export default (state = initialState, action) => {
-  let user;
-  let newLoggedInUserStateSlice;
+export default (state = initialState.user, action) => {
   switch (action.type) {
     case types.USER_LOGIN:
-      const user =  action.user;
-      const googleEmail = action.user.email;
-      newLoggedInUserStateSlice = Object.assign({}, user, googleEmail);
-      return newLoggedInUserStateSlice;
+      return Object.assign({}, action.user);
     case types.USER_LOGOUT:
-      newLoggedInUserStateSlice = null;
-      return newLoggedInUserStateSlice;
+      return {
+        uid: null,
+      };
     default:
       return state;
   }

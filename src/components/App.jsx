@@ -6,13 +6,11 @@ import { connect } from 'react-redux';
 //local files
 import MenuModal from './Widgets/MenuModal/MenuModal.jsx';
 import NavBar from './NavBar/NavBar.jsx';
-import PrivateRoute from './PrivateRoute';
-import PublicRoute from './PublicRoute';
 import HomePage from './HomePage/HomePage.jsx';
 import RecipeDetail from './RecipeDetail/RecipeDetail.jsx';
 import RecipeEdit from './RecipeEdit.jsx';
 import * as actions from './../actions';
-import { auth, googleAuthProvider } from '../actions';
+import { toggleMainMenu } from './../actions';
 
 //styles
 import './App.scss';
@@ -24,17 +22,25 @@ import './Widgets/Animations.scss';
 import './RecipeDetail/RecipeDetail.scss';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.handleToggleMainMenu = this.handleToggleMainMenu.bind(this);
+  }
   componentWillMount() {
     const { dispatch } = this.props;
     const { watchUserData, watchRecipes, watchUserLoad } = actions;
-    dispatch(watchUserData());
-    dispatch(watchRecipes());
-    dispatch(watchUserLoad());
+    dispatch(watchUserData(this.props.user));
+    dispatch(watchRecipes(this.props.user));
+    dispatch(watchUserLoad(this.props.user));
   }
+
+  handleToggleMainMenu(menuState) {
+    this.props.dispatch(toggleMainMenu(menuState));
+  };
 
   render() {
     console.log(this.props.state);
-    const routes = (this.props.user) ?
+    const routes = (this.props.user.uid && this.props.user.uid !=='initialLoadUser') ?
       <React.Fragment>
         <Route exact path='/' component={HomePage}/>
         <Route exact path='/recipe-detail' component={RecipeDetail}/>
@@ -47,10 +53,15 @@ class App extends Component {
       <Switch>
         <React.Fragment>
         <div className="contentContainer">
-          <NavBar />
+          <NavBar
+            onToggleMenu = {this.handleToggleMainMenu}
+          />
           {routes}
         </div>
-        <MenuModal />
+        <MenuModal
+          onToggleMenu = {this.handleToggleMainMenu}
+        />
+        <div className={this.props.mainMenuShowing ? 'screen-blocker main-menu-showing' : 'screen-blocker'} onClick={this.handleToggleMainMenu}></div>
         </React.Fragment>
       </Switch>
     );
@@ -63,6 +74,7 @@ const mapStateToProps = state => {
     currentRecipe: state.currentRecipeId,
     isRouting: state.isRouting,
     loadedInitialState: state.loadedInitialState,
+    mainMenuShowing: state.mainMenuShowing,
     recipes: state.recipes,
     showPopup: state.showPopup,
     user: state.user,

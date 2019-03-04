@@ -19,12 +19,12 @@ class HomePage extends React.Component{
   };
 
   render() {
-    const {dispatch, currentRecipe, loadedInitialState, recipes, searchValue } = this.props;
+    const {dispatch, currentRecipe, loadedInitialState, recipes, searchValue, user } = this.props;
 
     const handleRecipeClick = () => {
       const newId = v4();
       console.log(newId);
-      dispatch(changeCurrentRecipe(newId));
+      dispatch(changeCurrentRecipe(newId, user));
     };
 
     let headerMessage;
@@ -74,6 +74,7 @@ const mapStateToProps = state => {
     loadedInitialState: state.loadedInitialState,
     recipes: state.recipes,
     searchValue: state.searchValue,
+    user: state.user,
   };
 };
 
@@ -82,6 +83,7 @@ HomePage.propTypes = {
   loadedInitialState: PropTypes.any,
   recipes: PropTypes.object,
   searchValue: PropTypes.any,
+  user: PropTypes.any,
 
 }
 

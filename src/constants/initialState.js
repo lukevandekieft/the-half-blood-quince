@@ -1,10 +1,13 @@
 export const initialState = {
   isRouting: false,
+  mainMenuShowing: false,
   searchValue: null,
   showPopup: false,
-  user: 'initialStateUser',
+  user: {
+    uid: 'N7IWOtaeQvV3rCuQQ7Ph3uSJNWE3',
+  },
   users : {
-    initialStateUser : {
+    N7IWOtaeQvV3rCuQQ7Ph3uSJNWE3 : {
       currentRecipeId : null,
       loadedInitialState: false,
       recipes : {
