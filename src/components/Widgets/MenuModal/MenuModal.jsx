@@ -11,7 +11,7 @@ class MenuModal extends React.Component {
 
     const handleLogout = () => {
       this.props.dispatch(newUserLogout());
-      console.log('whatup');
+      this.props.onToggleMenu(this.props.mainMenuShowing);
     };
 
     return (
