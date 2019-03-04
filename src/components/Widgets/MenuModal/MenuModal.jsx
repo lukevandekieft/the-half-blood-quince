@@ -20,12 +20,10 @@ class MenuModal extends React.Component {
           <i className='material-icons' onClick={() => {this.props.onToggleMenu(this.props.mainMenuShowing)}}>close</i>
         </div>
         <div className='modal-body'>
-          <div className='modal-container'>
-            <div className='accordion-list'>
-                <div className='accordion-footer'>
-                  <button className='loginLogout' onClick={() => {handleLogout()}}>Logout</button>
-                </div>
-            </div>
+          <div className='accordion-list'>
+              <div className='accordion-footer'>
+                <button className='loginLogout' onClick={() => {handleLogout()}}>Logout</button>
+              </div>
           </div>
         </div>
       </div>
