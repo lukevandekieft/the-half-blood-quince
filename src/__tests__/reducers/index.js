@@ -1,6 +1,7 @@
 import { createStore } from 'redux';
 import * as actions from './../../actions';
 import constants from "./../../constants";
+import authReducer from './../../reducers/auth-reducer';
 import currentRecipeReducer from './../../reducers/current-recipe-reducer';
 import initialStateReducer from './../../reducers/initial-state-reducer';
 import isRoutingReducer from './../../reducers/is-routing-reducer';
@@ -24,6 +25,33 @@ describe('Recipe App', () => {
     });
   });
 
+  describe('authReducer', () => {
+    it('Should accept and return initial state.', () => {
+      expect(authReducer(initialState, { type: null })).toEqual(initialState);
+    });
+    it('Should remove user data when logout is selected.', () => {
+      const logoutUser = null
+      const action = {
+        type: types.USER_LOGOUT,
+        user: {
+          uid: null,
+        }
+      };
+      expect(authReducer(initialState.user, action)).toEqual(logoutUser);
+    });
+    it('Should change user data when login is selected.', () => {
+      const loginUser =
+      { uid: 'parakeetz' }
+      const action = {
+        type: types.USER_LOGIN,
+        user: {
+          uid: 'parakeetz',
+        }
+      };
+      expect(authReducer(initialState.user, action)).toEqual(loginUser);
+    });
+  });
+
   describe('currentRecipeReducer', () => {
     it('Should accept and return initial state.', () => {
       expect(currentRecipeReducer(initialState, { type: null })).toEqual(initialState);
@@ -32,7 +60,7 @@ describe('Recipe App', () => {
       const selectedRecipe = 'mapo_tofu';
       const action = actions.selectRecipe(selectedRecipe);
       const newStateEntry = 'mapo_tofu';
-      expect(currentRecipeReducer(initialState.users['Luke'], action)).toEqual(newStateEntry);
+      expect(currentRecipeReducer(initialState.users, action)).toEqual(newStateEntry);
     });
   });
 
@@ -58,7 +86,7 @@ describe('Recipe App', () => {
         isRouting: true
       }
       const action = actions.changeRoute(sampleState);
-      expect(isRoutingReducer(initialState.users['Luke'], action)).toEqual(sampleState);
+      expect(isRoutingReducer(initialState.users, action)).toEqual(sampleState);
     });
   });
 
@@ -71,7 +99,7 @@ describe('Recipe App', () => {
         showPopup: true
       }
       const action = actions.changePopupStatus(sampleState);
-      expect(popupReducer(initialState.users['Luke'], action)).toEqual(sampleState);
+      expect(popupReducer(initialState.users, action)).toEqual(sampleState);
     });
   });
 
@@ -114,7 +142,7 @@ describe('Recipe App', () => {
         searchValue: "peanuts"
       }
       const action = actions.updateSearchValue(sampleState);
-      expect(searchReducer(initialState.users['Luke'], action)).toEqual(sampleState);
+      expect(searchReducer(initialState.users, action)).toEqual(sampleState);
     });
   });
 

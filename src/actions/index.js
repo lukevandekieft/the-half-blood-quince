@@ -10,7 +10,7 @@ firebase.initializeApp(firebaseConfig);
 const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
 const auth = firebase.auth();
 
-//FB 2
+//FIREBASE LOGIN
 export function newUserLogin() {
   return function (dispatch) {
     auth.signInWithPopup(googleAuthProvider).then(result => {
@@ -43,16 +43,6 @@ export const userLogout = (user = null) => ({
   type: types.USER_LOGOUT,
   user: null,
 })
-
-//FIREBASE LOGIN
-export const login = (uid) => ({
-    type: 'LOGIN',
-    uid
-});
-
-export const logout = () => ({
-    type: 'LOGOUT'
-});
 
 //CHANGING CURRENT RECIPE
 export const selectRecipe = (selectedRecipeId) => ({
