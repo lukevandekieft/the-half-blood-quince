@@ -61,8 +61,9 @@ export const selectRecipe = (selectedRecipeId) => ({
   selectedRecipeId: selectedRecipeId
 });
 
-export function changeCurrentRecipe (_recipeId) {
-  return () => userData.update({
+export function changeCurrentRecipe (_recipeId, user) {
+  console.log(user);
+  return () => firebase.database().ref(`users/${user}`).update({
     currentRecipeId: _recipeId
   });
 };

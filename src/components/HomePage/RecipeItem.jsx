@@ -4,11 +4,12 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { changeCurrentRecipe } from '../../actions';
 
-function RecipeItem({currentRecipe, name, image, valueKey, dispatch}) {
+function RecipeItem({currentRecipe, name, image, valueKey, user, dispatch}) {
 
   const handleClick = (key) => {
     console.log(key)
-    dispatch(changeCurrentRecipe(key));
+    console.log(user)
+    dispatch(changeCurrentRecipe(key, user));
   };
 
   const backgroundImage = {
@@ -28,7 +29,8 @@ function RecipeItem({currentRecipe, name, image, valueKey, dispatch}) {
 
 const mapStateToProps = state => {
   return {
-    currentRecipe: state.currentRecipeId
+    currentRecipe: state.currentRecipeId,
+    user: state.user,
   };
 };
 

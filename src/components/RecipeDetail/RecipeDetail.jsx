@@ -31,6 +31,7 @@ class RecipeDetail extends React.Component{
   };
 
   render(){
+    console.log(this.props);
     let domDisplay;
     if (this.props.loadedInitialState) {
       domDisplay =

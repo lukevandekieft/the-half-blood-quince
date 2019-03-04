@@ -1,7 +1,7 @@
 import constants from './../constants';
 const { initialState, types } = constants;
 
-export default (state = initialState, action) => {
+export default (state = initialState.user, action) => {
   let user;
   let newLoggedInUserStateSlice;
   switch (action.type) {

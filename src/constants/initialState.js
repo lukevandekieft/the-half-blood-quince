@@ -2,9 +2,9 @@ export const initialState = {
   isRouting: false,
   searchValue: null,
   showPopup: false,
-  user: 'initialStateUser',
+  user: 'Luke',
   users : {
-    initialStateUser : {
+    Luke : {
       currentRecipeId : null,
       loadedInitialState: false,
       recipes : {
