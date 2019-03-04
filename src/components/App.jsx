@@ -27,9 +27,9 @@ class App extends Component {
   componentWillMount() {
     const { dispatch } = this.props;
     const { watchUserData, watchRecipes, watchUserLoad } = actions;
-    dispatch(watchUserData());
-    dispatch(watchRecipes());
-    dispatch(watchUserLoad());
+    dispatch(watchUserData(this.props.user));
+    dispatch(watchRecipes(this.props.user));
+    dispatch(watchUserLoad(this.props.user));
   }
 
   render() {

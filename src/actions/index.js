@@ -21,6 +21,9 @@ export function newUserLogin() {
       // const token = result.credential.accessToken;
       const user = result.user;
       dispatch(userLogin(result.user));
+      dispatch(watchRecipes(result.user));
+      dispatch(watchUserData(result.user));
+      dispatch(watchUserLoad(result.user));
     })
   }
 }
@@ -68,9 +71,9 @@ export function changeCurrentRecipe (_recipeId, user) {
   });
 };
 
-export function watchUserData() {
+export function watchUserData(user) {
   return function(dispatch) {
-    currentRecipe.on('value', data => {
+    firebase.database().ref(`users/${user.uid}/currentRecipeId`).on('value', data => {
       dispatch(selectRecipe(data.val()));
     });
   };
@@ -82,9 +85,9 @@ export const updateRecipeList = (recipeList) => ({
   recipeList: recipeList
 })
 
-export function watchRecipes() {
+export function watchRecipes(user) {
   return function(dispatch) {
-    recipeList.on('value', data => {
+    firebase.database().ref(`users/${user.uid}/recipes`).on('value', data => {
       dispatch(updateRecipeList(data.val()));
     });
   };
@@ -107,9 +110,9 @@ export const loadState = (stateLoaded) => ({
   stateLoaded: stateLoaded
 })
 
-export function watchUserLoad() {
+export function watchUserLoad(user) {
   return function(dispatch) {
-    initialLoad.on('value', data => {
+    firebase.database().ref(`users/${user.uid}/loadedInitialState`).on('value', data => {
       dispatch(loadState(data.val()));
     });
   };
