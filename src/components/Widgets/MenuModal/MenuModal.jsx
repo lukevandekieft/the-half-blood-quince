@@ -13,12 +13,10 @@ class MenuModal extends React.Component {
   };
 
   render () {
-
-
     return (
       <div className={this.props.mainMenuShowing ? 'menuModal modal-open-style' : 'menuModal'}>
         <div className='modal-top'>
-          <i className='material-icons' onClick={this.props.onToggleModal}>close</i>
+          <i className='material-icons' onClick={() => {this.props.onToggleMenu(this.props.mainMenuShowing)}}>close</i>
         </div>
         <div className='modal-body'>
           <div className='modal-container'>
@@ -46,6 +44,7 @@ const mapStateToProps = state => {
 
 MenuModal.propTypes = {
   mainMenuShowing: PropTypes.bool,
+  onToggleMenu: PropTypes.func,
 }
 
 export default connect(mapStateToProps)(MenuModal);

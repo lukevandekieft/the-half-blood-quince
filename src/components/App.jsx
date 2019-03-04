@@ -10,6 +10,7 @@ import HomePage from './HomePage/HomePage.jsx';
 import RecipeDetail from './RecipeDetail/RecipeDetail.jsx';
 import RecipeEdit from './RecipeEdit.jsx';
 import * as actions from './../actions';
+import { toggleMainMenu } from './../actions';
 
 //styles
 import './App.scss';
@@ -21,6 +22,10 @@ import './Widgets/Animations.scss';
 import './RecipeDetail/RecipeDetail.scss';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.handleToggleMainMenu = this.handleToggleMainMenu.bind(this);
+  }
   componentWillMount() {
     const { dispatch } = this.props;
     const { watchUserData, watchRecipes, watchUserLoad } = actions;
@@ -28,6 +33,10 @@ class App extends Component {
     dispatch(watchRecipes(this.props.user));
     dispatch(watchUserLoad(this.props.user));
   }
+
+  handleToggleMainMenu(menuState) {
+    this.props.dispatch(toggleMainMenu(menuState));
+  };
 
   render() {
     console.log(this.props.state);
@@ -42,13 +51,18 @@ class App extends Component {
 
     return (
       <Switch>
-        <div className='content'>
-          <div className="contentContainer">
-            <NavBar />
-            {routes}
-          </div>
-          <MenuModal />
+        <React.Fragment>
+        <div className="contentContainer">
+          <NavBar
+            onToggleMenu = {this.handleToggleMainMenu}
+          />
+          {routes}
         </div>
+        <MenuModal
+          onToggleMenu = {this.handleToggleMainMenu}
+        />
+        <div className={this.props.mainMenuShowing ? 'screen-blocker main-menu-showing' : 'screen-blocker'} onClick={this.handleToggleMainMenu}></div>
+        </React.Fragment>
       </Switch>
     );
   }
@@ -60,6 +74,7 @@ const mapStateToProps = state => {
     currentRecipe: state.currentRecipeId,
     isRouting: state.isRouting,
     loadedInitialState: state.loadedInitialState,
+    mainMenuShowing: state.mainMenuShowing,
     recipes: state.recipes,
     showPopup: state.showPopup,
     user: state.user,

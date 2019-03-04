@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Logo from './Logo.jsx';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { newUserLogin, toggleMainMenu } from '../../actions';
+import { newUserLogin } from '../../actions';
 
 class NavBar extends React.Component{
 
@@ -11,10 +11,6 @@ class NavBar extends React.Component{
     const handleNewLogin = (event) => {
       event.preventDefault();
       this.props.dispatch(newUserLogin());
-    };
-
-    const handleToggleMenu = (menuState) => {
-      this.props.dispatch(toggleMainMenu(menuState));
     };
 
     return (
@@ -27,8 +23,8 @@ class NavBar extends React.Component{
                 <button className='loginLogout' onClick={handleNewLogin}>Login</button>)
               }
               { (this.props.user.uid && this.props.user.uid !== 'initialLoadUser') && (
-                <i className="fas fa-bars" onClick={() => {handleToggleMenu(this.props.mainMenuShowing)}}></i>
-                )}
+                <i className="fas fa-bars" onClick={() => {this.props.onToggleMenu(this.props.mainMenuShowing)}}></i>
+              )}
           </div>
         </div>
         <div className='navBarBackground'></div>
@@ -46,6 +42,7 @@ const mapStateToProps = state => {
 
 NavBar.propTypes = {
   mainMenuShowing: PropTypes.bool,
+  onToggleMenu: PropTypes.func,
   user: PropTypes.any,
 }
 
