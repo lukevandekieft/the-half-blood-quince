@@ -42,13 +42,13 @@ class App extends Component {
 
     return (
       <Switch>
-        <React.Fragment>
-        <div className="contentContainer">
-          <NavBar />
-          {routes}
+        <div className='content'>
+          <div className="contentContainer">
+            <NavBar />
+            {routes}
+          </div>
+          <MenuModal />
         </div>
-        <MenuModal />
-        </React.Fragment>
       </Switch>
     );
   }
