@@ -1,5 +1,6 @@
 export const initialState = {
   isRouting: false,
+  loadedInitialState: false,
   mainMenuShowing: false,
   searchValue: null,
   showPopup: false,
@@ -9,7 +10,6 @@ export const initialState = {
   users : {
     N7IWOtaeQvV3rCuQQ7Ph3uSJNWE3 : {
       currentRecipeId : null,
-      loadedInitialState: false,
       recipes : {
         split_pea_soup : {
           name : "Split Pea Soup",
