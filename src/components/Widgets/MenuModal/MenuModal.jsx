@@ -1,37 +1,35 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import { newUserLogout } from '../../../actions';
 
 import AccordionItem from './AccordionItem';
 
 class MenuModal extends React.Component {
+
+  handleLogout(event) {
+    event.preventDefault();
+    this.props.dispatch(newUserLogout());
+  };
+
   render () {
 
-    const handleLogout = (event) => {
-      event.preventDefault();
-      this.props.dispatch(newUserLogout());
-    };
 
     return (
-      <div className='modalMenu'>
-        <div className={this.props.modalShowing ? 'modal accordion modal-open-style' : 'modal accordion'}>
-          <div className='modal-top'>
-            <i className='material-icons' onClick={this.props.onToggleModal}>close</i>
-          </div>
-          <div className='modal-body'>
-            <div className='modal-container'>
-              <div className='accordion-list'>
-                    <AccordionItem
-                      name = 'what up'
-                      submenus = {['hi', 'hello']}
-                      modalShowing = {this.props.modalShowing}
-                    />
-                  <div className='accordion-footer'>
-                    <p>Lorem ipsum dolor sit?</p>
-                    <p>Ras sit amet neque arcu. Vivamus faucibus in sapien sit amet dignissim.</p>
-                    <a className='btn btn-secondary'>Clickum Ipset</a>
-                  </div>
-              </div>
+      <div className={this.props.mainMenuShowing ? 'menuModal modal-open-style' : 'menuModal'}>
+        <div className='modal-top'>
+          <i className='material-icons' onClick={this.props.onToggleModal}>close</i>
+        </div>
+        <div className='modal-body'>
+          <div className='modal-container'>
+            <div className='accordion-list'>
+                  <AccordionItem
+                    name = 'what up'
+                    submenus = {['hi', 'hello']}
+                    modalShowing = {this.props.modalShowing}
+                  />
+                <div className='accordion-footer'>
+                </div>
             </div>
           </div>
         </div>
@@ -40,8 +38,14 @@ class MenuModal extends React.Component {
   };
 }
 
-MenuModal.propTypes = {
+const mapStateToProps = state => {
+  return {
+    mainMenuShowing: state.mainMenuShowing,
+  };
+};
 
+MenuModal.propTypes = {
+  mainMenuShowing: PropTypes.bool,
 }
 
-export default MenuModal;
+export default connect(mapStateToProps)(MenuModal);

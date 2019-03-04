@@ -8,13 +8,13 @@ import recipeReducer from './recipe-reducer';
 import searchReducer from './search-reducer';
 
 const rootReducer = combineReducers({
-  user: authReducer,
   currentRecipeId: currentRecipeReducer,
   isRouting: isRoutingReducer,
   loadedInitialState: initialStateReducer,
   recipes: recipeReducer,
   searchValue: searchReducer,
-  showPopup: popupReducer
+  showPopup: popupReducer,
+  user: authReducer,
 });
 
 export default rootReducer;

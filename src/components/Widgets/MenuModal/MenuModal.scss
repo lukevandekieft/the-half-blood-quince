@@ -5,24 +5,31 @@ $dark-grey: #333333;
 $menu-padding: 20px;
 $base-transition: .4s;
 
-.modalMenu {
-  background: black;
+.menuModal {
+  background-color: rgba(75, 75, 75, 0.75);
+  position: fixed;
+  top: 0;
+  right: -100%;
+  left: -100%;
   height: 100%;
   width: 100%;
-  top: -100%;
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
   font-size: 2.5em;
   text-align: center;
   overflow: auto;
-  z-index: 11;
-  transition: transform .6s ease-out;
+  z-index: 20;
+  transition: all $base-transition/2;
   .modal-top {
-    margin-right: .5em;
     text-align: right;
+    background-color: $modal-primary;
+    i {
+      margin-right: .5em;
+    }
   }
   .modal-body {
+    min-height: calc(100% - 55px);
     .well, .accordion-list {
       background-image: none;
       background-color: $modal-primary;
@@ -171,65 +178,13 @@ $base-transition: .4s;
   }
 }
 
-//Filter Accordion Styles
-@media (min-width: $small-breakpoint) {
-  .menuModal {
-    padding-bottom: 3rem;
-    .modal-top {
-      i {
-        font-size: 3rem;
-      }
-    }
-    .modal-body {
-      .modal-container {
-        margin: 0 auto;
-        padding: $menu-padding;
-        max-width: 1000px;
-      }
-    }
-    .accordion-item {
-      padding: .5em;
-      .accordion-label {
-        align-self: center;
-      }
-      .accordion-label {
-        width: auto;
-      }
-      .accordion-submenus {
-        width: auto;
-        margin: 0 auto;
-        p, a {
-          margin-top: 1em;
-        }
-      }
-    }
-  }
-}
-
 //NavBar Accordion Styles
 .menuModal {
-  transition: all $base-transition/2;
-  position: fixed;
-  top: 0;
-  right: -100%;
-  left: -100%;
-  z-index: 20;
-  background-color: rgba(75, 75, 75, 0.75);
-  .modal-top {
-    margin-right: 0;
-    background-color: $modal-primary;
-    i {
-      margin-right: .5em;
-    }
-  }
   .modal-body {
-    min-height: calc(100% - 55px);
-    .modal-container {
       height: 100%;
       .accordion-list {
         height: 100%;
       }
-    }
   }
 }
 .menuModal.modal-open-style {
@@ -245,7 +200,7 @@ $base-transition: .4s;
 }
 
 @media (min-width: $small-breakpoint) {
-  .menuModal.accordion {
+  .menuModal {
     width: 350px;
     left: -350px;
     background-color: rgba(75, 75, 75, 0.75);
