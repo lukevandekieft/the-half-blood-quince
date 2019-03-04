@@ -6,7 +6,9 @@ export default (state = initialState.user, action) => {
     case types.USER_LOGIN:
       return Object.assign({}, action.user);
     case types.USER_LOGOUT:
-      return null;
+      return {
+        uid: null,
+      };
     default:
       return state;
   }

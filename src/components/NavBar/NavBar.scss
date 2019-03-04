@@ -39,6 +39,9 @@
   position: relative;
   z-index: 500;
   background: none;
+  .fas {
+    cursor: pointer;
+  }
 }
 
 .navBarBackground {

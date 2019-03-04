@@ -7,12 +7,13 @@ import AccordionItem from './AccordionItem';
 
 class MenuModal extends React.Component {
 
-  handleLogout(event) {
-    event.preventDefault();
-    this.props.dispatch(newUserLogout());
-  };
-
   render () {
+
+    const handleLogout = () => {
+      this.props.dispatch(newUserLogout());
+      console.log('whatup');
+    };
+
     return (
       <div className={this.props.mainMenuShowing ? 'menuModal modal-open-style' : 'menuModal'}>
         <div className='modal-top'>
@@ -21,12 +22,8 @@ class MenuModal extends React.Component {
         <div className='modal-body'>
           <div className='modal-container'>
             <div className='accordion-list'>
-                  <AccordionItem
-                    name = 'what up'
-                    submenus = {['hi', 'hello']}
-                    modalShowing = {this.props.modalShowing}
-                  />
                 <div className='accordion-footer'>
+                  <button className='loginLogout' onClick={() => {handleLogout()}}>Logout</button>
                 </div>
             </div>
           </div>
@@ -48,3 +45,9 @@ MenuModal.propTypes = {
 }
 
 export default connect(mapStateToProps)(MenuModal);
+
+// <AccordionItem
+//   name = 'what up'
+//   submenus = {['hi', 'hello']}
+//   modalShowing = {this.props.modalShowing}
+// />
