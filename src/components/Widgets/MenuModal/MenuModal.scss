@@ -26,7 +26,7 @@ $base-transition: .3s;
   z-index: 200;
   transition: all $base-transition;
   h3, i, p, button {
-    color: brown;
+    color: $offsetColor;
     background-color: white;
     margin: 0;
   }
@@ -63,7 +63,7 @@ $base-transition: .3s;
 }
 
 //General Accoridan Styles
-.accordian-list {
+.accordion-list {
   height: 100%;
   .accordion-item {
     display: flex;
@@ -117,6 +117,9 @@ $base-transition: .3s;
   .accordion-footer {
     width: 100%;
     height: auto;
+    & > * {
+      margin-bottom: 50px;
+    }
     p, a {
       white-space: normal;
     }

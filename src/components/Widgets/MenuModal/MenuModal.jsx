@@ -38,7 +38,13 @@ class MenuModal extends React.Component {
         <div className='modal-body'>
           <div className='accordion-list'>
               <div className='accordion-footer'>
-                <button className='loginLogout' onClick={() => {handleLogout()}}>Logout</button>
+                <div onClick={() => {handleRoute('/')}}>
+                  <NavButton
+                    linkPath='/'
+                    linkText='View Recipes'
+                    color='white'
+                  />
+                </div>
                 <div onClick={() => {handleRoute('/edit-recipe')}}>
                   <NavButton
                   linkPath='/edit-recipe'
@@ -46,13 +52,7 @@ class MenuModal extends React.Component {
                   color='white'
                   />
                 </div>
-                <div onClick={() => {handleRoute('/')}}>
-                  <NavButton
-                  linkPath='/'
-                  linkText='Home Page'
-                  color='white'
-                  />
-                </div>
+                <button className='loginLogout' onClick={() => {handleLogout()}}>Logout</button>
               </div>
           </div>
         </div>
