@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import MainRecipeDisplay from './MainRecipeDisplay';
-import IngredientsDisplay from './IngredientsDisplay';
 import DirectionsDisplay from './DirectionsDisplay';
-import NavButton from '../Widgets/NavButton';
+import IngredientsDisplay from './IngredientsDisplay';
+import Loader from '../Widgets/Loader/Loader';
+import MainRecipeDisplay from './MainRecipeDisplay';
+import NavButton from '../Widgets/NavButton/NavButton';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { changeRoute, changePopupStatus, removeRecipe } from '../../actions';
@@ -75,9 +76,7 @@ class RecipeDetail extends React.Component{
       </div>
     } else {
       domDisplay =
-      <div className='loading'>
-        <div className='loader'></div>
-      </div>
+      <Loader />
     }
     return (
       <div>

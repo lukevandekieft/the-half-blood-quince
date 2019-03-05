@@ -6,7 +6,7 @@ import { v4 } from 'uuid';
 import { Redirect } from 'react-router';
 
 import AccordionItem from './AccordionItem';
-import NavButton from '../NavButton';
+import NavButton from '../NavButton/NavButton';
 
 class MenuModal extends React.Component {
 

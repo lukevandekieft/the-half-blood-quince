@@ -20,8 +20,9 @@ import './App.scss';
 import './HomePage/HomePage.scss';
 import './Widgets/MenuModal/MenuModal.scss';
 import './NavBar/NavBar.scss';
+import './Widgets/Loader/Loader.scss';
+import './Widgets/NavButton/NavButton.scss';
 import './Widgets/SearchBar/SearchBar.scss'
-import './Widgets/Animations.scss';
 import './RecipeDetail/RecipeDetail.scss';
 
 class App extends Component {

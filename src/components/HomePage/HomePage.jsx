@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 import { changeCurrentRecipe, updateSearchValue } from '../../actions';
 import { v4 } from 'uuid';
 
-import NavButton from '../Widgets/NavButton';
+import Loader from '../Widgets/Loader/Loader';
+import NavButton from '../Widgets/NavButton/NavButton';
 import RecipeList from './RecipeList';
 import SearchBar from '../Widgets/SearchBar/SearchBar';
 
@@ -38,9 +39,7 @@ class HomePage extends React.Component{
     let domDisplay;
     if(loadingRecipe === false) {
       domDisplay =
-      <div className='loading'>
-        <div className='loaderHome'></div>
-      </div>
+      <Loader />
     } else {
       domDisplay =
       <div className='pageContentSection homepage'>

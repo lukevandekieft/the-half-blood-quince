@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import NavButton from './../Widgets/NavButton';
+import NavButton from './../Widgets/NavButton/NavButton';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { submitRecipe, changeRoute } from './../../actions';

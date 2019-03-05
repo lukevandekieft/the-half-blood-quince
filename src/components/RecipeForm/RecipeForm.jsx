@@ -1,8 +1,10 @@
 import React from 'react';
-import EditRecipeForm from './EditRecipeForm';
-import AddRecipeForm from './AddRecipeForm';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+
+import AddRecipeForm from './AddRecipeForm';
+import EditRecipeForm from './EditRecipeForm';
+import Loader from '../Widgets/Loader/Loader';
 
 class RecipeEdit extends React.Component{
   componentDidMount() {
@@ -29,9 +31,7 @@ class RecipeEdit extends React.Component{
       </div>
     } else {
       domDisplay =
-      <div className='loading'>
-        <div className='loader'></div>
-      </div>
+      <Loader />
     }
 
     return (
