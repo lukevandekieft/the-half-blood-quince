@@ -1,13 +1,13 @@
 @import '../../sassVariables.scss';
 
-$modal-primary: darken(rgba(244, 152, 66, .3), 20%);
+$modal-primary: transparent;
 $dark-grey: #333333;
 $menu-padding: 20px;
-$base-transition: .4s;
+$base-transition: .3s;
 
 .menuModal {
   background-color: $modal-primary;
-  background-image: url('https://thumbs.dreamstime.com/z/fresh-ripe-green-kiwi-fruits-sliced-half-wooden-cutting-board-nature-fruit-concept-background-healthy-diet-themes-67147570.jpg');
+  background-image: url('../../../assets/images/wood_panel.png');
   background-size: cover;
   background-position: right;
   background-repeat: no-repeat;
@@ -26,9 +26,14 @@ $base-transition: .4s;
   z-index: 200;
   transition: all $base-transition;
   h3, i, p, a, button {
-    color: white;
+    color: brown;
+    background-color: white;
     margin: 0;
   }
+   button {
+     font-size: 1.2rem;
+     padding: .75rem;
+   }
   a {
     font-size: 1rem;
   }
@@ -39,10 +44,14 @@ $base-transition: .4s;
     i {
       cursor: pointer;
       font-size: 2rem;
+      box-sizing: border-box;
+      padding: .4rem;
+      margin: 1rem 0;
+      border-radius: 50%;
     }
   }
   .modal-body {
-    min-height: calc(100% - 55px);
+    min-height: calc(100% - 77px);
     background-color: $modal-primary;
   }
 }
