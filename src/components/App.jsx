@@ -4,14 +4,14 @@ import {BrowserRouter as Switch, Route, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 //local files
-import Login from './Login.jsx';
+import LoginPage from './LoginPage/LoginPage.jsx';
 import MenuModal from './Widgets/MenuModal/MenuModal.jsx';
 import NavBar from './NavBar/NavBar.jsx';
 import HomePage from './HomePage/HomePage.jsx';
-import PrivateRoute from './PrivateRoute.jsx';
-import PublicRoute from './PublicRoute.jsx';
+import PrivateRoute from './Routes/PrivateRoute.jsx';
+import PublicRoute from './Routes/PublicRoute.jsx';
 import RecipeDetail from './RecipeDetail/RecipeDetail.jsx';
-import RecipeEdit from './RecipeEdit.jsx';
+import RecipeForm from './RecipeForm/RecipeForm.jsx';
 import * as actions from './../actions';
 import { toggleMainMenu } from './../actions';
 
@@ -53,8 +53,8 @@ class App extends Component {
           />
           <PrivateRoute path='/' component={HomePage}/>
           <PrivateRoute path='/recipe-detail' component={RecipeDetail}/>
-          <PrivateRoute path='/edit-recipe' component={RecipeEdit}/>
-          <PublicRoute path='/login' component={Login}/>
+          <PrivateRoute path='/edit-recipe' component={RecipeForm}/>
+          <PublicRoute path='/login' component={LoginPage}/>
         </div>
         <MenuModal
           onToggleMenu = {this.handleToggleMainMenu}
