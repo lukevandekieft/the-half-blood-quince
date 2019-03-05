@@ -1,12 +1,16 @@
 @import '../../sassVariables.scss';
 
-$modal-primary: #4368ad;
+$modal-primary: darken(rgba(244, 152, 66, .3), 20%);
 $dark-grey: #333333;
 $menu-padding: 20px;
 $base-transition: .4s;
 
 .menuModal {
-  background-color: rgba(75, 75, 75, 0.75);
+  background-color: $modal-primary;
+  background-image: url('https://thumbs.dreamstime.com/z/fresh-ripe-green-kiwi-fruits-sliced-half-wooden-cutting-board-nature-fruit-concept-background-healthy-diet-themes-67147570.jpg');
+  background-size: cover;
+  background-position: right;
+  background-repeat: no-repeat;
   position: fixed;
   top: 0;
   right: 100%;
@@ -20,38 +24,26 @@ $base-transition: .4s;
   text-align: center;
   overflow: auto;
   z-index: 200;
-  transition: all $base-transition/2;
+  transition: all $base-transition;
+  h3, i, p, a, button {
+    color: white;
+    margin: 0;
+  }
+  a {
+    font-size: 1rem;
+  }
   .modal-top {
-    text-align: right;
     background-color: $modal-primary;
+    padding-right: 10%;
+    text-align: right;
     i {
       cursor: pointer;
+      font-size: 2rem;
     }
   }
   .modal-body {
     min-height: calc(100% - 55px);
-    .well, .accordion-list {
-      background-image: none;
-      background-color: $modal-primary;
-      border-color: $dark-grey;
-      box-shadow: 0px 0px 3px $dark-grey;
-    }
-    ul {
-      margin: auto 11px;
-      padding: 35px 35px 0 35px;
-      list-style: none;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      color: $bright-color;
-      li {
-        margin-bottom: 10px;
-        border-radius: 10px;
-        cursor: pointer;
-        &:hover {
-        background-color: lighten($modal-primary, 10%);
-        }
-      }
-    }
+    background-color: $modal-primary;
   }
 }
 
@@ -62,36 +54,14 @@ $base-transition: .4s;
 }
 
 //General Accoridan Styles
-.menuModal {
-  padding-bottom: 0;
-  h3, i, p, a {
-    color: $bright-color;
-    margin: 0;
-  }
-  a {
-    font-size: 1rem;
-  }
-  .modal-top {
-    padding-right: 10%;
-    i {
-      font-size: 2rem;
-      cursor: pointer;
-    }
-  }
-  .modal-body {
-    .modal-container {
-      margin: 0;
-      padding: 0;
-      max-width: none;
-    }
-  }
+.accordian-list {
+  height: 100%;
   .accordion-item {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     transition: all .4s;
-    background-color: $modal-primary;
     padding: $menu-padding/2 10%;
     border-bottom: 1px solid darken($modal-primary, 10%);
     position: relative;
@@ -138,7 +108,6 @@ $base-transition: .4s;
   .accordion-footer {
     width: 100%;
     height: auto;
-    background-color: $modal-primary;
     p, a {
       white-space: normal;
     }
@@ -146,15 +115,6 @@ $base-transition: .4s;
 }
 
 //NavBar Accordion Styles
-.menuModal {
-  .modal-body {
-      height: 100%;
-      .accordion-list {
-        height: 100%;
-      }
-  }
-}
-
 .menuModal.modal-open-style {
   transform: translateX(-100%);
   -webkit-box-shadow: -1px 0px 10px 1px rgba(0,0,0,0.75);
@@ -162,18 +122,11 @@ $base-transition: .4s;
   box-shadow: -1px 0px 10px 1px rgba(0,0,0,0.75);
 }
 
-.container.main-menu-showing, .nav-bar.main-menu-showing {
-  transform: translateX(100%);
-}
-
 @media (min-width: $small-breakpoint) {
   .menuModal {
     width: 350px;
     right: -350px;
-    background-color: rgba(75, 75, 75, 0.75);
     .modal-top {
-      background-color: $modal-primary;
-      box-shadow: 0px 0px 3px $dark-grey;
       padding-right: 25px;
     }
     .accordion-item {
@@ -185,9 +138,6 @@ $base-transition: .4s;
   }
   .menuModal.modal-open-style {
     transform: translateX(-100%);
-  }
-  .container.main-menu-showing, .nav-bar.main-menu-showing {
-    transform: translateX(350px);
   }
 }
 
