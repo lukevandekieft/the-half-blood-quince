@@ -23,7 +23,7 @@ class NavBar extends React.Component{
                 <button className='loginLogout' onClick={handleNewLogin}>Login</button>)
               }
               { (this.props.user.uid && this.props.user.uid !== 'initialLoadUser') && (
-                <i className="fas fa-bars" onClick={() => {this.props.onToggleMenu(this.props.mainMenuShowing)}}></i>
+                <i className="fas fa-bars navButtonStyle" onClick={() => {this.props.onToggleMenu(this.props.mainMenuShowing)}}></i>
               )}
           </div>
         </div>

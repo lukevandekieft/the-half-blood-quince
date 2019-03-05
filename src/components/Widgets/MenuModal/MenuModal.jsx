@@ -43,12 +43,14 @@ class MenuModal extends React.Component {
                   <NavButton
                   linkPath='/edit-recipe'
                   linkText='Add Recipe'
+                  color='white'
                   />
                 </div>
                 <div onClick={() => {handleRoute('/')}}>
                   <NavButton
                   linkPath='/'
                   linkText='Home Page'
+                  color='white'
                   />
                 </div>
               </div>

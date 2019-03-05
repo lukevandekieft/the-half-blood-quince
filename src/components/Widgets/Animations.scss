@@ -75,24 +75,31 @@
   outline: none;
   box-shadow: 0px 0px 14px -2px rgba(0,0,0,0.75);;
 }
-
 .navButtonStyle:hover {
   -webkit-animation: hover 1200ms linear 2 alternate;
   animation: hover 1200ms linear 2 alternate;
   cursor: pointer;
 }
-
 .navButtonStyle:active {
   -webkit-animation: active 1200ms ease 1 alternate;
   animation: active 1200ms ease 1 alternate;
 }
-
 .navButtonStyle.button-green:active {
   background: darken($off-brand-color, 10%);
 }
-
 .navButtonStyle.button-red:active {
   background: darken(red, 10%);
+}
+
+.iconStyle {
+  transition: transform .1s;
+}
+.iconStyle:hover {
+  transform: scale(1.15);
+  cursor: pointer;
+}
+.iconStyle:active {
+  transform: scale(1.1);
 }
 
 @media (max-width: $small-breakpoint) {
