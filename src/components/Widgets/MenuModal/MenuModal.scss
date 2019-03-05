@@ -25,7 +25,7 @@ $base-transition: .3s;
   overflow: auto;
   z-index: 200;
   transition: all $base-transition;
-  h3, i, p, a, button {
+  h3, i, p, button {
     color: brown;
     background-color: white;
     margin: 0;

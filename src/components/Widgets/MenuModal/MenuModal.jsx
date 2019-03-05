@@ -19,8 +19,11 @@ class MenuModal extends React.Component {
     };
 
     const handleRoute = (route) => {
-      const newId = v4();
-      dispatch(changeCurrentRecipe(newId, user));
+      onToggleMenu(mainMenuShowing);
+      if (route === '/edit-recipe') {
+        const newId = v4();
+        dispatch(changeCurrentRecipe(newId, user));
+      }
     };
 
     if (isRouting === true) {
@@ -30,7 +33,7 @@ class MenuModal extends React.Component {
     return (
       <div className={this.props.mainMenuShowing ? 'menuModal modal-open-style' : 'menuModal'}>
         <div className='modal-top'>
-          <i className='material-icons' onClick={() => {this.props.onToggleMenu(this.props.mainMenuShowing)}}>close</i>
+          <i className='material-icons navButtonStyle' onClick={() => {this.props.onToggleMenu(this.props.mainMenuShowing)}}>close</i>
         </div>
         <div className='modal-body'>
           <div className='accordion-list'>
