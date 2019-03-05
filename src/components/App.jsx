@@ -4,9 +4,12 @@ import {BrowserRouter as Switch, Route, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 //local files
+import Login from './Login.jsx';
 import MenuModal from './Widgets/MenuModal/MenuModal.jsx';
 import NavBar from './NavBar/NavBar.jsx';
 import HomePage from './HomePage/HomePage.jsx';
+import PrivateRoute from './PrivateRoute.jsx';
+import PublicRoute from './PublicRoute.jsx';
 import RecipeDetail from './RecipeDetail/RecipeDetail.jsx';
 import RecipeEdit from './RecipeEdit.jsx';
 import * as actions from './../actions';
@@ -40,14 +43,6 @@ class App extends Component {
 
   render() {
     console.log(this.props.state);
-    const routes = (this.props.user.uid && this.props.user.uid !=='initialLoadUser') ?
-      <React.Fragment>
-        <Route exact path='/' component={HomePage}/>
-        <Route exact path='/recipe-detail' component={RecipeDetail}/>
-        <Route exact path='/edit-recipe' component={RecipeEdit}/>
-      </React.Fragment>
-      : <div>Please Log In</div>
-
 
     return (
       <Switch>
@@ -56,7 +51,10 @@ class App extends Component {
           <NavBar
             onToggleMenu = {this.handleToggleMainMenu}
           />
-          {routes}
+          <PrivateRoute path='/' component={HomePage}/>
+          <PrivateRoute path='/recipe-detail' component={RecipeDetail}/>
+          <PrivateRoute path='/edit-recipe' component={RecipeEdit}/>
+          <PublicRoute path='/login' component={Login}/>
         </div>
         <MenuModal
           onToggleMenu = {this.handleToggleMainMenu}
@@ -82,3 +80,12 @@ const mapStateToProps = state => {
 };
 
 export default withRouter(connect(mapStateToProps)(App));
+
+// const routes = (this.props.user.uid && this.props.user.uid !=='initialLoadUser') ?
+//   <React.Fragment>
+//     <Route exact path='/' component={HomePage}/>
+//     <Route exact path='/recipe-detail' component={RecipeDetail}/>
+//     <Route exact path='/edit-recipe' component={RecipeEdit}/>
+//     <Route exact path='/login' component={Login}/>
+//   </React.Fragment>
+//   : <div>Please Log In</div>

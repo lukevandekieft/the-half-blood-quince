@@ -31,7 +31,7 @@
     padding: 0;
     height: inherit;
     text-align: center;
-    color: lighten($offsetColor, 10%);
+    color: $offsetColor;
     border: none;
     font-size: 25px;
     cursor: pointer;
