@@ -17,6 +17,7 @@ class RecipeEdit extends React.Component{
         <EditRecipeForm />
         </div>
       } else {
+        domDisplay =
         <div className='pageContentSection'>
           <AddRecipeForm />
         </div>

@@ -1,18 +1,31 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { newUserLogout } from '../../../actions';
+import { newUserLogout, changeCurrentRecipe } from '../../../actions';
+import { v4 } from 'uuid';
+import { Redirect } from 'react-router';
 
 import AccordionItem from './AccordionItem';
+import NavButton from '../NavButton';
 
 class MenuModal extends React.Component {
 
   render () {
+    const { dispatch, isRouting, mainMenuShowing, onToggleMenu, user } = this.props;
 
     const handleLogout = () => {
-      this.props.dispatch(newUserLogout());
-      this.props.onToggleMenu(this.props.mainMenuShowing);
+      dispatch(newUserLogout());
+      onToggleMenu(mainMenuShowing);
     };
+
+    const handleRoute = (route) => {
+      const newId = v4();
+      dispatch(changeCurrentRecipe(newId, user));
+    };
+
+    if (isRouting === true) {
+      return <Redirect to='/recipe-detail' />
+    }
 
     return (
       <div className={this.props.mainMenuShowing ? 'menuModal modal-open-style' : 'menuModal'}>
@@ -23,6 +36,18 @@ class MenuModal extends React.Component {
           <div className='accordion-list'>
               <div className='accordion-footer'>
                 <button className='loginLogout' onClick={() => {handleLogout()}}>Logout</button>
+                <div onClick={() => {handleRoute('/edit-recipe')}}>
+                  <NavButton
+                  linkPath='/edit-recipe'
+                  linkText='Add Recipe'
+                  />
+                </div>
+                <div onClick={() => {handleRoute('/')}}>
+                  <NavButton
+                  linkPath='/'
+                  linkText='Home Page'
+                  />
+                </div>
               </div>
           </div>
         </div>
@@ -34,12 +59,14 @@ class MenuModal extends React.Component {
 const mapStateToProps = state => {
   return {
     mainMenuShowing: state.mainMenuShowing,
+    user: state.user,
   };
 };
 
 MenuModal.propTypes = {
   mainMenuShowing: PropTypes.bool,
   onToggleMenu: PropTypes.func,
+  user: PropTypes.any,
 }
 
 export default connect(mapStateToProps)(MenuModal);
