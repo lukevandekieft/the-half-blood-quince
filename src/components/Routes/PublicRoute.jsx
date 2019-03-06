@@ -11,6 +11,7 @@ const PublicRoute = ({
   ...otherProps
 }) => (
   <Route exact {...otherProps} render={(props) => {
+    console.log(loadedInitialState);
     if (loadedInitialState) {
       if (user.uid && user.uid !=='initialLoadUser') {
         return (
