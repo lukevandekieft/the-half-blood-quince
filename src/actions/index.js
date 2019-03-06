@@ -11,10 +11,13 @@ const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
 const auth = firebase.auth();
 
 //FIREBASE LOGIN
-export function newUserLogin() {
-  console.log('Login');
+export function newUserLogin(authProvider) {
   return function (dispatch) {
-    auth.signInWithRedirect(googleAuthProvider).then(result => {
+    let authFunction;
+    if (authProvider = 'google') {
+      authFunction = auth.signInWithRedirect(googleAuthProvider);
+    }
+    authFunction.then(result => {
       dispatch(userLogin(result.user));
       dispatch(watchRecipes(result.user));
       dispatch(watchUserData(result.user));

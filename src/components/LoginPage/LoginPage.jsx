@@ -8,15 +8,16 @@ import Loader from '../Widgets/Loader/Loader';
 class Login extends React.Component{
   render() {
 
-    const handleGoogleLogin = () => {
-      this.props.dispatch(newUserLogin());
+    const handleLogin = (provider) => {
+      this.props.dispatch(newUserLogin(provider));
     };
 
     return (
       <div>
         <div className='headerSection'></div>
         <p>Please Log In</p>
-        <button className='loginLogout' onClick={handleGoogleLogin}>Login with Google</button>
+        <button className='loginLogout' onClick={() =>{handleLogin('google')}}>Login with Google</button>
+        <button className='loginLogout' onClick={handleLogin}>Login with Facebook</button>
       </div>
     );
   }
