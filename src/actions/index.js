@@ -12,15 +12,31 @@ const auth = firebase.auth();
 
 //FIREBASE LOGIN
 export function newUserLogin() {
+  console.log('Login');
   return function (dispatch) {
-    auth.signInWithPopup(googleAuthProvider).then(result => {
-      // const token = result.credential.accessToken;
-      const user = result.user;
+    auth.signInWithRedirect(googleAuthProvider).then(result => {
       dispatch(userLogin(result.user));
       dispatch(watchRecipes(result.user));
       dispatch(watchUserData(result.user));
       dispatch(watchUserLoad(result.user));
     })
+  }
+}
+
+export function checkLoginStatus() {
+  console.log('check User');
+  return function (dispatch) {
+    auth.getRedirectResult().then(result => {
+      console.log('info received');
+      var user = result.user;
+      if (user) {
+        // const token = result.credential.accessToken;
+        dispatch(userLogin(result.user));
+        dispatch(watchRecipes(result.user));
+        dispatch(watchUserData(result.user));
+        dispatch(watchUserLoad(result.user));
+      }
+    }).catch(e => { });
   }
 }
 
