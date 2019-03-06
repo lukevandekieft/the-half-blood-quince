@@ -8,35 +8,57 @@ const { firebaseConfig } = constants;
 firebase.initializeApp(firebaseConfig);
 
 const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
+const facebookAuthProvider = new firebase.auth.FacebookAuthProvider();
 const auth = firebase.auth();
 
 //FIREBASE LOGIN
-export function newUserLogin() {
-  console.log('Login');
+export function newUserLogin(authProvider) {
   return function (dispatch) {
-    auth.signInWithRedirect(googleAuthProvider).then(result => {
+    let authFunction;
+    if (authProvider = 'google') {
+      authFunction = auth.signInWithRedirect(googleAuthProvider);
+    } else if (authProvider = 'facebook') {
+      authFunction = auth.signInWithRedirect(facebookAuthProvider);
+    }
+    authFunction.then(result => {
       dispatch(userLogin(result.user));
       dispatch(watchRecipes(result.user));
       dispatch(watchUserData(result.user));
-      dispatch(watchUserLoad(result.user));
+      dispatch(watchUserLoad());
+    })
+  }
+}
+
+export function newUserLogin2(authProvider) {
+  return function (dispatch) {
+    auth.signInWithRedirect(facebookAuthProvider).then(result => {
+      dispatch(userLogin(result.user));
+      dispatch(watchRecipes(result.user));
+      dispatch(watchUserData(result.user));
+      dispatch(watchUserLoad());
     })
   }
 }
 
 export function checkLoginStatus() {
-  console.log('check User');
   return function (dispatch) {
     auth.getRedirectResult().then(result => {
-      console.log('info received');
-      var user = result.user;
-      if (user) {
-        // const token = result.credential.accessToken;
+      console.log(result);
+      if (result.user) {
         dispatch(userLogin(result.user));
         dispatch(watchRecipes(result.user));
         dispatch(watchUserData(result.user));
-        dispatch(watchUserLoad(result.user));
       }
+      dispatch(watchUserLoad());
     }).catch(e => { });
+    // auth.onAuthStateChanged(function(user) {
+    //   if (user) {
+    //     dispatch(userLogin(user));
+    //     dispatch(watchRecipes(user));
+    //     dispatch(watchUserData(user));
+    //   }
+    //   dispatch(watchUserLoad());
+    // });
   }
 }
 
@@ -120,8 +142,9 @@ export const loadState = (stateLoaded) => ({
   stateLoaded: stateLoaded
 })
 
-export function watchUserLoad(user) {
+export function watchUserLoad() {
   return function(dispatch) {
+    console.log('checking login?');
     firebase.database().ref(`users/loadedInitialState`).on('value', data => {
       dispatch(loadState(data.val()));
     });

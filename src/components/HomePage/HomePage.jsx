@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { changeCurrentRecipe, updateSearchValue } from '../../actions';
 import { v4 } from 'uuid';
 
-import Loader from '../Widgets/Loader/Loader';
 import NavButton from '../Widgets/NavButton/NavButton';
 import RecipeList from './RecipeList';
 import SearchBar from '../Widgets/SearchBar/SearchBar';
@@ -35,34 +34,25 @@ class HomePage extends React.Component{
       headerMessage = 'Current Recipes';
     }
 
-    const loadingRecipe = loadedInitialState;
-    let domDisplay;
-    if(loadingRecipe === false) {
-      domDisplay =
-      <Loader />
-    } else {
-      domDisplay =
-      <div className='pageContentSection homepage'>
-        <h1 className='headline'>{headerMessage}</h1>
-        <RecipeList
-          recipes={recipes}
-          currentRecipe={currentRecipe}
-          searchValue={searchValue}
-        />
-        <div onClick={() => {handleRecipeClick()}}>
-          <NavButton
-          linkPath='/edit-recipe'
-          linkText='Add Recipe'
-          />
-        </div>
-      </div>
-    }
     return (
       <div className='homePageContainer'>
         <div className='headerSection'>
           <SearchBar />
         </div>
-        {domDisplay}
+        <div className='pageContentSection homepage'>
+          <h1 className='headline'>{headerMessage}</h1>
+          <RecipeList
+            recipes={recipes}
+            currentRecipe={currentRecipe}
+            searchValue={searchValue}
+          />
+          <div onClick={() => {handleRecipeClick()}}>
+            <NavButton
+            linkPath='/edit-recipe'
+            linkText='Add Recipe'
+            />
+          </div>
+        </div>
       </div>
     );
   }

@@ -31,18 +31,7 @@ class App extends Component {
     this.handleToggleMainMenu = this.handleToggleMainMenu.bind(this);
   }
   componentWillMount() {
-    console.log('mounting?');
-    const { dispatch } = this.props;
-    const { watchUserData, watchRecipes, watchUserLoad } = actions;
-    dispatch(watchUserData(this.props.user));
-    dispatch(watchRecipes(this.props.user));
-    dispatch(watchUserLoad(this.props.user));
-  }
-
-  componentDidMount() {
-    console.log('mounted');
-    const { dispatch } = this.props;
-    dispatch(checkLoginStatus());
+    this.props.dispatch(checkLoginStatus());
   }
 
   handleToggleMainMenu(menuState) {
