@@ -106,7 +106,7 @@ export const loadState = (stateLoaded) => ({
 
 export function watchUserLoad(user) {
   return function(dispatch) {
-    firebase.database().ref(`users/${user.uid}/loadedInitialState`).on('value', data => {
+    firebase.database().ref(`users/loadedInitialState`).on('value', data => {
       dispatch(loadState(data.val()));
     });
   };

@@ -4,11 +4,14 @@ import {BrowserRouter as Switch, Route, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 //local files
+import LoginPage from './LoginPage/LoginPage.jsx';
 import MenuModal from './Widgets/MenuModal/MenuModal.jsx';
 import NavBar from './NavBar/NavBar.jsx';
 import HomePage from './HomePage/HomePage.jsx';
+import PrivateRoute from './Routes/PrivateRoute.jsx';
+import PublicRoute from './Routes/PublicRoute.jsx';
 import RecipeDetail from './RecipeDetail/RecipeDetail.jsx';
-import RecipeEdit from './RecipeEdit.jsx';
+import RecipeForm from './RecipeForm/RecipeForm.jsx';
 import * as actions from './../actions';
 import { toggleMainMenu } from './../actions';
 
@@ -17,8 +20,9 @@ import './App.scss';
 import './HomePage/HomePage.scss';
 import './Widgets/MenuModal/MenuModal.scss';
 import './NavBar/NavBar.scss';
+import './Widgets/Loader/Loader.scss';
+import './Widgets/NavButton/NavButton.scss';
 import './Widgets/SearchBar/SearchBar.scss'
-import './Widgets/Animations.scss';
 import './RecipeDetail/RecipeDetail.scss';
 
 class App extends Component {
@@ -40,14 +44,6 @@ class App extends Component {
 
   render() {
     console.log(this.props.state);
-    const routes = (this.props.user.uid && this.props.user.uid !=='initialLoadUser') ?
-      <React.Fragment>
-        <Route exact path='/' component={HomePage}/>
-        <Route exact path='/recipe-detail' component={RecipeDetail}/>
-        <Route exact path='/edit-recipe' component={RecipeEdit}/>
-      </React.Fragment>
-      : <div>Please Log In</div>
-
 
     return (
       <Switch>
@@ -56,7 +52,10 @@ class App extends Component {
           <NavBar
             onToggleMenu = {this.handleToggleMainMenu}
           />
-          {routes}
+          <PrivateRoute path='/' component={HomePage}/>
+          <PrivateRoute path='/recipe-detail' component={RecipeDetail}/>
+          <PrivateRoute path='/edit-recipe' component={RecipeForm}/>
+          <PublicRoute path='/login' component={LoginPage}/>
         </div>
         <MenuModal
           onToggleMenu = {this.handleToggleMainMenu}
@@ -82,3 +81,12 @@ const mapStateToProps = state => {
 };
 
 export default withRouter(connect(mapStateToProps)(App));
+
+// const routes = (this.props.user.uid && this.props.user.uid !=='initialLoadUser') ?
+//   <React.Fragment>
+//     <Route exact path='/' component={HomePage}/>
+//     <Route exact path='/recipe-detail' component={RecipeDetail}/>
+//     <Route exact path='/edit-recipe' component={RecipeEdit}/>
+//     <Route exact path='/login' component={Login}/>
+//   </React.Fragment>
+//   : <div>Please Log In</div>
