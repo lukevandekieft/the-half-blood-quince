@@ -18,7 +18,7 @@ export function newUserLogin() {
       dispatch(userLogin(result.user));
       dispatch(watchRecipes(result.user));
       dispatch(watchUserData(result.user));
-      dispatch(watchUserLoad(result.user));
+      dispatch(watchUserLoad());
     })
   }
 }
@@ -26,19 +26,22 @@ export function newUserLogin() {
 export function checkLoginStatus() {
   return function (dispatch) {
     auth.getRedirectResult().then(result => {
-      console.log('info received');
-      dispatch(userLogin(result.user));
-      dispatch(watchRecipes(result.user));
-      dispatch(watchUserData(result.user));
-      dispatch(watchUserLoad(result.user));
+      console.log(result);
+      if (result.user) {
+        dispatch(userLogin(result.user));
+        dispatch(watchRecipes(result.user));
+        dispatch(watchUserData(result.user));
+      }
+      dispatch(watchUserLoad());
     }).catch(e => { });
-    auth.onAuthStateChanged(function(user) {
-      console.log(user);
-      dispatch(userLogin(user));
-        dispatch(watchRecipes(user));
-        dispatch(watchUserData(user));
-        dispatch(watchUserLoad(user));
-    });
+    // auth.onAuthStateChanged(function(user) {
+    //   if (user) {
+    //     dispatch(userLogin(user));
+    //     dispatch(watchRecipes(user));
+    //     dispatch(watchUserData(user));
+    //   }
+    //   dispatch(watchUserLoad());
+    // });
   }
 }
 
@@ -122,8 +125,9 @@ export const loadState = (stateLoaded) => ({
   stateLoaded: stateLoaded
 })
 
-export function watchUserLoad(user) {
+export function watchUserLoad() {
   return function(dispatch) {
+    console.log('checking login?');
     firebase.database().ref(`users/loadedInitialState`).on('value', data => {
       dispatch(loadState(data.val()));
     });

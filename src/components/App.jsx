@@ -34,10 +34,6 @@ class App extends Component {
     this.props.dispatch(checkLoginStatus());
   }
 
-  componentWillUnmount() {
-    this.props.dispatch(checkLoginStatus());
-  }
-
   handleToggleMainMenu(menuState) {
     this.props.dispatch(toggleMainMenu(menuState));
   };
