@@ -37,6 +37,15 @@ export function checkLoginStatus() {
         dispatch(watchUserLoad(result.user));
       }
     }).catch(e => { });
+    auth.onAuthStateChanged(function(user) {
+      console.log(user);
+      if (user) {
+        dispatch(userLogin(user));
+        dispatch(watchRecipes(user));
+        dispatch(watchUserData(user));
+        dispatch(watchUserLoad(user));
+      }
+    });
   }
 }
 
