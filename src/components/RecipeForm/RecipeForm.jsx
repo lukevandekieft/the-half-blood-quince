@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 
 import AddRecipeForm from './AddRecipeForm';
 import EditRecipeForm from './EditRecipeForm';
-import Loader from '../Widgets/Loader/Loader';
 
 class RecipeEdit extends React.Component{
   componentDidMount() {
@@ -12,7 +11,7 @@ class RecipeEdit extends React.Component{
   };
   render() {
     let domDisplay;
-    if (this.props.loadedInitialState && this.props.recipes) {
+    if (this.props.recipes) {
       if (this.props.recipes[this.props.currentRecipe]) {
         domDisplay =
         <div className='pageContentSection'>
@@ -24,14 +23,11 @@ class RecipeEdit extends React.Component{
           <AddRecipeForm />
         </div>
       }
-    } else if (this.props.loadedInitialState) {
+    } else {
       domDisplay =
       <div className='pageContentSection'>
         <AddRecipeForm />
       </div>
-    } else {
-      domDisplay =
-      <Loader />
     }
 
     return (

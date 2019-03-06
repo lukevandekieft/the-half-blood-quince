@@ -19,7 +19,7 @@ const PublicRoute = ({
       } else {
         return (
           <div>
-          <Component {...props} />
+            <Component {...props} />
           </div>
         );
       }
