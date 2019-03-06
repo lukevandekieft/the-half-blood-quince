@@ -8,6 +8,7 @@ const { firebaseConfig } = constants;
 firebase.initializeApp(firebaseConfig);
 
 const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
+const facebookAuthProvider = new firebase.auth.FacebookAuthProvider();
 const auth = firebase.auth();
 
 //FIREBASE LOGIN
@@ -16,8 +17,21 @@ export function newUserLogin(authProvider) {
     let authFunction;
     if (authProvider = 'google') {
       authFunction = auth.signInWithRedirect(googleAuthProvider);
+    } else if (authProvider = 'facebook') {
+      authFunction = auth.signInWithRedirect(facebookAuthProvider);
     }
     authFunction.then(result => {
+      dispatch(userLogin(result.user));
+      dispatch(watchRecipes(result.user));
+      dispatch(watchUserData(result.user));
+      dispatch(watchUserLoad());
+    })
+  }
+}
+
+export function newUserLogin2(authProvider) {
+  return function (dispatch) {
+    auth.signInWithRedirect(facebookAuthProvider).then(result => {
       dispatch(userLogin(result.user));
       dispatch(watchRecipes(result.user));
       dispatch(watchUserData(result.user));
