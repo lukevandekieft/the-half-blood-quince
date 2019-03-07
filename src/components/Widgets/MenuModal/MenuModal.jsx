@@ -13,8 +13,9 @@ class MenuModal extends React.Component {
   render () {
     const { dispatch, isRouting, mainMenuShowing, onToggleMenu, user } = this.props;
 
-    const handleLogin = () => {
-      dispatch(newUserLogin());
+    //Login OAuth providers
+    const handleLogin = (provider) => {
+      dispatch(newUserLogin(provider));
       onToggleMenu(mainMenuShowing);
     };
 
@@ -44,7 +45,7 @@ class MenuModal extends React.Component {
           <div className='accordion-list'>
               <div className='accordion-footer'>
                 { (!this.props.user.uid || this.props.user.uid === 'initialLoadUser') && (
-                  <button className='loginLogout' onClick={handleLogin}>Login</button>)
+                  <button className='loginLogout' onClick={() => {handleLogin('google')}}>Login</button>)
                 }
                 { (this.props.user.uid && this.props.user.uid !== 'initialLoadUser') && (
                   <React.Fragment>

@@ -48,55 +48,7 @@ class Login extends React.Component{
 
     return (
       <div>
-        <div className='headerSection'></div>
-        <p>Please Log In</p>
-        <button onClick={() =>{handleLogin('google')}}>Sign in with Google</button>
-        <div class="fb-login-button" data-size="large" data-button-type="login_with" data-auto-logout-link="false" data-use-continue-as="false"></div>
-        <button className='loginButton' onClick={() =>{handleLogin('facebook')}}><i class="fab fa-facebook"></i>Sign in with Facebook</button>
-
-        <form className='formLayout' onSubmit={submitNewUserForm.bind(this)}>
-          <div className='formInputLayout'>
-            <label>Email</label>
-            <input
-              type="text"
-              id='email'
-              ref={(input) => {this._newEmail = input;}}
-            ></input>
-          </div>
-          <div className='formInputLayout'>
-            <label>Password</label>
-            <input
-              type="text"
-              id='password'
-              ref={(input) => {this._newPassword = input;}}
-            ></input>
-          </div>
-          <div className='centerMe'>
-            <button type="submit" className='navButtonStyle button-green'>Create Account</button>
-          </div>
-        </form>
-
-        <form className='formLayout' onSubmit={submitEmailLogin.bind(this)}>
-          <div className='formInputLayout'>
-            <label>Email</label>
-            <input
-              type="text"
-              id='email'
-              ref={(input) => {this._loginEmail = input;}}
-            ></input>
-          </div>
-          <div className='formInputLayout'>
-            <label>Password</label>
-            <input
-              type="text"
-              id='password'
-              ref={(input) => {this._loginPassword = input;}}
-            ></input>
-          </div>
-          <div className='centerMe'>
-            <button type="submit" className='navButtonStyle button-green'>Login</button>
-          </div>
-        </form>
+        <button className='loginLogout' onClick={() =>{handleLogin({email: 'ramb222@yahoo.com', password: 'testpassword'})}}>Login</button>
       </div>
     );
   }
@@ -110,3 +62,54 @@ Login.propTypes = {
 }
 
 export default connect(mapStateToProps)(Login);
+
+
+// <div className='headerSection'></div>
+// <p>Please Log In</p>
+// <button onClick={() =>{handleLogin('google')}}>Sign in with Google</button>
+// <div class="fb-login-button" data-size="large" data-button-type="login_with" data-auto-logout-link="false" data-use-continue-as="false"></div>
+// <button className='loginButton' onClick={() =>{handleLogin('facebook')}}><i class="fab fa-facebook"></i>Sign in with Facebook</button>
+//
+// <form className='formLayout' onSubmit={submitNewUserForm.bind(this)}>
+//   <div className='formInputLayout'>
+//     <label>Email</label>
+//     <input
+//       type="text"
+//       id='email'
+//       ref={(input) => {this._newEmail = input;}}
+//     ></input>
+//   </div>
+//   <div className='formInputLayout'>
+//     <label>Password</label>
+//     <input
+//       type="text"
+//       id='password'
+//       ref={(input) => {this._newPassword = input;}}
+//     ></input>
+//   </div>
+//   <div className='centerMe'>
+//     <button type="submit" className='navButtonStyle button-green'>Create Account</button>
+//   </div>
+// </form>
+//
+// <form className='formLayout' onSubmit={submitEmailLogin.bind(this)}>
+//   <div className='formInputLayout'>
+//     <label>Email</label>
+//     <input
+//       type="text"
+//       id='email'
+//       ref={(input) => {this._loginEmail = input;}}
+//     ></input>
+//   </div>
+//   <div className='formInputLayout'>
+//     <label>Password</label>
+//     <input
+//       type="text"
+//       id='password'
+//       ref={(input) => {this._loginPassword = input;}}
+//     ></input>
+//   </div>
+//   <div className='centerMe'>
+//     <button type="submit" className='navButtonStyle button-green'>Login</button>
+//   </div>
+// </form>
