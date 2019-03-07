@@ -15,7 +15,6 @@ const auth = firebase.auth();
 export function newUserLogin(authProvider) {
   return function (dispatch) {
     let authFunction;
-    alert(authProvider);
     if (authProvider === 'google') {
       authFunction = auth.signInWithRedirect(googleAuthProvider);
     } else if (authProvider === 'facebook') {
@@ -24,9 +23,15 @@ export function newUserLogin(authProvider) {
       authFunction = auth.signInWithEmailAndPassword(authProvider.email, authProvider.password);
     }
     authFunction.then(result => {
-      dispatch(userLogin(result.user));
-      dispatch(watchRecipes(result.user));
-      dispatch(watchUserData(result.user));
+      if(result.user) {
+        dispatch(userLogin(result.user));
+        dispatch(watchRecipes(result.user));
+        dispatch(watchUserData(result.user));
+      } else {
+        dispatch(userLogin(result));
+        dispatch(watchRecipes(result));
+        dispatch(watchUserData(result));
+      }
       dispatch(watchUserLoad());
     })
   }
@@ -48,7 +53,6 @@ export function newEmailUser(newUser) {
 export function checkLoginStatus() {
   return function (dispatch) {
     auth.getRedirectResult().then(result => {
-      console.log(result);
       if (result.user) {
         dispatch(userLogin(result.user));
         dispatch(watchRecipes(result.user));
@@ -124,6 +128,7 @@ export const updateRecipeList = (recipeList) => ({
 })
 
 export function watchRecipes(user) {
+  console.log(user);
   return function(dispatch) {
     firebase.database().ref(`users/${user.uid}/recipes`).on('value', data => {
       dispatch(updateRecipeList(data.val()));
@@ -150,7 +155,7 @@ export const loadState = (stateLoaded) => ({
 
 export function watchUserLoad() {
   return function(dispatch) {
-    console.log('checking login?');
+    console.log('check connection');
     firebase.database().ref(`users/loadedInitialState`).on('value', data => {
       dispatch(loadState(data.val()));
     });

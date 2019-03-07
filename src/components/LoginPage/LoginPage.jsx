@@ -8,32 +8,43 @@ import Loader from '../Widgets/Loader/Loader';
 
 class Login extends React.Component{
 
-  _email = null;
-  _password = null;
+  _loginEmail = null;
+  _loginPassword = null;
+  _newEmail = null;
+  _newPassword = null;
 
   render() {
     const { dispatch, isRouting } = this.props;
+
+    //Login OAuth providers
+    const handleLogin = (provider) => {
+      this.props.dispatch(newUserLogin(provider));
+    };
+
+    //Login email
+    const submitEmailLogin = (event) => {
+      event.preventDefault();
+      const newUserInfo = {
+        email: this._loginEmail.value,
+        password: this._loginPassword.value,
+      }
+      this.props.dispatch(newUserLogin(newUserInfo));
+    };
 
     //Submit new user info
     const submitNewUserForm = (event) => {
       event.preventDefault();
       const newUserInfo = {
-        email: this._email.value,
-        password: this._password.value,
+        email: this._newEmail.value,
+        password: this._newPassword.value,
       }
-      alert(newUserInfo);
       dispatch(newEmailUser(newUserInfo));
-      dispatch(changeRoute(true));
+      // dispatch(changeRoute(true));
     }
 
-    if (isRouting === true) {
-      return <Redirect to='/' />
-    }
-
-    //Login various providers
-    const handleLogin = (provider) => {
-      this.props.dispatch(newUserLogin(provider));
-    };
+    // if (this.props.isRouting === true) {
+    //   return <Redirect to='/' />
+    // }
 
     return (
       <div>
@@ -48,7 +59,7 @@ class Login extends React.Component{
             <input
               type="text"
               id='email'
-              ref={(input) => {this._email = input;}}
+              ref={(input) => {this._newEmail = input;}}
             ></input>
           </div>
           <div className='formInputLayout'>
@@ -56,11 +67,33 @@ class Login extends React.Component{
             <input
               type="text"
               id='password'
-              ref={(input) => {this._password = input;}}
+              ref={(input) => {this._newPassword = input;}}
             ></input>
           </div>
           <div className='centerMe'>
             <button type="submit" className='navButtonStyle button-green'>Create Account</button>
+          </div>
+        </form>
+
+        <form className='formLayout' onSubmit={submitEmailLogin.bind(this)}>
+          <div className='formInputLayout'>
+            <label>Email</label>
+            <input
+              type="text"
+              id='email'
+              ref={(input) => {this._loginEmail = input;}}
+            ></input>
+          </div>
+          <div className='formInputLayout'>
+            <label>Password</label>
+            <input
+              type="text"
+              id='password'
+              ref={(input) => {this._loginPassword = input;}}
+            ></input>
+          </div>
+          <div className='centerMe'>
+            <button type="submit" className='navButtonStyle button-green'>Login</button>
           </div>
         </form>
       </div>
