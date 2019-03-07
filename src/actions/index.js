@@ -48,17 +48,18 @@ export function checkLoginStatus() {
         dispatch(userLogin(result.user));
         dispatch(watchRecipes(result.user));
         dispatch(watchUserData(result.user));
+        dispatch(watchUserLoad());
+      } else {
+        auth.onAuthStateChanged(function(user) {
+          if (user) {
+            dispatch(userLogin(user));
+            dispatch(watchRecipes(user));
+            dispatch(watchUserData(user));
+          }
+          dispatch(watchUserLoad());
+        });
       }
-      dispatch(watchUserLoad());
     }).catch(e => { });
-    // auth.onAuthStateChanged(function(user) {
-    //   if (user) {
-    //     dispatch(userLogin(user));
-    //     dispatch(watchRecipes(user));
-    //     dispatch(watchUserData(user));
-    //   }
-    //   dispatch(watchUserLoad());
-    // });
   }
 }
 
