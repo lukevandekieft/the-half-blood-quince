@@ -48,7 +48,12 @@ class Login extends React.Component{
 
     return (
       <div>
-        <button className='loginLogout' onClick={() =>{handleLogin({email: 'ramb222@yahoo.com', password: 'testpassword'})}}>Login</button>
+        <div className='headerSection'></div>
+        <div className='pageContentSection loginPage'>
+          <h2>Whoops - This Page is Half-baked!</h2>
+          <p>Thankfully the rest of the site is up and running. Click below to view a test account with dummy data!</p>
+          <button className='loginButton' onClick={() =>{handleLogin({email: 'ramb222@yahoo.com', password: 'testpassword'})}}>View Demo</button>
+        </div>
       </div>
     );
   }
@@ -63,8 +68,6 @@ Login.propTypes = {
 
 export default connect(mapStateToProps)(Login);
 
-
-// <div className='headerSection'></div>
 // <p>Please Log In</p>
 // <button onClick={() =>{handleLogin('google')}}>Sign in with Google</button>
 // <div class="fb-login-button" data-size="large" data-button-type="login_with" data-auto-logout-link="false" data-use-continue-as="false"></div>
