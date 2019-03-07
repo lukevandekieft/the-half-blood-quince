@@ -15,10 +15,13 @@ const auth = firebase.auth();
 export function newUserLogin(authProvider) {
   return function (dispatch) {
     let authFunction;
-    if (authProvider = 'google') {
+    alert(authProvider);
+    if (authProvider === 'google') {
       authFunction = auth.signInWithRedirect(googleAuthProvider);
-    } else if (authProvider = 'facebook') {
+    } else if (authProvider === 'facebook') {
       authFunction = auth.signInWithRedirect(facebookAuthProvider);
+    } else if (typeof authProvider === 'object') {
+      authFunction = auth.signInWithEmailAndPassword(authProvider.email, authProvider.password);
     }
     authFunction.then(result => {
       dispatch(userLogin(result.user));
@@ -29,17 +32,19 @@ export function newUserLogin(authProvider) {
   }
 }
 
-export function newUserLogin2(authProvider) {
+//CREATE NEW EMAIL USER
+export function newEmailUser(email, password) {
   return function (dispatch) {
-    auth.signInWithRedirect(facebookAuthProvider).then(result => {
-      dispatch(userLogin(result.user));
-      dispatch(watchRecipes(result.user));
-      dispatch(watchUserData(result.user));
-      dispatch(watchUserLoad());
-    })
+    auth.createUserWithEmailAndPassword(email, password).catch(function(error) {
+    // Handle Errors here.
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    // ...
+    });
   }
 }
 
+//CHECK AUTH STATUS ON PAGE REFRESH OR REDIRECT
 export function checkLoginStatus() {
   return function (dispatch) {
     auth.getRedirectResult().then(result => {

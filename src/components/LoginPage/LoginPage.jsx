@@ -12,16 +12,12 @@ class Login extends React.Component{
       this.props.dispatch(newUserLogin(provider));
     };
 
-    const handleLogin2 = (provider) => {
-      this.props.dispatch(newUserLogin2(provider));
-    };
-
     return (
       <div>
         <div className='headerSection'></div>
         <p>Please Log In</p>
         <button className='loginLogout' onClick={() =>{handleLogin('google')}}>Login with Google</button>
-        <button className='loginLogout' onClick={() =>{handleLogin2('facebook')}}>Login with Facebook</button>
+        <button className='loginLogout' onClick={() =>{handleLogin('facebook')}}>Login with Facebook</button>
       </div>
     );
   }
