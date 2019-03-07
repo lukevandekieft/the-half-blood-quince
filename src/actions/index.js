@@ -15,50 +15,60 @@ const auth = firebase.auth();
 export function newUserLogin(authProvider) {
   return function (dispatch) {
     let authFunction;
-    if (authProvider = 'google') {
+    if (authProvider === 'google') {
       authFunction = auth.signInWithRedirect(googleAuthProvider);
-    } else if (authProvider = 'facebook') {
+    } else if (authProvider === 'facebook') {
       authFunction = auth.signInWithRedirect(facebookAuthProvider);
+    } else if (typeof authProvider === 'object') {
+      authFunction = auth.signInWithEmailAndPassword(authProvider.email, authProvider.password);
     }
     authFunction.then(result => {
-      dispatch(userLogin(result.user));
-      dispatch(watchRecipes(result.user));
-      dispatch(watchUserData(result.user));
+      if(result.user) {
+        dispatch(userLogin(result.user));
+        dispatch(watchRecipes(result.user));
+        dispatch(watchUserData(result.user));
+      } else {
+        dispatch(userLogin(result));
+        dispatch(watchRecipes(result));
+        dispatch(watchUserData(result));
+      }
       dispatch(watchUserLoad());
     })
   }
 }
 
-export function newUserLogin2(authProvider) {
+//CREATE NEW EMAIL USER
+export function newEmailUser(newUser) {
   return function (dispatch) {
-    auth.signInWithRedirect(facebookAuthProvider).then(result => {
-      dispatch(userLogin(result.user));
-      dispatch(watchRecipes(result.user));
-      dispatch(watchUserData(result.user));
-      dispatch(watchUserLoad());
-    })
+    auth.createUserWithEmailAndPassword(newUser.email, newUser.password).catch(function(error) {
+    // Handle Errors here.
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    // ...
+    });
   }
 }
 
+//CHECK AUTH STATUS ON PAGE REFRESH OR REDIRECT
 export function checkLoginStatus() {
   return function (dispatch) {
     auth.getRedirectResult().then(result => {
-      console.log(result);
       if (result.user) {
         dispatch(userLogin(result.user));
         dispatch(watchRecipes(result.user));
         dispatch(watchUserData(result.user));
+        dispatch(watchUserLoad());
+      } else {
+        auth.onAuthStateChanged(function(user) {
+          if (user) {
+            dispatch(userLogin(user));
+            dispatch(watchRecipes(user));
+            dispatch(watchUserData(user));
+          }
+          dispatch(watchUserLoad());
+        });
       }
-      dispatch(watchUserLoad());
     }).catch(e => { });
-    // auth.onAuthStateChanged(function(user) {
-    //   if (user) {
-    //     dispatch(userLogin(user));
-    //     dispatch(watchRecipes(user));
-    //     dispatch(watchUserData(user));
-    //   }
-    //   dispatch(watchUserLoad());
-    // });
   }
 }
 
@@ -118,6 +128,7 @@ export const updateRecipeList = (recipeList) => ({
 })
 
 export function watchRecipes(user) {
+  console.log(user);
   return function(dispatch) {
     firebase.database().ref(`users/${user.uid}/recipes`).on('value', data => {
       dispatch(updateRecipeList(data.val()));
@@ -144,7 +155,7 @@ export const loadState = (stateLoaded) => ({
 
 export function watchUserLoad() {
   return function(dispatch) {
-    console.log('checking login?');
+    console.log('check connection');
     firebase.database().ref(`users/loadedInitialState`).on('value', data => {
       dispatch(loadState(data.val()));
     });

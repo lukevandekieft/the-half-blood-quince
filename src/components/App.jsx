@@ -18,12 +18,13 @@ import { toggleMainMenu, checkLoginStatus } from './../actions';
 //styles
 import './App.scss';
 import './HomePage/HomePage.scss';
-import './Widgets/MenuModal/MenuModal.scss';
+import './LoginPage/LoginPage.scss';
 import './NavBar/NavBar.scss';
+import './RecipeDetail/RecipeDetail.scss';
+import './Widgets/MenuModal/MenuModal.scss';
 import './Widgets/Loader/Loader.scss';
 import './Widgets/NavButton/NavButton.scss';
 import './Widgets/SearchBar/SearchBar.scss'
-import './RecipeDetail/RecipeDetail.scss';
 
 class App extends Component {
   constructor(props) {
