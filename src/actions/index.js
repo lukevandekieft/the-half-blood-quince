@@ -33,9 +33,9 @@ export function newUserLogin(authProvider) {
 }
 
 //CREATE NEW EMAIL USER
-export function newEmailUser(email, password) {
+export function newEmailUser(newUser) {
   return function (dispatch) {
-    auth.createUserWithEmailAndPassword(email, password).catch(function(error) {
+    auth.createUserWithEmailAndPassword(newUser.email, newUser.password).catch(function(error) {
     // Handle Errors here.
     var errorCode = error.code;
     var errorMessage = error.message;
