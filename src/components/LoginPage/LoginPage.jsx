@@ -50,8 +50,9 @@ class Login extends React.Component{
       <div>
         <div className='headerSection'></div>
         <p>Please Log In</p>
-        <button className='loginLogout' onClick={() =>{handleLogin('google')}}>Login with Google</button>
-        <button className='loginLogout' onClick={() =>{handleLogin('facebook')}}>Login with Facebook</button>
+        <button onClick={() =>{handleLogin('google')}}>Sign in with Google</button>
+        <div class="fb-login-button" data-size="large" data-button-type="login_with" data-auto-logout-link="false" data-use-continue-as="false"></div>
+        <button className='loginButton' onClick={() =>{handleLogin('facebook')}}><i class="fab fa-facebook"></i>Sign in with Facebook</button>
 
         <form className='formLayout' onSubmit={submitNewUserForm.bind(this)}>
           <div className='formInputLayout'>
