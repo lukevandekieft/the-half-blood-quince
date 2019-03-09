@@ -55,23 +55,22 @@ class Login extends React.Component{
           <h2>Whoops - This Page is Half-baked!</h2>
           <p>Thankfully the rest of the site is up and running. Click below to view a test account with dummy data!</p>
           <button className='loginButton google' onClick={() =>{handleLogin({email: 'ramb222@yahoo.com', password: 'testpassword'})}}>View Demo</button>
-          <p>Please Log In</p>
 
           <div className='loginBox'>
             <button className='loginButton google' onClick={() =>{handleLogin('google')}}><img className='logo' src={google}/>Log in in with Google</button>
             <button className='loginButton facebook' onClick={() =>{handleLogin('facebook')}}><img className='logo' src={facebook}/>Log in with Facebook</button>
-            <form className='formLayout' onSubmit={submitEmailLogin.bind(this)}>
-              <div className='formInputLayout'>
+            <form onSubmit={submitEmailLogin.bind(this)}>
+              <div>
                 <input
-                  type="text"
+                  type='email'
                   id='email'
                   placeholder='Email'
                   ref={(input) => {this._loginEmail = input;}}
                 ></input>
               </div>
-              <div className='formInputLayout'>
+              <div>
                 <input
-                  type="text"
+                  type='password'
                   id='password'
                   placeholder='password'
                   ref={(input) => {this._loginPassword = input;}}
