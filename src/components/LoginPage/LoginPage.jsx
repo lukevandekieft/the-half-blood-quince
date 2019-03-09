@@ -54,11 +54,35 @@ class Login extends React.Component{
         <div className='pageContentSection headerPage loginPage'>
           <h2>Whoops - This Page is Half-baked!</h2>
           <p>Thankfully the rest of the site is up and running. Click below to view a test account with dummy data!</p>
-          <p>Please Log In</p>
-          <div class="fb-login-button" data-size="large" data-button-type="login_with" data-auto-logout-link="false" data-use-continue-as="false"></div>
-          <button className='loginButton google' onClick={() =>{handleLogin('google')}}><img className='logo' src={google}/>Log in in with Google</button>
-          <button className='loginButton facebook' onClick={() =>{handleLogin('facebook')}}><img className='logo' src={facebook}/>Log in with Facebook</button>
           <button className='loginButton google' onClick={() =>{handleLogin({email: 'ramb222@yahoo.com', password: 'testpassword'})}}>View Demo</button>
+          <p>Please Log In</p>
+
+          <div className='loginBox'>
+            <button className='loginButton google' onClick={() =>{handleLogin('google')}}><img className='logo' src={google}/>Log in in with Google</button>
+            <button className='loginButton facebook' onClick={() =>{handleLogin('facebook')}}><img className='logo' src={facebook}/>Log in with Facebook</button>
+            <form className='formLayout' onSubmit={submitEmailLogin.bind(this)}>
+              <div className='formInputLayout'>
+                <input
+                  type="text"
+                  id='email'
+                  placeholder='Email'
+                  ref={(input) => {this._loginEmail = input;}}
+                ></input>
+              </div>
+              <div className='formInputLayout'>
+                <input
+                  type="text"
+                  id='password'
+                  placeholder='password'
+                  ref={(input) => {this._loginPassword = input;}}
+                ></input>
+              </div>
+              <div className='centerMe'>
+                <button type="submit" className='navButtonStyle button-green'>Login</button>
+              </div>
+            </form>
+          </div>
+
         </div>
       </div>
     );
@@ -74,7 +98,6 @@ Login.propTypes = {
 
 export default connect(mapStateToProps)(Login);
 
-//
 // <form className='formLayout' onSubmit={submitNewUserForm.bind(this)}>
 //   <div className='formInputLayout'>
 //     <label>Email</label>
@@ -97,24 +120,5 @@ export default connect(mapStateToProps)(Login);
 //   </div>
 // </form>
 //
-// <form className='formLayout' onSubmit={submitEmailLogin.bind(this)}>
-//   <div className='formInputLayout'>
-//     <label>Email</label>
-//     <input
-//       type="text"
-//       id='email'
-//       ref={(input) => {this._loginEmail = input;}}
-//     ></input>
-//   </div>
-//   <div className='formInputLayout'>
-//     <label>Password</label>
-//     <input
-//       type="text"
-//       id='password'
-//       ref={(input) => {this._loginPassword = input;}}
-//     ></input>
-//   </div>
-//   <div className='centerMe'>
-//     <button type="submit" className='navButtonStyle button-green'>Login</button>
-//   </div>
-// </form>
+
+// <div class="fb-login-button" data-size="large" data-button-type="login_with" data-auto-logout-link="false" data-use-continue-as="false"></div>
