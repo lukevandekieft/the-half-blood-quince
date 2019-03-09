@@ -51,7 +51,7 @@ class Login extends React.Component{
     return (
       <div>
         <div className='headerSection'></div>
-        <div className='pageContentSection loginPage'>
+        <div className='pageContentSection headerPage loginPage'>
           <h2>Whoops - This Page is Half-baked!</h2>
           <p>Thankfully the rest of the site is up and running. Click below to view a test account with dummy data!</p>
           <p>Please Log In</p>

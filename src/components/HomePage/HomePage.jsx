@@ -39,7 +39,7 @@ class HomePage extends React.Component{
         <div className='headerSection'>
           <SearchBar />
         </div>
-        <div className='pageContentSection homepage'>
+        <div className='pageContentSection headerPage'>
           <h1 className='headline'>{headerMessage}</h1>
           <RecipeList
             recipes={recipes}

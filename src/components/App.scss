@@ -28,7 +28,7 @@
   background: white;
 }
 
-.pageContentSection.homepage {
+.pageContentSection.headerPage {
   min-height: calc(100vh - #{$header-height} - #{$navbar-height}  - #{$margin-lg});
 }
 
@@ -38,7 +38,7 @@
     padding-top: 0;
     min-height: calc(100vh - #{$navbar-height-md}  - #{$margin-lg});
   }
-  .pageContentSection.homepage {
+  .pageContentSection.headerPage {
     min-height: calc(100vh - #{$header-height-sm} - #{$navbar-height-md}  - #{$margin-lg});
   }
 }
@@ -48,7 +48,7 @@
     padding-top: 0;
     min-height: calc(100vh - #{$navbar-height-md}  - #{$margin-lg});
   }
-  .pageContentSection.homepage {
+  .pageContentSection.headerPage {
     min-height: calc(100vh - #{$header-height-md} - #{$navbar-height-md}  - #{$margin-lg});
   }
 }
@@ -58,7 +58,7 @@
     padding-top: 0;
     min-height: calc(100vh - #{$navbar-height-md}  - #{$margin-lg});
   }
-  .pageContentSection.homepage {
+  .pageContentSection.headerPage {
     min-height: calc(100vh - #{$header-height-lg} - #{$navbar-height-md}  - #{$margin-lg});
   }
 }
