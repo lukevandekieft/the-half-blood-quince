@@ -60,7 +60,8 @@ class Login extends React.Component{
             <button className='loginButton google' onClick={() =>{handleLogin('google')}}><img className='logo' src={google}/>Log in in with Google</button>
             <button className='loginButton facebook' onClick={() =>{handleLogin('facebook')}}><img className='logo' src={facebook}/>Log in with Facebook</button>
             <form onSubmit={submitEmailLogin.bind(this)}>
-              <div>
+              <div className='inputBox'>
+                <i className="fas fa-times"></i>
                 <input
                   type='email'
                   id='email'
@@ -68,7 +69,8 @@ class Login extends React.Component{
                   ref={(input) => {this._loginEmail = input;}}
                 ></input>
               </div>
-              <div>
+              <div className='inputBox'>
+                <i className="fas fa-times"></i>
                 <input
                   type='password'
                   id='password'
