@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { changeRoute, newEmailUser, newUserLogin } from './../../actions';
 import { Redirect } from 'react-router';
-import facebook from'../../assets/images/facebook2.svg';
+import facebook from'../../assets/images/facebook.svg';
+import google from'../../assets/images/google.svg';
 
 import Loader from '../Widgets/Loader/Loader';
 
@@ -54,10 +55,10 @@ class Login extends React.Component{
           <h2>Whoops - This Page is Half-baked!</h2>
           <p>Thankfully the rest of the site is up and running. Click below to view a test account with dummy data!</p>
           <p>Please Log In</p>
-          <button onClick={() =>{handleLogin('google')}}>Sign in with Google</button>
           <div class="fb-login-button" data-size="large" data-button-type="login_with" data-auto-logout-link="false" data-use-continue-as="false"></div>
-          <button className='loginButton' onClick={() =>{handleLogin('facebook')}}><img className='logo' src={facebook} />Sign in with Facebook</button>
-          <button className='loginButton' onClick={() =>{handleLogin({email: 'ramb222@yahoo.com', password: 'testpassword'})}}>View Demo</button>
+          <button className='loginButton google' onClick={() =>{handleLogin('google')}}><img className='logo' src={google}/>Log in in with Google</button>
+          <button className='loginButton facebook' onClick={() =>{handleLogin('facebook')}}><img className='logo' src={facebook}/>Log in with Facebook</button>
+          <button className='loginButton google' onClick={() =>{handleLogin({email: 'ramb222@yahoo.com', password: 'testpassword'})}}>View Demo</button>
         </div>
       </div>
     );
