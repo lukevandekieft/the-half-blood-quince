@@ -1,9 +1,8 @@
 @import './sassVariables.scss';
 
 //Overarching stylesheet
-.contentContainer {
+.siteContainer {
   margin: 0 auto;
-  padding-bottom: $margin-lg;
   width: 100%;
   background: $background-color;
   box-sizing: border-box;
@@ -11,6 +10,10 @@
   z-index: 100;
   min-height: 100vh;
 }
+
+.contentContainer {
+  position: relative;
+};
 
 .pageContentSection {
   margin: 0 auto;
@@ -34,33 +37,35 @@
 
 @media (max-width: $small-breakpoint) {
   .pageContentSection {
-    padding: $margin-md;
-    padding-top: 0;
-    min-height: calc(100vh - #{$navbar-height-md}  - #{$margin-lg});
+    padding: 0 $margin-md $margin-md * 2 $margin-md;
+    min-height: calc(100vh - #{$navbar-height-md});
   }
   .pageContentSection.headerPage {
-    min-height: calc(100vh - #{$header-height-sm} - #{$navbar-height-md}  - #{$margin-lg});
+    min-height: calc(100vh - #{$header-height-sm} - #{$navbar-height-md});
   }
 }
-@media (min-width: $small-breakpoint+1) and (max-width: $medium-breakpoint) {
+@media (min-width: $small-breakpoint + 1) and (max-width: $medium-breakpoint) {
   .pageContentSection {
-    padding: $margin-md;
-    padding-top: 0;
-    min-height: calc(100vh - #{$navbar-height-md}  - #{$margin-lg});
+    padding: 0 $margin-md $margin-md * 3 $margin-md;
+    min-height: calc(100vh - #{$navbar-height-md});
   }
   .pageContentSection.headerPage {
-    min-height: calc(100vh - #{$header-height-md} - #{$navbar-height-md}  - #{$margin-lg});
+    min-height: calc(100vh - #{$header-height-md} - #{$navbar-height-md});
   }
 }
-@media (min-width: $medium-breakpoint+1) and (max-width: $large-breakpoint) {
+@media (min-width: $medium-breakpoint + 1) and (max-width: $large-breakpoint) {
   .pageContentSection {
-    padding: $margin-md;
-    padding-top: 0;
-    min-height: calc(100vh - #{$navbar-height-md}  - #{$margin-lg});
+    padding: 0 $margin-md $margin-md * 3 $margin-md;
+    min-height: calc(100vh - #{$navbar-height-md});
   }
   .pageContentSection.headerPage {
-    min-height: calc(100vh - #{$header-height-lg} - #{$navbar-height-md}  - #{$margin-lg});
+    min-height: calc(100vh - #{$header-height-lg} - #{$navbar-height-md});
   }
+}
+@media (min-width: $large-breakpoint + 1) {
+  .contentContainer {
+    padding-bottom: $margin-lg;
+  };
 }
 
  //OTHER

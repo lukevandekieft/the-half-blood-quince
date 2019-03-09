@@ -1,26 +1,45 @@
+@import '../sassVariables.scss';
+
 .loginPage {
   margin: 0 auto;
+  min-height: calc(100vh - #{$navbar-height});
+  max-width: 1200px;
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-image: url('../../assets/images/tablescape2.jpg');
+  background-size: auto;
+  background-attachment: fixed;
+  background-position: top;
+  background-repeat: no-repeat;
   & > * {
     margin-top: 20px;
     text-align: center;
   }
+  // & > h2 {
+  //   margin-top: 150px;
+  // }
 }
 
 .loginBox {
-  background-color: lighten(yellow, 30%);
+  background-color: $background-color;
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 1em;
+  width: 80%;
+  max-width: 450px;
   .inputBox {
+    padding: .5em;
     display: flex;
     align-items: center;
     border: 1px solid grey;
     overflow: hidden;
     background-color: white;
+    i {
+      margin-right: .5em;
+    }
     input[type=password],
     input[type=email] {
       border: none;

@@ -45,7 +45,7 @@ class App extends Component {
     return (
       <Switch>
         <React.Fragment>
-        <div className="contentContainer">
+        <div className="siteContainer">
           <NavBar
             onToggleMenu = {this.handleToggleMainMenu}
           />

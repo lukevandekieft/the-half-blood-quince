@@ -32,7 +32,7 @@ class RecipeDetail extends React.Component{
 
   render(){
     return (
-      <div>
+      <div className='contentContainer'>
         <div className='pageContentSection detailFlex'>
           <MainRecipeDisplay
             name = {this.props.recipes[this.props.currentRecipe].name}

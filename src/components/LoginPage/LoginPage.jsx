@@ -50,18 +50,19 @@ class Login extends React.Component{
 
     return (
       <div>
-        <div className='headerSection'></div>
-        <div className='pageContentSection headerPage loginPage'>
-          <h2>Whoops - This Page is Half-baked!</h2>
-          <p>Thankfully the rest of the site is up and running. Click below to view a test account with dummy data!</p>
-          <button className='loginButton google' onClick={() =>{handleLogin({email: 'ramb222@yahoo.com', password: 'testpassword'})}}>View Demo</button>
+        <div className='loginPage'>
+          <div className='loginBox'>
+            <h2>Whoops - This Page is Half-baked!</h2>
+            <p>Thankfully the rest of the site is up and running. Click below to view a test account with dummy data!</p>
+            <button className='loginButton google' onClick={() =>{handleLogin({email: 'ramb222@yahoo.com', password: 'testpassword'})}}>View Demo</button>
+          </div>
 
           <div className='loginBox'>
             <button className='loginButton google' onClick={() =>{handleLogin('google')}}><img className='logo' src={google}/>Log in in with Google</button>
             <button className='loginButton facebook' onClick={() =>{handleLogin('facebook')}}><img className='logo' src={facebook}/>Log in with Facebook</button>
             <form onSubmit={submitEmailLogin.bind(this)}>
               <div className='inputBox'>
-                <i className="fas fa-times"></i>
+              <i class="fas fa-user"></i>
                 <input
                   type='email'
                   id='email'
@@ -70,7 +71,7 @@ class Login extends React.Component{
                 ></input>
               </div>
               <div className='inputBox'>
-                <i className="fas fa-times"></i>
+                <i class="fas fa-lock"></i>
                 <input
                   type='password'
                   id='password'
