@@ -157,7 +157,7 @@ export function watchUserLoad() {
   return function(dispatch) {
     console.log('check connection');
     firebase.database().ref(`users/loadedInitialState`).on('value', data => {
-      dispatch(loadState(data.val()));
+      dispatch(loadState(true));
     });
   };
 }

@@ -1,6 +1,6 @@
 import { createStore } from 'redux';
 import * as actions from './../../actions';
-import constants from "./../../constants";
+import constants from './../../constants';
 import authReducer from './../../reducers/auth-reducer';
 import currentRecipeReducer from './../../reducers/current-recipe-reducer';
 import initialStateReducer from './../../reducers/initial-state-reducer';
@@ -31,7 +31,7 @@ describe('Recipe App', () => {
       expect(authReducer(initialState, { type: null })).toEqual(initialState);
     });
     it('Should remove user data when logout is selected.', () => {
-      const logoutUser = null
+      const logoutUser = null;
       const action = {
         type: types.USER_LOGOUT,
         user: {
@@ -42,7 +42,7 @@ describe('Recipe App', () => {
     });
     it('Should change user data when login is selected.', () => {
       const loginUser =
-      { uid: 'parakeetz' }
+      { uid: 'parakeetz' };
       const action = {
         type: types.USER_LOGIN,
         user: {
@@ -72,7 +72,7 @@ describe('Recipe App', () => {
     it('Should change state to true once information is received.', () => {
       const sampleState = {
         loadedInitialState: true
-      }
+      };
       const action = actions.loadState(sampleState);
       expect(initialStateReducer(initialState.users['Luke'], action)).toEqual(sampleState);
     });
@@ -85,7 +85,7 @@ describe('Recipe App', () => {
     it('Should change state to true when routing.', () => {
       const sampleState = {
         isRouting: true
-      }
+      };
       const action = actions.changeRoute(sampleState);
       expect(isRoutingReducer(initialState.users, action)).toEqual(sampleState);
     });
@@ -108,7 +108,7 @@ describe('Recipe App', () => {
     it('Should toggle popup status on firing.', () => {
       const sampleState = {
         showPopup: true
-      }
+      };
       const action = actions.changePopupStatus(sampleState);
       expect(popupReducer(initialState.users, action)).toEqual(sampleState);
     });
@@ -122,9 +122,9 @@ describe('Recipe App', () => {
       const newRecipeList =
           {
             split_pea_soup : {
-              name : "Split Pea Soup",
-              imageLink : "https://www.tasteofhome.com/wp-content/uploads/2017/10/exps22295_HWS1227354D43B.jpg",
-              url : "https://www.tasteofhome.com/recipes/vegetarian-split-pea-soup/",
+              name : 'Split Pea Soup',
+              imageLink : 'https://www.tasteofhome.com/wp-content/uploads/2017/10/exps22295_HWS1227354D43B.jpg',
+              url : 'https://www.tasteofhome.com/recipes/vegetarian-split-pea-soup/',
               ingredients : [
                 '2 green onions, sliced'
               ],
@@ -150,8 +150,8 @@ describe('Recipe App', () => {
     });
     it('Should change search value depending on user input', () => {
       const sampleState = {
-        searchValue: "peanuts"
-      }
+        searchValue: 'peanuts'
+      };
       const action = actions.updateSearchValue(sampleState);
       expect(searchReducer(initialState.users, action)).toEqual(sampleState);
     });

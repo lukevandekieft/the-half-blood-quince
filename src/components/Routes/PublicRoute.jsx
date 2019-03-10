@@ -24,14 +24,14 @@ const PublicRoute = ({
     } else {
       return (
         <Loader />
-      )
+      );
     }
   }} />
 );
 
 const mapStateToProps = (state) => ({
-    user: state.user,
-    loadedInitialState: state.loadedInitialState,
+  user: state.user,
+  loadedInitialState: state.loadedInitialState,
 });
 
 export default withRouter(connect(mapStateToProps)(PublicRoute));

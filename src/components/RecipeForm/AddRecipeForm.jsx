@@ -132,8 +132,8 @@ class AddRecipeForm extends Component {
 const mapStateToProps = state => {
   return {
     currentRecipe: state.currentRecipeId,
-    recipes: state.recipes,
     isRouting: state.isRouting,
+    recipes: state.recipes,
     user: state.user,
   };
 };
@@ -141,7 +141,7 @@ const mapStateToProps = state => {
 AddRecipeForm.propTypes = {
   currentRecipe: PropTypes.string,
   recipes: PropTypes.object,
-  isRouting: PropTypes.boolean,
+  isRouting: PropTypes.bool,
   user: PropTypes.object,
 }
 

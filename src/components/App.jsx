@@ -1,6 +1,7 @@
 //dependencies
 import React, { Component } from 'react';
-import {BrowserRouter as Switch, Route, withRouter } from 'react-router-dom';
+import {BrowserRouter as Switch, withRouter } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 //local files
@@ -12,7 +13,6 @@ import PrivateRoute from './Routes/PrivateRoute.jsx';
 import PublicRoute from './Routes/PublicRoute.jsx';
 import RecipeDetail from './RecipeDetail/RecipeDetail.jsx';
 import RecipeForm from './RecipeForm/RecipeForm.jsx';
-import * as actions from './../actions';
 import { toggleMainMenu, checkLoginStatus } from './../actions';
 
 //styles
@@ -24,7 +24,7 @@ import './RecipeDetail/RecipeDetail.scss';
 import './Widgets/MenuModal/MenuModal.scss';
 import './Widgets/Loader/Loader.scss';
 import './Widgets/NavButton/NavButton.scss';
-import './Widgets/SearchBar/SearchBar.scss'
+import './Widgets/SearchBar/SearchBar.scss';
 
 class App extends Component {
   constructor(props) {
@@ -37,7 +37,7 @@ class App extends Component {
 
   handleToggleMainMenu(menuState) {
     this.props.dispatch(toggleMainMenu(menuState));
-  };
+  }
 
   render() {
     console.log(this.props.state);
@@ -45,19 +45,19 @@ class App extends Component {
     return (
       <Switch>
         <React.Fragment>
-        <div className="siteContainer">
-          <NavBar
+          <div className="siteContainer">
+            <NavBar
+              onToggleMenu = {this.handleToggleMainMenu}
+            />
+            <PrivateRoute path='/' component={HomePage}/>
+            <PrivateRoute path='/recipe-detail' component={RecipeDetail}/>
+            <PrivateRoute path='/edit-recipe' component={RecipeForm}/>
+            <PublicRoute path='/login' component={LoginPage}/>
+          </div>
+          <MenuModal
             onToggleMenu = {this.handleToggleMainMenu}
           />
-          <PrivateRoute path='/' component={HomePage}/>
-          <PrivateRoute path='/recipe-detail' component={RecipeDetail}/>
-          <PrivateRoute path='/edit-recipe' component={RecipeForm}/>
-          <PublicRoute path='/login' component={LoginPage}/>
-        </div>
-        <MenuModal
-          onToggleMenu = {this.handleToggleMainMenu}
-        />
-        <div className={this.props.mainMenuShowing ? 'screen-blocker main-menu-showing' : 'screen-blocker'} onClick={this.handleToggleMainMenu}></div>
+          <div className={this.props.mainMenuShowing ? 'screen-blocker main-menu-showing' : 'screen-blocker'} onClick={this.handleToggleMainMenu}></div>
         </React.Fragment>
       </Switch>
     );
@@ -66,24 +66,12 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
-    state: state,
-    currentRecipe: state.currentRecipeId,
-    isRouting: state.isRouting,
-    loadedInitialState: state.loadedInitialState,
     mainMenuShowing: state.mainMenuShowing,
-    recipes: state.recipes,
-    showPopup: state.showPopup,
-    user: state.user,
   };
 };
 
-export default withRouter(connect(mapStateToProps)(App));
+App.propTypes = {
+  mainMenuShowing: PropTypes.bool,
+};
 
-// const routes = (this.props.user.uid && this.props.user.uid !=='initialLoadUser') ?
-//   <React.Fragment>
-//     <Route exact path='/' component={HomePage}/>
-//     <Route exact path='/recipe-detail' component={RecipeDetail}/>
-//     <Route exact path='/edit-recipe' component={RecipeEdit}/>
-//     <Route exact path='/login' component={Login}/>
-//   </React.Fragment>
-//   : <div>Please Log In</div>
+export default withRouter(connect(mapStateToProps)(App));

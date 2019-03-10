@@ -1,12 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { changeRoute, newEmailUser, newUserLogin } from './../../actions';
-import { Redirect } from 'react-router';
+import { newEmailUser, newUserLogin } from './../../actions';
 import facebook from'../../assets/images/facebook.svg';
 import google from'../../assets/images/google.svg';
-
-import Loader from '../Widgets/Loader/Loader';
 
 class Login extends React.Component{
 
@@ -16,8 +12,6 @@ class Login extends React.Component{
   _newPassword = null;
 
   render() {
-    const { dispatch, isRouting } = this.props;
-
     //Login OAuth providers
     const handleLogin = (provider) => {
       this.props.dispatch(newUserLogin(provider));
@@ -40,13 +34,8 @@ class Login extends React.Component{
         email: this._newEmail.value,
         password: this._newPassword.value,
       }
-      dispatch(newEmailUser(newUserInfo));
-      // dispatch(changeRoute(true));
+      this.props.dispatch(newEmailUser(newUserInfo));
     }
-
-    // if (this.props.isRouting === true) {
-    //   return <Redirect to='/' />
-    // }
 
     return (
       <div className='contentContainer login'>
@@ -57,11 +46,11 @@ class Login extends React.Component{
             <h2>Whoops - This Page is Half-baked!</h2>
             <p>Thankfully the rest of the site is up and running. Click below to view a test account with dummy data!</p>
             <button className='loginButton google' onClick={() =>{handleLogin({email: 'ramb222@yahoo.com', password: 'testpassword'})}}>View Demo</button>
-            <button className='loginButton google' onClick={() =>{handleLogin('google')}}><img className='logo' src={google}/>Log in in with Google</button>
-            <button className='loginButton facebook' onClick={() =>{handleLogin('facebook')}}><img className='logo' src={facebook}/>Log in with Facebook</button>
+            <button className='loginButton google' onClick={() =>{handleLogin('google')}}><img className='logo' src={google} alt='Google Logo'/>Log in in with Google</button>
+            <button className='loginButton facebook' onClick={() =>{handleLogin('facebook')}}><img className='logo' src={facebook} alt='Facebook Logo'/>Log in with Facebook</button>
             <form onSubmit={submitEmailLogin.bind(this)}>
               <div className='inputBox'>
-              <i class="fas fa-user"></i>
+              <i className="fas fa-user"></i>
                 <input
                   type='email'
                   id='email'
@@ -70,7 +59,7 @@ class Login extends React.Component{
                 ></input>
               </div>
               <div className='inputBox'>
-                <i class="fas fa-lock"></i>
+                <i className="fas fa-lock"></i>
                 <input
                   type='password'
                   id='password'
@@ -89,13 +78,9 @@ class Login extends React.Component{
     );
   }
 }
-const mapStateToProps = state => {
-  return {
-  };
-};
 
-Login.propTypes = {
-}
+const mapStateToProps = state => {
+};
 
 export default connect(mapStateToProps)(Login);
 

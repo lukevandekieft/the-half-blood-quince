@@ -170,8 +170,8 @@ const mapStateToProps = state => {
 
 EditRecipeForm.propTypes = {
   currentRecipe: PropTypes.string,
+  isRouting: PropTypes.bool,
   recipes: PropTypes.object,
-  isRouting: PropTypes.boolean,
   user: PropTypes.object,
 
   directions: PropTypes.array,

@@ -12,9 +12,9 @@ export const initialState = {
       currentRecipeId : null,
       recipes : {
         split_pea_soup : {
-          name : "Split Pea Soup",
-          imageLink : "https://www.tasteofhome.com/wp-content/uploads/2017/10/exps22295_HWS1227354D43B.jpg",
-          url : "https://www.tasteofhome.com/recipes/vegetarian-split-pea-soup/",
+          name : 'Split Pea Soup',
+          imageLink : 'https://www.tasteofhome.com/wp-content/uploads/2017/10/exps22295_HWS1227354D43B.jpg',
+          url : 'https://www.tasteofhome.com/recipes/vegetarian-split-pea-soup/',
           ingredients : [
             '6 cups vegetable broth',
             '2 cups dried green split peas, rinsed',

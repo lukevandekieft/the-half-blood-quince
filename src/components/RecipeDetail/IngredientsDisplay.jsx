@@ -9,14 +9,14 @@ function IngredientsDisplay(props){
   if (props.ingredientsNotes) {
     formattedIngredientsNotes = props.ingredientsNotes;
     headerSection =
-    <React.Fragment>
-      <h3>Ingredient Notes</h3>
-      <ul>
-        {formattedIngredientsNotes.map(index => {
-          return <li key={index} className="recipeDetailList">{index}</li>
-        })}
-      </ul>
-    </React.Fragment>
+      <React.Fragment>
+        <h3>Ingredient Notes</h3>
+        <ul>
+          {formattedIngredientsNotes.map(index => {
+            return <li key={index} className="recipeDetailList">{index}</li>;
+          })}
+        </ul>
+      </React.Fragment>;
   } else {
     formattedIngredientsNotes = null;
   }
@@ -32,7 +32,7 @@ function IngredientsDisplay(props){
       <h3>Ingredients</h3>
       <ul>
         {formattedIngredients.map(index => {
-          return <li key={index} className="recipeDetailList">{index}</li>
+          return <li key={index} className="recipeDetailList">{index}</li>;
         })}
       </ul>
       {headerSection}
@@ -43,6 +43,6 @@ function IngredientsDisplay(props){
 IngredientsDisplay.propTypes = {
   ingredients: PropTypes.array,
   ingredientsNotes: PropTypes.array
-}
+};
 
 export default IngredientsDisplay;
