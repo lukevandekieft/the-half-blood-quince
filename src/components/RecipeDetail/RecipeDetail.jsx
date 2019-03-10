@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import DirectionsDisplay from './DirectionsDisplay';
 import IngredientsDisplay from './IngredientsDisplay';
 import MainRecipeDisplay from './MainRecipeDisplay';
+import NavBarBacksplash from '../NavBar/NavBarBacksplash';
 import NavButton from '../Widgets/NavButton/NavButton';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -32,7 +33,8 @@ class RecipeDetail extends React.Component{
 
   render(){
     return (
-      <div>
+      <div className='contentContainer'>
+      <NavBarBacksplash />
         <div className='pageContentSection detailFlex'>
           <MainRecipeDisplay
             name = {this.props.recipes[this.props.currentRecipe].name}

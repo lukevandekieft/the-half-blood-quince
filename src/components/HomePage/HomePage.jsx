@@ -12,18 +12,17 @@ class HomePage extends React.Component{
 
   componentDidMount() {
     window.scrollTo(0, 0);
-  };
+  }
 
   componentWillUnmount() {
     this.props.dispatch(updateSearchValue(null));
-  };
+  }
 
   render() {
-    const {dispatch, currentRecipe, loadedInitialState, recipes, searchValue, user } = this.props;
+    const {dispatch, currentRecipe, recipes, searchValue, user } = this.props;
 
     const handleRecipeClick = () => {
       const newId = v4();
-      console.log(newId);
       dispatch(changeCurrentRecipe(newId, user));
     };
 
@@ -35,21 +34,21 @@ class HomePage extends React.Component{
     }
 
     return (
-      <div className='homePageContainer'>
+      <div className='contentContainer'>
         <div className='headerSection'>
           <SearchBar />
         </div>
-        <div className='pageContentSection homepage'>
+        <div className='pageContentSection headerPage'>
           <h1 className='headline'>{headerMessage}</h1>
           <RecipeList
             recipes={recipes}
             currentRecipe={currentRecipe}
             searchValue={searchValue}
           />
-          <div onClick={() => {handleRecipeClick()}}>
+          <div onClick={() => {handleRecipeClick();}}>
             <NavButton
-            linkPath='/edit-recipe'
-            linkText='Add Recipe'
+              linkPath='/edit-recipe'
+              linkText='Add Recipe'
             />
           </div>
         </div>
@@ -60,7 +59,6 @@ class HomePage extends React.Component{
 const mapStateToProps = state => {
   return {
     currentRecipe: state.currentRecipeId,
-    loadedInitialState: state.loadedInitialState,
     recipes: state.recipes,
     searchValue: state.searchValue,
     user: state.user,
@@ -69,11 +67,10 @@ const mapStateToProps = state => {
 
 HomePage.propTypes = {
   currentRecipe: PropTypes.string,
-  loadedInitialState: PropTypes.any,
   recipes: PropTypes.object,
   searchValue: PropTypes.any,
   user: PropTypes.any,
 
-}
+};
 
 export default connect(mapStateToProps)(HomePage);

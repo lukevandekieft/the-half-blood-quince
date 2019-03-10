@@ -1,7 +1,7 @@
-
+import PropTypes from 'prop-types';
 import React from 'react';
-import { Route, Redirect, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { Route, Redirect, withRouter } from 'react-router-dom';
 
 import Loader from '../Widgets/Loader/Loader';
 
@@ -15,9 +15,7 @@ const PrivateRoute = ({
     if (loadedInitialState) {
       if (user.uid && user.uid !=='initialLoadUser') {
         return (
-          <div>
-            <Component {...props} />
-          </div>
+          <Component {...props} />
         );
       } else {
         return (
@@ -27,7 +25,7 @@ const PrivateRoute = ({
     } else {
       return (
         <Loader />
-      )
+      );
     }
   }} />
 );
@@ -36,5 +34,11 @@ const mapStateToProps = (state) => ({
   loadedInitialState: state.loadedInitialState,
   user: state.user,
 });
+
+PrivateRoute.propTypes = {
+  component: PropTypes.func,
+  loadedInitialState: PropTypes.bool,
+  user: PropTypes.object,
+};
 
 export default withRouter(connect(mapStateToProps)(PrivateRoute));

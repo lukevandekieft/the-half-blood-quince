@@ -1,9 +1,9 @@
 @import '../sassVariables.scss';
 
 .navContainer {
-  background-color: rgba(70, 70, 64, .7);
+  background-color: rgba(70, 70, 64, .8);
   overflow: hidden;
-  position: absolute;
+  position: fixed;
   top: 0;
   width: 100%;
   height: $navbar-height;
@@ -20,11 +20,14 @@
     height: $icon-height;
   }
   h1 {
-    font-size: 2rem;
+    font-size: 2.5rem;
+    margin-top: -10px;
     padding: 0;
+    font-weight: 400;
+    font-family: 'Pacifico', cursive;
   }
   i {
-    font-size: 2.5rem;
+    font-size: 3rem;
     margin-right: 15px;
   }
   a {
@@ -42,6 +45,7 @@
   .fas {
     cursor: pointer;
   }
+  background-color: transparent;
 }
 
 .navBarBackground {
@@ -73,8 +77,7 @@
       height: $icon-height-md;
     }
     h1 {
-      font-size: 1.75rem;
-      padding: 0;
+      font-size: 2.25rem;
     }
   }
 }
@@ -83,6 +86,9 @@
     height: $navbar-height-md;
     img {
       height: $icon-height-md;
+    }
+    h1 {
+      font-size: 2.25rem;
     }
   }
 }

@@ -4,6 +4,8 @@ $brand-color: lighten(#fffc4c, 5%);
 $off-brand-color: #009933;
 $offsetColor: darken(brown, 20%);
 $bright-color: #fff;
+$logo-color: #FFDF40;
+$login-primary: #3f4c6b;
 
 //LAYOUT SIZES
 $navbar-height: 80px;
@@ -23,3 +25,44 @@ $recipe-icon-size: 200px;
 $recipe-icon-padding: 40px;
 $icon-height: $navbar-height * .9;
 $icon-height-md: $navbar-height-md * .9;
+
+//HOVER GRADIENT BUTTON MIXIN
+@mixin gradient-animation( $borderColor1, $borderColor2, $start1, $start2, $end1, $end2, $transTime ){
+  border: 1px solid $borderColor1;
+  background-size: 100%;
+  background-color: $start1;
+  background-image: -webkit-gradient(linear, left top, left bottom, from($start1), to($start2));
+  background-image: -webkit-linear-gradient(top, $start1, $start2);
+  background-image: -moz-linear-gradient(top, $start1, $start2);
+  background-image: -ms-linear-gradient(top, $start1, $start2);
+  background-image: -o-linear-gradient(top, $start1, $start2);
+  background-image: linear-gradient(to bottom, $start1, $start2);
+  z-index: 100;
+  &:before {
+    background-color: $end1;
+    background-image: -webkit-gradient(linear, left top, left bottom, from($end1), to($end2));
+    background-image: -webkit-linear-gradient(top, $end1, $end2);
+    background-image: -moz-linear-gradient(top, $end1, $end2);
+    background-image: -ms-linear-gradient(top, $end1, $end2);
+    background-image: -o-linear-gradient(top, $end1, $end2);
+    background-image: linear-gradient(to bottom, $end1, $end2);
+    border-radius: inherit;
+    box-sizing: border-box;
+    content: '';
+    display: block;
+    // border: solid 1px transparent;
+    height: 100%;
+    position: absolute;
+    top: 0; left: 0;
+    opacity: 0;
+    width: 100%;
+    z-index: -100;
+    transition: all $transTime;
+  }
+  &:hover, &:focus {
+    border: 1px solid $borderColor2;
+    &:before {
+      opacity: 1;
+    }
+  }
+}

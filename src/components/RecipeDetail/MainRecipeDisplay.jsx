@@ -4,8 +4,8 @@ import NavButton from '../Widgets/NavButton/NavButton';
 import { connect } from 'react-redux';
 import { changePopupStatus } from '../../actions';
 
-function MainRecipeDisplay({name, url, imageLink, currentRecipe, showPopup, dispatch}){
-  const altText = `${name} Recipe`
+function MainRecipeDisplay({dispatch, imageLink, name, showPopup, url }){
+  const altText = `${name} Recipe`;
   const backgroundImage = {
     backgroundImage: `url(${imageLink})`
   };
@@ -19,7 +19,7 @@ function MainRecipeDisplay({name, url, imageLink, currentRecipe, showPopup, disp
       <div className='recipeDetailPicture' style={backgroundImage} alt={altText}></div>
 
       <div className='mainDetailContainer'>
-      <h1 className='centerMe'>{name}</h1>
+        <h1 className='centerMe'>{name}</h1>
         <div>
           <div className='centerMe'>
             <button className='navButtonStyle button-green'><a className='linkStyle' href={url}>Link to Page</a></button>
@@ -28,7 +28,7 @@ function MainRecipeDisplay({name, url, imageLink, currentRecipe, showPopup, disp
             linkPath='/edit-recipe'
             linkText='Edit Recipe'
           />
-          <div className='centerMe' onClick={() => {handleClick()}}>
+          <div className='centerMe' onClick={() => {handleClick();}}>
             <button className='navButtonStyle button-red'>Delete Recipe</button>
           </div>
         </div>
@@ -39,15 +39,15 @@ function MainRecipeDisplay({name, url, imageLink, currentRecipe, showPopup, disp
 
 const mapStateToProps = state => {
   return {
-    currentRecipe: state.currentRecipeId,
     showPopup: state.showPopup
   };
 };
 
 MainRecipeDisplay.propTypes = {
-  name: PropTypes.string,
   imageLink: PropTypes.string,
+  name: PropTypes.string,
+  showPopup: PropTypes.bool,
   url: PropTypes.string
-}
+};
 
 export default connect(mapStateToProps)(MainRecipeDisplay);

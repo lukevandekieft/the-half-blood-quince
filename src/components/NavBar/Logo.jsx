@@ -1,9 +1,10 @@
 import React from 'react';
+import logo from '../../assets/images/quince.svg';
 
 function Logo(){
   return (
     <div>
-      <img src="https://cdn1.iconfinder.com/data/icons/fruit-28/64/SET-154-128.png" alt="Half-Blood Quince Logo" />
+      <img src={logo} alt="Half-Blood Quince Logo" />
     </div>
   );
 }

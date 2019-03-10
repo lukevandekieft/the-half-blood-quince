@@ -2,14 +2,11 @@
 
 
 //HEADER SECTION
-.homePageContainer {
-  position: relative;
-};
-
 .headerSection {
   background-image: url('../../assets/images/header_background.jpeg');
+  padding-top: $navbar-height;
   position: relative;
-  z-index: 1000000;
+  z-index: 100;
   height: 35vh;
   max-height: 700px;
   min-height: 110px;
@@ -33,6 +30,11 @@
 @media (min-width: $medium-breakpoint+1) and (max-width: $large-breakpoint) {
   .headerSection {
     height: $header-height-lg;
+  }
+}
+@media (max-width: $large-breakpoint) {
+  .headerSection {
+      padding-top: $navbar-height-md;
   }
 }
 

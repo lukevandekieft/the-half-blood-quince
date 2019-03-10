@@ -1,29 +1,32 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Logo from './Logo.jsx';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { newUserLogin } from '../../actions';
 
-class NavBar extends React.Component{
-
-  render() {
-    return (
-      <div>
-        <div className='navContainer'>
-          <div className='pageContentSection navBar'>
-            <Link to='/'><Logo /></Link>
-            <h1>The Half-Blood Quince</h1>
-            <i className="fas fa-bars navButtonStyle" onClick={() => {this.props.onToggleMenu(this.props.mainMenuShowing)}}></i>
-          </div>
-        </div>
-        <div className='navBarBackground'></div>
+function NavBar(props){
+  return (
+    <div className='navContainer'>
+      <div className='pageContentSection navBar'>
+        <Link to='/'><Logo /></Link>
+        <h1>The Half-Blood Quince</h1>
+        <i className="fas fa-bars navButtonStyle" onClick={() => {props.onToggleMenu(props.mainMenuShowing)}} tabindex="0"></i>
       </div>
-    );
-  }
+    </div>
+  );
 }
+
+const mapStateToProps = state => {
+  return {
+    mainMenuShowing: state.mainMenuShowing,
+  }
+};
 
 NavBar.propTypes = {
+  mainMenuShowing: PropTypes.bool,
   onToggleMenu: PropTypes.func,
-}
+};
 
-export default NavBar;
+export default connect(mapStateToProps)(NavBar);
+
+// <div className='navBarBackground'></div>

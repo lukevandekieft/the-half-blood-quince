@@ -75,7 +75,7 @@ class AddRecipeForm extends Component {
         <div className='formInputLayout'>
           <label>Recipe Link:</label>
           <input
-            type="text"
+            type="url"
             id='url'
             ref={(input) => {this._url = input;}}
           ></input>
@@ -83,7 +83,7 @@ class AddRecipeForm extends Component {
         <div className='formInputLayout'>
           <label>Recipe Picture (link to picture):</label>
           <input
-            type="text"
+            type="url"
             id='imageLink'
             ref={(input) => {this._imageLink = input;}}
           ></input>
@@ -132,8 +132,8 @@ class AddRecipeForm extends Component {
 const mapStateToProps = state => {
   return {
     currentRecipe: state.currentRecipeId,
-    recipes: state.recipes,
     isRouting: state.isRouting,
+    recipes: state.recipes,
     user: state.user,
   };
 };
@@ -141,7 +141,7 @@ const mapStateToProps = state => {
 AddRecipeForm.propTypes = {
   currentRecipe: PropTypes.string,
   recipes: PropTypes.object,
-  isRouting: PropTypes.boolean,
+  isRouting: PropTypes.bool,
   user: PropTypes.object,
 }
 
