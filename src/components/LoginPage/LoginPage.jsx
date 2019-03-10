@@ -1,10 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { newUserLogin } from './../../actions';
+import { Link } from 'react-router-dom';
 import facebook from'../../assets/images/facebook.svg';
 import google from'../../assets/images/google.svg';
 
-class Login extends React.Component{
+class LoginPage extends React.Component{
 
   _loginEmail = null;
   _loginPassword = null;
@@ -39,15 +40,15 @@ class Login extends React.Component{
             </div>
 
             <div className='loginSection'>
-              <h3>Sign up Below</h3>
-              <button className='loginButton google' onClick={() =>{handleLogin('google')}}><img className='logo' src={google} alt='Google Logo'/>Sign up with Google</button>
-              <button className='loginButton facebook' onClick={() =>{handleLogin('facebook')}}><img className='logo' src={facebook} alt='Facebook Logo'/>Sign up with Facebook</button>
+              <h3>Log in Below</h3>
+              <button className='loginButton google' onClick={() =>{handleLogin('google')}}><img className='logo' src={google} alt='Google Logo'/>Log in with Google</button>
+              <button className='loginButton facebook' onClick={() =>{handleLogin('facebook')}}><img className='logo' src={facebook} alt='Facebook Logo'/>Log in with Facebook</button>
               <div className='loginDivider'>
                 <hr/><p>OR</p><hr/>
               </div>
               <form onSubmit={submitEmailLogin.bind(this)} className='loginForm'>
                 <div className='inputField'>
-                <i className="fas fa-user"></i>
+                  <i className="fas fa-user"></i>
                   <input
                     type='email'
                     id='email'
@@ -64,8 +65,9 @@ class Login extends React.Component{
                     ref={(input) => {this._loginPassword = input;}}
                   ></input>
                 </div>
-                <button type="submit" className='loginButton email'>Create Account</button>
+                <button type="submit" className='loginButton email'>Login</button>
               </form>
+              <p className='signUpLink'>Don't have an account? <Link to='signup'><a>Sign up now</a></Link></p>
             </div>
           </div>
         </div>
@@ -79,4 +81,4 @@ const mapStateToProps = state => {
   }
 };
 
-export default connect(mapStateToProps)(Login);
+export default connect(mapStateToProps)(LoginPage);

@@ -61,9 +61,13 @@
       margin-bottom: 25px;
       margin-top: -10px;
     }
+    .signUpLink {
+      margin-top: 1em;
+      color: grey;
+    }
     .loginForm {
       width: 100%;
-      div:first-child {
+      div:nth-child(n-1) {
         margin-bottom: 10px;
       }
       .inputField {
@@ -80,6 +84,7 @@
           margin-right: .5em;
         }
         input[type=password],
+        input[type=text],
         input[type=email] {
           border: none;
           outline: none;

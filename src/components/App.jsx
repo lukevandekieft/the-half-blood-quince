@@ -13,6 +13,7 @@ import PrivateRoute from './Routes/PrivateRoute.jsx';
 import PublicRoute from './Routes/PublicRoute.jsx';
 import RecipeDetail from './RecipeDetail/RecipeDetail.jsx';
 import RecipeForm from './RecipeForm/RecipeForm.jsx';
+import SignUpPage from './SignUpPage/SignUpPage.jsx';
 import { toggleMainMenu, checkLoginStatus } from './../actions';
 
 //styles
@@ -53,6 +54,7 @@ class App extends Component {
             <PrivateRoute path='/recipe-detail' component={RecipeDetail}/>
             <PrivateRoute path='/edit-recipe' component={RecipeForm}/>
             <PublicRoute path='/login' component={LoginPage}/>
+            <PublicRoute path='/signup' component={SignUpPage}/>
           </div>
           <MenuModal
             onToggleMenu = {this.handleToggleMainMenu}
