@@ -2,9 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-class NavButton extends React.Component {
-  render () {
-    const { linkPath, linkText, color } = this.props;
+function NavButton(props) {
+    const { linkPath, linkText, color } = props;
     let buttonStyle = 'navButtonStyle button-green';
     if (color) {
       buttonStyle = `navButtonStyle button-${color}`;
@@ -15,7 +14,6 @@ class NavButton extends React.Component {
         </Link>
       </div>
     );
-  }
 }
 
 NavButton.propTypes = {

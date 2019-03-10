@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import { Route, Redirect, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -30,8 +31,14 @@ const PublicRoute = ({
 );
 
 const mapStateToProps = (state) => ({
-  user: state.user,
   loadedInitialState: state.loadedInitialState,
+  user: state.user,
 });
+
+PublicRoute.propTypes = {
+  component: PropTypes.func,
+  loadedInitialState: PropTypes.bool,
+  user: PropTypes.object,
+};
 
 export default withRouter(connect(mapStateToProps)(PublicRoute));

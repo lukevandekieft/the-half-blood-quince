@@ -35,7 +35,7 @@ RecipeItem.propTypes = {
   image: PropTypes.string,
   keypair: PropTypes.string,
   name: PropTypes.string,
-  user: PropTypes.string,
+  user: PropTypes.object,
   valueKey: PropTypes.string
 };
 

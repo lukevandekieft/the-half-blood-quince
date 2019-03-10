@@ -6,10 +6,8 @@ import { v4 } from 'uuid';
 
 import NavButton from '../NavButton/NavButton';
 
-class MenuModal extends React.Component {
-
-  render () {
-    const { dispatch, mainMenuShowing, onToggleMenu, user } = this.props;
+function MenuModal(props) {
+    const { dispatch, mainMenuShowing, onToggleMenu, user } = props;
 
     //Login OAuth providers
     const handleLogin = (provider) => {
@@ -31,17 +29,17 @@ class MenuModal extends React.Component {
     };
 
     return (
-      <div className={this.props.mainMenuShowing ? 'menuModal modal-open-style' : 'menuModal'}>
+      <div className={props.mainMenuShowing ? 'menuModal modal-open-style' : 'menuModal'}>
         <div className='modal-top'>
-          <i className='material-icons navButtonStyle' onClick={() => {this.props.onToggleMenu(this.props.mainMenuShowing);}}>close</i>
+          <i className='material-icons navButtonStyle' onClick={() => {props.onToggleMenu(props.mainMenuShowing);}}>close</i>
         </div>
         <div className='modal-body'>
           <div className='accordion-list'>
             <div className='accordion-footer'>
-              { (!this.props.user.uid || this.props.user.uid === 'initialLoadUser') && (
+              { (!props.user.uid || props.user.uid === 'initialLoadUser') && (
                 <button className='loginLogout' onClick={() => {handleLogin('google');}}>Login</button>)
               }
-              { (this.props.user.uid && this.props.user.uid !== 'initialLoadUser') && (
+              { (props.user.uid && props.user.uid !== 'initialLoadUser') && (
                 <React.Fragment>
                   <div onClick={() => {handleRoute('/');}}>
                     <NavButton
@@ -65,7 +63,6 @@ class MenuModal extends React.Component {
         </div>
       </div>
     );
-  }
 }
 
 const mapStateToProps = state => {

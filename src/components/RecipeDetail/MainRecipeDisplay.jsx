@@ -4,7 +4,7 @@ import NavButton from '../Widgets/NavButton/NavButton';
 import { connect } from 'react-redux';
 import { changePopupStatus } from '../../actions';
 
-function MainRecipeDisplay({name, url, imageLink, currentRecipe, showPopup, dispatch}){
+function MainRecipeDisplay({dispatch, imageLink, name, showPopup, url }){
   const altText = `${name} Recipe`;
   const backgroundImage = {
     backgroundImage: `url(${imageLink})`
@@ -39,14 +39,14 @@ function MainRecipeDisplay({name, url, imageLink, currentRecipe, showPopup, disp
 
 const mapStateToProps = state => {
   return {
-    currentRecipe: state.currentRecipeId,
     showPopup: state.showPopup
   };
 };
 
 MainRecipeDisplay.propTypes = {
-  name: PropTypes.string,
   imageLink: PropTypes.string,
+  name: PropTypes.string,
+  showPopup: PropTypes.bool,
   url: PropTypes.string
 };
 
