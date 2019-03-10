@@ -18,9 +18,7 @@ const PublicRoute = ({
         );
       } else {
         return (
-          <div>
-            <Component {...props} />
-          </div>
+          <Component {...props} />
         );
       }
     } else {

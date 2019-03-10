@@ -1,8 +1,12 @@
 @import '../sassVariables.scss';
 
+.contentContainer.login {
+  background-image: url('../../assets/images/login_background.jpeg');
+}
+
 .loginPage {
   margin: 0 auto;
-  min-height: calc(100vh - #{$navbar-height});
+  min-height: inherit;
   max-width: 1200px;
   position: relative;
   display: flex;
@@ -91,4 +95,10 @@
   background-color: #ffffff;
   color: #6a737c;
   border: 1px solid #adb3b9;
+}
+
+@media (min-width: $large-breakpoint + 1) {
+  .contentContainer.login {
+    padding-bottom: 0;
+  };
 }

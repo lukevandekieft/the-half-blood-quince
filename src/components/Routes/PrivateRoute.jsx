@@ -15,9 +15,7 @@ const PrivateRoute = ({
     if (loadedInitialState) {
       if (user.uid && user.uid !=='initialLoadUser') {
         return (
-          <div>
-            <Component {...props} />
-          </div>
+          <Component {...props} />
         );
       } else {
         return (

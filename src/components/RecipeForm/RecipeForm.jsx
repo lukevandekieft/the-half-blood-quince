@@ -31,7 +31,7 @@ class RecipeEdit extends React.Component{
     }
 
     return (
-      <div>
+      <div className='contentContainer'>
         {domDisplay}
       </div>
     );
