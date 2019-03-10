@@ -22,6 +22,7 @@ class SignUpPage extends React.Component{
       const newUserInfo = {
         email: this._newEmail.value,
         password: this._newPassword.value,
+        userName: this._newUserName.value,
       }
       this.props.dispatch(newEmailUser(newUserInfo));
     }
@@ -42,12 +43,12 @@ class SignUpPage extends React.Component{
 
             <form onSubmit={submitNewUserForm.bind(this)} className='loginForm'>
               <div className='inputField'>
-                <i className="fas fa-user"></i>
+                <i className="fas fa-smile"></i>
                 <input
                   type='text'
                   id='name'
                   placeholder='User Name'
-                  ref={(input) => {this._newEmail = input;}}
+                  ref={(input) => {this._newUserName = input;}}
                 ></input>
               </div>
               <div className='inputField'>
@@ -70,7 +71,7 @@ class SignUpPage extends React.Component{
               </div>
               <button type="submit" className='loginButton email'>Create Account</button>
             </form>
-            <p className='signUpLink'>Already have an account? <Link to='login'><a>Log in here</a></Link></p>
+            <p className='signUpLink'>Already have an account? <Link to='login'>Log in here</Link></p>
             </div>
           </div>
         </div>

@@ -91,7 +91,7 @@ class EditRecipeForm extends Component {
         <div className='formInputLayout'>
           <label>Recipe Link:</label>
           <input
-            type="text"
+            type="url"
             defaultValue={this.checkValue(url)}
             id='url'
             ref={(input) => {this._url = input;}}
@@ -100,7 +100,7 @@ class EditRecipeForm extends Component {
         <div className='formInputLayout'>
           <label>Recipe Picture (link to picture):</label>
           <input
-            type="text"
+            type="url"
             defaultValue={this.checkValue(image)}
             id='imageLink'
             ref={(input) => {this._imageLink = input;}}

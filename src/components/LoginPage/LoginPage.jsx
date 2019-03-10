@@ -67,7 +67,7 @@ class LoginPage extends React.Component{
                 </div>
                 <button type="submit" className='loginButton email'>Login</button>
               </form>
-              <p className='signUpLink'>Don't have an account? <Link to='signup'><a>Sign up now</a></Link></p>
+              <p className='signUpLink'>Don't have an account? <Link to='signup'>Sign up now</Link></p>
             </div>
           </div>
         </div>

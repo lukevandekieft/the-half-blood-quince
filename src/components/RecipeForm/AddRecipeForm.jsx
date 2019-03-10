@@ -75,7 +75,7 @@ class AddRecipeForm extends Component {
         <div className='formInputLayout'>
           <label>Recipe Link:</label>
           <input
-            type="text"
+            type="url"
             id='url'
             ref={(input) => {this._url = input;}}
           ></input>
@@ -83,7 +83,7 @@ class AddRecipeForm extends Component {
         <div className='formInputLayout'>
           <label>Recipe Picture (link to picture):</label>
           <input
-            type="text"
+            type="url"
             id='imageLink'
             ref={(input) => {this._imageLink = input;}}
           ></input>
