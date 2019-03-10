@@ -8,15 +8,12 @@ class NavBar extends React.Component{
 
   render() {
     return (
-      <div>
-        <div className='navContainer'>
-          <div className='pageContentSection navBar'>
-            <Link to='/'><Logo /></Link>
-            <h1>The Half-Blood Quince</h1>
-            <i className="fas fa-bars navButtonStyle" onClick={() => {this.props.onToggleMenu(this.props.mainMenuShowing)}}></i>
-          </div>
+      <div className='navContainer'>
+        <div className='pageContentSection navBar'>
+          <Link to='/'><Logo /></Link>
+          <h1>The Half-Blood Quince</h1>
+          <i className="fas fa-bars navButtonStyle" onClick={() => {this.props.onToggleMenu(this.props.mainMenuShowing)}}></i>
         </div>
-        <div className='navBarBackground'></div>
       </div>
     );
   }
@@ -27,3 +24,5 @@ NavBar.propTypes = {
 }
 
 export default NavBar;
+
+        // <div className='navBarBackground'></div>

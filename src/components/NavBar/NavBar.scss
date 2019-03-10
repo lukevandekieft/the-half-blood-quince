@@ -1,9 +1,9 @@
 @import '../sassVariables.scss';
 
 .navContainer {
-  background-color: rgba(70, 70, 64, .7);
+  background-color: rgba(70, 70, 64, .8);
   overflow: hidden;
-  position: absolute;
+  position: fixed;
   top: 0;
   width: 100%;
   height: $navbar-height;
@@ -42,16 +42,17 @@
   .fas {
     cursor: pointer;
   }
+  background-color: transparent;
 }
 
 .navBarBackground {
-  background-image: url('../../assets/images/header_background.jpeg');
+  // background-image: url('../../assets/images/header_background.jpeg');
   height: $navbar-height;
-  background-size: 100%;
-  background-attachment: fixed;
-  background-position: top;
-  background-repeat: no-repeat;
-  position: relative;
+  // background-size: 100%;
+  // background-attachment: fixed;
+  // background-position: top;
+  // background-repeat: no-repeat;
+  // position: relative;
   z-index: 250;
 };
 
