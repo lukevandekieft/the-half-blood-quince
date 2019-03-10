@@ -1,7 +1,7 @@
 @import '../sassVariables.scss';
 
 .contentContainer.login {
-  background-image: url('../../assets/images/login_background2.jpg');
+  background-image: url('../../assets/images/login_background.jpg');
   padding: 0;
 }
 
@@ -13,7 +13,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-image: url('../../assets/images/tablescape2.jpg');
+  background-image: url('../../assets/images/tablescape.jpg');
   background-size: cover;
   // background-attachment: fixed;
   background-position: top;
