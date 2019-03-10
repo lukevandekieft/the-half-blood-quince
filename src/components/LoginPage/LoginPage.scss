@@ -1,21 +1,21 @@
 @import '../sassVariables.scss';
 
 .contentContainer.login {
-  background-image: url('../../assets/images/login_background.jpeg');
+  background-image: url('../../assets/images/login_background2.jpg');
   padding: 0;
 }
 
 .loginPage {
   margin: 0 auto;
-  min-height: inherit;
+  min-height: calc(100vh - #{$navbar-height-md});
   max-width: 1200px;
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   background-image: url('../../assets/images/tablescape2.jpg');
-  background-size: auto;
-  background-attachment: fixed;
+  background-size: cover;
+  // background-attachment: fixed;
   background-position: top;
   background-repeat: no-repeat;
   padding-top: $navbar-height-md;
@@ -99,8 +99,16 @@
   border: 1px solid #adb3b9;
 }
 
+.loginBackground {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  background-color: rgba(255, 255, 255, .5);
+}
+
 @media (min-width: $large-breakpoint + 1) {
   .loginPage {
     padding-top: $navbar-height;
+    min-height: calc(100vh - #{$navbar-height});
   }
 }

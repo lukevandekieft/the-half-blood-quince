@@ -50,6 +50,7 @@ class Login extends React.Component{
 
     return (
       <div className='contentContainer login'>
+        <div className='loginBackground'></div>
         <div className='loginPage'>
           <div className='loginBox'>
             <h2>Whoops - This Page is Half-baked!</h2>
