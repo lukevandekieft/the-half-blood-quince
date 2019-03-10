@@ -6,7 +6,10 @@ import facebook from'../../assets/images/facebook.svg';
 import google from'../../assets/images/google.svg';
 
 class SignUpPage extends React.Component{
-
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
+  
   _newEmail = null;
   _newPassword = null;
 

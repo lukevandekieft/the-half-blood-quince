@@ -6,7 +6,10 @@ import facebook from'../../assets/images/facebook.svg';
 import google from'../../assets/images/google.svg';
 
 class LoginPage extends React.Component{
-
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
+  
   _loginEmail = null;
   _loginPassword = null;
 
