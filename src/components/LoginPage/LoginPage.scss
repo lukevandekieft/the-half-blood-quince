@@ -2,6 +2,7 @@
 
 .contentContainer.login {
   background-image: url('../../assets/images/login_background.jpeg');
+  padding: 0;
 }
 
 .loginPage {
@@ -17,6 +18,7 @@
   background-attachment: fixed;
   background-position: top;
   background-repeat: no-repeat;
+  padding-top: $navbar-height-md;
   & > * {
     margin-top: 20px;
     text-align: center;
@@ -98,7 +100,7 @@
 }
 
 @media (min-width: $large-breakpoint + 1) {
-  .contentContainer.login {
-    padding-bottom: 0;
-  };
+  .loginPage {
+    padding-top: $navbar-height;
+  }
 }
