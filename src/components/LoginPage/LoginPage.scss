@@ -64,11 +64,16 @@
     }
     .loginForm {
       width: 100%;
+      div:first-child {
+        margin-bottom: 10px;
+      }
       .inputField {
         padding: .5em;
         display: flex;
         align-items: center;
-        border: 1px solid grey;
+        border: 1px solid darken($background-color, 20%);
+        color: darken($background-color, 20%);
+        border-radius: 4px;
         overflow: hidden;
         background-color: white;
         i {
@@ -82,11 +87,25 @@
           font-size: 16px;
           width: 100%;
         }
+        ::placeholder {
+          color: darken($background-color, 15%);
+          opacity: 1;
+        }
+        :-ms-input-placeholder {
+          color: darken($background-color, 15%);
+        }
+        ::-ms-input-placeholder {
+          color: darken($background-color, 15%);
+        }
       }
       button, .inputField {
         width: 80%;
         margin: 0 auto;
       }
+    }
+    .inputField:focus-within {
+      color: darken($logo-color, 10%);
+      border: solid 1px darken($logo-color, 10%);
     }
     .loginButton {
       position: relative;
@@ -129,29 +148,29 @@
       border: 1px solid #adb3b9;
     }
     .loginButton.demo {
-      background-color: #FFDF40;
-      background-image: -webkit-gradient(linear, left top, left bottom, from(#FFDF40), to(#FEBF04));
-       background-image: -webkit-linear-gradient(top, #FFDF40, #FEBF04);
-       background-image: -moz-linear-gradient(top, #FFDF40, #FEBF04);
-       background-image: -ms-linear-gradient(top, #FFDF40, #FEBF04);
-       background-image: -o-linear-gradient(top, #FFDF40, #FEBF04);
-       background-image: linear-gradient(to bottom, #FFDF40, #FEBF04);
-      color: darken(#FFDF40, 50%);
-      border: 1px solid darken(#FFDF40, 20%);
+      background-color: $logo-color;
+      background-image: -webkit-gradient(linear, left top, left bottom, from($logo-color), to(#FEBF04));
+       background-image: -webkit-linear-gradient(top, $logo-color, #FEBF04);
+       background-image: -moz-linear-gradient(top, $logo-color, #FEBF04);
+       background-image: -ms-linear-gradient(top, $logo-color, #FEBF04);
+       background-image: -o-linear-gradient(top, $logo-color, #FEBF04);
+       background-image: linear-gradient(to bottom, $logo-color, #FEBF04);
+      color: darken($logo-color, 50%);
+      border: 1px solid darken($logo-color, 20%);
       justify-content: center;
       margin-top: $margin-md + 10px;
       width: 80%;
     }
     .loginButton.email {
-      background-color: #3f4c6b;
-      background-image: -webkit-gradient(linear, left top, left bottom, from(#3f4c6b), to(darken(#3f4c6b, 15%)));
-      background-image: -webkit-linear-gradient(top, #3f4c6b, darken(#3f4c6b, 15%));
-      background-image: -moz-linear-gradient(top, #3f4c6b, darken(#3f4c6b, 15%));
-      background-image: -ms-linear-gradient(top, #3f4c6b, darken(#3f4c6b, 15%));
-      background-image: -o-linear-gradient(top, #3f4c6b, darken(#3f4c6b, 15%));
-      background-image: linear-gradient(to bottom, #3f4c6b, darken(#3f4c6b, 15%));
+      background-color: $login-primary;
+      background-image: -webkit-gradient(linear, left top, left bottom, from($login-primary), to(darken($login-primary, 15%)));
+      background-image: -webkit-linear-gradient(top, $login-primary, darken($login-primary, 15%));
+      background-image: -moz-linear-gradient(top, $login-primary, darken($login-primary, 15%));
+      background-image: -ms-linear-gradient(top, $login-primary, darken($login-primary, 15%));
+      background-image: -o-linear-gradient(top, $login-primary, darken($login-primary, 15%));
+      background-image: linear-gradient(to bottom, $login-primary, darken($login-primary, 15%));
       color: white;
-      border: 1px solid darken(#3f4c6b, 20%);
+      border: 1px solid darken($login-primary, 20%);
       justify-content: center;
       margin-top: $margin-md;
     }
