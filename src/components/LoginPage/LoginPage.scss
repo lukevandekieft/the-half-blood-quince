@@ -1,5 +1,45 @@
 @import '../sassVariables.scss';
 
+@mixin gradient-animation( $borderColor1, $borderColor2, $start1, $start2, $end1, $end2, $transTime ){
+  border: 1px solid $borderColor1;
+  background-size: 100%;
+  background-color: $start1;
+  background-image: -webkit-gradient(linear, left top, left bottom, from($start1), to($start2));
+  background-image: -webkit-linear-gradient(top, $start1, $start2);
+  background-image: -moz-linear-gradient(top, $start1, $start2);
+  background-image: -ms-linear-gradient(top, $start1, $start2);
+  background-image: -o-linear-gradient(top, $start1, $start2);
+  background-image: linear-gradient(to bottom, $start1, $start2);
+  z-index: 100;
+  &:before {
+    background-color: $end1;
+    background-image: -webkit-gradient(linear, left top, left bottom, from($end1), to($end2));
+    background-image: -webkit-linear-gradient(top, $end1, $end2);
+    background-image: -moz-linear-gradient(top, $end1, $end2);
+    background-image: -ms-linear-gradient(top, $end1, $end2);
+    background-image: -o-linear-gradient(top, $end1, $end2);
+    background-image: linear-gradient(to bottom, $end1, $end2);
+    border-radius: inherit;
+    box-sizing: border-box;
+    content: '';
+    display: block;
+    // border: solid 1px transparent;
+    height: 100%;
+    position: absolute;
+    top: 0; left: 0;
+    opacity: 0;
+    width: 100%;
+    z-index: -100;
+    transition: all $transTime;
+  }
+  &:hover {
+    border: 1px solid $borderColor2;
+    &:before {
+      opacity: 1;
+    }
+  }
+}
+
 .contentContainer.login {
   background-image: url('../../assets/images/login_background.jpg');
   padding: 0;
@@ -76,6 +116,7 @@
         border-radius: 4px;
         overflow: hidden;
         background-color: white;
+        transition: all .2s;
         i {
           margin-right: .5em;
         }
@@ -86,6 +127,9 @@
           padding: 0;
           font-size: 16px;
           width: 100%;
+        }
+        input:-webkit-autofill {
+          -webkit-box-shadow: 0 0 0px 1000px white inset;
         }
         ::placeholder {
           color: darken($background-color, 15%);
@@ -104,8 +148,8 @@
       }
     }
     .inputField:focus-within {
-      color: darken($logo-color, 10%);
-      border: solid 1px darken($logo-color, 10%);
+      color: darken($logo-color, 15%);
+      border: solid 1px darken($logo-color, 15%);
     }
     .loginButton {
       position: relative;
@@ -124,6 +168,7 @@
       font-weight: 500;
       letter-spacing: 0.25px;
       white-space: nowrap;
+      transition: all .2s;
       -webkit-border-horizontal-spacing: 0px;
       -webkit-border-vertical-spacing: 0px;
       -webkit-box-shadow: 0px 1px 2px -2px rgba(0,0,0,0.75);
@@ -148,29 +193,15 @@
       border: 1px solid #adb3b9;
     }
     .loginButton.demo {
-      background-color: $logo-color;
-      background-image: -webkit-gradient(linear, left top, left bottom, from($logo-color), to(#FEBF04));
-       background-image: -webkit-linear-gradient(top, $logo-color, #FEBF04);
-       background-image: -moz-linear-gradient(top, $logo-color, #FEBF04);
-       background-image: -ms-linear-gradient(top, $logo-color, #FEBF04);
-       background-image: -o-linear-gradient(top, $logo-color, #FEBF04);
-       background-image: linear-gradient(to bottom, $logo-color, #FEBF04);
       color: darken($logo-color, 50%);
-      border: 1px solid darken($logo-color, 20%);
       justify-content: center;
       margin-top: $margin-md + 10px;
       width: 80%;
+      @include gradient-animation(darken($logo-color, 20%), darken($logo-color, 20%), $logo-color, #FEBF04, lighten($logo-color, 10%), lighten(#FEBF04, 10%), .3s );
     }
     .loginButton.email {
-      background-color: $login-primary;
-      background-image: -webkit-gradient(linear, left top, left bottom, from($login-primary), to(darken($login-primary, 15%)));
-      background-image: -webkit-linear-gradient(top, $login-primary, darken($login-primary, 15%));
-      background-image: -moz-linear-gradient(top, $login-primary, darken($login-primary, 15%));
-      background-image: -ms-linear-gradient(top, $login-primary, darken($login-primary, 15%));
-      background-image: -o-linear-gradient(top, $login-primary, darken($login-primary, 15%));
-      background-image: linear-gradient(to bottom, $login-primary, darken($login-primary, 15%));
+      @include gradient-animation(darken($login-primary, 20%), darken($login-primary, 10%), $login-primary, darken($login-primary, 15%), lighten($login-primary, 10%), darken($login-primary, 5%), .3s );
       color: white;
-      border: 1px solid darken($login-primary, 20%);
       justify-content: center;
       margin-top: $margin-md;
     }
