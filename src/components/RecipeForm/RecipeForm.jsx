@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 import AddRecipeForm from './AddRecipeForm';
 import EditRecipeForm from './EditRecipeForm';
+import NavBarBacksplash from '../NavBar/NavBarBacksplash';
 
 class RecipeEdit extends React.Component{
   componentDidMount() {
@@ -32,6 +33,7 @@ class RecipeEdit extends React.Component{
 
     return (
       <div className='contentContainer'>
+        <NavBarBacksplash />
         {domDisplay}
       </div>
     );
