@@ -41,16 +41,27 @@
   width: 100%;
   max-width: 450px;
   box-shadow: 0px -1px 5px 1px rgba(0,0,0,0.28);
-  border-radius: 5px;
+  border-radius: 10px;
+  border: solid 1px darken($background-color, 10%);
   overflow: hidden;
+  div:first-child {
+    border-bottom: solid 2px darken($background-color, 10%);
+  }
   .loginSection {
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
     width: 100%;
     box-sizing: border-box;
     padding: 2em;
-    border: solid 1px darken($background-color, 10%);
+    h2 {
+      margin-bottom: 20px;
+    }
+    h3 {
+      margin-bottom: 25px;
+      margin-top: -10px;
+    }
     .loginForm {
       width: 100%;
       .inputField {
@@ -69,6 +80,7 @@
           outline: none;
           padding: 0;
           font-size: 16px;
+          width: 100%;
         }
       }
       button, .inputField {
@@ -97,7 +109,7 @@
       -webkit-border-vertical-spacing: 0px;
       -webkit-box-shadow: 0px 1px 2px -2px rgba(0,0,0,0.75);
       -moz-box-shadow: 0px 1px 2px -2px rgba(0,0,0,0.75);
-      box-shadow: 0px 1px 3px -1px rgba(0,0,0,0.35);
+      box-shadow: 0px 1px 1px 1px rgba(0,0,0,0.15);
       .logo {
         width: 24px;
         height: 24px;
@@ -117,17 +129,29 @@
       border: 1px solid #adb3b9;
     }
     .loginButton.demo {
-      background-color: gold;
-      color: #6a737c;
-      border: 1px solid #adb3b9;
+      background-color: #FFDF40;
+      background-image: -webkit-gradient(linear, left top, left bottom, from(#FFDF40), to(#FEBF04));
+       background-image: -webkit-linear-gradient(top, #FFDF40, #FEBF04);
+       background-image: -moz-linear-gradient(top, #FFDF40, #FEBF04);
+       background-image: -ms-linear-gradient(top, #FFDF40, #FEBF04);
+       background-image: -o-linear-gradient(top, #FFDF40, #FEBF04);
+       background-image: linear-gradient(to bottom, #FFDF40, #FEBF04);
+      color: darken(#FFDF40, 50%);
+      border: 1px solid darken(#FFDF40, 20%);
       justify-content: center;
-      margin-top: $margin-md;
+      margin-top: $margin-md + 10px;
       width: 80%;
     }
     .loginButton.email {
-      background-color: #ffffff;
-      color: #6a737c;
-      border: 1px solid #adb3b9;
+      background-color: #3f4c6b;
+      background-image: -webkit-gradient(linear, left top, left bottom, from(#3f4c6b), to(darken(#3f4c6b, 15%)));
+      background-image: -webkit-linear-gradient(top, #3f4c6b, darken(#3f4c6b, 15%));
+      background-image: -moz-linear-gradient(top, #3f4c6b, darken(#3f4c6b, 15%));
+      background-image: -ms-linear-gradient(top, #3f4c6b, darken(#3f4c6b, 15%));
+      background-image: -o-linear-gradient(top, #3f4c6b, darken(#3f4c6b, 15%));
+      background-image: linear-gradient(to bottom, #3f4c6b, darken(#3f4c6b, 15%));
+      color: white;
+      border: 1px solid darken(#3f4c6b, 20%);
       justify-content: center;
       margin-top: $margin-md;
     }
