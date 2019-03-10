@@ -51,21 +51,29 @@
     box-sizing: border-box;
     padding: 2em;
     border: solid 1px darken($background-color, 10%);
-    .inputBox {
-      padding: .5em;
-      display: flex;
-      align-items: center;
-      border: 1px solid grey;
-      overflow: hidden;
-      background-color: white;
-      i {
-        margin-right: .5em;
+    .loginForm {
+      width: 100%;
+      .inputField {
+        padding: .5em;
+        display: flex;
+        align-items: center;
+        border: 1px solid grey;
+        overflow: hidden;
+        background-color: white;
+        i {
+          margin-right: .5em;
+        }
+        input[type=password],
+        input[type=email] {
+          border: none;
+          outline: none;
+          padding: 0;
+          font-size: 16px;
+        }
       }
-      input[type=password],
-      input[type=email] {
-        border: none;
-        outline: none;
-        padding: 0;
+      button, .inputField {
+        width: 80%;
+        margin: 0 auto;
       }
     }
     .loginButton {
@@ -101,11 +109,27 @@
       background-color: #4267B2;
       color: #ffffff;
       border: 1px solid transparent;
+      margin-top: $margin-md;
     }
     .loginButton.google {
       background-color: #ffffff;
       color: #6a737c;
       border: 1px solid #adb3b9;
+    }
+    .loginButton.demo {
+      background-color: gold;
+      color: #6a737c;
+      border: 1px solid #adb3b9;
+      justify-content: center;
+      margin-top: $margin-md;
+      width: 80%;
+    }
+    .loginButton.email {
+      background-color: #ffffff;
+      color: #6a737c;
+      border: 1px solid #adb3b9;
+      justify-content: center;
+      margin-top: $margin-md;
     }
   }
 }

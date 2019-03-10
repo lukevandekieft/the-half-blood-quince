@@ -46,7 +46,7 @@ class Login extends React.Component{
             <div className= 'loginSection'>
               <h2>Whoops - This Page is Half-baked!</h2>
               <p>Thankfully the rest of the site is up and running. Click below to view a test account with dummy data!</p>
-              <button className='loginButton google' onClick={() =>{handleLogin({email: 'ramb222@yahoo.com', password: 'testpassword'})}}>View Demo</button>
+              <button className='loginButton demo' onClick={() =>{handleLogin({email: 'ramb222@yahoo.com', password: 'testpassword'})}}>View Demo</button>
             </div>
 
             <div className='loginSection'>
@@ -56,8 +56,8 @@ class Login extends React.Component{
               <hr/><p>OR</p><hr/>
             </div>
 
-            <form onSubmit={submitEmailLogin.bind(this)}>
-              <div className='inputBox'>
+            <form onSubmit={submitEmailLogin.bind(this)} className='loginForm'>
+              <div className='inputField'>
               <i className="fas fa-user"></i>
                 <input
                   type='email'
@@ -66,7 +66,7 @@ class Login extends React.Component{
                   ref={(input) => {this._loginEmail = input;}}
                 ></input>
               </div>
-              <div className='inputBox'>
+              <div className='inputField'>
                 <i className="fas fa-lock"></i>
                 <input
                   type='password'
@@ -75,9 +75,7 @@ class Login extends React.Component{
                   ref={(input) => {this._loginPassword = input;}}
                 ></input>
               </div>
-              <div className='centerMe'>
-                <button type="submit" className='navButtonStyle button-green'>Login</button>
-              </div>
+              <button type="submit" className='loginButton email'>Login</button>
             </form>
             </div>
           </div>
