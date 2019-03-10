@@ -1,45 +1,5 @@
 @import '../sassVariables.scss';
 
-@mixin gradient-animation( $borderColor1, $borderColor2, $start1, $start2, $end1, $end2, $transTime ){
-  border: 1px solid $borderColor1;
-  background-size: 100%;
-  background-color: $start1;
-  background-image: -webkit-gradient(linear, left top, left bottom, from($start1), to($start2));
-  background-image: -webkit-linear-gradient(top, $start1, $start2);
-  background-image: -moz-linear-gradient(top, $start1, $start2);
-  background-image: -ms-linear-gradient(top, $start1, $start2);
-  background-image: -o-linear-gradient(top, $start1, $start2);
-  background-image: linear-gradient(to bottom, $start1, $start2);
-  z-index: 100;
-  &:before {
-    background-color: $end1;
-    background-image: -webkit-gradient(linear, left top, left bottom, from($end1), to($end2));
-    background-image: -webkit-linear-gradient(top, $end1, $end2);
-    background-image: -moz-linear-gradient(top, $end1, $end2);
-    background-image: -ms-linear-gradient(top, $end1, $end2);
-    background-image: -o-linear-gradient(top, $end1, $end2);
-    background-image: linear-gradient(to bottom, $end1, $end2);
-    border-radius: inherit;
-    box-sizing: border-box;
-    content: '';
-    display: block;
-    // border: solid 1px transparent;
-    height: 100%;
-    position: absolute;
-    top: 0; left: 0;
-    opacity: 0;
-    width: 100%;
-    z-index: -100;
-    transition: all $transTime;
-  }
-  &:hover {
-    border: 1px solid $borderColor2;
-    &:before {
-      opacity: 1;
-    }
-  }
-}
-
 .contentContainer.login {
   background-image: url('../../assets/images/login_background.jpg');
   padding: 0;
@@ -56,7 +16,6 @@
   align-items: center;
   background-image: url('../../assets/images/tablescape.jpg');
   background-size: cover;
-  // background-attachment: fixed;
   background-position: top;
   background-repeat: no-repeat;
   padding: $navbar-height-md $margin-md 0 $margin-md;
@@ -182,15 +141,13 @@
       }
     }
     .loginButton.facebook {
-      background-color: #4267B2;
       color: #ffffff;
-      border: 1px solid transparent;
+      @include gradient-animation(transparent, transparent, #4267B2, #4267B2, darken(#4267B2, 8%), darken(#4267B2, 8%), .3s );
       margin-top: $margin-md;
     }
     .loginButton.google {
-      background-color: #ffffff;
       color: #6a737c;
-      border: 1px solid #adb3b9;
+      @include gradient-animation(#adb3b9, #adb3b9, #ffffff, #ffffff, darken(#fff, 3%), darken(#fff, 3%), .3s );
     }
     .loginButton.demo {
       color: darken($logo-color, 50%);
