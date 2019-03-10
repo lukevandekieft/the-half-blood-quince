@@ -43,11 +43,19 @@ class Login extends React.Component{
         <div className='loginPage'>
           <div className='navBarMargin'></div>
           <div className='loginBox'>
-            <h2>Whoops - This Page is Half-baked!</h2>
-            <p>Thankfully the rest of the site is up and running. Click below to view a test account with dummy data!</p>
-            <button className='loginButton google' onClick={() =>{handleLogin({email: 'ramb222@yahoo.com', password: 'testpassword'})}}>View Demo</button>
-            <button className='loginButton google' onClick={() =>{handleLogin('google')}}><img className='logo' src={google} alt='Google Logo'/>Log in in with Google</button>
+            <div className= 'loginSection'>
+              <h2>Whoops - This Page is Half-baked!</h2>
+              <p>Thankfully the rest of the site is up and running. Click below to view a test account with dummy data!</p>
+              <button className='loginButton google' onClick={() =>{handleLogin({email: 'ramb222@yahoo.com', password: 'testpassword'})}}>View Demo</button>
+            </div>
+
+            <div className='loginSection'>
+            <button className='loginButton google' onClick={() =>{handleLogin('google')}}><img className='logo' src={google} alt='Google Logo'/>Log in with Google</button>
             <button className='loginButton facebook' onClick={() =>{handleLogin('facebook')}}><img className='logo' src={facebook} alt='Facebook Logo'/>Log in with Facebook</button>
+            <div className='loginDivider'>
+              <hr/><p>OR</p><hr/>
+            </div>
+
             <form onSubmit={submitEmailLogin.bind(this)}>
               <div className='inputBox'>
               <i className="fas fa-user"></i>
@@ -71,6 +79,7 @@ class Login extends React.Component{
                 <button type="submit" className='navButtonStyle button-green'>Login</button>
               </div>
             </form>
+            </div>
           </div>
 
         </div>
