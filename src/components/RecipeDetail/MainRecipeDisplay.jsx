@@ -16,7 +16,12 @@ function MainRecipeDisplay({dispatch, imageLink, name, showPopup, url }){
 
   return (
     <div className='mainRecipeContainer'>
-      <div className='recipeDetailPicture' style={backgroundImage} alt={altText}></div>
+      <div className='recipeDetailPicture'>
+        <div className='imagePlaceholder'>
+        </div>
+        <div className='recipeImage'  style={backgroundImage} alt={altText}>
+        </div>
+      </div>
 
       <div className='mainDetailContainer'>
         <h1 className='centerMe'>{name}</h1>
