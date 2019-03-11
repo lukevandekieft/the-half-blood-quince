@@ -22,6 +22,7 @@ import './HomePage/HomePage.scss';
 import './LoginPage/LoginPage.scss';
 import './NavBar/NavBar.scss';
 import './RecipeDetail/RecipeDetail.scss';
+import './RecipeForm/RecipeForm.scss';
 import './Widgets/MenuModal/MenuModal.scss';
 import './Widgets/Loader/Loader.scss';
 import './Widgets/NavButton/NavButton.scss';

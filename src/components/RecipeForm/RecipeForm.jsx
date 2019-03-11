@@ -23,10 +23,10 @@ class RecipeEdit extends React.Component{
     if(name) {
       if (name.value.length > 0) {
         console.log(name.value.length);
-        this.setState({ nameError: true });
+        this.setState({ nameError: false });
       } else {
         console.log('wut up');
-        this.setState({ nameError: false });
+        this.setState({ nameError: true });
       }
       console.log(this.state);
     }
@@ -38,29 +38,23 @@ class RecipeEdit extends React.Component{
     if (this.props.recipes) {
       if (this.props.recipes[this.props.currentRecipe]) {
         domDisplay =
-          <div className='pageContentSection'>
-            <EditRecipeForm
-              nameError={this.state.nameError}
-              onInputValidation={this.handleInputValidation}
-            />
-          </div>;
+          <EditRecipeForm
+            nameError={this.state.nameError}
+            onInputValidation={this.handleInputValidation}
+          />
       } else {
-        domDisplay =
-          <div className='pageContentSection'>
-            <AddRecipeForm />
-          </div>;
+        domDisplay = <AddRecipeForm />
       }
     } else {
-      domDisplay =
-        <div className='pageContentSection'>
-          <AddRecipeForm />
-        </div>;
+      domDisplay = <AddRecipeForm />
     }
 
     return (
       <div className='contentContainer'>
-        <NavBarBacksplash />
-        {domDisplay}
+        <div className='pageContentSection'>
+          <NavBarBacksplash />
+          {domDisplay}
+        </div>;
       </div>
     );
   }
