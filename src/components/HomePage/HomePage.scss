@@ -88,6 +88,26 @@
   width: 100%;
 };
 
+.recipeImage {
+  position: absolute;
+  z-index: 0;
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  border-radius: 0 0 5% 5%;
+  z-index: 2;
+}
+
+.imagePlaceholder {
+  position: absolute;
+  z-index: 1;
+  height: 100%;
+  width: 100%;
+  background-image: url('../../assets/images/missing_image.png');
+  background-size: cover;
+  border-radius: 0 0 5% 5%;
+}
+
 @media (max-width: $small-breakpoint) {
   .headline {
     padding: 1.5rem 0;
