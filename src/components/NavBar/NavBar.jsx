@@ -10,7 +10,7 @@ function NavBar(props){
       <div className='pageContentSection navBar'>
         <Link to='/'><Logo /></Link>
         <h1>The Half-Blood Quince</h1>
-        <i className="fas fa-bars navButtonStyle" onClick={() => {props.onToggleMenu(props.mainMenuShowing)}} tabindex="0"></i>
+        <i className="fas fa-bars navButtonStyle" onClick={() => {props.onToggleMenu(props.mainMenuShowing)}} tabIndex="0"></i>
       </div>
     </div>
   );

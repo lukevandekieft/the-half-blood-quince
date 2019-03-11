@@ -32,7 +32,7 @@ class RecipeDetail extends React.Component{
   };
 
   render(){
-    const {currentRecipe, recipes, showPopup, user } = this.props;
+    const {currentRecipe, recipes, showPopup } = this.props;
 
     console.log(this.props.currentRecipe)
     return (

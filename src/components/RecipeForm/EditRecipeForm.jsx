@@ -92,6 +92,7 @@ class EditRecipeForm extends Component {
             defaultValue={this.checkValue(name)}
             id='name'
             ref={(input) => {this._name = input;}}
+            className={this.props.nameError ? "inputError" : ""}
             onChange={() => {this.props.onInputValidation(this._name)}}>
           </input>
         </div>
