@@ -76,9 +76,6 @@
   height: $recipe-icon-size;
   position: relative;
   overflow: hidden;
-  background-position: 50% 50%;
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 
 .recipeItemStyles {
@@ -90,6 +87,9 @@
 };
 
 .recipeImage {
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
   position: absolute;
   z-index: 0;
   height: 100%;
