@@ -40,11 +40,13 @@ class HomePage extends React.Component{
         </div>
         <div className='pageContentSection headerPage'>
           <h1 className='headline'>{headerMessage}</h1>
+          {(user) && (
           <RecipeList
             recipes={recipes}
             currentRecipe={currentRecipe}
             searchValue={searchValue}
           />
+          )}
           <div onClick={() => {handleRecipeClick();}}>
             <NavButton
               linkPath='/edit-recipe'
