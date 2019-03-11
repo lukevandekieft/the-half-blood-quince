@@ -46,7 +46,10 @@ class RecipeDetail extends React.Component{
           />
           <div className='directionDisplay'>
           {(!recipes[currentRecipe].ingredients && !recipes[currentRecipe].ingredientsNotes && !recipes[currentRecipe].directions && !recipes[currentRecipe].directionsNotes) && (
-            <p>You have nothing here!</p>
+            <div className='emptyContentMessage'>
+              <h2>There's nothing here!</h2>
+              <p>Edit to add ingredients, directions, and notes</p>
+            </div>
           )}
             <IngredientsDisplay
               ingredients = {recipes[currentRecipe].ingredients}

@@ -19,6 +19,17 @@
   padding: 0 2%;
 };
 
+.emptyContentMessage {
+  grid-column: 1 / 3;
+  align-items: center;
+  text-align: center;
+  font-style: italic;
+  color: grey;
+  &>*:nth-child(n) {
+    margin-bottom: 1em;
+  }
+}
+
 //MAIN RECIPE DISPLAY
 .mainRecipeContainer {
     display: flex;

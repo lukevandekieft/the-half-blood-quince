@@ -26,9 +26,11 @@ function MainRecipeDisplay({dispatch, imageLink, name, showPopup, url }){
       <div className='mainDetailContainer'>
         <h1 className='centerMe'>{name}</h1>
         <div>
+        {(url) && (
           <div className='centerMe'>
             <button className='navButtonStyle button-green'><a className='linkStyle' href={url}>Link to Page</a></button>
           </div>
+        )}
           <NavButton
             linkPath='/edit-recipe'
             linkText='Edit Recipe'
