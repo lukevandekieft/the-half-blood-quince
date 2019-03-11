@@ -29,7 +29,7 @@ function IngredientsDisplay(props){
   }
   return (
     <div>
-      <h3>Ingredients</h3>
+      {(props.ingredients) && (<h3>Ingredients</h3>)}
       <ul>
         {formattedIngredients.map(index => {
           return <li key={index} className="recipeDetailList">{index}</li>;

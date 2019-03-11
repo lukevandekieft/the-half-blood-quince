@@ -40,7 +40,7 @@ class HomePage extends React.Component{
         </div>
         <div className='pageContentSection headerPage'>
           <h1 className='headline'>{headerMessage}</h1>
-          {(user) && (
+          {(user !== 'initialLoadUser') && (
           <RecipeList
             recipes={recipes}
             currentRecipe={currentRecipe}

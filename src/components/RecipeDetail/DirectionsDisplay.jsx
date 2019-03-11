@@ -30,7 +30,9 @@ function DirectionsDisplay(props){
 
   return (
     <div>
-      <h3>Directions</h3>
+      {(props.directions) && (
+        <h3>Directions</h3>
+      )}
       <ol>
         {formattedDirections.map(index => {
           return <li key={index} className="recipeDetailList">{index}</li>;
