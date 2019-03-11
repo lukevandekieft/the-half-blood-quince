@@ -47,7 +47,13 @@ class EditRecipeForm extends Component {
     }
   }
 
+  componentDidMount() {
+  }
+
   render() {
+    // console.log(this.props.nameError);
+    // console.log(this.props.onInputValidation);
+    // const checkErrors = this.props.onInputValidation(this._name);
     //destructure props from mapStateToProps
     const {currentRecipe, directions, directionsNotes, dispatch, image, ingredients, ingredientsNotes, isRouting, name, recipes, url, user} = this.props;
 
@@ -86,7 +92,8 @@ class EditRecipeForm extends Component {
             defaultValue={this.checkValue(name)}
             id='name'
             ref={(input) => {this._name = input;}}
-          ></input>
+            onChange={() => {this.props.onInputValidation(this._name)}}>
+          </input>
         </div>
         <div className='formInputLayout'>
           <label>Recipe Link:</label>
