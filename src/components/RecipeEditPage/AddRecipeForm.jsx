@@ -15,6 +15,11 @@ class AddRecipeForm extends Component {
   _directions = null;
   _directionsNotes = null;
 
+//validate inputs on load
+  componentDidMount() {
+    this.props.onInputValidation(this._name);
+  }
+
 //turn display text into array
   createArray = (string) => {
     if(string) {
@@ -66,15 +71,17 @@ class AddRecipeForm extends Component {
     <div>
       <form className='formLayout' onSubmit={submitForm.bind(this)}>
         <div className='formInputLayout'>
-          <label>Recipe Name:</label>
+          <label>Recipe Name <span className={this.props.nameError ? 'errorMessage' : 'noErrorMessage'}>Please Enter a Name</span><span className={this.props.nameError ? 'noErrorMessage' : 'inputFieldNote'}>*  Required</span></label>
           <input
             type="text"
             id='name'
             ref={(input) => {this._name = input;}}
+            className={this.props.nameError ? "inputError" : ""}
+            onChange={() => {this.props.onInputValidation(this._name)}}
           ></input>
         </div>
         <div className='formInputLayout'>
-          <label>Recipe Link:</label>
+          <label>Recipe Link <span className='inputFieldNote'>(URL Format Only)</span></label>
           <input
             type="url"
             id='url'
@@ -82,7 +89,7 @@ class AddRecipeForm extends Component {
           ></input>
         </div>
         <div className='formInputLayout'>
-          <label>Recipe Picture (link to picture):</label>
+          <label>Recipe Picture <span className='inputFieldNote'>(URL Format Only)</span></label>
           <input
             type="url"
             id='imageLink'
@@ -90,28 +97,28 @@ class AddRecipeForm extends Component {
           ></input>
         </div>
         <div className='formInputLayout'>
-          <label>Ingredients:</label>
+          <label>Ingredients</label>
           <textarea
             id='ingredients'
             ref={(input) => {this._ingredients = input;}}
           ></textarea>
         </div>
         <div className='formInputLayout'>
-          <label>Ingredient Notes:</label>
+          <label>Ingredient Notes</label>
           <textarea
             id='ingredientsNotes'
             ref={(input) => {this._ingredientsNotes = input;}}
           ></textarea>
         </div>
         <div className='formInputLayout'>
-          <label>Directions:</label>
+          <label>Directions</label>
           <textarea
             id='directions'
             ref={(input) => {this._directions = input;}}
           ></textarea>
         </div>
         <div className='formInputLayout'>
-          <label>Direction Notes:</label>
+          <label>Direction Notes</label>
           <textarea
             id='directionsNotes'
             ref={(input) => {this._directionsNotes = input;}}

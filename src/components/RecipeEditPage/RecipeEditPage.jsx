@@ -34,7 +34,7 @@ class RecipeEdit extends React.Component{
   }
 
   render() {
-    //Render "new" or "edit" form based on whether a currentRecipe exists 
+    //Render "new" or "edit" form based on whether a currentRecipe exists
     let domDisplay;
     if (this.props.recipes) {
       if (this.props.recipes[this.props.currentRecipe]) {
@@ -44,10 +44,18 @@ class RecipeEdit extends React.Component{
             onInputValidation={this.handleInputValidation}
           />
       } else {
-        domDisplay = <AddRecipeForm />
+        domDisplay =
+        <AddRecipeForm
+          nameError={this.state.nameError}
+          onInputValidation={this.handleInputValidation}
+        />
       }
     } else {
-      domDisplay = <AddRecipeForm />
+      domDisplay =
+      <AddRecipeForm
+        nameError={this.state.nameError}
+        onInputValidation={this.handleInputValidation}
+      />
     }
 
     return (

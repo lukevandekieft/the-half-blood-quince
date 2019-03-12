@@ -12,7 +12,7 @@ import HomePage from './HomePage/HomePage.jsx';
 import PrivateRoute from './Routes/PrivateRoute.jsx';
 import PublicRoute from './Routes/PublicRoute.jsx';
 import RecipeDetail from './RecipeDetail/RecipeDetail.jsx';
-import RecipeForm from './RecipeForm/RecipeForm.jsx';
+import RecipeEditPage from './RecipeEditPage/RecipeEditPage.jsx';
 import SignUpPage from './SignUpPage/SignUpPage.jsx';
 import { toggleMainMenu, checkLoginStatus } from './../actions';
 
@@ -22,7 +22,7 @@ import './HomePage/HomePage.scss';
 import './LoginPage/LoginPage.scss';
 import './NavBar/NavBar.scss';
 import './RecipeDetail/RecipeDetail.scss';
-import './RecipeForm/RecipeForm.scss';
+import './RecipeEditPage/RecipeEditPage.scss';
 import './Widgets/MenuModal/MenuModal.scss';
 import './Widgets/Loader/Loader.scss';
 import './Widgets/NavButton/NavButton.scss';
@@ -52,7 +52,7 @@ class App extends Component {
             />
             <PrivateRoute path='/' component={HomePage}/>
             <PrivateRoute path='/recipe-detail' component={RecipeDetail}/>
-            <PrivateRoute path='/edit-recipe' component={RecipeForm}/>
+            <PrivateRoute path='/edit-recipe' component={RecipeEditPage}/>
             <PublicRoute path='/login' component={LoginPage}/>
             <PublicRoute path='/signup' component={SignUpPage}/>
           </div>
