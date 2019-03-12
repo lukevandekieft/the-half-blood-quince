@@ -29,9 +29,19 @@ ul, ol {
 .inputError {
   border: 1px solid red;
   padding: 2px;
+  background: lighten(red, 48%);
   &:focus {
     border: 1px solid transparent;
     outline: red auto 5px;
     -webkit-box-shadow: red auto 5px;
   }
+}
+
+.errorMessage {
+  padding-left: 1rem;
+  color: red;
+  font-style: italic;
+}
+.noErrorMessage {
+  display: none;
 }

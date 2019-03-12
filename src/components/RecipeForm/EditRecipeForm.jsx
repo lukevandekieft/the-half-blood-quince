@@ -15,6 +15,11 @@ class EditRecipeForm extends Component {
   _directions = null;
   _directionsNotes = null;
 
+//validate inputs on load
+  componentDidMount() {
+    this.props.onInputValidation(this._name);
+  }
+
 //turn array into display text
   readableArray = (array) => {
     if(array) {
@@ -47,9 +52,6 @@ class EditRecipeForm extends Component {
     }
   }
 
-  componentDidMount() {
-  }
-
   render() {
     //destructure props from mapStateToProps
     const {currentRecipe, directions, directionsNotes, dispatch, image, ingredients, ingredientsNotes, isRouting, name, recipes, url, user} = this.props;
@@ -79,11 +81,12 @@ class EditRecipeForm extends Component {
     if (isRouting === true) {
       return <Redirect to='/recipe-detail' />
     }
+
   return (
     <div>
       <form className='formLayout' onSubmit={submitForm.bind(this)}>
         <div className='formInputLayout'>
-          <label>Recipe Name:</label>
+          <label>Recipe Name <span className={this.props.nameError ? 'errorMessage' : 'noErrorMessage'}>Please Enter a Name</span></label>
           <input
             type="text"
             defaultValue={this.checkValue(name)}
