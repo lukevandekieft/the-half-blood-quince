@@ -9,7 +9,7 @@ class SignUpPage extends React.Component{
   constructor(props) {
     super(props);
     this.state = {
-      passwordError: false,
+      passwordMatchError: false,
     }
   }
 
@@ -33,7 +33,7 @@ class SignUpPage extends React.Component{
       event.preventDefault();
       let isValidUser = true;
       if(this._newPassword.value !== this._verifyPassword.value || !this._newPassword.value) {
-        this.setState({ passwordError: true });
+        this.setState({ passwordMatchError: true });
         isValidUser = false;
         console.log('fail');
       }
@@ -89,7 +89,7 @@ class SignUpPage extends React.Component{
                   ref={(input) => {this._newPassword = input;}}
                 ></input>
               </div>
-              <div className='inputField'>
+              <div className={this.state.passwordMatchError ? 'inputFieldError' : 'inputField'}>
                 <i className="fas fa-lock"></i>
                 <input
                   type='password'

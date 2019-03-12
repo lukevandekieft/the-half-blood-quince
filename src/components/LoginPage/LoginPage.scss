@@ -84,9 +84,9 @@
         align-items: center;
         border: 1px solid darken($background-color, 20%);
         color: darken($background-color, 20%);
+        background-color: white;
         border-radius: 4px;
         overflow: hidden;
-        background-color: white;
         transition: all .2s;
         i {
           margin-right: .5em;
@@ -114,13 +114,25 @@
           color: darken($background-color, 15%);
         }
       }
+      .inputFieldError {
+        @extend .inputField;
+        border: 1px solid red;
+        color: red;
+        background-color: lighten(red, 48%);
+        input {
+          background-color: lighten(red, 48%);
+        }
+      }
       button, .inputField {
         width: 80%;
       }
     }
     .inputField:focus-within {
-      color: darken($logo-color, 15%);
-      border: solid 1px darken($logo-color, 15%);
+
+    }
+    .inputFieldError:focus-within {
+      color: darken(red, 10%);
+      border: solid 1px darken(red, 10%);
     }
     .loginButton {
       position: relative;
