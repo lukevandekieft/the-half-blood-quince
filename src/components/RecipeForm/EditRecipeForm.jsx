@@ -86,8 +86,9 @@ class EditRecipeForm extends Component {
     <div>
       <form className='formLayout' onSubmit={submitForm.bind(this)}>
         <div className='formInputLayout'>
-          <label>Recipe Name <span className={this.props.nameError ? 'errorMessage' : 'noErrorMessage'}>Please Enter a Name</span></label>
+          <label>Recipe Name <span className={this.props.nameError ? 'errorMessage' : 'noErrorMessage'}>Please Enter a Name</span><span className={this.props.nameError ? 'noErrorMessage' : 'inputFieldNote'}>*  Required</span></label>
           <input
+            required
             type="text"
             defaultValue={this.checkValue(name)}
             id='name'
@@ -97,25 +98,25 @@ class EditRecipeForm extends Component {
           </input>
         </div>
         <div className='formInputLayout'>
-          <label>Recipe Link:</label>
+          <label>Recipe Link <span className='inputFieldNote'>(URL Format Only)</span></label>
           <input
-            type="url"
+            type="text"
             defaultValue={this.checkValue(url)}
             id='url'
             ref={(input) => {this._url = input;}}
           ></input>
         </div>
         <div className='formInputLayout'>
-          <label>Recipe Picture (link to picture):</label>
+          <label>Recipe Picture <span className='inputFieldNote'>(URL Format Only)</span></label>
           <input
-            type="url"
+            type="text"
             defaultValue={this.checkValue(image)}
             id='imageLink'
             ref={(input) => {this._imageLink = input;}}
           ></input>
         </div>
         <div className='formInputLayout'>
-          <label>Ingredients:</label>
+          <label>Ingredients</label>
           <textarea
             defaultValue={formatIngredients}
             id='ingredients'
@@ -123,7 +124,7 @@ class EditRecipeForm extends Component {
           ></textarea>
         </div>
         <div className='formInputLayout'>
-          <label>Ingredient Notes:</label>
+          <label>Ingredient Notes</label>
           <textarea
             defaultValue={formatIngredientsNotes}
             id='ingredientsNotes'
@@ -131,7 +132,7 @@ class EditRecipeForm extends Component {
           ></textarea>
         </div>
         <div className='formInputLayout'>
-          <label>Directions:</label>
+          <label>Directions</label>
           <textarea
             defaultValue={formatDirections}
             id='directions'
@@ -139,7 +140,7 @@ class EditRecipeForm extends Component {
           ></textarea>
         </div>
         <div className='formInputLayout'>
-          <label>Direction Notes:</label>
+          <label>Direction Notes</label>
           <textarea
             defaultValue={formatDirectionsNotes}
             id='directionsNotes'
