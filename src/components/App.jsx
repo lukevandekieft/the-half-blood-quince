@@ -1,4 +1,4 @@
-//dependencies
+//Dependencies
 import React, { Component } from 'react';
 import {BrowserRouter as Switch, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
@@ -37,6 +37,7 @@ class App extends Component {
     this.props.dispatch(checkLoginStatus());
   }
 
+  //Change state to show or hide main menu
   handleToggleMainMenu(menuState) {
     this.props.dispatch(toggleMainMenu(menuState));
   }

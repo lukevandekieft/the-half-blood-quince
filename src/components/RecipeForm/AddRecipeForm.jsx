@@ -28,10 +28,9 @@ class AddRecipeForm extends Component {
   }
 
   render() {
-    //destructure props from mapStateToProps
     const {currentRecipe, dispatch, isRouting, recipes, user } = this.props;
 
-    //on submission send added/edited recipe and route to said recipe
+    //submit recipe to database and route to new recipe page
     const submitForm = (event) => {
       event.preventDefault();
       let newRecipeList;
@@ -58,9 +57,11 @@ class AddRecipeForm extends Component {
       dispatch(changeRoute(true));
     }
 
+    //redirect on form submission
     if (isRouting === true) {
       return <Redirect to='/recipe-detail' />
     }
+
   return (
     <div>
       <form className='formLayout' onSubmit={submitForm.bind(this)}>

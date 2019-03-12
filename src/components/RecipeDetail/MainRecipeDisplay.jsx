@@ -10,7 +10,7 @@ function MainRecipeDisplay({dispatch, imageLink, name, showPopup, url }){
     backgroundImage: `url(${imageLink})`
   };
 
-  const handleClick = () => {
+  const handleTogglePopup = () => {
     dispatch(changePopupStatus(!showPopup));
   };
 
@@ -35,7 +35,7 @@ function MainRecipeDisplay({dispatch, imageLink, name, showPopup, url }){
             linkPath='/edit-recipe'
             linkText='Edit Recipe'
           />
-          <div className='centerMe' onClick={() => {handleClick();}}>
+          <div className='centerMe' onClick={() => {handleTogglePopup()}}>
             <button className='navButtonStyle button-red'>Delete Recipe</button>
           </div>
         </div>

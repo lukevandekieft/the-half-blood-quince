@@ -4,12 +4,14 @@ import { updateSearchValue } from '../../../actions';
 
 class SearchBar extends React.Component{
 
+  //Change search value to user input
   handleSearch = (event) => {
     event.preventDefault();
     let userInput = document.getElementById("recipeSearch").value;
     this.props.dispatch(updateSearchValue(userInput));
   };
 
+  //Cancel existing user search
   handleCancelSearch = () => {
     this.props.dispatch(updateSearchValue(null));
     this.recipeSearch.value = null;
@@ -17,7 +19,6 @@ class SearchBar extends React.Component{
 
   render() {
     const {searchValue} = this.props;
-
     let searchButton;
     if (searchValue) {
       searchButton =

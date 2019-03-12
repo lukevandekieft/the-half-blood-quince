@@ -26,7 +26,7 @@ class EditRecipeForm extends Component {
     }
   }
 
-//turn display text into array
+//turn displayed text into array
   createArray = (string) => {
     if(string) {
       string = `\n\n${string}`;
@@ -51,9 +51,6 @@ class EditRecipeForm extends Component {
   }
 
   render() {
-    // console.log(this.props.nameError);
-    // console.log(this.props.onInputValidation);
-    // const checkErrors = this.props.onInputValidation(this._name);
     //destructure props from mapStateToProps
     const {currentRecipe, directions, directionsNotes, dispatch, image, ingredients, ingredientsNotes, isRouting, name, recipes, url, user} = this.props;
 

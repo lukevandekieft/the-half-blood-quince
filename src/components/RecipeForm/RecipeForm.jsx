@@ -19,6 +19,7 @@ class RecipeEdit extends React.Component{
     window.scrollTo(0, 0);
   }
 
+  //Set nameError state based on name input value
   handleInputValidation(name) {
     if(name) {
       if (name.value.length > 0) {
@@ -33,7 +34,7 @@ class RecipeEdit extends React.Component{
   }
 
   render() {
-
+    //Render "new" or "edit" form based on whether a currentRecipe exists 
     let domDisplay;
     if (this.props.recipes) {
       if (this.props.recipes[this.props.currentRecipe]) {

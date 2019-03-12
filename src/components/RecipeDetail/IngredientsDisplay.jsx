@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 function IngredientsDisplay(props){
 
-// Format Display Text
+// Format IngredientsNotes section
   let headerSection = null;
   let formattedIngredientsNotes;
   if (props.ingredientsNotes) {
@@ -21,20 +21,25 @@ function IngredientsDisplay(props){
     formattedIngredientsNotes = null;
   }
 
+// Format Ingredients section
   let formattedIngredients;
   if (props.ingredients) {
-    formattedIngredients = props.ingredients;
+    formattedIngredients =
+      <React.Fragment>
+        <h3>Ingredients</h3>
+        <ul>
+          {props.ingredients.map(index => {
+            return <li key={index} className="recipeDetailList">{index}</li>;
+          })}
+        </ul>
+      </React.Fragment>
   } else {
-    formattedIngredients = [];
+    formattedIngredients = null;
   }
+
   return (
     <div>
-      {(props.ingredients) && (<h3>Ingredients</h3>)}
-      <ul>
-        {formattedIngredients.map(index => {
-          return <li key={index} className="recipeDetailList">{index}</li>;
-        })}
-      </ul>
+      {formattedIngredients}
       {headerSection}
     </div>
   );

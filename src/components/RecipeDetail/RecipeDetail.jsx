@@ -17,15 +17,18 @@ class RecipeDetail extends React.Component{
     this.props.dispatch(changeRoute(false));
   };
 
+  //Reset rerouting & popup if page is left
   componentWillUnmount() {
     this.props.dispatch(changeRoute(false));
     this.props.dispatch(changePopupStatus(false));
   };
 
+  //delete recipe from popup
   handleClickDelete = () => {
     this.props.dispatch(removeRecipe(this.props.currentRecipe, this.props.user));
   };
 
+  //close popup from popup
   handleClickCancel = () => {
     const newPopup = !this.props.showPopup;
     this.props.dispatch(changePopupStatus(newPopup));

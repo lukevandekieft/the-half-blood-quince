@@ -4,10 +4,13 @@ import PropTypes from 'prop-types';
 
 function NavButton(props) {
     const { linkPath, linkText, color } = props;
+
+    //if color prop is passed then change class
     let buttonStyle = 'navButtonStyle button-green';
     if (color) {
       buttonStyle = `navButtonStyle button-${color}`;
     }
+    
     return (
       <div className='centerMe'>
         <Link to={linkPath}><button className={buttonStyle}>{linkText}</button>

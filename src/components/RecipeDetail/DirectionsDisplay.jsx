@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 function DirectionsDisplay(props){
 
-//Format Display Text
+//Format DirectionsNotes section
   let headerSection;
   if (props.directionsNotes) {
     headerSection =
@@ -19,6 +19,7 @@ function DirectionsDisplay(props){
     headerSection = null;
   }
 
+//Format Directions section
   let formattedDirections;
   if (props.directions) {
     formattedDirections =

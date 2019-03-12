@@ -21,11 +21,13 @@ class HomePage extends React.Component{
   render() {
     const {dispatch, currentRecipe, recipes, searchValue, user } = this.props;
 
-    const handleRecipeClick = () => {
+    //Submit new currentRecipe id
+    const handleAddRecipe = () => {
       const newId = v4();
       dispatch(changeCurrentRecipe(newId, user));
     };
 
+    //Toggle recipe header when search is active
     let headerMessage;
     if (searchValue) {
       headerMessage = 'Search Results:';
@@ -47,7 +49,7 @@ class HomePage extends React.Component{
             searchValue={searchValue}
           />
           )}
-          <div onClick={() => {handleRecipeClick();}}>
+          <div onClick={() => {handleAddRecipe();}}>
             <NavButton
               linkPath='/edit-recipe'
               linkText='Add Recipe'

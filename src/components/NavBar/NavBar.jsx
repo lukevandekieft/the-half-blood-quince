@@ -28,5 +28,3 @@ NavBar.propTypes = {
 };
 
 export default connect(mapStateToProps)(NavBar);
-
-// <div className='navBarBackground'></div>

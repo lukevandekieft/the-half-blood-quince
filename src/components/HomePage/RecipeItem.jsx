@@ -6,10 +6,12 @@ import { changeCurrentRecipe } from '../../actions';
 
 function RecipeItem({dispatch, image, name, user, valueKey}) {
 
+  //Change currentRecipe to clicked item
   const handleClick = (key) => {
     dispatch(changeCurrentRecipe(key, user));
   };
 
+  //set background based on props
   const backgroundImage = {
     backgroundImage: `url(${image})`
   };
