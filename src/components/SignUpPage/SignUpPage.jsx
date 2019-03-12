@@ -6,12 +6,21 @@ import facebook from'../../assets/images/facebook.svg';
 import google from'../../assets/images/google.svg';
 
 class SignUpPage extends React.Component{
+  constructor(props) {
+    super(props);
+    this.state = {
+      passwordError: false,
+    }
+  }
+
   componentDidMount() {
     window.scrollTo(0, 0);
   }
-  
+
   _newEmail = null;
   _newPassword = null;
+  _newUserName = null;
+  _verifyPassword = null;
 
   render() {
     //Login OAuth providers
@@ -22,12 +31,20 @@ class SignUpPage extends React.Component{
     //Submit new user info
     const submitNewUserForm = (event) => {
       event.preventDefault();
-      const newUserInfo = {
-        email: this._newEmail.value,
-        password: this._newPassword.value,
-        userName: this._newUserName.value,
+      let isValidUser = true;
+      if(this._newPassword.value !== this._verifyPassword.value || !this._newPassword.value) {
+        this.setState({ passwordError: true });
+        isValidUser = false;
+        console.log('fail');
       }
-      this.props.dispatch(newEmailUser(newUserInfo));
+      if(isValidUser) {
+        const newUserInfo = {
+          email: this._newEmail.value,
+          password: this._newPassword.value,
+          userName: this._newUserName.value,
+        }
+        this.props.dispatch(newEmailUser(newUserInfo));
+      }
     }
 
     return (
@@ -68,8 +85,17 @@ class SignUpPage extends React.Component{
                 <input
                   type='password'
                   id='password'
-                  placeholder='password'
+                  placeholder='Password'
                   ref={(input) => {this._newPassword = input;}}
+                ></input>
+              </div>
+              <div className='inputField'>
+                <i className="fas fa-lock"></i>
+                <input
+                  type='password'
+                  id='confirmPassword'
+                  placeholder='Confirm Password'
+                  ref={(input) => {this._verifyPassword = input;}}
                 ></input>
               </div>
               <button type="submit" className='loginButton email'>Create Account</button>

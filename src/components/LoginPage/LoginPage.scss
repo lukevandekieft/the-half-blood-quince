@@ -72,8 +72,9 @@
       width: 100%;
       display: flex;
       flex-direction: column;
+      align-items: center;
       justify-content: center;
-      overflow: auto;
+      overflow: visible;
       div:nth-child(n-1) {
         margin-bottom: 10px;
       }
@@ -115,7 +116,6 @@
       }
       button, .inputField {
         width: 80%;
-        margin: 0 auto;
       }
     }
     .inputField:focus-within {
