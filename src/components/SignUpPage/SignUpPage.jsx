@@ -9,12 +9,24 @@ class SignUpPage extends React.Component{
   constructor(props) {
     super(props);
     this.state = {
+      emailError: false,
       passwordMatchError: false,
+      passwordValueError: false,
+      userNameError: false,
     }
   }
 
   componentDidMount() {
     window.scrollTo(0, 0);
+  }
+
+  componentWillUnmount() {
+    this.setState({
+      emailError: false,
+      passwordMatchError: false,
+      passwordValueError: false,
+      userNameError: false,
+    });
   }
 
   _newEmail = null;
@@ -31,11 +43,31 @@ class SignUpPage extends React.Component{
     //Submit new user info
     const submitNewUserForm = (event) => {
       event.preventDefault();
+      //check if all inputs are valid and preventing submission if not
       let isValidUser = true;
-      if(this._newPassword.value !== this._verifyPassword.value || !this._newPassword.value) {
+      if(this._newUserName.value) {
+        this.setState({ userNameError: false });
+      } else {
+        this.setState({ userNameError: true });
+        isValidUser = false;
+      }
+      if(this._newEmail.value) {
+        this.setState({ emailError: false });
+      } else {
+        this.setState({ emailError: true });
+        isValidUser = false;
+      }
+      if(this._newPassword.value) {
+        this.setState({ passwordValueError: false });
+      } else {
+        this.setState({ passwordValueError: true });
+        isValidUser = false;
+      }
+      if(this._newPassword.value === this._verifyPassword.value) {
+        this.setState({ passwordMatchError: false });
+      } else {
         this.setState({ passwordMatchError: true });
         isValidUser = false;
-        console.log('fail');
       }
       if(isValidUser) {
         const newUserInfo = {
@@ -62,7 +94,7 @@ class SignUpPage extends React.Component{
             </div>
 
             <form onSubmit={submitNewUserForm.bind(this)} className='loginForm'>
-              <div className='inputField'>
+              <div className={this.state.userNameError ? 'inputFieldError' : 'inputField'}>
                 <i className="fas fa-smile"></i>
                 <input
                   type='text'
@@ -71,7 +103,7 @@ class SignUpPage extends React.Component{
                   ref={(input) => {this._newUserName = input;}}
                 ></input>
               </div>
-              <div className='inputField'>
+              <div className={this.state.emailError ? 'inputFieldError' : 'inputField'}>
                 <i className="fas fa-user"></i>
                 <input
                   type='email'
@@ -80,7 +112,7 @@ class SignUpPage extends React.Component{
                   ref={(input) => {this._newEmail = input;}}
                 ></input>
               </div>
-              <div className='inputField'>
+              <div className={this.state.passwordValueError ? 'inputFieldError' : 'inputField'}>
                 <i className="fas fa-lock"></i>
                 <input
                   type='password'

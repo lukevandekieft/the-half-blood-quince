@@ -116,11 +116,14 @@
       }
       .inputFieldError {
         @extend .inputField;
-        border: 1px solid red;
-        color: red;
-        background-color: lighten(red, 48%);
+        border: 1px solid $input-error-color;
+        color: $input-error-color;
+        background-color: lighten($input-error-color, 48%);
         input {
-          background-color: lighten(red, 48%);
+          background-color: lighten($input-error-color, 48%);
+        }
+        input:-webkit-autofill {
+          -webkit-box-shadow: 0 0 0px 1000px lighten($input-error-color, 48%) inset;
         }
       }
       button, .inputField {
@@ -131,8 +134,11 @@
 
     }
     .inputFieldError:focus-within {
-      color: darken(red, 10%);
-      border: solid 1px darken(red, 10%);
+      color: darken($input-error-color, 10%);
+      border: solid 1px darken($input-error-color, 10%);
+      input {
+        background-color: lighten($input-error-color, 48%);
+      }
     }
     .loginButton {
       position: relative;

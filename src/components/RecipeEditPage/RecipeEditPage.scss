@@ -1,3 +1,5 @@
+@import '../sassVariables.scss';
+
 ul, ol {
    padding-left: 1.8rem;
    padding-bottom: 1rem;
@@ -27,19 +29,19 @@ ul, ol {
 }
 
 .inputError {
-  border: 1px solid red;
+  border: 1px solid $input-error-color;
   padding: 2px;
-  background: lighten(red, 48%);
+  background: lighten($input-error-color, 48%);
   &:focus {
     border: 1px solid transparent;
-    outline: red auto 5px;
-    -webkit-box-shadow: red auto 5px;
+    outline: $input-error-color auto 5px;
+    -webkit-box-shadow: $input-error-color auto 5px;
   }
 }
 
 .errorMessage {
   padding-left: 1rem;
-  color: red;
+  color: $input-error-color;
   font-style: italic;
 }
 .noErrorMessage {
