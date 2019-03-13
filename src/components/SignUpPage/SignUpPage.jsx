@@ -4,6 +4,7 @@ import { newEmailUser, newUserLogin } from './../../actions';
 import { Link } from 'react-router-dom';
 import facebook from'../../assets/images/facebook.svg';
 import google from'../../assets/images/google.svg';
+import twitter from '../../assets/images/twitter.svg';
 
 class SignUpPage extends React.Component{
   constructor(props) {
@@ -40,10 +41,9 @@ class SignUpPage extends React.Component{
       this.props.dispatch(newUserLogin(provider));
     };
 
-    //Submit new user info
+    //Submit new user info and verify that input values are acceptable
     const submitNewUserForm = (event) => {
       event.preventDefault();
-      //check if all inputs are valid and preventing submission if not
       let isValidUser = true;
       if(this._newUserName.value) {
         this.setState({ userNameError: false });
@@ -69,6 +69,7 @@ class SignUpPage extends React.Component{
         this.setState({ passwordMatchError: true });
         isValidUser = false;
       }
+
       if(isValidUser) {
         const newUserInfo = {
           email: this._newEmail.value,
@@ -89,6 +90,7 @@ class SignUpPage extends React.Component{
             <h2>Create Account Below</h2>
             <button className='loginButton google' onClick={() =>{handleLogin('google')}}><img className='logo' src={google} alt='Google Logo'/>Sign up with Google</button>
             <button className='loginButton facebook' onClick={() =>{handleLogin('facebook')}}><img className='logo' src={facebook} alt='Facebook Logo'/>Sign up with Facebook</button>
+            <button className='loginButton twitter' onClick={() =>{handleLogin('twitter')}}><img className='logo' src={twitter} alt='Twitter Logo'/>Sign up with Twitter</button>
             <div className='loginDivider'>
               <hr/><p>OR</p><hr/>
             </div>

@@ -9,16 +9,20 @@ firebase.initializeApp(firebaseConfig);
 
 const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
 const facebookAuthProvider = new firebase.auth.FacebookAuthProvider();
+const twitterAuthProvider = new firebase.auth.TwitterAuthProvider();
 const auth = firebase.auth();
 
 //FIREBASE LOGIN
 export function newUserLogin(authProvider) {
   return function (dispatch) {
+    console.log(authProvider)
     let authFunction;
     if (authProvider === 'google') {
       authFunction = auth.signInWithRedirect(googleAuthProvider);
     } else if (authProvider === 'facebook') {
       authFunction = auth.signInWithRedirect(facebookAuthProvider);
+    } else if (authProvider === 'twitter') {
+      authFunction = auth.signInWithRedirect(twitterAuthProvider);
     } else if (typeof authProvider === 'object') {
       authFunction = auth.signInWithEmailAndPassword(authProvider.email, authProvider.password);
     }
