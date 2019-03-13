@@ -29,10 +29,10 @@ class DiscoverPage extends React.Component{
 
     //Toggle recipe header when search is active
     let headerMessage;
-    if (searchValue) {
-      headerMessage = 'Search Results:';
+    if (searchList) {
+      headerMessage = 'Results from Last Search:';
     } else {
-      headerMessage = 'Current Recipes';
+      headerMessage = 'Search to find new recipes!';
     }
 
     return (

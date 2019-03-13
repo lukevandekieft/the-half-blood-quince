@@ -31,10 +31,12 @@ export function newUserLogin(authProvider) {
         dispatch(userLogin(result.user));
         dispatch(watchRecipes(result.user));
         dispatch(watchUserData(result.user));
+        dispatch(watchApiSearch(result.user));
       } else {
         dispatch(userLogin(result));
         dispatch(watchRecipes(result));
         dispatch(watchUserData(result));
+        dispatch(watchApiSearch(result));
       }
       dispatch(watchUserLoad());
     })
@@ -61,6 +63,7 @@ export function checkLoginStatus() {
         dispatch(userLogin(result.user));
         dispatch(watchRecipes(result.user));
         dispatch(watchUserData(result.user));
+        dispatch(watchApiSearch(result.user));
         dispatch(watchUserLoad());
       } else {
         auth.onAuthStateChanged(function(user) {
@@ -68,6 +71,7 @@ export function checkLoginStatus() {
             dispatch(userLogin(user));
             dispatch(watchRecipes(user));
             dispatch(watchUserData(user));
+            dispatch(watchApiSearch(user));
           }
           dispatch(watchUserLoad());
         });
@@ -196,14 +200,14 @@ export const updateSearchValue = (searchValue) => ({
 
 
 //SEARCH API RECIPES
-export function fetchApiSearchList(userInput) {
+export function fetchApiSearchList(userInput, user) {
   return function (dispatch) {
     dispatch(searchApiRecipes());
     return fetch('https://api.edamam.com/search?q=' + userInput + edamamConfig).then(
       response => response.json(),
       error => console.log('An error occurred.', error)
     ).then(function(json) {
-      let newRecipes = [];
+      let newRecipes = {};
       if (json.hits) {
         Object.keys(json.hits).map(recipeId => {
           const uniqueRecipeId = v4();
@@ -217,14 +221,26 @@ export function fetchApiSearchList(userInput) {
           };
           newRecipes[uniqueRecipeId] = recipeObject;
         });
-        dispatch(receiveApiRecipes(newRecipes));
-      } else {
-        dispatch(receiveApiRecipes(false));
       }
+      dispatch(submitApiSearch(newRecipes, user));
       console.log(newRecipes);
     });
   };
 }
+
+export function watchApiSearch(user) {
+  return function(dispatch) {
+    firebase.database().ref(`users/${user.uid}/lastRecipeSearch`).on('value', data => {
+      dispatch(receiveApiRecipes(data.val()));
+    });
+  };
+}
+
+export function submitApiSearch (_recipeList, user) {
+  return () => firebase.database().ref(`users/${user.uid}`).update({
+    lastRecipeSearch: _recipeList
+  });
+};
 
 export const searchApiRecipes = () => ({
   type: types.SEARCH_API_RECIPES,

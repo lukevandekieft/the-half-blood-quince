@@ -11,7 +11,7 @@ class SearchBar extends React.Component{
     let userInput = document.getElementById("recipeSearch").value;
     this.props.dispatch(updateSearchValue(userInput));
     if (this.props.location.pathname === '/discover-recipes') {
-      this.props.dispatch(fetchApiSearchList(userInput));
+      this.props.dispatch(fetchApiSearchList(userInput, this.props.user));
     }
   };
 
@@ -47,7 +47,8 @@ class SearchBar extends React.Component{
 
 const mapStateToProps = state => {
   return {
-    searchValue: state.searchValue
+    searchValue: state.searchValue,
+    user: state.user,
   };
 };
 
