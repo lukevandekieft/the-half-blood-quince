@@ -3,7 +3,8 @@ import * as types from './../constants/ActionTypes';
 import firebase from 'firebase';
 import FirebaseAuth from 'react-firebaseui';
 import constants from './../constants';
-const { firebaseConfig } = constants;
+import { v4 } from 'uuid';
+const { firebaseConfig, edamamConfig } = constants;
 
 firebase.initializeApp(firebaseConfig);
 
@@ -131,7 +132,6 @@ export const updateRecipeList = (recipeList) => ({
 })
 
 export function watchRecipes(user) {
-  console.log(user);
   return function(dispatch) {
     firebase.database().ref(`users/${user.uid}/recipes`).on('value', data => {
       dispatch(updateRecipeList(data.val()));
@@ -158,7 +158,6 @@ export const loadState = (stateLoaded) => ({
 
 export function watchUserLoad() {
   return function(dispatch) {
-    console.log('check connection');
     firebase.database().ref(`users/loadedInitialState`).on('value', data => {
       dispatch(loadState(true));
     });
@@ -200,7 +199,7 @@ export const updateSearchValue = (searchValue) => ({
 export function fetchApiSearchList(userInput) {
   return function (dispatch) {
     dispatch(searchApiRecipes());
-    return fetch('https://api.edamam.com/search?q=' + userInput + '&app_id=604ff2e9&app_key=2c3508b8450862c662b8c50f0b5bf536').then(
+    return fetch('https://api.edamam.com/search?q=' + userInput + edamamConfig).then(
       response => response.json(),
       error => console.log('An error occurred.', error)
     ).then(function(json) {

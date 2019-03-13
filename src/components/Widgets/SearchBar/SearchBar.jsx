@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { updateSearchValue } from '../../../actions';
+import { updateSearchValue, fetchApiSearchList } from '../../../actions';
 import { withRouter } from 'react-router-dom';
 
 class SearchBar extends React.Component{
@@ -11,9 +11,7 @@ class SearchBar extends React.Component{
     let userInput = document.getElementById("recipeSearch").value;
     this.props.dispatch(updateSearchValue(userInput));
     if (this.props.location.pathname === '/discover-recipes') {
-      console.log("right route!")
-    } else {
-      console.log("nope...");
+      this.props.dispatch(fetchApiSearchList(userInput));
     }
   };
 
