@@ -57,7 +57,7 @@ class SignUpPage extends React.Component{
         this.setState({ emailError: true });
         isValidUser = false;
       }
-      if(this._newPassword.value) {
+      if(this._newPassword.value.length > 5) {
         this.setState({ passwordValueError: false });
       } else {
         this.setState({ passwordValueError: true });
