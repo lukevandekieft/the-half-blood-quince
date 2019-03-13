@@ -9,6 +9,7 @@ import mainMenuReducer from './../../reducers/main-menu-reducer';
 import popupReducer from './../../reducers/popup-reducer';
 import recipeReducer from './../../reducers/recipe-reducer';
 import rootReducer from './../../reducers/';
+import searchApiReducer from './../../reducers/search-api-reducer';
 import searchReducer from './../../reducers/search-reducer';
 
 describe('Recipe App', () => {
@@ -141,6 +142,12 @@ describe('Recipe App', () => {
           };
       const action = actions.updateRecipeList(newRecipeList);
       expect(recipeReducer(initialState.users['initialLoadUser'].recipes, action)).toEqual(newRecipeList);
+    });
+  });
+
+  describe('searchApiReducer', () => {
+    it('Should accept and return initial state.', () => {
+      expect(searchReducer(initialState, { type: null })).toEqual(initialState);
     });
   });
 

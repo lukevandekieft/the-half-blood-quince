@@ -50,6 +50,13 @@ function MenuModal(props) {
                       color='white'
                     />
                   </div>
+                  <div onClick={() => {handleRoute('/discover-recipes');}}>
+                    <NavButton
+                      linkPath='/discover-recipes'
+                      linkText='Find Recipes'
+                      color='white'
+                    />
+                  </div>
                   <div onClick={() => {handleRoute('/edit-recipe');}}>
                     <NavButton
                       linkPath='/edit-recipe'
