@@ -5,10 +5,11 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 //local files
+import DiscoverPage from './DiscoverPage/DiscoverPage.jsx';
+import HomePage from './HomePage/HomePage.jsx';
 import LoginPage from './LoginPage/LoginPage.jsx';
 import MenuModal from './Widgets/MenuModal/MenuModal.jsx';
 import NavBar from './NavBar/NavBar.jsx';
-import HomePage from './HomePage/HomePage.jsx';
 import PrivateRoute from './Routes/PrivateRoute.jsx';
 import PublicRoute from './Routes/PublicRoute.jsx';
 import RecipeDetail from './RecipeDetail/RecipeDetail.jsx';
@@ -18,6 +19,7 @@ import { toggleMainMenu, checkLoginStatus } from './../actions';
 
 //styles
 import './App.scss';
+import './DiscoverPage/DiscoverPage.scss';
 import './HomePage/HomePage.scss';
 import './LoginPage/LoginPage.scss';
 import './NavBar/NavBar.scss';
@@ -53,6 +55,7 @@ class App extends Component {
             <PrivateRoute path='/' component={HomePage}/>
             <PrivateRoute path='/recipe-detail' component={RecipeDetail}/>
             <PrivateRoute path='/edit-recipe' component={RecipeEditPage}/>
+            <PrivateRoute path='/discover-recipes' component={DiscoverPage}/>
             <PublicRoute path='/login' component={LoginPage}/>
             <PublicRoute path='/signup' component={SignUpPage}/>
           </div>
