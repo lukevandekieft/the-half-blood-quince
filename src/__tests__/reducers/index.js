@@ -150,6 +150,14 @@ describe('Recipe App', () => {
     it('Should accept and return initial state.', () => {
       expect(searchReducer(initialState, { type: null })).toEqual(initialState);
     });
+    it('Should change isFetching to true when search is made.', () => {
+      sampleState = {
+        isFetching: true,
+        searchList: null,
+      };
+      const action = actions.searchApiRecipes('Peanut');
+      expect(searchReducer(initialState.users['initialLoadUser'].lastRecipeSearch, action)).toEqual(sampleState);
+    });
   });
 
   describe('searchReducer', () => {
