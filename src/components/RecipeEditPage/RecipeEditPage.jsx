@@ -23,13 +23,11 @@ class RecipeEdit extends React.Component{
   handleInputValidation(name) {
     if(name) {
       if (name.value.length > 0) {
-        console.log(name.value.length);
         this.setState({ nameError: false });
       } else {
         console.log('wut up');
         this.setState({ nameError: true });
       }
-      console.log(this.state);
     }
   }
 

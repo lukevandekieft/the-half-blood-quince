@@ -172,6 +172,8 @@
         }
       }
     }
+
+    //LOGIN BUTTONS
     .loginButton {
       position: relative;
       display: flex;
@@ -204,12 +206,17 @@
     }
     .loginButton.facebook {
       color: #ffffff;
-      @include gradient-animation(transparent, transparent, #4267B2, #4267B2, darken(#4267B2, 8%), darken(#4267B2, 8%), .3s );
+      @include gradient-animation(transparent, transparent, #4267B2, #4267B2, darken(#4267B2, 10%), darken(#4267B2, 10%), .3s );
       margin-top: $margin-md;
     }
     .loginButton.google {
       color: #6a737c;
-      @include gradient-animation(#adb3b9, #adb3b9, #ffffff, #ffffff, darken(#fff, 3%), darken(#fff, 3%), .3s );
+      @include gradient-animation(#adb3b9, #adb3b9, #ffffff, #ffffff, darken(#fff, 5%), darken(#fff, 5%), .3s );
+    }
+    .loginButton.twitter {
+      margin-top: $margin-md;
+      color: #ffffff;
+      @include gradient-animation(transparent, transparent, #1DA1F2, #1DA1F2, darken(#1DA1F2, 10%), darken(#1DA1F2, 10%), .3s );
     }
     .loginButton.demo {
       color: darken($logo-color, 50%);

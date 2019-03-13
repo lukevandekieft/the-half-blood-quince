@@ -15,7 +15,6 @@ const auth = firebase.auth();
 //FIREBASE LOGIN
 export function newUserLogin(authProvider) {
   return function (dispatch) {
-    console.log(authProvider)
     let authFunction;
     if (authProvider === 'google') {
       authFunction = auth.signInWithRedirect(googleAuthProvider);
