@@ -194,3 +194,9 @@ export const updateSearchValue = (searchValue) => ({
   type: types.SEARCH,
   searchTerm: searchValue
 });
+
+
+//SEARCH API RECIPES
+export const searchApiRecipes = () => ({
+  type: types.SEARCH_API_RECIPES,
+})

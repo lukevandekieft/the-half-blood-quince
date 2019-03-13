@@ -148,15 +148,15 @@ describe('Recipe App', () => {
 
   describe('searchApiReducer', () => {
     it('Should accept and return initial state.', () => {
-      expect(searchReducer(initialState, { type: null })).toEqual(initialState);
+      expect(searchApiReducer(initialState, { type: null })).toEqual(initialState);
     });
     it('Should change isFetching to true when search is made.', () => {
-      sampleState = {
+      const sampleState = {
         isFetching: true,
         searchList: null,
       };
-      const action = actions.searchApiRecipes('Peanut');
-      expect(searchReducer(initialState.users['initialLoadUser'].lastRecipeSearch, action)).toEqual(sampleState);
+      const action = actions.searchApiRecipes();
+      expect(searchApiReducer(initialState.users['initialLoadUser'].lastRecipeSearch, action)).toEqual(sampleState);
     });
   });
 
