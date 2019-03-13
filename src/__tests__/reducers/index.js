@@ -158,6 +158,21 @@ describe('Recipe App', () => {
       const action = actions.searchApiRecipes();
       expect(searchApiReducer(initialState.users['initialLoadUser'].lastRecipeSearch, action)).toEqual(sampleState);
     });
+    it('Should return search results and reset isFetching to false.', () => {
+      const sampleState = {
+        isFetching: false,
+        searchList: [
+          'pizza': {
+            name: 'pizza',
+            image: 'url.funzies',
+            ingredients: 'Boil em mash em stick em in a stew',
+            url: 'url funzies 2.0',
+            key: 'ID number'
+          }],
+      };
+      const action = actions.receiveApiRecipes();
+      expect(searchApiReducer(initialState.users['initialLoadUser'].lastRecipeSearch, action)).toEqual(sampleState);
+    });
   });
 
   describe('searchReducer', () => {
