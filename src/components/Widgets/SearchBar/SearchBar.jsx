@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { updateSearchValue } from '../../../actions';
+import { withRouter } from 'react-router-dom';
 
 class SearchBar extends React.Component{
 
@@ -9,6 +10,11 @@ class SearchBar extends React.Component{
     event.preventDefault();
     let userInput = document.getElementById("recipeSearch").value;
     this.props.dispatch(updateSearchValue(userInput));
+    if (this.props.location.pathname === '/discover-recipes') {
+      console.log("right route!")
+    } else {
+      console.log("nope...");
+    }
   };
 
   //Cancel existing user search
@@ -47,4 +53,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(SearchBar);
+export default withRouter(connect(mapStateToProps)(SearchBar));

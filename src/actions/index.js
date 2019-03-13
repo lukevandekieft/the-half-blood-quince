@@ -197,6 +197,37 @@ export const updateSearchValue = (searchValue) => ({
 
 
 //SEARCH API RECIPES
+export function fetchApiSearchList(userInput) {
+  return function (dispatch) {
+    dispatch(searchApiRecipes());
+    return fetch('https://api.edamam.com/search?q=' + userInput + '&app_id=604ff2e9&app_key=2c3508b8450862c662b8c50f0b5bf536').then(
+      response => response.json(),
+      error => console.log('An error occurred.', error)
+    ).then(function(json) {
+      let newRecipes = [];
+      if (json.hits) {
+        Object.keys(json.hits).map(recipeId => {
+          const uniqueRecipeId = v4();
+          let dish = json.hits[recipeId];
+          let recipeObject = {
+            name: dish.recipe.label,
+            image: dish.recipe.image,
+            ingredients: dish.recipe.ingredientLines,
+            url: dish.recipe.url,
+            displayDetail: false,
+            key: uniqueRecipeId
+          };
+          newRecipes.push(recipeObject);
+        });
+        dispatch(receiveApiRecipes(newRecipes));
+      } else {
+        dispatch(receiveApiRecipes(false));
+      }
+      console.log(newRecipes);
+    });
+  };
+}
+
 export const searchApiRecipes = () => ({
   type: types.SEARCH_API_RECIPES,
 })
