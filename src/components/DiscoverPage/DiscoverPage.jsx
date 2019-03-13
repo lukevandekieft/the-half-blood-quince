@@ -19,7 +19,7 @@ class DiscoverPage extends React.Component{
   }
 
   render() {
-    const {dispatch, currentRecipe, recipes, searchList, searchValue, user } = this.props;
+    const {dispatch, currentRecipe, recipes, searchList, searchTerm, searchValue, user } = this.props;
 
     //Submit new currentRecipe id
     const handleAddRecipe = () => {
@@ -29,8 +29,8 @@ class DiscoverPage extends React.Component{
 
     //Toggle recipe header when search is active
     let headerMessage;
-    if (searchList) {
-      headerMessage = 'Results from Last Search:';
+    if (searchTerm) {
+      headerMessage = `Showing results for '${searchTerm}'`;
     } else {
       headerMessage = 'Search to find new recipes!';
     }
@@ -64,6 +64,7 @@ const mapStateToProps = state => {
   return {
     currentRecipe: state.currentRecipeId,
     searchList: state.lastRecipeSearch.searchList,
+    searchTerm: state.lastRecipeSearch.searchTerm,
     recipes: state.recipes,
     searchValue: state.searchValue,
     user: state.user,

@@ -23,6 +23,8 @@ class SearchBar extends React.Component{
 
   render() {
     const {searchValue} = this.props;
+
+    //Determines which button to display based on search value
     let searchButton;
     if (searchValue) {
       searchButton =
@@ -36,9 +38,17 @@ class SearchBar extends React.Component{
       </button>
     }
 
+    //Sets placeholder based on router
+    let placeholderText;
+    if (this.props.location.pathname === '/discover-recipes') {
+      placeholderText = 'Find New Recipes!';
+    } else if (this.props.location.pathname === '/') {
+      placeholderText = 'Search Your Recipes...';
+    }
+
     return (
       <form className="searchBox" onSubmit={this.handleSearch.bind(this)}>
-        <input type="text" className="searchInput" id='recipeSearch' ref={ el => this.recipeSearch = el} placeholder="Search Your Recipes..."/>
+        <input type="text" className="searchInput" id='recipeSearch' ref={ el => this.recipeSearch = el} placeholder={placeholderText}/>
         {searchButton}
       </form>
     );

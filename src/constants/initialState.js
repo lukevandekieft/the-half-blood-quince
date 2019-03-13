@@ -13,6 +13,7 @@ export const initialState = {
       lastRecipeSearch : {
         isFetching: false,
         searchList: null,
+        searchTerm: null,
       },
       recipes : {
         split_pea_soup : {

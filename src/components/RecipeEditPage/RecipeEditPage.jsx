@@ -25,7 +25,6 @@ class RecipeEdit extends React.Component{
       if (name.value.length > 0) {
         this.setState({ nameError: false });
       } else {
-        console.log('wut up');
         this.setState({ nameError: true });
       }
     }

@@ -222,8 +222,7 @@ export function fetchApiSearchList(userInput, user) {
           newRecipes[uniqueRecipeId] = recipeObject;
         });
       }
-      dispatch(submitApiSearch(newRecipes, user));
-      console.log(newRecipes);
+      dispatch(submitApiSearch(newRecipes, userInput, user));
     });
   };
 }
@@ -236,9 +235,12 @@ export function watchApiSearch(user) {
   };
 }
 
-export function submitApiSearch (_recipeList, user) {
+export function submitApiSearch (recipeList, searchTerm, user) {
   return () => firebase.database().ref(`users/${user.uid}`).update({
-    lastRecipeSearch: _recipeList
+    lastRecipeSearch: {
+      searchList: recipeList,
+      searchTerm: searchTerm,
+    }
   });
 };
 
@@ -248,5 +250,6 @@ export const searchApiRecipes = () => ({
 
 export const receiveApiRecipes = (receivedRecipes) => ({
   type: types.RECEIVE_API_RECIPES,
-  recipeList: receivedRecipes,
+  searchList: receivedRecipes.searchList,
+  searchTerm: receivedRecipes.searchTerm,
 });
