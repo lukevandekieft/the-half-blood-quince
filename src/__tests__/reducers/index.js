@@ -32,7 +32,8 @@ describe('Recipe App', () => {
       expect(authReducer(initialState, { type: null })).toEqual(initialState);
     });
     it('Should remove user data when logout is selected.', () => {
-      const logoutUser = null;
+      const logoutUser =
+      { uid: null }
       const action = {
         type: types.USER_LOGOUT,
         user: {
