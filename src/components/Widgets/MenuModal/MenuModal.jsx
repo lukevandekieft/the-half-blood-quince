@@ -15,11 +15,13 @@ function MenuModal(props) {
       onToggleMenu(mainMenuShowing);
     };
 
+    //Logout current user & close modal
     const handleLogout = () => {
       dispatch(newUserLogout());
       onToggleMenu(mainMenuShowing);
     };
 
+    //Close modal on click and create new recipe if going to 'edit-recipe' route
     const handleRoute = (route) => {
       onToggleMenu(mainMenuShowing);
       if (route === '/edit-recipe') {
@@ -31,7 +33,7 @@ function MenuModal(props) {
     return (
       <div className={props.mainMenuShowing ? 'menuModal modal-open-style' : 'menuModal'}>
         <div className='modal-top'>
-          <i className='material-icons navButtonStyle' onClick={() => {props.onToggleMenu(props.mainMenuShowing);}} tabindex="0">close</i>
+          <i className='material-icons navButtonStyle' onClick={() => {props.onToggleMenu(props.mainMenuShowing);}} tabIndex="0">close</i>
         </div>
         <div className='modal-body'>
           <div className='accordion-list'>

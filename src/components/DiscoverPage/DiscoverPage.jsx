@@ -5,10 +5,10 @@ import { changeCurrentRecipe, updateSearchValue } from '../../actions';
 import { v4 } from 'uuid';
 
 import NavButton from '../Widgets/NavButton/NavButton';
-import RecipeList from './RecipeList';
+import RecipeList from '../HomePage/RecipeList';
 import SearchBar from '../Widgets/SearchBar/SearchBar';
 
-class HomePage extends React.Component{
+class DiscoverPage extends React.Component{
 
   componentDidMount() {
     window.scrollTo(0, 0);
@@ -69,7 +69,7 @@ const mapStateToProps = state => {
   };
 };
 
-HomePage.propTypes = {
+DiscoverPage.propTypes = {
   currentRecipe: PropTypes.string,
   recipes: PropTypes.object,
   searchValue: PropTypes.any,
@@ -77,4 +77,4 @@ HomePage.propTypes = {
 
 };
 
-export default connect(mapStateToProps)(HomePage);
+export default connect(mapStateToProps)(DiscoverPage);

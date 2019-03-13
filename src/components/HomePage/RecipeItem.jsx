@@ -6,10 +6,12 @@ import { changeCurrentRecipe } from '../../actions';
 
 function RecipeItem({dispatch, image, name, user, valueKey}) {
 
+  //Change currentRecipe to clicked item
   const handleClick = (key) => {
     dispatch(changeCurrentRecipe(key, user));
   };
 
+  //set background based on props
   const backgroundImage = {
     backgroundImage: `url(${image})`
   };
@@ -18,7 +20,11 @@ function RecipeItem({dispatch, image, name, user, valueKey}) {
     <div className='recipeItemBox' onClick={() => {handleClick(valueKey);}}>
       <Link to='/recipe-detail'>
         <h3>{name}</h3>
-        <div className='recipeItemImageContainer' style={backgroundImage}>
+        <div className='recipeItemImageContainer'>
+          <div className='imagePlaceholder'>
+          </div>
+          <div className='recipeImage' style={backgroundImage}>
+          </div>
         </div>
       </Link>
     </div>

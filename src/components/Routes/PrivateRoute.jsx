@@ -11,6 +11,7 @@ const PrivateRoute = ({
   user,
   ...otherProps
 }) => (
+  //If user exists load page, otherwise redirect to LoginPage
   <Route exact {...otherProps} render={(props) => {
     if (loadedInitialState) {
       if (user.uid && user.uid !=='initialLoadUser') {

@@ -3,39 +3,41 @@ import PropTypes from 'prop-types';
 
 function DirectionsDisplay(props){
 
-//Format Display Text
-  let headerSection = null;
-  let formattedDirectionsNotes;
+//Format DirectionsNotes section
+  let headerSection;
   if (props.directionsNotes) {
-    formattedDirectionsNotes = props.directionsNotes;
     headerSection =
       <React.Fragment>
         <h3>Directions Notes</h3>
         <ul>
-          {formattedDirectionsNotes.map(index => {
+          {props.directionsNotes.map(index => {
             return <li key={index} className="recipeDetailList">{index}</li>;
           })}
         </ul>
       </React.Fragment>;
   } else {
-    formattedDirectionsNotes = null;
+    headerSection = null;
   }
 
+//Format Directions section
   let formattedDirections;
   if (props.directions) {
-    formattedDirections = props.directions;
+    formattedDirections =
+    <React.Fragment>
+      <h3>Directions</h3>
+      <ol>
+        {props.directions.map(index => {
+          return <li key={index} className="recipeDetailList">{index}</li>;
+        })}
+      </ol>
+    </React.Fragment>;
   } else {
-    formattedDirections = [];
+    formattedDirections = null;
   }
 
   return (
     <div>
-      <h3>Directions</h3>
-      <ol>
-        {formattedDirections.map(index => {
-          return <li key={index} className="recipeDetailList">{index}</li>;
-        })}
-      </ol>
+      {formattedDirections}
       {headerSection}
     </div>
   );

@@ -1,0 +1,54 @@
+@import '../sassVariables.scss';
+
+ul, ol {
+   padding-left: 1.8rem;
+   padding-bottom: 1rem;
+}
+
+.formLayout {
+ min-width: 200px;
+ max-width: 70%;
+ margin: 0 auto;
+}
+
+.formInputLayout {
+ margin: 2rem auto;
+ display: flex;
+ flex-direction: column;
+ textarea, input {
+   margin-top: 1rem;
+ }
+ textarea {
+   height: 12rem;
+ }
+}
+
+.centerMe {
+ margin: 0 auto;
+ text-align: center;
+}
+
+.inputError {
+  border: 1px solid $input-error-color;
+  padding: 2px;
+  background: lighten($input-error-color, 48%);
+  &:focus {
+    border: 1px solid transparent;
+    outline: $input-error-color auto 5px;
+    -webkit-box-shadow: $input-error-color auto 5px;
+  }
+}
+
+.errorMessage {
+  padding-left: 1rem;
+  color: $input-error-color;
+  font-style: italic;
+}
+.noErrorMessage {
+  display: none;
+}
+.inputFieldNote {
+  padding-left: 1rem;
+  color: grey;
+  font-style: italic;
+}

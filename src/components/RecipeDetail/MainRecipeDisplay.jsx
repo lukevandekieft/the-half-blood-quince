@@ -10,25 +10,32 @@ function MainRecipeDisplay({dispatch, imageLink, name, showPopup, url }){
     backgroundImage: `url(${imageLink})`
   };
 
-  const handleClick = () => {
+  const handleTogglePopup = () => {
     dispatch(changePopupStatus(!showPopup));
   };
 
   return (
     <div className='mainRecipeContainer'>
-      <div className='recipeDetailPicture' style={backgroundImage} alt={altText}></div>
+      <div className='recipeDetailPicture'>
+        <div className='imagePlaceholder'>
+        </div>
+        <div className='recipeImage'  style={backgroundImage} alt={altText}>
+        </div>
+      </div>
 
       <div className='mainDetailContainer'>
         <h1 className='centerMe'>{name}</h1>
         <div>
+        {(url) && (
           <div className='centerMe'>
             <button className='navButtonStyle button-green'><a className='linkStyle' href={url}>Link to Page</a></button>
           </div>
+        )}
           <NavButton
             linkPath='/edit-recipe'
             linkText='Edit Recipe'
           />
-          <div className='centerMe' onClick={() => {handleClick();}}>
+          <div className='centerMe' onClick={() => {handleTogglePopup()}}>
             <button className='navButtonStyle button-red'>Delete Recipe</button>
           </div>
         </div>

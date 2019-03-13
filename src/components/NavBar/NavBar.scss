@@ -30,6 +30,9 @@
     font-size: 3rem;
     margin-right: 15px;
   }
+  i:focus {
+    box-shadow: none;
+  }
   a {
     color: white;
   }

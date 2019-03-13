@@ -10,7 +10,7 @@ At its core this app is a virtual cookbook. Where existing cooking apps emphasiz
 
 Plenty of powerful cooking apps exist like Pinterest, Yummly, and AllRecipes. My personal favorite Yummly provides over 2 million recipes, easy serving adjustments, a shopping list, and suggested recipes. With all those benefits why bother making yet another contender?
 
-I feel that popular cooking apps gain functionality at the expense of personalization. In a printed book I can add any recipe I want simply by inserting a page and I can add notes by simply writing in the margins, a la Harry Potter’s Half-Blood Prince. By contrast I cannot edit an online recipe without the author’s permission and recipe apps don't always include meaningful note-taking or authorship options. Furthermore every app has a limited repetoire so more obscure recipes can't be included (looking at you, vegan mapo tofu). These are basic but important needs that have prevented me from going all-in with an existing platform.
+I feel that popular cooking apps gain functionality at the expense of personalization. In a printed book I can add any recipe I want simply by inserting a page and I can add notes by simply writing in the margins, a la Harry Potter’s Half-Blood Prince. By contrast I cannot edit an online recipe without the author’s permission and recipe apps don't always include meaningful note-taking or authorship options. Furthermore every app has a limited repertoire so more obscure recipes can't be included (looking at you, vegan mapo tofu). These are basic but important needs that have prevented me from going all-in with an existing platform.
 
 While Half-Blood Quince isn't as powerful or flashy as others it allows unprecedented customization: all your recipes can be added and edited just like a print cooking binder! Welcome to home base for storing, editing, and growing your recipe collection.
 <br>
@@ -20,15 +20,14 @@ While Half-Blood Quince isn't as powerful or flashy as others it allows unpreced
 **Current Goals:**
 
 * 'Suggested Recipes' and 'Search Recipes' sections from 3rd parties.
-* User authentication with unique persistent data for each user.
-* Improve functions for parsing user-submitted data like ingredients. 
-* Improve forms for mobile and set restrictions for null/poorly formatted content.
+* Improve messages and parsing for user login fields.
+* Improve functions for parsing user-submitted data like ingredients.
 * Add servings feature that alters ingredient list amounts multiplicatively based on user-entered serving number.
 * Allow each individual ingredient/direction to have its own note(s) - MVP data structure just has a lump of notes alluding to a lump of data.
 * Add “considered” note type to be distinguished from “confirmed” notes (e.g. “Try serving with rice” vs. “can sub rice for flatbread”).
-* Add specific 'Add Note' UI process that is easier to use, incapable of editing core recipe features, and less severe-looking than the basic update function.
 * Give recipes tags & categories for searching & organizing.
 * API calls to spoontacular’s Food API, Edamam’s Recipe Search API, or similar database.
+* Better solutions for button selection: currently menu icon has no pretty option to show it's been tabbed.
 
 
 ## Setup/Installation Requirements

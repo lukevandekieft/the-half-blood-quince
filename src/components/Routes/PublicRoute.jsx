@@ -11,6 +11,7 @@ const PublicRoute = ({
   user,
   ...otherProps
 }) => (
+  //If user exists redirect to HomePage, otherwise display component
   <Route exact {...otherProps} render={(props) => {
     if (loadedInitialState) {
       if (user.uid && user.uid !=='initialLoadUser') {

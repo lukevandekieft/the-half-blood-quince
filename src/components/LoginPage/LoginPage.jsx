@@ -2,10 +2,15 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { newUserLogin } from './../../actions';
 import { Link } from 'react-router-dom';
+
 import facebook from'../../assets/images/facebook.svg';
 import google from'../../assets/images/google.svg';
+import twitter from'../../assets/images/twitter.svg';
 
 class LoginPage extends React.Component{
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
 
   _loginEmail = null;
   _loginPassword = null;
@@ -33,7 +38,7 @@ class LoginPage extends React.Component{
           <div className='navBarMargin'></div>
           <div className='loginBox'>
 
-            <div className= 'loginSection'>
+            <div className= 'loginSection demo'>
               <h2>Welcome to Half-Blood Quince!</h2>
               <p>Feel free to look around on our demo account below:</p>
               <button className='loginButton demo' onClick={() =>{handleLogin({email: 'ramb222@yahoo.com', password: 'testpassword'})}}>View Demo</button>
@@ -43,6 +48,7 @@ class LoginPage extends React.Component{
               <h3>Log in Below</h3>
               <button className='loginButton google' onClick={() =>{handleLogin('google')}}><img className='logo' src={google} alt='Google Logo'/>Log in with Google</button>
               <button className='loginButton facebook' onClick={() =>{handleLogin('facebook')}}><img className='logo' src={facebook} alt='Facebook Logo'/>Log in with Facebook</button>
+              <button className='loginButton twitter' onClick={() =>{handleLogin('twitter')}}><img className='logo' src={twitter} alt='Twitter Logo'/>Log in with Twitter</button>
               <div className='loginDivider'>
                 <hr/><p>OR</p><hr/>
               </div>

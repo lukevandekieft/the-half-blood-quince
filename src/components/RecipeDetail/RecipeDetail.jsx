@@ -17,45 +17,57 @@ class RecipeDetail extends React.Component{
     this.props.dispatch(changeRoute(false));
   };
 
+  //Reset rerouting & popup if page is left
   componentWillUnmount() {
     this.props.dispatch(changeRoute(false));
     this.props.dispatch(changePopupStatus(false));
   };
 
+  //delete recipe from popup
   handleClickDelete = () => {
     this.props.dispatch(removeRecipe(this.props.currentRecipe, this.props.user));
   };
 
+  //close popup from popup
   handleClickCancel = () => {
     const newPopup = !this.props.showPopup;
     this.props.dispatch(changePopupStatus(newPopup));
   };
 
   render(){
+    const {currentRecipe, recipes, showPopup } = this.props;
+
+    console.log(this.props.currentRecipe)
     return (
       <div className='contentContainer'>
       <NavBarBacksplash />
         <div className='pageContentSection detailFlex'>
           <MainRecipeDisplay
-            name = {this.props.recipes[this.props.currentRecipe].name}
-            imageLink = {this.props.recipes[this.props.currentRecipe].imageLink}
-            url = {this.props.recipes[this.props.currentRecipe].url}
+            name = {recipes[currentRecipe].name}
+            imageLink = {recipes[currentRecipe].imageLink}
+            url = {recipes[currentRecipe].url}
           />
           <div className='directionDisplay'>
+          {(!recipes[currentRecipe].ingredients && !recipes[currentRecipe].ingredientsNotes && !recipes[currentRecipe].directions && !recipes[currentRecipe].directionsNotes) && (
+            <div className='emptyContentMessage'>
+              <h2>There's nothing here!</h2>
+              <p>Edit to add ingredients, directions, and notes</p>
+            </div>
+          )}
             <IngredientsDisplay
-              ingredients = {this.props.recipes[this.props.currentRecipe].ingredients}
-              ingredientsNotes = {this.props.recipes[this.props.currentRecipe].ingredientsNotes}
+              ingredients = {recipes[currentRecipe].ingredients}
+              ingredientsNotes = {recipes[currentRecipe].ingredientsNotes}
             />
             <DirectionsDisplay
-              directions = {this.props.recipes[this.props.currentRecipe].directions}
-              directionsNotes = {this.props.recipes[this.props.currentRecipe].directionsNotes}
+              directions = {recipes[currentRecipe].directions}
+              directionsNotes = {recipes[currentRecipe].directionsNotes}
             />
           </div>
           <NavButton
             linkPath='/'
             linkText='Go Back'
           />
-          {this.props.showPopup ?
+          {showPopup ?
             <div className='popup'>
               <div className='popup-inner'>
                 <h1>Are you sure you want to delete this recipe?</h1>
@@ -81,7 +93,6 @@ class RecipeDetail extends React.Component{
 const mapStateToProps = state => {
   return {
     currentRecipe: state.currentRecipeId,
-    loadedInitialState: state.loadedInitialState,
     recipes: state.recipes,
     showPopup: state.showPopup,
     user: state.user,
@@ -90,7 +101,6 @@ const mapStateToProps = state => {
 
 RecipeDetail.propTypes = {
   currentRecipe: PropTypes.string,
-  loadedInitialState: PropTypes.any,
   recipes: PropTypes.object,
   showPopup: PropTypes.bool,
   user: PropTypes.object,
