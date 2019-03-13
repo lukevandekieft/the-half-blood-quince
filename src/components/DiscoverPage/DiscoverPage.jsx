@@ -19,7 +19,7 @@ class DiscoverPage extends React.Component{
   }
 
   render() {
-    const {dispatch, currentRecipe, recipes, searchValue, user } = this.props;
+    const {dispatch, currentRecipe, recipes, searchList, searchValue, user } = this.props;
 
     //Submit new currentRecipe id
     const handleAddRecipe = () => {
@@ -44,9 +44,9 @@ class DiscoverPage extends React.Component{
           <h1 className='headline'>{headerMessage}</h1>
           {(user !== 'initialLoadUser') && (
           <RecipeList
-            recipes={recipes}
+            recipes={searchList}
             currentRecipe={currentRecipe}
-            searchValue={searchValue}
+            searchValue={null}
           />
           )}
           <div onClick={() => {handleAddRecipe();}}>
@@ -63,6 +63,7 @@ class DiscoverPage extends React.Component{
 const mapStateToProps = state => {
   return {
     currentRecipe: state.currentRecipeId,
+    searchList: state.lastRecipeSearch.searchList,
     recipes: state.recipes,
     searchValue: state.searchValue,
     user: state.user,
@@ -71,6 +72,7 @@ const mapStateToProps = state => {
 
 DiscoverPage.propTypes = {
   currentRecipe: PropTypes.string,
+  lastRecipeSearch: PropTypes.object,
   recipes: PropTypes.object,
   searchValue: PropTypes.any,
   user: PropTypes.any,

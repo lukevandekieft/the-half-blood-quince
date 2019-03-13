@@ -210,13 +210,12 @@ export function fetchApiSearchList(userInput) {
           let dish = json.hits[recipeId];
           let recipeObject = {
             name: dish.recipe.label,
-            image: dish.recipe.image,
+            imageLink: dish.recipe.image,
             ingredients: dish.recipe.ingredientLines,
             url: dish.recipe.url,
-            displayDetail: false,
             key: uniqueRecipeId
           };
-          newRecipes.push(recipeObject);
+          newRecipes[uniqueRecipeId] = recipeObject;
         });
         dispatch(receiveApiRecipes(newRecipes));
       } else {
