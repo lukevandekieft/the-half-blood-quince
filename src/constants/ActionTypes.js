@@ -2,6 +2,7 @@ export const ADD_RECIPE = 'ADD_RECIPE';
 export const CHANGE_POPUP_STATUS = 'CHANGE_POPUP_STATUS';
 export const CHANGE_ROUTE = 'CHANGE_ROUTE';
 export const LOAD_STATE = 'LOAD_STATE';
+export const RECEIVE_API_RECIPES = 'RECEIVE_API_RECIPES';
 export const SEARCH = 'SEARCH';
 export const SEARCH_API_RECIPES = 'SEARCH_API_RECIPES';
 export const SELECT_RECIPE = 'SELECT_RECIPE';

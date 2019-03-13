@@ -170,7 +170,7 @@ describe('Recipe App', () => {
             key: 'ID number'
           }],
       };
-      const action = actions.receiveApiRecipes();
+      const action = actions.receiveApiRecipes(sampleState.searchList);
       expect(searchApiReducer(initialState.users['initialLoadUser'].lastRecipeSearch, action)).toEqual(sampleState);
     });
   });

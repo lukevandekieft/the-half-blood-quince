@@ -200,3 +200,8 @@ export const updateSearchValue = (searchValue) => ({
 export const searchApiRecipes = () => ({
   type: types.SEARCH_API_RECIPES,
 })
+
+export const receiveApiRecipes = (receivedRecipes) => ({
+  type: types.RECEIVE_API_RECIPES,
+  recipeList: receivedRecipes,
+});

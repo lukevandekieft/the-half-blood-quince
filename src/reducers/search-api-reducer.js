@@ -7,6 +7,11 @@ export default (state = initialState.users[initialState.user.uid].lastRecipeSear
       return Object.assign({}, state, {
         isFetching: true
       });
+    case types.RECEIVE_API_RECIPES:
+      return Object.assign({}, state, {
+        isFetching: false,
+        searchList: action.recipeList,
+      });
     default:
       return state;
   }
