@@ -24,10 +24,17 @@
   align-items: center;
   text-align: center;
   font-style: italic;
+  padding: 0 1em;
   color: grey;
   &>*:nth-child(n) {
     margin-bottom: 1em;
   }
+  &>*:last-child {
+    margin-bottom: 3em;
+  }
+}
+.emptyContentMessage.discoverPage {
+  margin-top: 3em;
 }
 
 //MAIN RECIPE DISPLAY

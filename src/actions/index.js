@@ -230,7 +230,19 @@ export function fetchApiSearchList(userInput, user) {
 export function watchApiSearch(user) {
   return function(dispatch) {
     firebase.database().ref(`users/${user.uid}/lastRecipeSearch`).on('value', data => {
-      dispatch(receiveApiRecipes(data.val()));
+      let newSearchList = null;
+      if (data.val()) {
+        if (data.val().searchList) {
+          newSearchList = data.val().searchList;
+        }
+      };
+      let newSearchTerm = null;
+      if (data.val()) {
+        if (data.val().searchTerm) {
+          newSearhTerm = data.val().searchTerm;
+        }
+      };
+      dispatch(receiveApiRecipes(newSearchList, newSearchTerm));
     });
   };
 }
@@ -248,8 +260,8 @@ export const searchApiRecipes = () => ({
   type: types.SEARCH_API_RECIPES,
 })
 
-export const receiveApiRecipes = (receivedRecipes) => ({
-  type: types.RECEIVE_API_RECIPES,
-  searchList: receivedRecipes.searchList,
-  searchTerm: receivedRecipes.searchTerm,
-});
+export const receiveApiRecipes = (searchList, searchTerm) => ({
+    type: types.RECEIVE_API_RECIPES,
+    searchList: searchList,
+    searchTerm: searchTerm,
+  });
