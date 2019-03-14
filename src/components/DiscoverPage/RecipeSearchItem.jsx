@@ -2,8 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { changeCurrentRecipe, changePopupStatus } from '../../actions';
+import { changeCurrentRecipe, submitRecipe } from '../../actions';
 import { withRouter } from 'react-router-dom';
+
+import NavButton from '../Widgets/NavButton/NavButton';
 
 class RecipeItem extends React.Component {
   constructor(props) {
@@ -14,7 +16,7 @@ class RecipeItem extends React.Component {
   }
 
   render() {
-    const {dispatch, ingredients, image, location, name, showPopup, url, user, valueKey} = this.props;
+    const {dispatch, ingredients, image, location, name, recipes, url, user, valueKey} = this.props;
     //Change currentRecipe to clicked item
     const handleClick = (key) => {
       dispatch(changeCurrentRecipe(key, user));
@@ -25,10 +27,28 @@ class RecipeItem extends React.Component {
       backgroundImage: `url(${image})`
     };
 
-    //delete recipe from popup
-    const handleClickDelete = () => {
-
-    };
+    //add recipe from popup
+    const handleAddSearchRecipe = () => {
+      dispatch(changeCurrentRecipe(valueKey, user));
+      const newRecipeInfo = {
+        name: name,
+        url: url,
+        imageLink: image,
+        ingredients: ingredients,
+      }
+      let newRecipeList;
+      if (recipes) {
+        recipes[valueKey] = newRecipeInfo;
+        newRecipeList = recipes;
+      } else {
+        const newRecipeObject = {
+          recipes: {}
+        };
+        newRecipeObject[valueKey] = newRecipeInfo;
+        newRecipeList = newRecipeObject;
+      }
+      dispatch(submitRecipe(newRecipeList, user));
+    }
 
     //close popup from popup
     const handleClickCancel = () => {
@@ -63,8 +83,14 @@ class RecipeItem extends React.Component {
                   <a href={url}><button className='navButtonStyle button-green'>Visit Recipe Site</button>
                   </a>
                 </div>
+                <div onClick={() => {handleAddSearchRecipe()}}>
+                  <NavButton
+                    linkPath='/recipe-detail'
+                    linkText='Add to My Recipes'
+                  />
+                </div>
                 <div className='centerMe'>
-                  <button onClick={() => {handleClickCancel(showPopup)}} className='navButtonStyle button-red'>Go Back</button>
+                  <button onClick={() => {handleClickCancel()}} className='navButtonStyle button-red'>Go Back</button>
                 </div>
               </div>
             </div>
@@ -78,7 +104,7 @@ class RecipeItem extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    showPopup: state.showPopup,
+    recipes: state.recipes,
     user: state.user,
   };
 };
@@ -87,7 +113,6 @@ RecipeItem.propTypes = {
   image: PropTypes.string,
   keypair: PropTypes.string,
   name: PropTypes.string,
-  showPopup: PropTypes.bool,
   user: PropTypes.object,
   valueKey: PropTypes.string
 };
