@@ -3,7 +3,8 @@ import * as types from './../constants/ActionTypes';
 import firebase from 'firebase';
 import FirebaseAuth from 'react-firebaseui';
 import constants from './../constants';
-const { firebaseConfig } = constants;
+import { v4 } from 'uuid';
+const { firebaseConfig, edamamConfig } = constants;
 
 firebase.initializeApp(firebaseConfig);
 
@@ -30,10 +31,12 @@ export function newUserLogin(authProvider) {
         dispatch(userLogin(result.user));
         dispatch(watchRecipes(result.user));
         dispatch(watchUserData(result.user));
+        dispatch(watchApiSearch(result.user));
       } else {
         dispatch(userLogin(result));
         dispatch(watchRecipes(result));
         dispatch(watchUserData(result));
+        dispatch(watchApiSearch(result));
       }
       dispatch(watchUserLoad());
     })
@@ -60,6 +63,7 @@ export function checkLoginStatus() {
         dispatch(userLogin(result.user));
         dispatch(watchRecipes(result.user));
         dispatch(watchUserData(result.user));
+        dispatch(watchApiSearch(result.user));
         dispatch(watchUserLoad());
       } else {
         auth.onAuthStateChanged(function(user) {
@@ -67,6 +71,7 @@ export function checkLoginStatus() {
             dispatch(userLogin(user));
             dispatch(watchRecipes(user));
             dispatch(watchUserData(user));
+            dispatch(watchApiSearch(user));
           }
           dispatch(watchUserLoad());
         });
@@ -131,7 +136,6 @@ export const updateRecipeList = (recipeList) => ({
 })
 
 export function watchRecipes(user) {
-  console.log(user);
   return function(dispatch) {
     firebase.database().ref(`users/${user.uid}/recipes`).on('value', data => {
       dispatch(updateRecipeList(data.val()));
@@ -158,7 +162,6 @@ export const loadState = (stateLoaded) => ({
 
 export function watchUserLoad() {
   return function(dispatch) {
-    console.log('check connection');
     firebase.database().ref(`users/loadedInitialState`).on('value', data => {
       dispatch(loadState(true));
     });
@@ -193,4 +196,60 @@ export const addRecipe = (newRecipeObject) => ({
 export const updateSearchValue = (searchValue) => ({
   type: types.SEARCH,
   searchTerm: searchValue
+});
+
+
+//SEARCH API RECIPES
+export function fetchApiSearchList(userInput, user) {
+  return function (dispatch) {
+    dispatch(searchApiRecipes());
+    return fetch('https://api.edamam.com/search?q=' + userInput + edamamConfig).then(
+      response => response.json(),
+      error => console.log('An error occurred.', error)
+    ).then(function(json) {
+      let newRecipes = {};
+      if (json.hits) {
+        Object.keys(json.hits).map(recipeId => {
+          const uniqueRecipeId = v4();
+          let dish = json.hits[recipeId];
+          let recipeObject = {
+            name: dish.recipe.label,
+            imageLink: dish.recipe.image,
+            ingredients: dish.recipe.ingredientLines,
+            url: dish.recipe.url,
+            key: uniqueRecipeId
+          };
+          newRecipes[uniqueRecipeId] = recipeObject;
+        });
+      }
+      dispatch(submitApiSearch(newRecipes, userInput, user));
+    });
+  };
+}
+
+export function watchApiSearch(user) {
+  return function(dispatch) {
+    firebase.database().ref(`users/${user.uid}/lastRecipeSearch`).on('value', data => {
+      dispatch(receiveApiRecipes(data.val()));
+    });
+  };
+}
+
+export function submitApiSearch (recipeList, searchTerm, user) {
+  return () => firebase.database().ref(`users/${user.uid}`).update({
+    lastRecipeSearch: {
+      searchList: recipeList,
+      searchTerm: searchTerm,
+    }
+  });
+};
+
+export const searchApiRecipes = () => ({
+  type: types.SEARCH_API_RECIPES,
+})
+
+export const receiveApiRecipes = (receivedRecipes) => ({
+  type: types.RECEIVE_API_RECIPES,
+  searchList: receivedRecipes.searchList,
+  searchTerm: receivedRecipes.searchTerm,
 });

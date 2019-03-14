@@ -81,7 +81,7 @@ class AddRecipeForm extends Component {
           ></input>
         </div>
         <div className='formInputLayout'>
-          <label>Recipe Link <span className='inputFieldNote'>(URL Format Only)</span></label>
+          <label>Recipe Link <span className='inputFieldNote'>(URL Only)</span></label>
           <input
             type="url"
             id='url'
@@ -89,7 +89,7 @@ class AddRecipeForm extends Component {
           ></input>
         </div>
         <div className='formInputLayout'>
-          <label>Recipe Picture <span className='inputFieldNote'>(URL Format Only)</span></label>
+          <label>Recipe Picture <span className='inputFieldNote'>(URL Only)</span></label>
           <input
             type="url"
             id='imageLink'

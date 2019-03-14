@@ -1,11 +1,28 @@
 import React from 'react';
-import RecipeItem from './RecipeItem';
 import PropTypes from 'prop-types';
+import { withRouter } from 'react-router-dom';
 
-const RecipeList = ({recipes, searchValue}) => {
+import RecipeItem from './RecipeItem';
+import RecipeSearchItem from '../DiscoverPage/RecipeSearchItem';
+
+const RecipeList = ({ location, recipes, searchValue }) => {
+
   return (
     <div className='recipeItemStyles'>
-      { recipes && (
+      { recipes && (location.pathname === '/discover-recipes') && (
+        Object.keys(recipes).map(index => {
+          let recipe = recipes[index];
+          return <RecipeSearchItem
+            name = {recipe.name}
+            image = {recipe.imageLink}
+            url = {recipe.url}
+            ingredients = {recipe.ingredients}
+            key = {index}
+            valueKey = {index}
+          />;
+        })
+      )}
+      { recipes && (location.pathname !== '/discover-recipes') && (
         Object.keys(recipes).map(index => {
           let recipe = recipes[index];
           if (searchValue === null || recipe.name.toLowerCase().includes(searchValue.toLowerCase())) {
@@ -27,6 +44,4 @@ RecipeList.propTypes = {
   searchValue: PropTypes.any
 };
 
-export default RecipeList;
-
-// let newArray = string.split(/\n+-*\s*/i);
+export default withRouter(RecipeList);

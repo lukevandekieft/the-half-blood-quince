@@ -10,9 +10,9 @@ import App from './components/App.jsx';
 
 const store = createStore(rootReducer, applyMiddleware(middlewareLogger, thunkMiddleware));
 
-let unsubscribe = store.subscribe(() =>
-  console.log(store)
-);
+let unsubscribe = store.subscribe(() => {
+  return;
+});
 
 const render = (Component) => {
   ReactDOM.render(

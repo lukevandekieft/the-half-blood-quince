@@ -120,6 +120,9 @@
 //DELETION POPUP
 .popup {
   position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   z-index: 1000;
   box-sizing: border-box;
   width: 100%;
@@ -136,6 +139,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    align-items: center;
     text-align: center;
     padding: 3rem;
     left: 25%;
@@ -154,14 +158,25 @@
       display: flex;
     }
   }
+  .popup-inner.discoverPage {
+    top: auto;
+    bottom: auto;
+    right: auto;
+    left: auto;
+    padding: 2rem 4rem;
+    .recipeItemImageContainer {
+      margin: 1.5rem 0;
+      .recipeImage {
+        border-radius: 5%;
+      }
+    }
+  }
 }
 @media (max-width: $small-breakpoint - 150) {
   .popup {
     .popup-inner {
-      left: 15%;
-      right: 15%;
-      top: 20%;
-      bottom: 20%;
+      left: 8%;
+      right: 8%;
       padding: 2rem;
       h1 {
         font-size: 1.5rem;
@@ -175,10 +190,8 @@
 @media (min-width: $small-breakpoint - 149) and (max-width: $small-breakpoint + 100) {
   .popup {
     .popup-inner {
-      left: 20%;
-      right: 20%;
-      top: 20%;
-      bottom: 20%;
+      left: 12%;
+      right: 12%;
       padding: 2.5rem;
       h1 {
         font-size: 1.5rem;

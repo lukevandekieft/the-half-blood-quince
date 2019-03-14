@@ -9,6 +9,7 @@ import mainMenuReducer from './../../reducers/main-menu-reducer';
 import popupReducer from './../../reducers/popup-reducer';
 import recipeReducer from './../../reducers/recipe-reducer';
 import rootReducer from './../../reducers/';
+import searchApiReducer from './../../reducers/search-api-reducer';
 import searchReducer from './../../reducers/search-reducer';
 
 describe('Recipe App', () => {
@@ -31,7 +32,8 @@ describe('Recipe App', () => {
       expect(authReducer(initialState, { type: null })).toEqual(initialState);
     });
     it('Should remove user data when logout is selected.', () => {
-      const logoutUser = null;
+      const logoutUser =
+      { uid: null };
       const action = {
         type: types.USER_LOGOUT,
         user: {
@@ -141,6 +143,50 @@ describe('Recipe App', () => {
           };
       const action = actions.updateRecipeList(newRecipeList);
       expect(recipeReducer(initialState.users['initialLoadUser'].recipes, action)).toEqual(newRecipeList);
+    });
+  });
+
+  describe('searchApiReducer', () => {
+    it('Should accept and return initial state.', () => {
+      expect(searchApiReducer(initialState, { type: null })).toEqual(initialState);
+    });
+    it('Should change isFetching to true when search is made.', () => {
+      const sampleState = {
+        isFetching: true,
+        searchList: null,
+        searchTerm: null,
+      };
+      const action = actions.searchApiRecipes();
+      expect(searchApiReducer(initialState.users['initialLoadUser'].lastRecipeSearch, action)).toEqual(sampleState);
+    });
+    it('Should return search results and reset isFetching to false.', () => {
+      const sampleState = {
+        isFetching: false,
+        searchList: {
+          'pizza': {
+            name: 'pizza',
+            image: 'url.funzies',
+            ingredients: 'Boil em mash em stick em in a stew',
+            url: 'url funzies 2.0',
+            key: 'ID number'
+          }
+        },
+        searchTerm: 'pizza'
+      };
+      const dummySearch = {
+        searchList: {
+          'pizza': {
+            name: 'pizza',
+            image: 'url.funzies',
+            ingredients: 'Boil em mash em stick em in a stew',
+            url: 'url funzies 2.0',
+            key: 'ID number'
+          }
+        },
+        searchTerm: 'pizza'
+      };
+      const action = actions.receiveApiRecipes(dummySearch);
+      expect(searchApiReducer(initialState.users['initialLoadUser'].lastRecipeSearch, action)).toEqual(sampleState);
     });
   });
 

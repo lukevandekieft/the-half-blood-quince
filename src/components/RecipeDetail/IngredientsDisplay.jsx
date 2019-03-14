@@ -21,7 +21,7 @@ function IngredientsDisplay(props){
     formattedIngredientsNotes = null;
   }
 
-// Format Ingredients section
+  // Format Ingredients section
   let formattedIngredients;
   if (props.ingredients) {
     formattedIngredients =
@@ -32,7 +32,7 @@ function IngredientsDisplay(props){
             return <li key={index} className="recipeDetailList">{index}</li>;
           })}
         </ul>
-      </React.Fragment>
+      </React.Fragment>;
   } else {
     formattedIngredients = null;
   }

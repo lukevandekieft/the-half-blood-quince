@@ -37,17 +37,17 @@ class HomePage extends React.Component{
 
     return (
       <div className='contentContainer'>
-        <div className='headerSection'>
+        <div className='headerSection homePage'>
           <SearchBar />
         </div>
         <div className='pageContentSection headerPage'>
           <h1 className='headline'>{headerMessage}</h1>
           {(user !== 'initialLoadUser') && (
-          <RecipeList
-            recipes={recipes}
-            currentRecipe={currentRecipe}
-            searchValue={searchValue}
-          />
+            <RecipeList
+              recipes={recipes}
+              currentRecipe={currentRecipe}
+              searchValue={searchValue}
+            />
           )}
           <div onClick={() => {handleAddRecipe();}}>
             <NavButton

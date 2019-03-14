@@ -6,11 +6,13 @@ import isRoutingReducer from './is-routing-reducer';
 import mainMenuReducer from './main-menu-reducer';
 import popupReducer from './popup-reducer';
 import recipeReducer from './recipe-reducer';
+import searchApiReducer from './search-api-reducer';
 import searchReducer from './search-reducer';
 
 const rootReducer = combineReducers({
   currentRecipeId: currentRecipeReducer,
   isRouting: isRoutingReducer,
+  lastRecipeSearch: searchApiReducer,
   loadedInitialState: initialStateReducer,
   mainMenuShowing: mainMenuReducer,
   recipes: recipeReducer,

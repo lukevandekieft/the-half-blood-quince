@@ -10,6 +10,11 @@ export const initialState = {
   users : {
     'initialLoadUser' : {
       currentRecipeId : null,
+      lastRecipeSearch : {
+        isFetching: false,
+        searchList: null,
+        searchTerm: null,
+      },
       recipes : {
         split_pea_soup : {
           name : 'Split Pea Soup',
