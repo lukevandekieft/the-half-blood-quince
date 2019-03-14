@@ -3,7 +3,7 @@
 
 //HEADER SECTION
 .headerSection {
-  background-image: url('../../assets/images/header_background.jpeg');
+  background-image: url('../../assets/images/header_background.jpg');
   padding-top: $navbar-height;
   position: relative;
   z-index: 100;
@@ -16,6 +16,12 @@
   background-repeat: no-repeat;
   box-shadow: 0px -1px 5px 1px rgba(0,0,0,0.28);
 };
+.headerSection.homePage {
+
+}
+.headerSection.discoverPage {
+  background-image: url('../../assets/images/produce.jpg');
+}
 
 @media (max-width: $small-breakpoint) {
   .headerSection {

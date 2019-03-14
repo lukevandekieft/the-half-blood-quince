@@ -37,7 +37,7 @@ class HomePage extends React.Component{
 
     return (
       <div className='contentContainer'>
-        <div className='headerSection'>
+        <div className='headerSection homePage'>
           <SearchBar />
         </div>
         <div className='pageContentSection headerPage'>
