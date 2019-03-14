@@ -50,15 +50,21 @@ class RecipeItem extends React.Component {
         </div>
         {this.state.recipeModalOpen ?
           <div className='popup'>
-            <div className='popup-inner'>
-              <h3>{name}</h3>
+            <div className='popup-inner discoverPage'>
+              <h2>{name}</h2>
+              <div className='recipeItemImageContainer'>
+                <div className='imagePlaceholder'>
+                </div>
+                <div className='recipeImage' style={backgroundImage}>
+                </div>
+              </div>
               <div className='popup-buttons'>
                 <div className='centerMe'>
-                  <a href={url}><button className='navButtonStyle button-red'>Visit Recipe Site</button>
+                  <a href={url}><button className='navButtonStyle button-green'>Visit Recipe Site</button>
                   </a>
                 </div>
                 <div className='centerMe'>
-                  <button onClick={() => {handleClickCancel(showPopup)}} className='navButtonStyle button-green'>Go Back</button>
+                  <button onClick={() => {handleClickCancel(showPopup)}} className='navButtonStyle button-red'>Go Back</button>
                 </div>
               </div>
             </div>
