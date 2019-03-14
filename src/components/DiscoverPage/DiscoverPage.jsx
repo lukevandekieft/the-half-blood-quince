@@ -25,9 +25,14 @@ class DiscoverPage extends React.Component{
     //Toggle recipe header when search is active
     let headerMessage;
     if (searchTerm) {
-      headerMessage = `Showing results for '${searchTerm}'`;
+      headerMessage =
+      <h1 className='headline'>{`Showing results for '${searchTerm}'`}</h1>;
     } else {
-      headerMessage = 'Search to discover new recipes!';
+      headerMessage =
+      <div className='emptyContentMessage discoverPage'>
+        <h2>There's nothing here!</h2>
+        <p>Search above to discover your next big meal</p>
+      </div>
     }
 
     let recipeDisplay;
@@ -39,7 +44,7 @@ class DiscoverPage extends React.Component{
     } else {
       recipeDisplay =
         <React.Fragment>
-          <h1 className='headline'>{headerMessage}</h1>
+          {headerMessage}
           {(user !== 'initialLoadUser') && (
             <RecipeList
               recipes={searchList}

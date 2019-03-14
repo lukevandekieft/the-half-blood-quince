@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { changeCurrentRecipe, updateSearchValue } from '../../actions';
 import { v4 } from 'uuid';
+import { Link } from 'react-router-dom';
 
 import NavButton from '../Widgets/NavButton/NavButton';
 import RecipeList from './RecipeList';
@@ -52,7 +53,7 @@ class HomePage extends React.Component{
           {(user !== 'initialLoadUser' && !recipes) && (
             <div className='emptyContentMessage'>
               <h2>There's nothing here!</h2>
-              <p>Select 'Discover Recipes' from the menu to find new recipes or click 'Add Recipe' below to create your own!</p>
+              <p>Select <Link to='/discover-recipes'>Discover Recipes</Link> to find new recipes or click <Link to='/edit-recipe'>Add Recipe</Link> below to create your own!</p>
             </div>
           )}
           <div onClick={() => {handleAddRecipe();}}>

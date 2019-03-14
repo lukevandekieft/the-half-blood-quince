@@ -41,7 +41,7 @@ class SearchBar extends React.Component{
     //Sets placeholder based on router
     let placeholderText;
     if (this.props.location.pathname === '/discover-recipes') {
-      placeholderText = 'Find New Recipes!';
+      placeholderText = 'Search New Recipes...';
     } else if (this.props.location.pathname === '/') {
       placeholderText = 'Search Your Recipes...';
     }
