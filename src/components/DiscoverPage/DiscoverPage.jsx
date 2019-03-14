@@ -4,8 +4,10 @@ import { connect } from 'react-redux';
 import { updateSearchValue } from '../../actions';
 
 import Loader from '../Widgets/Loader/Loader';
+import NavButton from '../Widgets/NavButton/NavButton';
 import RecipeList from '../HomePage/RecipeList';
 import SearchBar from '../Widgets/SearchBar/SearchBar';
+import edamam from '../../assets/images/edamam.png';
 
 class DiscoverPage extends React.Component{
 
@@ -55,6 +57,13 @@ class DiscoverPage extends React.Component{
         </div>
         <div className='pageContentSection headerPage'>
           {recipeDisplay}
+          <NavButton
+            linkPath='/'
+            linkText='Go To My Recipes'
+          />
+          <div className='edamamContainer'>
+            <a href='https://www.edamam.com/' className='edamam'><img src={edamam}/></a>
+          </div>
         </div>
       </div>
     );

@@ -1,1 +1,10 @@
 @import '../sassVariables.scss';
+
+.edamamContainer {
+  margin-top: 1.5rem;
+  width: 100%;
+  display: flex;
+  .edamam {
+    margin: 0 auto;
+  }
+}
