@@ -239,7 +239,7 @@ export function watchApiSearch(user) {
       let newSearchTerm = null;
       if (data.val()) {
         if (data.val().searchTerm) {
-          newSearhTerm = data.val().searchTerm;
+          newSearchTerm = data.val().searchTerm;
         }
       };
       dispatch(receiveApiRecipes(newSearchList, newSearchTerm));
