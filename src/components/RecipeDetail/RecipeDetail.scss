@@ -155,13 +155,14 @@
     }
   }
 }
+.popup.discoverPage {
+  background-color: rgba(0,0,0, 0.05);
+}
 @media (max-width: $small-breakpoint - 150) {
   .popup {
     .popup-inner {
-      left: 15%;
-      right: 15%;
-      top: 20%;
-      bottom: 20%;
+      left: 8%;
+      right: 8%;
       padding: 2rem;
       h1 {
         font-size: 1.5rem;
@@ -175,10 +176,8 @@
 @media (min-width: $small-breakpoint - 149) and (max-width: $small-breakpoint + 100) {
   .popup {
     .popup-inner {
-      left: 20%;
-      right: 20%;
-      top: 20%;
-      bottom: 20%;
+      left: 12%;
+      right: 12%;
       padding: 2.5rem;
       h1 {
         font-size: 1.5rem;
