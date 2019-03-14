@@ -39,21 +39,21 @@ class DiscoverPage extends React.Component{
     let recipeDisplay;
     if(isFetching) {
       recipeDisplay =
-      <Loader
-        sectionLoader = {true}
-      />
+        <Loader
+          sectionLoader = {true}
+        />;
     } else {
       recipeDisplay =
-      <React.Fragment>
-        <h1 className='headline'>{headerMessage}</h1>
-        {(user !== 'initialLoadUser') && (
-        <RecipeList
-          recipes={searchList}
-          currentRecipe={currentRecipe}
-          searchValue={null}
-        />
-        )}
-      </React.Fragment>
+        <React.Fragment>
+          <h1 className='headline'>{headerMessage}</h1>
+          {(user !== 'initialLoadUser') && (
+            <RecipeList
+              recipes={searchList}
+              currentRecipe={currentRecipe}
+              searchValue={null}
+            />
+          )}
+        </React.Fragment>;
     }
 
     return (

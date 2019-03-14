@@ -11,7 +11,7 @@ class RecipeEdit extends React.Component{
     super(props);
     this.state = {
       nameError: false,
-    }
+    };
     this.handleInputValidation = this.handleInputValidation.bind(this);
   }
 
@@ -39,20 +39,20 @@ class RecipeEdit extends React.Component{
           <EditRecipeForm
             nameError={this.state.nameError}
             onInputValidation={this.handleInputValidation}
-          />
+          />;
       } else {
         domDisplay =
-        <AddRecipeForm
-          nameError={this.state.nameError}
-          onInputValidation={this.handleInputValidation}
-        />
+          <AddRecipeForm
+            nameError={this.state.nameError}
+            onInputValidation={this.handleInputValidation}
+          />;
       }
     } else {
       domDisplay =
-      <AddRecipeForm
-        nameError={this.state.nameError}
-        onInputValidation={this.handleInputValidation}
-      />
+        <AddRecipeForm
+          nameError={this.state.nameError}
+          onInputValidation={this.handleInputValidation}
+        />;
     }
 
     return (

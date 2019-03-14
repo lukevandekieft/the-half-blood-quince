@@ -231,6 +231,7 @@ export function watchApiSearch(user) {
   return function(dispatch) {
     firebase.database().ref(`users/${user.uid}/lastRecipeSearch`).on('value', data => {
       dispatch(receiveApiRecipes(data.val()));
+      console.log(data.val());
     });
   };
 }

@@ -17,7 +17,7 @@ function RecipeItem({dispatch, image, name, user, valueKey}) {
   };
 
   return (
-    <div className='recipeItemBox' onClick={() => {handleClick(valueKey)}}>
+    <div className='recipeItemBox' onClick={() => {handleClick(valueKey);}}>
       <Link to='/recipe-detail'>
         <h3>{name}</h3>
         <div className='recipeItemImageContainer'>

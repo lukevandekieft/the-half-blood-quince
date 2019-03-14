@@ -19,18 +19,18 @@ function DirectionsDisplay(props){
     headerSection = null;
   }
 
-//Format Directions section
+  //Format Directions section
   let formattedDirections;
   if (props.directions) {
     formattedDirections =
-    <React.Fragment>
-      <h3>Directions</h3>
-      <ol>
-        {props.directions.map(index => {
-          return <li key={index} className="recipeDetailList">{index}</li>;
-        })}
-      </ol>
-    </React.Fragment>;
+      <React.Fragment>
+        <h3>Directions</h3>
+        <ol>
+          {props.directions.map(index => {
+            return <li key={index} className="recipeDetailList">{index}</li>;
+          })}
+        </ol>
+      </React.Fragment>;
   } else {
     formattedDirections = null;
   }

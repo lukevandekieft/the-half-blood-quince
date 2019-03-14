@@ -154,6 +154,7 @@ describe('Recipe App', () => {
       const sampleState = {
         isFetching: true,
         searchList: null,
+        searchTerm: null,
       };
       const action = actions.searchApiRecipes();
       expect(searchApiReducer(initialState.users['initialLoadUser'].lastRecipeSearch, action)).toEqual(sampleState);
@@ -161,16 +162,30 @@ describe('Recipe App', () => {
     it('Should return search results and reset isFetching to false.', () => {
       const sampleState = {
         isFetching: false,
-        searchList: [
+        searchList: {
           'pizza': {
             name: 'pizza',
             image: 'url.funzies',
             ingredients: 'Boil em mash em stick em in a stew',
             url: 'url funzies 2.0',
             key: 'ID number'
-          }],
+          }
+        },
+        searchTerm: 'pizza'
       };
-      const action = actions.receiveApiRecipes(sampleState.searchList);
+      const dummySearch = {
+        searchList: {
+          'pizza': {
+            name: 'pizza',
+            image: 'url.funzies',
+            ingredients: 'Boil em mash em stick em in a stew',
+            url: 'url funzies 2.0',
+            key: 'ID number'
+          }
+        },
+        searchTerm: 'pizza'
+      };
+      const action = actions.receiveApiRecipes(dummySearch);
       expect(searchApiReducer(initialState.users['initialLoadUser'].lastRecipeSearch, action)).toEqual(sampleState);
     });
   });
