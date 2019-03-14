@@ -33,7 +33,7 @@ describe('Recipe App', () => {
     });
     it('Should remove user data when logout is selected.', () => {
       const logoutUser =
-      { uid: null }
+      { uid: null };
       const action = {
         type: types.USER_LOGOUT,
         user: {

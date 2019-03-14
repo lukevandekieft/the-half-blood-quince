@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { changeCurrentRecipe, submitRecipe } from '../../actions';
@@ -15,7 +14,7 @@ class RecipeItem extends React.Component {
   }
 
   render() {
-    const {dispatch, ingredients, image, location, name, recipes, url, user, valueKey} = this.props;
+    const {dispatch, ingredients, image, name, recipes, url, user, valueKey} = this.props;
 
     //set background based on props
     const backgroundImage = {

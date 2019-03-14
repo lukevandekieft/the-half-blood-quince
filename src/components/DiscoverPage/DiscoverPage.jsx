@@ -1,11 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { changeCurrentRecipe, updateSearchValue } from '../../actions';
-import { v4 } from 'uuid';
+import { updateSearchValue } from '../../actions';
 
 import Loader from '../Widgets/Loader/Loader';
-import NavButton from '../Widgets/NavButton/NavButton';
 import RecipeList from '../HomePage/RecipeList';
 import SearchBar from '../Widgets/SearchBar/SearchBar';
 
@@ -20,13 +18,7 @@ class DiscoverPage extends React.Component{
   }
 
   render() {
-    const {dispatch, currentRecipe, isFetching, recipes, searchList, searchTerm, searchValue, user } = this.props;
-
-    //Submit new currentRecipe id
-    const handleAddRecipe = () => {
-      const newId = v4();
-      dispatch(changeCurrentRecipe(newId, user));
-    };
+    const {currentRecipe, isFetching, searchList, searchTerm, user } = this.props;
 
     //Toggle recipe header when search is active
     let headerMessage;
@@ -74,17 +66,16 @@ const mapStateToProps = state => {
     isFetching: state.lastRecipeSearch.isFetching,
     searchList: state.lastRecipeSearch.searchList,
     searchTerm: state.lastRecipeSearch.searchTerm,
-    recipes: state.recipes,
-    searchValue: state.searchValue,
     user: state.user,
   };
 };
 
 DiscoverPage.propTypes = {
   currentRecipe: PropTypes.string,
+  isFetching: PropTypes.bool,
   lastRecipeSearch: PropTypes.object,
-  recipes: PropTypes.object,
-  searchValue: PropTypes.any,
+  searchList: PropTypes.object,
+  searchTerm: PropTypes.string,
   user: PropTypes.any,
 
 };
