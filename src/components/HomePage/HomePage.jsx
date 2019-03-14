@@ -49,6 +49,12 @@ class HomePage extends React.Component{
               searchValue={searchValue}
             />
           )}
+          {(user !== 'initialLoadUser' && !recipes) && (
+            <div className='emptyContentMessage'>
+              <h2>There's nothing here!</h2>
+              <p>Select 'Discover Recipes' from the menu to find new recipes or click 'Add Recipe' below to create your own!</p>
+            </div>
+          )}
           <div onClick={() => {handleAddRecipe();}}>
             <NavButton
               linkPath='/edit-recipe'

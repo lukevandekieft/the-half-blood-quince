@@ -27,7 +27,7 @@ class DiscoverPage extends React.Component{
     if (searchTerm) {
       headerMessage = `Showing results for '${searchTerm}'`;
     } else {
-      headerMessage = 'Search to find new recipes!';
+      headerMessage = 'Search to discover new recipes!';
     }
 
     let recipeDisplay;

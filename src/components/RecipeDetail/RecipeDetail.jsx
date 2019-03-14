@@ -36,7 +36,7 @@ class RecipeDetail extends React.Component{
 
   render(){
     const {currentRecipe, recipes, showPopup } = this.props;
-    
+
     return (
       <div className='contentContainer'>
       <NavBarBacksplash />
@@ -50,7 +50,7 @@ class RecipeDetail extends React.Component{
           {(!recipes[currentRecipe].ingredients && !recipes[currentRecipe].ingredientsNotes && !recipes[currentRecipe].directions && !recipes[currentRecipe].directionsNotes) && (
             <div className='emptyContentMessage'>
               <h2>There's nothing here!</h2>
-              <p>Edit to add ingredients, directions, and notes</p>
+              <p>Select 'Edit Recipe' to add ingredients, directions, and notes</p>
             </div>
           )}
             <IngredientsDisplay
