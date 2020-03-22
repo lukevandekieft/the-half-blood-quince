@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 import NavButton from '../Widgets/NavButton/NavButton';
 import { connect } from 'react-redux';
 import { changePopupStatus } from '../../actions';
+import moment from 'moment';
 
-function MainRecipeDisplay({dispatch, imageLink, name, showPopup, url }){
+function MainRecipeDisplay({createdDate, currentRecipe, dispatch, imageLink, name, showPopup, url}){
   const altText = `${name} Recipe`;
   const backgroundImage = {
     backgroundImage: `url(${imageLink})`
@@ -16,11 +17,15 @@ function MainRecipeDisplay({dispatch, imageLink, name, showPopup, url }){
 
   return (
     <div className='mainRecipeContainer'>
-      <div className='recipeDetailPicture'>
-        <div className='imagePlaceholder'>
+      <div>
+        <div className='recipeDetailPicture'>
+          <div className='imagePlaceholder'>
+          </div>
+          <div className='recipeImage'  style={backgroundImage} alt={altText}></div>
         </div>
-        <div className='recipeImage'  style={backgroundImage} alt={altText}>
-        </div>
+        {(createdDate) && (
+          <p className='centerMe'><em>Added on {moment(createdDate).format('M/D/YYYY')}</em></p>
+        )}
       </div>
 
       <div className='mainDetailContainer'>
@@ -32,7 +37,7 @@ function MainRecipeDisplay({dispatch, imageLink, name, showPopup, url }){
             </div>
           )}
           <NavButton
-            linkPath='/edit-recipe'
+            linkPath={`/edit-recipe/${currentRecipe}`}
             linkText='Edit Recipe'
           />
           <div className='centerMe' onClick={() => {handleTogglePopup();}}>
@@ -51,6 +56,7 @@ const mapStateToProps = state => {
 };
 
 MainRecipeDisplay.propTypes = {
+  currentRecipe: PropTypes.string,
   imageLink: PropTypes.string,
   name: PropTypes.string,
   showPopup: PropTypes.bool,

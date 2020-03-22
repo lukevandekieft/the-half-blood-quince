@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { submitRecipe, changeRoute } from './../../actions';
 import { Redirect } from 'react-router';
+import { v4 } from 'uuid';
+import moment from 'moment';
 
 class AddRecipeForm extends Component {
 
@@ -33,8 +35,9 @@ class AddRecipeForm extends Component {
   }
 
   render() {
-    const {currentRecipe, dispatch, isRouting, recipes, user } = this.props;
-
+    const {dispatch, isRouting, recipes, user } = this.props;
+    console.log(this.props);
+    let currentRecipe;
     //submit recipe to database and route to new recipe page
     const submitForm = (event) => {
       event.preventDefault();
@@ -46,8 +49,10 @@ class AddRecipeForm extends Component {
         ingredients: this.createArray(this._ingredients.value),
         ingredientsNotes: this.createArray(this._ingredientsNotes.value),
         directions: this.createArray(this._directions.value),
-        directionsNotes: this.createArray(this._directionsNotes.value)
+        directionsNotes: this.createArray(this._directionsNotes.value),
+        createdDate: moment()._d
       }
+      currentRecipe = v4();
       if (recipes) {
         recipes[currentRecipe] = newRecipeInfo;
         newRecipeList = recipes;
@@ -64,7 +69,7 @@ class AddRecipeForm extends Component {
 
     //redirect on form submission
     if (isRouting === true) {
-      return <Redirect to='/recipe-detail' />
+      return <Redirect to={`/recipe/${currentRecipe}`} />
     }
 
   return (
@@ -139,7 +144,6 @@ class AddRecipeForm extends Component {
 
 const mapStateToProps = state => {
   return {
-    currentRecipe: state.currentRecipeId,
     isRouting: state.isRouting,
     recipes: state.recipes,
     user: state.user,
@@ -147,7 +151,6 @@ const mapStateToProps = state => {
 };
 
 AddRecipeForm.propTypes = {
-  currentRecipe: PropTypes.string,
   recipes: PropTypes.object,
   isRouting: PropTypes.bool,
   user: PropTypes.object,

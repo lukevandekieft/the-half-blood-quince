@@ -1,7 +1,6 @@
 {
   "users" : {
     "Luke" : {
-      "currentRecipeId" : "773c3b3d-7c08-416a-951b-d7e3c6e13f03",
       "loadedInitialState" : "true",
       "recipes" : {
         "10c83132-7bfa-4e0e-9798-0b3bd4dbb160" : {

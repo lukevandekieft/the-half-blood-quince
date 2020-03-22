@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { newUserLogin, newUserLogout, changeCurrentRecipe } from '../../../actions';
-import { v4 } from 'uuid';
+import { newUserLogin, newUserLogout } from '../../../actions';
 
 import NavButton from '../NavButton/NavButton';
 
@@ -24,10 +23,6 @@ function MenuModal(props) {
     //Close modal on click and create new recipe if going to 'edit-recipe' route
   const handleRoute = (route) => {
     onToggleMenu(mainMenuShowing);
-    if (route === '/edit-recipe') {
-      const newId = v4();
-      dispatch(changeCurrentRecipe(newId, user));
-    }
   };
 
   return (
@@ -57,9 +52,9 @@ function MenuModal(props) {
                     color='white'
                   />
                 </div>
-                <div onClick={() => {handleRoute('/edit-recipe');}}>
+                <div onClick={() => {handleRoute('/add-recipe');}}>
                   <NavButton
-                    linkPath='/edit-recipe'
+                    linkPath='/add-recipe'
                     linkText='Add Recipe'
                     color='white'
                   />
@@ -88,9 +83,3 @@ MenuModal.propTypes = {
 };
 
 export default connect(mapStateToProps)(MenuModal);
-
-// <AccordionItem
-//   name = 'what up'
-//   submenus = {['hi', 'hello']}
-//   modalShowing = {this.props.modalShowing}
-// />

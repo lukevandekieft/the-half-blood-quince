@@ -33,25 +33,18 @@ class RecipeEdit extends React.Component{
   render() {
     //Render "new" or "edit" form based on whether a currentRecipe exists
     let domDisplay;
-    if (this.props.recipes) {
-      if (this.props.recipes[this.props.currentRecipe]) {
-        domDisplay =
-          <EditRecipeForm
-            nameError={this.state.nameError}
-            onInputValidation={this.handleInputValidation}
-          />;
-      } else {
-        domDisplay =
-          <AddRecipeForm
-            nameError={this.state.nameError}
-            onInputValidation={this.handleInputValidation}
-          />;
-      }
-    } else {
+    if (this.props.location.pathname.includes("/edit-recipe/")) {
+      domDisplay =
+        <EditRecipeForm
+          currentRecipe = {this.props.location.pathname.slice(13)}
+          nameError = {this.state.nameError}
+          onInputValidation = {this.handleInputValidation}
+        />;
+    } else if (this.props.location.pathname.includes("/add-recipe")) {
       domDisplay =
         <AddRecipeForm
-          nameError={this.state.nameError}
-          onInputValidation={this.handleInputValidation}
+          nameError = {this.state.nameError}
+          onInputValidation = {this.handleInputValidation}
         />;
     }
 
@@ -68,7 +61,6 @@ class RecipeEdit extends React.Component{
 
 const mapStateToProps = state => {
   return {
-    currentRecipe: state.currentRecipeId,
     loadedInitialState: state.loadedInitialState,
     recipes: state.recipes,
   };

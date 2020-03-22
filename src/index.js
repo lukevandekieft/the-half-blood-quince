@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import rootReducer from './reducers';
 import middlewareLogger from './middleware/middleware-logger';
 import thunkMiddleware from 'redux-thunk';
-import { HashRouter } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import App from './components/App.jsx';
 
 const store = createStore(rootReducer, applyMiddleware(middlewareLogger, thunkMiddleware));
@@ -16,11 +16,11 @@ let unsubscribe = store.subscribe(() => {
 
 const render = (Component) => {
   ReactDOM.render(
-    <HashRouter>
+    <BrowserRouter>
       <Provider store={store}>
         <Component />
       </Provider>
-    </HashRouter>,
+      </BrowserRouter>,
     document.getElementById('root')
   );
 };

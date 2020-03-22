@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { changeCurrentRecipe, updateSearchValue } from '../../actions';
+import { updateSearchValue } from '../../actions';
 import { v4 } from 'uuid';
 import { Link } from 'react-router-dom';
 
@@ -20,13 +20,7 @@ class HomePage extends React.Component{
   }
 
   render() {
-    const {dispatch, currentRecipe, recipes, searchValue, user } = this.props;
-
-    //Submit new currentRecipe id
-    const handleAddRecipe = () => {
-      const newId = v4();
-      dispatch(changeCurrentRecipe(newId, user));
-    };
+    const {dispatch, recipes, searchValue, user } = this.props;
 
     //Toggle recipe header when search is active
     let headerMessage;
@@ -46,7 +40,6 @@ class HomePage extends React.Component{
           {(user !== 'initialLoadUser') && (
             <RecipeList
               recipes={recipes}
-              currentRecipe={currentRecipe}
               searchValue={searchValue}
             />
           )}
@@ -56,12 +49,10 @@ class HomePage extends React.Component{
               <p>Select <Link to='/discover-recipes'>Discover Recipes</Link> to find new recipes or click <Link to='/edit-recipe'>Add Recipe</Link> below to create your own!</p>
             </div>
           )}
-          <div onClick={() => {handleAddRecipe();}}>
-            <NavButton
-              linkPath='/edit-recipe'
-              linkText='Add Recipe'
-            />
-          </div>
+          <NavButton
+            linkPath='/add-recipe'
+            linkText='Add Recipe'
+          />
         </div>
       </div>
     );
@@ -69,7 +60,6 @@ class HomePage extends React.Component{
 }
 const mapStateToProps = state => {
   return {
-    currentRecipe: state.currentRecipeId,
     recipes: state.recipes,
     searchValue: state.searchValue,
     user: state.user,
@@ -77,7 +67,6 @@ const mapStateToProps = state => {
 };
 
 HomePage.propTypes = {
-  currentRecipe: PropTypes.string,
   recipes: PropTypes.object,
   searchValue: PropTypes.any,
   user: PropTypes.any,

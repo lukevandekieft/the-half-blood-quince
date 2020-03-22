@@ -2,7 +2,6 @@ import { createStore } from 'redux';
 import * as actions from './../../actions';
 import constants from './../../constants';
 import authReducer from './../../reducers/auth-reducer';
-import currentRecipeReducer from './../../reducers/current-recipe-reducer';
 import initialStateReducer from './../../reducers/initial-state-reducer';
 import isRoutingReducer from './../../reducers/is-routing-reducer';
 import mainMenuReducer from './../../reducers/main-menu-reducer';
@@ -21,8 +20,7 @@ describe('Recipe App', () => {
     //   expect(rootReducer(initialState, { type: null })).toEqual(initialState);
     // });
 
-    it('Should contain logic from both reducers.', () => {
-      expect(store.getState().currentRecipeId).toEqual(currentRecipeReducer(undefined, { type: null }));
+    it('Should contain logic from recipe reducer.', () => {
       expect(store.getState().recipes).toEqual(recipeReducer(undefined, { type: null }));
     });
   });
@@ -52,18 +50,6 @@ describe('Recipe App', () => {
         }
       };
       expect(authReducer(initialState.user, action)).toEqual(loginUser);
-    });
-  });
-
-  describe('currentRecipeReducer', () => {
-    it('Should accept and return initial state.', () => {
-      expect(currentRecipeReducer(initialState, { type: null })).toEqual(initialState);
-    });
-    it('Should change current recipe based on selected item.', () => {
-      const selectedRecipe = 'mapo_tofu';
-      const action = actions.selectRecipe(selectedRecipe);
-      const newStateEntry = 'mapo_tofu';
-      expect(currentRecipeReducer(initialState.users, action)).toEqual(newStateEntry);
     });
   });
 
@@ -105,7 +91,7 @@ describe('Recipe App', () => {
 
   describe('popupReducer', () => {
     it('Should accept and return initial state.', () => {
-      expect(currentRecipeReducer(initialState, { type: null })).toEqual(initialState);
+      expect(mainMenuReducer(initialState, { type: null })).toEqual(initialState)
     });
     it('Should toggle popup status on firing.', () => {
       const sampleState = {

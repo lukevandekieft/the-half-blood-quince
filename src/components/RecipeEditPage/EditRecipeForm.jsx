@@ -54,7 +54,9 @@ class EditRecipeForm extends Component {
 
   render() {
     //destructure props from mapStateToProps
-    const {currentRecipe, directions, directionsNotes, dispatch, image, ingredients, ingredientsNotes, isRouting, name, recipes, url, user} = this.props;
+    const {currentRecipe, dispatch, isRouting, recipes, user} = this.props;
+    const currentRecipeData = recipes[currentRecipe];
+    const {directions, directionsNotes, image, ingredients, ingredientsNotes, name, url} = currentRecipeData;
 
     //format array props
     const formatIngredients = this.readableArray(ingredients);
@@ -79,7 +81,7 @@ class EditRecipeForm extends Component {
     }
 
     if (isRouting === true) {
-      return <Redirect to='/recipe-detail' />
+      return <Redirect to={`/recipe/${currentRecipe}`} />
     }
 
   return (
@@ -152,7 +154,7 @@ class EditRecipeForm extends Component {
         </div>
       </form>
       <NavButton
-      linkPath='/recipe-detail'
+      linkPath={`/recipe/${currentRecipe}`}
       linkText='Cancel Changes'
       color='red'
       />
@@ -162,18 +164,9 @@ class EditRecipeForm extends Component {
 
 const mapStateToProps = state => {
   return {
-    currentRecipe: state.currentRecipeId,
     recipes: state.recipes,
     isRouting: state.isRouting,
-    user: state.user,
-
-    directions: state.recipes[state.currentRecipeId].directions,
-    directionsNotes: state.recipes[state.currentRecipeId].directionsNotes,
-    image: state.recipes[state.currentRecipeId].imageLink,
-    ingredients: state.recipes[state.currentRecipeId].ingredients,
-    ingredientsNotes: state.recipes[state.currentRecipeId].ingredientsNotes,
-    name: state.recipes[state.currentRecipeId].name,
-    url: state.recipes[state.currentRecipeId].url,
+    user: state.user
   };
 };
 

@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { changeRoute, changePopupStatus, removeRecipe } from '../../actions';
 
-class RecipeDetail extends React.Component{
+class RecipeDetail extends React.Component {
 
   componentDidMount() {
     window.scrollTo(0, 0);
@@ -24,8 +24,8 @@ class RecipeDetail extends React.Component{
   };
 
   //delete recipe from popup
-  handleClickDelete = () => {
-    this.props.dispatch(removeRecipe(this.props.currentRecipe, this.props.user));
+  handleClickDelete = (currentRecipe) => {
+    this.props.dispatch(removeRecipe(currentRecipe, this.props.user));
   };
 
   //close popup from popup
@@ -35,22 +35,25 @@ class RecipeDetail extends React.Component{
   };
 
   render(){
-    const {currentRecipe, recipes, showPopup } = this.props;
+    const {recipes, showPopup } = this.props;
+    const currentRecipe = this.props.location.pathname.slice(8);
 
     return (
       <div className='contentContainer'>
       <NavBarBacksplash />
         <div className='pageContentSection detailFlex'>
           <MainRecipeDisplay
-            name = {recipes[currentRecipe].name}
+            createdDate = {recipes[currentRecipe].createdDate}
+            currentRecipe = {currentRecipe}
             imageLink = {recipes[currentRecipe].imageLink}
+            name = {recipes[currentRecipe].name}
             url = {recipes[currentRecipe].url}
           />
           <div className='directionDisplay'>
           {(!recipes[currentRecipe].ingredients && !recipes[currentRecipe].ingredientsNotes && !recipes[currentRecipe].directions && !recipes[currentRecipe].directionsNotes) && (
             <div className='emptyContentMessage'>
               <h2>There's nothing here!</h2>
-              <p>Select <Link to='/edit-recipe'>Edit Recipe</Link> to add ingredients, directions, and notes</p>
+              <p>Select <Link to={`/edit-recipe/`}>Edit Recipe</Link> to add ingredients, directions, and notes</p>
             </div>
           )}
             <IngredientsDisplay
@@ -72,7 +75,7 @@ class RecipeDetail extends React.Component{
                 <h1>Are you sure you want to delete this recipe?</h1>
                 <div className='popup-buttons'>
                   <div className='centerMe'>
-                    <Link to='/'><button className='navButtonStyle button-red' onClick={this.handleClickDelete}>Delete</button>
+                    <Link to='/'><button className='navButtonStyle button-red' onClick={() => {this.handleClickDelete(currentRecipe);}}>Delete</button>
                     </Link>
                   </div>
                   <div className='centerMe'>
@@ -91,7 +94,6 @@ class RecipeDetail extends React.Component{
 
 const mapStateToProps = state => {
   return {
-    currentRecipe: state.currentRecipeId,
     recipes: state.recipes,
     showPopup: state.showPopup,
     user: state.user,
