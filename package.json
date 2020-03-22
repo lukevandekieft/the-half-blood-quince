@@ -18,6 +18,7 @@
     "uuid": "^3.3.2"
   },
   "scripts": {
+    "deploy": "bash ./scripts/deploy.bash",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",

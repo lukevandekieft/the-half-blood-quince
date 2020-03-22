@@ -65,6 +65,18 @@ To download & edit do the following:
 
       $ npm run start
 
+## Deployment Process
+
+1. Make sure your device is logged in to Firebase:
+    ```
+    $ firebase logout
+    $ firebase login --interactive
+    ```
+
+2. Deploy your content:
+    ```
+    $ npm run deploy
+    ```
 
 ## Technologies Used
 
