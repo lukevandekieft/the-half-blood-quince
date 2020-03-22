@@ -4,7 +4,7 @@ import NavButton from '../Widgets/NavButton/NavButton';
 import { connect } from 'react-redux';
 import { changePopupStatus } from '../../actions';
 
-function MainRecipeDisplay({dispatch, imageLink, name, showPopup, url }){
+function MainRecipeDisplay({dispatch, imageLink, name, showPopup, url, currentRecipe }){
   const altText = `${name} Recipe`;
   const backgroundImage = {
     backgroundImage: `url(${imageLink})`
@@ -32,7 +32,7 @@ function MainRecipeDisplay({dispatch, imageLink, name, showPopup, url }){
             </div>
           )}
           <NavButton
-            linkPath='/edit-recipe'
+            linkPath={`/edit-recipe/${currentRecipe}`}
             linkText='Edit Recipe'
           />
           <div className='centerMe' onClick={() => {handleTogglePopup();}}>
@@ -51,6 +51,7 @@ const mapStateToProps = state => {
 };
 
 MainRecipeDisplay.propTypes = {
+  currentRecipe: PropTypes.string,
   imageLink: PropTypes.string,
   name: PropTypes.string,
   showPopup: PropTypes.bool,

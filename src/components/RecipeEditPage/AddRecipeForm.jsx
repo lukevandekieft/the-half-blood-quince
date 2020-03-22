@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { submitRecipe, changeRoute } from './../../actions';
 import { Redirect } from 'react-router';
+import { v4 } from 'uuid';
 
 class AddRecipeForm extends Component {
 
@@ -33,8 +34,8 @@ class AddRecipeForm extends Component {
   }
 
   render() {
-    const {currentRecipe, dispatch, isRouting, recipes, user } = this.props;
-
+    const {dispatch, isRouting, recipes, user } = this.props;
+    console.log(this.props);
     //submit recipe to database and route to new recipe page
     const submitForm = (event) => {
       event.preventDefault();
@@ -48,6 +49,7 @@ class AddRecipeForm extends Component {
         directions: this.createArray(this._directions.value),
         directionsNotes: this.createArray(this._directionsNotes.value)
       }
+      const currentRecipe = v4();
       if (recipes) {
         recipes[currentRecipe] = newRecipeInfo;
         newRecipeList = recipes;
@@ -139,7 +141,6 @@ class AddRecipeForm extends Component {
 
 const mapStateToProps = state => {
   return {
-    currentRecipe: state.currentRecipeId,
     isRouting: state.isRouting,
     recipes: state.recipes,
     user: state.user,
@@ -147,7 +148,6 @@ const mapStateToProps = state => {
 };
 
 AddRecipeForm.propTypes = {
-  currentRecipe: PropTypes.string,
   recipes: PropTypes.object,
   isRouting: PropTypes.bool,
   user: PropTypes.object,

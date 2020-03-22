@@ -22,6 +22,7 @@ class HomePage extends React.Component{
   render() {
     const {dispatch, currentRecipe, recipes, searchValue, user } = this.props;
 
+    console.log(recipes)
     //Submit new currentRecipe id
     const handleAddRecipe = () => {
       const newId = v4();

@@ -1,6 +1,7 @@
 //Dependencies
 import React, { Component } from 'react';
-import {BrowserRouter as Switch, withRouter } from 'react-router-dom';
+// import {BrowserRouter as Switch, withRouter } from 'react-router-dom';
+import { Route, Redirect, BrowserRouter, Switch, withRouter} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
@@ -46,25 +47,28 @@ class App extends Component {
 
   render() {
     return (
-      <Switch>
+      <BrowserRouter>
         <React.Fragment>
           <div className="siteContainer">
             <NavBar
               onToggleMenu = {this.handleToggleMainMenu}
             />
-            <PrivateRoute path='/' component={HomePage}/>
-            <PrivateRoute path='/recipe-detail' component={RecipeDetail}/>
-            <PrivateRoute path='/edit-recipe' component={RecipeEditPage}/>
-            <PrivateRoute path='/discover-recipes' component={DiscoverPage}/>
-            <PublicRoute path='/login' component={LoginPage}/>
-            <PublicRoute path='/signup' component={SignUpPage}/>
+            <Switch>
+              <PrivateRoute exact path='/' component={HomePage}/>
+              <PrivateRoute exact path='/add-recipe' component={RecipeEditPage}/>
+              <PrivateRoute exact path='/recipe/:recipeId' component={RecipeDetail}/>
+              <PrivateRoute exact path='/edit-recipe/:recipeId' component={RecipeEditPage}/>
+              <PrivateRoute exact path='/discover-recipes' component={DiscoverPage}/>
+              <PublicRoute exact path='/login' component={LoginPage}/>
+              <PublicRoute exact path='/signup' component={SignUpPage}/>
+            </Switch>
           </div>
           <MenuModal
             onToggleMenu = {this.handleToggleMainMenu}
           />
           <div className={this.props.mainMenuShowing ? 'screen-blocker main-menu-showing' : 'screen-blocker'} onClick={this.handleToggleMainMenu}></div>
         </React.Fragment>
-      </Switch>
+      </BrowserRouter>
     );
   }
 }
