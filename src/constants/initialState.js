@@ -9,7 +9,6 @@ export const initialState = {
   },
   users : {
     'initialLoadUser' : {
-      currentRecipeId : null,
       lastRecipeSearch : {
         isFetching: false,
         searchList: null,

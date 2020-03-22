@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { changeCurrentRecipe, submitRecipe } from '../../actions';
+import { submitRecipe } from '../../actions';
 
 import NavButton from '../Widgets/NavButton/NavButton';
 
@@ -23,7 +23,6 @@ class RecipeItem extends React.Component {
 
     //add recipe from popup
     const handleAddSearchRecipe = () => {
-      dispatch(changeCurrentRecipe(valueKey, user));
       const newRecipeInfo = {
         name: name,
         url: url,

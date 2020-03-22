@@ -30,12 +30,10 @@ export function newUserLogin(authProvider) {
       if(result.user) {
         dispatch(userLogin(result.user));
         dispatch(watchRecipes(result.user));
-        dispatch(watchUserData(result.user));
         dispatch(watchApiSearch(result.user));
       } else {
         dispatch(userLogin(result));
         dispatch(watchRecipes(result));
-        dispatch(watchUserData(result));
         dispatch(watchApiSearch(result));
       }
       dispatch(watchUserLoad());
@@ -62,7 +60,6 @@ export function checkLoginStatus() {
       if (result.user) {
         dispatch(userLogin(result.user));
         dispatch(watchRecipes(result.user));
-        dispatch(watchUserData(result.user));
         dispatch(watchApiSearch(result.user));
         dispatch(watchUserLoad());
       } else {
@@ -70,7 +67,6 @@ export function checkLoginStatus() {
           if (user) {
             dispatch(userLogin(user));
             dispatch(watchRecipes(user));
-            dispatch(watchUserData(user));
             dispatch(watchApiSearch(user));
           }
           dispatch(watchUserLoad());
@@ -114,20 +110,6 @@ export const selectRecipe = (selectedRecipeId) => ({
   type: types.SELECT_RECIPE,
   selectedRecipeId: selectedRecipeId
 });
-
-export function changeCurrentRecipe (_recipeId, user) {
-  return () => firebase.database().ref(`users/${user.uid}`).update({
-    currentRecipeId: _recipeId
-  });
-};
-
-export function watchUserData(user) {
-  return function(dispatch) {
-    firebase.database().ref(`users/${user.uid}/currentRecipeId`).on('value', data => {
-      dispatch(selectRecipe(data.val()));
-    });
-  };
-}
 
 //UPDATE RECIPE LIST
 export const updateRecipeList = (recipeList) => ({

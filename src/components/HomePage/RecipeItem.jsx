@@ -2,14 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { changeCurrentRecipe } from '../../actions';
 
 function RecipeItem({dispatch, image, name, user, valueKey}) {
-
-  //Change currentRecipe to clicked item
-  const handleClick = (key) => {
-    dispatch(changeCurrentRecipe(key, user));
-  };
 
   //set background based on props
   const backgroundImage = {
@@ -17,7 +11,7 @@ function RecipeItem({dispatch, image, name, user, valueKey}) {
   };
 
   return (
-    <div className='recipeItemBox' onClick={() => {handleClick(valueKey);}}>
+    <div className='recipeItemBox'>
       <Link to={`/recipe/${valueKey}`}>
         <h3>{name}</h3>
         <div className='recipeItemImageContainer'>

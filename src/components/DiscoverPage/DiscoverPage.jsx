@@ -20,7 +20,7 @@ class DiscoverPage extends React.Component{
   }
 
   render() {
-    const {currentRecipe, isFetching, searchList, searchTerm, user } = this.props;
+    const { isFetching, searchList, searchTerm, user } = this.props;
 
     //Toggle recipe header when search is active
     let headerMessage;
@@ -48,7 +48,6 @@ class DiscoverPage extends React.Component{
           {(user !== 'initialLoadUser') && (
             <RecipeList
               recipes={searchList}
-              currentRecipe={currentRecipe}
               searchValue={null}
             />
           )}
@@ -76,7 +75,6 @@ class DiscoverPage extends React.Component{
 }
 const mapStateToProps = state => {
   return {
-    currentRecipe: state.currentRecipeId,
     isFetching: state.lastRecipeSearch.isFetching,
     searchList: state.lastRecipeSearch.searchList,
     searchTerm: state.lastRecipeSearch.searchTerm,
@@ -85,13 +83,11 @@ const mapStateToProps = state => {
 };
 
 DiscoverPage.propTypes = {
-  currentRecipe: PropTypes.string,
   isFetching: PropTypes.bool,
   lastRecipeSearch: PropTypes.object,
   searchList: PropTypes.object,
   searchTerm: PropTypes.string,
-  user: PropTypes.any,
-
+  user: PropTypes.any
 };
 
 export default connect(mapStateToProps)(DiscoverPage);

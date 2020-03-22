@@ -31,27 +31,22 @@ class RecipeEdit extends React.Component{
   }
 
   render() {
-    console.log(this.props)
-    console.log(this.props.location.pathname.includes("/edit-recipe/"))
     //Render "new" or "edit" form based on whether a currentRecipe exists
-    const currentRecipe = this.props.location.pathname.slice(13);
-
     let domDisplay;
-      if (this.props.location.pathname.includes("/edit-recipe/")) {
-        domDisplay =
-          <EditRecipeForm
-            currentRecipe = {currentRecipe}
-            nameError = {this.state.nameError}
-            onInputValidation = {this.handleInputValidation}
-          />;
-      } else if (this.props.location.pathname.includes("/add-recipe")) {
-        domDisplay =
-          <AddRecipeForm
-            currentRecipe = {"1234"}
-            nameError = {this.state.nameError}
-            onInputValidation = {this.handleInputValidation}
-          />;
-      }
+    if (this.props.location.pathname.includes("/edit-recipe/")) {
+      domDisplay =
+        <EditRecipeForm
+          currentRecipe = {this.props.location.pathname.slice(13)}
+          nameError = {this.state.nameError}
+          onInputValidation = {this.handleInputValidation}
+        />;
+    } else if (this.props.location.pathname.includes("/add-recipe")) {
+      domDisplay =
+        <AddRecipeForm
+          nameError = {this.state.nameError}
+          onInputValidation = {this.handleInputValidation}
+        />;
+    }
 
     return (
       <div className='contentContainer'>

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { newUserLogin, newUserLogout, changeCurrentRecipe } from '../../../actions';
+import { newUserLogin, newUserLogout } from '../../../actions';
 
 import NavButton from '../NavButton/NavButton';
 
@@ -83,9 +83,3 @@ MenuModal.propTypes = {
 };
 
 export default connect(mapStateToProps)(MenuModal);
-
-// <AccordionItem
-//   name = 'what up'
-//   submenus = {['hi', 'hello']}
-//   modalShowing = {this.props.modalShowing}
-// />
