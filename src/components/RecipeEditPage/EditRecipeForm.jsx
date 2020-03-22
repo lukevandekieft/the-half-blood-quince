@@ -81,7 +81,7 @@ class EditRecipeForm extends Component {
     }
 
     if (isRouting === true) {
-      return <Redirect to='/recipe-detail' />
+      return <Redirect to={`/recipe/${currentRecipe}`} />
     }
 
   return (
@@ -154,7 +154,7 @@ class EditRecipeForm extends Component {
         </div>
       </form>
       <NavButton
-      linkPath='/recipe-detail'
+      linkPath={`/recipe/${currentRecipe}`}
       linkText='Cancel Changes'
       color='red'
       />

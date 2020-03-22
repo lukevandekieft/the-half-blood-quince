@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { submitRecipe } from '../../actions';
+import { Redirect } from 'react-router';
+import moment from 'moment';
 
 import NavButton from '../Widgets/NavButton/NavButton';
 
@@ -10,6 +12,7 @@ class RecipeItem extends React.Component {
     super(props);
     this.state = {
       recipeModalOpen: false,
+      recipeSaved: false,
     };
   }
 
@@ -24,10 +27,11 @@ class RecipeItem extends React.Component {
     //add recipe from popup
     const handleAddSearchRecipe = () => {
       const newRecipeInfo = {
-        name: name,
-        url: url,
+        createdDate: moment()._d,
         imageLink: image,
         ingredients: ingredients,
+        name: name,
+        url: url
       };
       let newRecipeList;
       if (recipes) {
@@ -41,12 +45,18 @@ class RecipeItem extends React.Component {
         newRecipeList = newRecipeObject;
       }
       dispatch(submitRecipe(newRecipeList, user));
+      this.setState(({ recipeSaved }) => ({ recipeSaved: true }));
     };
 
     //close popup from itself
     const handleClickCancel = () => {
       this.setState(({ recipeModalOpen }) => ({ recipeModalOpen: !recipeModalOpen }));
     };
+
+    //redirect on recipe Add
+    if (this.state.recipeSaved === true) {
+      return <Redirect to={`/recipe/${valueKey}`} />
+    }
 
     return (
       <React.Fragment>
@@ -76,12 +86,7 @@ class RecipeItem extends React.Component {
                   <a href={url}><button className='navButtonStyle button-green'>Visit Recipe Site</button>
                   </a>
                 </div>
-                <div onClick={() => {handleAddSearchRecipe();}}>
-                  <NavButton
-                    linkPath='/recipe-detail'
-                    linkText='Add to My Recipes'
-                  />
-                </div>
+                <button onClick={() => {handleAddSearchRecipe();}} className='navButtonStyle button-green'>Add to My Recipes</button>
                 <div className='centerMe'>
                   <button onClick={() => {handleClickCancel();}} className='navButtonStyle button-red'>Go Back</button>
                 </div>

@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 import NavButton from '../Widgets/NavButton/NavButton';
 import { connect } from 'react-redux';
 import { changePopupStatus } from '../../actions';
+import moment from 'moment';
 
-function MainRecipeDisplay({dispatch, imageLink, name, showPopup, url, currentRecipe }){
+function MainRecipeDisplay({createdDate, currentRecipe, dispatch, imageLink, name, showPopup, url}){
   const altText = `${name} Recipe`;
   const backgroundImage = {
     backgroundImage: `url(${imageLink})`
@@ -25,6 +26,9 @@ function MainRecipeDisplay({dispatch, imageLink, name, showPopup, url, currentRe
 
       <div className='mainDetailContainer'>
         <h1 className='centerMe'>{name}</h1>
+        {(createdDate) && (
+          <p className='centerMe'><em>Added on {moment(createdDate).format('M/D/YYYY')}</em></p>
+        )}
         <div>
           {(url) && (
             <div className='centerMe'>

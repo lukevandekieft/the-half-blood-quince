@@ -24,8 +24,8 @@ class RecipeDetail extends React.Component {
   };
 
   //delete recipe from popup
-  handleClickDelete = () => {
-    this.props.dispatch(removeRecipe(this.props.currentRecipe, this.props.user));
+  handleClickDelete = (currentRecipe) => {
+    this.props.dispatch(removeRecipe(currentRecipe, this.props.user));
   };
 
   //close popup from popup
@@ -43,10 +43,11 @@ class RecipeDetail extends React.Component {
       <NavBarBacksplash />
         <div className='pageContentSection detailFlex'>
           <MainRecipeDisplay
-            name = {recipes[currentRecipe].name}
-            imageLink = {recipes[currentRecipe].imageLink}
-            url = {recipes[currentRecipe].url}
+            createdDate = {recipes[currentRecipe].createdDate}
             currentRecipe = {currentRecipe}
+            imageLink = {recipes[currentRecipe].imageLink}
+            name = {recipes[currentRecipe].name}
+            url = {recipes[currentRecipe].url}
           />
           <div className='directionDisplay'>
           {(!recipes[currentRecipe].ingredients && !recipes[currentRecipe].ingredientsNotes && !recipes[currentRecipe].directions && !recipes[currentRecipe].directionsNotes) && (
@@ -74,7 +75,7 @@ class RecipeDetail extends React.Component {
                 <h1>Are you sure you want to delete this recipe?</h1>
                 <div className='popup-buttons'>
                   <div className='centerMe'>
-                    <Link to='/'><button className='navButtonStyle button-red' onClick={this.handleClickDelete}>Delete</button>
+                    <Link to='/'><button className='navButtonStyle button-red' onClick={() => {this.handleClickDelete(currentRecipe);}}>Delete</button>
                     </Link>
                   </div>
                   <div className='centerMe'>
