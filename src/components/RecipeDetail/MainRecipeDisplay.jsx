@@ -17,18 +17,19 @@ function MainRecipeDisplay({createdDate, currentRecipe, dispatch, imageLink, nam
 
   return (
     <div className='mainRecipeContainer'>
-      <div className='recipeDetailPicture'>
-        <div className='imagePlaceholder'>
+      <div>
+        <div className='recipeDetailPicture'>
+          <div className='imagePlaceholder'>
+          </div>
+          <div className='recipeImage'  style={backgroundImage} alt={altText}></div>
         </div>
-        <div className='recipeImage'  style={backgroundImage} alt={altText}>
-        </div>
+        {(createdDate) && (
+          <p className='centerMe'><em>Added on {moment(createdDate).format('M/D/YYYY')}</em></p>
+        )}
       </div>
 
       <div className='mainDetailContainer'>
         <h1 className='centerMe'>{name}</h1>
-        {(createdDate) && (
-          <p className='centerMe'><em>Added on {moment(createdDate).format('M/D/YYYY')}</em></p>
-        )}
         <div>
           {(url) && (
             <div className='centerMe'>
