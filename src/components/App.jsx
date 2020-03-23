@@ -15,6 +15,7 @@ import PrivateRoute from './Routes/PrivateRoute.jsx';
 import PublicRoute from './Routes/PublicRoute.jsx';
 import RecipeDetail from './RecipeDetail/RecipeDetail.jsx';
 import RecipeEditPage from './RecipeEditPage/RecipeEditPage.jsx';
+import Route404 from './Route404/Route404.jsx'
 import SignUpPage from './SignUpPage/SignUpPage.jsx';
 import { toggleMainMenu, checkLoginStatus } from './../actions';
 
@@ -26,6 +27,7 @@ import './LoginPage/LoginPage.scss';
 import './NavBar/NavBar.scss';
 import './RecipeDetail/RecipeDetail.scss';
 import './RecipeEditPage/RecipeEditPage.scss';
+import './Route404/Route404.scss';
 import './Widgets/MenuModal/MenuModal.scss';
 import './Widgets/Loader/Loader.scss';
 import './Widgets/NavButton/NavButton.scss';
@@ -61,6 +63,7 @@ class App extends Component {
               <PrivateRoute exact path='/discover-recipes' component={DiscoverPage}/>
               <PublicRoute exact path='/login' component={LoginPage}/>
               <PublicRoute exact path='/signup' component={SignUpPage}/>
+              <Route component={Route404} />
             </Switch>
           </div>
           <MenuModal

@@ -1,0 +1,19 @@
+@import '../sassVariables.scss';
+
+.route404 {
+  display: flex;
+  flex-direction: column;
+  padding: 8% 15px 0 15px;
+  justify-content: top;
+  align-items: center;
+  h1 {
+    padding-bottom: 1em;
+  }
+}
+
+
+@media (max-width: $small-breakpoint) {
+  h1 {
+    font-size: 1.5em;
+  }
+}
