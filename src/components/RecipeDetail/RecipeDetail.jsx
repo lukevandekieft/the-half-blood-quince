@@ -40,12 +40,12 @@ class RecipeDetail extends React.Component {
     const currentRecipe = this.props.location.pathname.slice(8);
 
     return (
-      <div className='contentContainer'>
+      <React.Fragment>
       { !recipes[currentRecipe] ? (
         <Route404/>
       ) : (
-            <React.Fragment>
-        <NavBarBacksplash />
+        <div className='contentContainer'>
+          <NavBarBacksplash />
           <div className='pageContentSection detailFlex'>
             <MainRecipeDisplay
               createdDate = {recipes[currentRecipe].createdDate}
@@ -92,10 +92,9 @@ class RecipeDetail extends React.Component {
               : null
             }
           </div>
-      </React.Fragment>
+        </div>
       )}
-      </div>
-     
+      </React.Fragment>
     );
   }
 }

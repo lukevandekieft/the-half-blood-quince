@@ -12,7 +12,7 @@ class AddRecipeForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentRecipe: null
+      createdRecipeId: null
     }
   }
 
@@ -58,15 +58,16 @@ class AddRecipeForm extends Component {
         directionsNotes: this.createArray(this._directionsNotes.value),
         createdDate: moment()._d
       }
-      this.setState({currentRecipe: v4()});
+      const newRecipeId = v4()
+      this.setState({createdRecipeId: newRecipeId});
       if (recipes) {
-        recipes[this.state.currentRecipe] = newRecipeInfo;
+        recipes[newRecipeId] = newRecipeInfo;
         newRecipeList = recipes;
       } else {
         const newRecipeObject = {
           recipes: {}
         };
-        newRecipeObject[this.state.currentRecipe] = newRecipeInfo;
+        newRecipeObject[newRecipeId] = newRecipeInfo;
         newRecipeList = newRecipeObject;
       }
       dispatch(submitRecipe(newRecipeList, user));
@@ -75,8 +76,8 @@ class AddRecipeForm extends Component {
 
   
     //redirect on form submission
-    if (isRouting === true) {
-      return <Redirect to={`/recipe/${this.state.currentRecipe}`} />
+    if (isRouting === true && this.state.createdRecipeId) {
+      return <Redirect to={`/recipe/${this.state.createdRecipeId}`} />
     }
 
   return (
