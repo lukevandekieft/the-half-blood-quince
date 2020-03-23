@@ -9,6 +9,13 @@ import moment from 'moment';
 
 class AddRecipeForm extends Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      createdRecipeId: null
+    }
+  }
+
   _name = null;
   _url = null;
   _imageLink = null;
@@ -37,7 +44,6 @@ class AddRecipeForm extends Component {
   render() {
     const {dispatch, isRouting, recipes, user } = this.props;
     console.log(this.props);
-    let currentRecipe;
     //submit recipe to database and route to new recipe page
     const submitForm = (event) => {
       event.preventDefault();
@@ -52,24 +58,26 @@ class AddRecipeForm extends Component {
         directionsNotes: this.createArray(this._directionsNotes.value),
         createdDate: moment()._d
       }
-      currentRecipe = v4();
+      const newRecipeId = v4()
+      this.setState({createdRecipeId: newRecipeId});
       if (recipes) {
-        recipes[currentRecipe] = newRecipeInfo;
+        recipes[newRecipeId] = newRecipeInfo;
         newRecipeList = recipes;
       } else {
         const newRecipeObject = {
           recipes: {}
         };
-        newRecipeObject[currentRecipe] = newRecipeInfo;
+        newRecipeObject[newRecipeId] = newRecipeInfo;
         newRecipeList = newRecipeObject;
       }
       dispatch(submitRecipe(newRecipeList, user));
       dispatch(changeRoute(true));
     }
 
+  
     //redirect on form submission
-    if (isRouting === true) {
-      return <Redirect to={`/recipe/${currentRecipe}`} />
+    if (isRouting === true && this.state.createdRecipeId) {
+      return <Redirect to={`/recipe/${this.state.createdRecipeId}`} />
     }
 
   return (
