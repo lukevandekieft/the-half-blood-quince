@@ -4,6 +4,18 @@ import { updateSearchValue, fetchApiSearchList } from '../../../actions';
 import { withRouter } from 'react-router-dom';
 
 class SearchBar extends React.Component{
+  constructor(props) {
+    super(props);
+    this.state = {
+      showCancelButton: false
+    }
+  }
+
+  handleChange = () => {
+    if (this.state.showCancelButton)  {
+      this.setState({showCancelButton: false})
+    }
+  }
 
   //Change search value to user input
   handleSearch = (event) => {
@@ -13,6 +25,7 @@ class SearchBar extends React.Component{
     if (this.props.location.pathname === '/discover-recipes') {
       this.props.dispatch(fetchApiSearchList(userInput, this.props.user));
     }
+    this.setState({showCancelButton: true})
   };
 
   //Cancel existing user search
@@ -26,7 +39,7 @@ class SearchBar extends React.Component{
 
     //Determines which button to display based on search value
     let searchButton;
-    if (searchValue) {
+    if (searchValue && this.state.showCancelButton) {
       searchButton =
       <a className="searchButton" type='reset' onClick={() => {this.handleCancelSearch()}}>
         <i className="fas fa-times iconStyle"></i>
@@ -48,7 +61,7 @@ class SearchBar extends React.Component{
 
     return (
       <form className="searchBox" onSubmit={this.handleSearch.bind(this)}>
-        <input type="text" className="searchInput" id='recipeSearch' ref={ el => this.recipeSearch = el} placeholder={placeholderText}/>
+        <input type="text" className="searchInput" id='recipeSearch' ref={ el => this.recipeSearch = el} onChange={this.handleChange} placeholder={placeholderText}/>
         {searchButton}
       </form>
     );
