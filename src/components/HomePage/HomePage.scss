@@ -16,9 +16,7 @@
   background-repeat: no-repeat;
   box-shadow: 0px -1px 5px 1px rgba(0,0,0,0.28);
 };
-.headerSection.homePage {
 
-}
 .headerSection.discoverPage {
   background-image: url('../../assets/images/discover_background.jpg');
 }
@@ -54,7 +52,7 @@
 }
 
 .recipeItemBox {
-  background-color: $brand-color;
+  background-color:  $brand-color;
   box-sizing: border-box !important;
   white-space: nowrap;
   margin-bottom: $recipe-icon-padding;

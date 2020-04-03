@@ -52,3 +52,25 @@ ul, ol {
   color: grey;
   font-style: italic;
 }
+
+// Adapted from https://css-tricks.com/star-ratings/
+//
+.rating {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+}
+
+.rating > span:hover:before,
+.rating > span:hover ~ span:before {
+   content: "\2605" !important;
+   position: absolute !important;
+}
+
+.rating.five-star > span:before {
+  content: "\2605";
+  position: absolute;
+}
+.rating:hover > span:before {
+  content: "\2606";
+  position: absolute;
+}

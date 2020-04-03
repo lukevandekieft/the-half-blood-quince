@@ -52,6 +52,30 @@ class EditRecipeForm extends Component {
     }
   }
 
+  // createTagCheckboxes = () => {
+  //   const tags = [
+  //     "Breakfast",
+  //     "Appetizer",
+  //     "Main Course",
+  //     "Dessert",
+  //     "Drinks",
+  //     "Vegan",
+  //     "Gluten Free",
+  //     "Party Food",
+  //     "Slow Cooker",
+  //     "Healthy",
+  //     "Quick & Easy"
+  //   ]
+  //   for (const tag of tags) {
+  //       <Checkbox
+  //           label={label}
+  //           handleCheckboxChange={this.toggleCheckbox}
+  //           key={label}
+  //         />
+
+  //   }
+  // }
+
   render() {
     //destructure props from mapStateToProps
     const {currentRecipe, dispatch, isRouting, recipes, user} = this.props;
@@ -118,6 +142,12 @@ class EditRecipeForm extends Component {
           ></input>
         </div>
         <div className='formInputLayout'>
+          <label>Rating</label>
+          <div class="rating five-star">
+            <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+          </div>
+        </div>
+        <div className='formInputLayout'>
           <label>Ingredients</label>
           <textarea
             defaultValue={formatIngredients}
@@ -149,6 +179,10 @@ class EditRecipeForm extends Component {
             ref={(input) => {this._directionsNotes = input;}}
           ></textarea>
         </div>
+        {/* <div className='formInputLayout'>
+          <label>Recipe Tags</label>
+          {this.TagCheckboxes()}
+        </div> */}
         <div className='centerMe'>
           <button type="submit" className='navButtonStyle button-green'>Submit</button>
         </div>
