@@ -9,7 +9,7 @@ class EditRecipeForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      rating: 4
+      rating: null
     }
   }
 
@@ -24,7 +24,7 @@ class EditRecipeForm extends Component {
 //validate inputs on load
   componentDidMount() {
     this.props.onInputValidation(this._name);
-
+    console.log("TEST ME!")
     if (this.props.recipes[this.props.currentRecipe].rating && (this.props.recipes[this.props.currentRecipe].rating !== this.state.rating)) {
       this.setState({rating: this.props.recipes[this.props.currentRecipe].rating})
     }
@@ -86,6 +86,10 @@ class EditRecipeForm extends Component {
   //   }
   // }
 
+  changeRating = (newRating) => {
+    this.setState({rating: newRating})
+  }
+
   render() {
     //destructure props from mapStateToProps
     const {currentRecipe, dispatch, isRouting, recipes, user} = this.props;
@@ -105,6 +109,7 @@ class EditRecipeForm extends Component {
         name: this._name.value,
         url: this._url.value,
         imageLink: this._imageLink.value,
+        rating: this.state.rating,
         ingredients: this.createArray(this._ingredients.value),
         ingredientsNotes: this.createArray(this._ingredientsNotes.value),
         directions: this.createArray(this._directions.value),
@@ -118,6 +123,7 @@ class EditRecipeForm extends Component {
       return <Redirect to={`/recipe/${currentRecipe}`} />
     }
 
+  console.log(this.state.rating)
   return (
     <div>
       <form className='formLayout' onSubmit={submitForm.bind(this)}>
@@ -151,10 +157,15 @@ class EditRecipeForm extends Component {
             ref={(input) => {this._imageLink = input;}}
           ></input>
         </div>
-        <div className='formInputLayout'>
+        <div>
           <label>Rating</label>
-          <div className={`rating ${this.state.rating}-star`}>
-            <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+          <div className={this.state.rating ? `rating ${this.state.rating}-star` : "rating"}>
+            {/* NOTE: spans are reversed in CSS! 1=5, 5=1 */}
+            <span onClick={() => {this.changeRating("five")}}>☆</span>
+            <span onClick={() => {this.changeRating("four")}}>☆</span>
+            <span onClick={() => {this.changeRating("three")}}>☆</span>
+            <span onClick={() => {this.changeRating("two")}}>☆</span>
+            <span onClick={() => {this.changeRating("one")}}>☆</span>
           </div>
         </div>
         <div className='formInputLayout'>
