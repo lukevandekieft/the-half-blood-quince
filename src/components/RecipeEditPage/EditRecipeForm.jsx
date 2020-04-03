@@ -6,6 +6,12 @@ import { submitRecipe, changeRoute } from './../../actions';
 import { Redirect } from 'react-router';
 
 class EditRecipeForm extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      rating: 4
+    }
+  }
 
   _name = null;
   _url = null;
@@ -18,6 +24,10 @@ class EditRecipeForm extends Component {
 //validate inputs on load
   componentDidMount() {
     this.props.onInputValidation(this._name);
+
+    if (this.props.recipes[this.props.currentRecipe].rating && (this.props.recipes[this.props.currentRecipe].rating !== this.state.rating)) {
+      this.setState({rating: this.props.recipes[this.props.currentRecipe].rating})
+    }
   }
 
 //turn array into display text
@@ -80,7 +90,7 @@ class EditRecipeForm extends Component {
     //destructure props from mapStateToProps
     const {currentRecipe, dispatch, isRouting, recipes, user} = this.props;
     const currentRecipeData = recipes[currentRecipe];
-    const {directions, directionsNotes, image, ingredients, ingredientsNotes, name, url} = currentRecipeData;
+    const {directions, directionsNotes, image, ingredients, ingredientsNotes, name, rating, url} = currentRecipeData;
 
     //format array props
     const formatIngredients = this.readableArray(ingredients);
@@ -143,7 +153,7 @@ class EditRecipeForm extends Component {
         </div>
         <div className='formInputLayout'>
           <label>Rating</label>
-          <div class="rating five-star">
+          <div className={`rating ${this.state.rating}-star`}>
             <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
           </div>
         </div>
