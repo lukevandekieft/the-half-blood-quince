@@ -157,9 +157,9 @@ class EditRecipeForm extends Component {
             ref={(input) => {this._imageLink = input;}}
           ></input>
         </div>
-        <div>
+        <div className="ratingSection">
           <label>Rating</label>
-          <div className={this.state.rating ? `rating ${this.state.rating}-star` : "rating"}>
+          <div className={this.state.rating ? `ratingBox ${this.state.rating}-star` : "ratingBox"}>
             {/* NOTE: spans are reversed in CSS! 1=5, 5=1 */}
             <span onClick={() => {this.changeRating("five")}}>☆</span>
             <span onClick={() => {this.changeRating("four")}}>☆</span>

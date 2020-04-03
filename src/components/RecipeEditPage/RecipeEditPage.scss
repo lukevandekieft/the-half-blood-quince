@@ -35,6 +35,7 @@ ul, ol {
   &:focus {
     border: 1px solid transparent;
     outline: $input-error-color auto 5px;
+    box-shadow: $input-error-color auto 5px;
     -webkit-box-shadow: $input-error-color auto 5px;
   }
 }
@@ -54,44 +55,80 @@ ul, ol {
 }
 
 // Adapted from https://css-tricks.com/star-ratings/
+@mixin starStyle() {
+  color: darken(gold, 5%);
+  &:before {
+    content: "\2605";
+    position: absolute;
+    color: darken(gold, 5%);
+  }
+}
+
+@mixin emptyStarStyle() {
+  content: "\2606";
+  color: black;
+  &:before {
+    color: rgba(50, 50, 50, .1);
+  }
+}
+
+.ratingSection {
+  display: flex;
+  height: 2rem;
+  font-size: 1.5rem;
+  align-content: center;
+  box-sizing: border-box;
+  label {
+    margin-right: 1rem;
+    align-self: center;
+    font-size: 1rem;
+  }
+  span {
+    width: 1.5rem;
+    height: 100%;
+    align-self: center;
+    content: "\2606";
+  }
+}
 
 // stars will fill based on state
-.rating.five-star > span:before {
-  content: "\2605";
-  position: absolute;
+.ratingBox.five-star > span {
+  @include starStyle();
 }
-.rating.four-star > span:nth-child(1) ~ span:before {
-  content: "\2605";
-  position: absolute;
+.ratingBox.four-star > span:nth-child(1) ~ span {
+    @include starStyle();
 }
-.rating.three-star > span:nth-child(2) ~ span:before {
-  content: "\2605";
-  position: absolute;
+.ratingBox.three-star > span:nth-child(2) ~ span {
+  @include starStyle();
 }
-.rating.two-star > span:nth-child(3) ~ span:before {
-  content: "\2605";
-  position: absolute;
+.ratingBox.two-star > span:nth-child(3) ~ span {
+  color: transparent;
+  @include starStyle();
 }
-.rating.one-star > span:nth-child(4) ~ span:before {
-  content: "\2605";
-  position: absolute;
-}
-
-// defaults to 5 unfilled stars
-.rating:hover > span:before {
-  content: "\2606" !important;
-  position: absolute;
+.ratingBox.one-star > span:nth-child(4) ~ span {
+  @include starStyle();
 }
 
 // hovering changes underlying unicode and changes subsequent spans; hovering overrides aforementioned styles
-.rating {
+.ratingBox {
   unicode-bidi: bidi-override;
   direction: rtl;
+  background-color: rgba(50, 50, 50, .1);
+  padding: 0 .3rem;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
 }
 
-.rating > span:hover:before,
-.rating > span:hover ~ span:before {
-   content: "\2605" !important;
-   position: absolute !important;
+// .formLayout used to overwrite specificity of star ratings
+// defaults to 5 unfilled stars
+.formLayout .ratingSection .ratingBox:hover > span {
+  @include emptyStarStyle();
+}
+
+.formLayout .ratingSection .ratingBox > span:hover,
+.formLayout .ratingSection .ratingBox > span:hover ~ span {
+  @include starStyle();
 }
 
