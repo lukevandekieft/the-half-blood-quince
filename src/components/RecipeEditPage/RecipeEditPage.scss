@@ -54,7 +54,20 @@ ul, ol {
 }
 
 // Adapted from https://css-tricks.com/star-ratings/
-//
+
+// defaults to 5 unfilled stars
+.rating:hover > span:before {
+  content: "\2606";
+  position: absolute;
+}
+
+// stars will fill based on state
+.rating.five-star > span:before {
+  content: "\2605";
+  position: absolute;
+}
+
+// hovering changes underlying unicode and changes subsequent spans; hovering overrides aforementioned styles
 .rating {
   unicode-bidi: bidi-override;
   direction: rtl;
@@ -66,11 +79,3 @@ ul, ol {
    position: absolute !important;
 }
 
-.rating.five-star > span:before {
-  content: "\2605";
-  position: absolute;
-}
-.rating:hover > span:before {
-  content: "\2606";
-  position: absolute;
-}
