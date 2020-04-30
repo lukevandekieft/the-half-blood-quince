@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { changePopupStatus } from '../../actions';
 import moment from 'moment';
 
-function MainRecipeDisplay({createdDate, currentRecipe, dispatch, imageLink, name, showPopup, url}){
+function MainRecipeDisplay({createdDate, currentRecipe, dispatch, imageLink, name, rating, showPopup, url}){
   const altText = `${name} Recipe`;
   const backgroundImage = {
     backgroundImage: `url(${imageLink})`
@@ -59,6 +59,7 @@ MainRecipeDisplay.propTypes = {
   currentRecipe: PropTypes.string,
   imageLink: PropTypes.string,
   name: PropTypes.string,
+  rating: PropTypes.number,
   showPopup: PropTypes.bool,
   url: PropTypes.string
 };

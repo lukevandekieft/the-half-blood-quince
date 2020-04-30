@@ -92,20 +92,20 @@ ul, ol {
 }
 
 // stars will fill based on state
-.ratingBox.five-star > span {
+.ratingBox.rate-5-star > span {
   @include starStyle();
 }
-.ratingBox.four-star > span:nth-child(1) ~ span {
+.ratingBox.rate-4-star > span:nth-child(1) ~ span {
     @include starStyle();
 }
-.ratingBox.three-star > span:nth-child(2) ~ span {
+.ratingBox.rate-3-star > span:nth-child(2) ~ span {
   @include starStyle();
 }
-.ratingBox.two-star > span:nth-child(3) ~ span {
+.ratingBox.rate-2-star > span:nth-child(3) ~ span {
   color: transparent;
   @include starStyle();
 }
-.ratingBox.one-star > span:nth-child(4) ~ span {
+.ratingBox.rate-1-star > span:nth-child(4) ~ span {
   @include starStyle();
 }
 

@@ -12,7 +12,8 @@ class AddRecipeForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      createdRecipeId: null
+      createdRecipeId: null,
+      rating: null
     }
   }
 
@@ -37,8 +38,12 @@ class AddRecipeForm extends Component {
       newArray.shift();
       return newArray;
     } else {
-      return [];
+      return;
     }
+  }
+
+  changeRating = (newRating) => {
+    this.setState({rating: newRating})
   }
 
   render() {
@@ -108,6 +113,17 @@ class AddRecipeForm extends Component {
             id='imageLink'
             ref={(input) => {this._imageLink = input;}}
           ></input>
+        </div>
+        <div className="ratingSection">
+          <label>Rating</label>
+          <div className={this.state.rating ? `ratingBox rate-${this.state.rating}-star` : "ratingBox"}>
+            {/* NOTE: spans are reversed in CSS! 1=5, 5=1 */}
+            <span onClick={() => {this.changeRating("5")}}>☆</span>
+            <span onClick={() => {this.changeRating("4")}}>☆</span>
+            <span onClick={() => {this.changeRating("3")}}>☆</span>
+            <span onClick={() => {this.changeRating("2")}}>☆</span>
+            <span onClick={() => {this.changeRating("1")}}>☆</span>
+          </div>
         </div>
         <div className='formInputLayout'>
           <label>Ingredients</label>
