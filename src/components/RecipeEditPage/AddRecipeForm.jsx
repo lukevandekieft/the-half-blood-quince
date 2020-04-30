@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import NavButton from './../Widgets/NavButton/NavButton';
+import StarRating from './../Widgets/StarRating/StarRating';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { submitRecipe, changeRoute } from './../../actions';
@@ -38,17 +39,16 @@ class AddRecipeForm extends Component {
       newArray.shift();
       return newArray;
     } else {
-      return;
+      return "";
     }
   }
 
-  changeRating = (newRating) => {
-    this.setState({rating: newRating})
+  handleChange = (stateCategory, newValue) => {
+    this.setState({[stateCategory]: newValue})
   }
 
   render() {
     const {dispatch, isRouting, recipes, user } = this.props;
-    console.log(this.props);
     //submit recipe to database and route to new recipe page
     const submitForm = (event) => {
       event.preventDefault();
@@ -57,6 +57,7 @@ class AddRecipeForm extends Component {
         name: this._name.value,
         url: this._url.value,
         imageLink: this._imageLink.value,
+        rating: this.state.rating,
         ingredients: this.createArray(this._ingredients.value),
         ingredientsNotes: this.createArray(this._ingredientsNotes.value),
         directions: this.createArray(this._directions.value),
@@ -116,14 +117,10 @@ class AddRecipeForm extends Component {
         </div>
         <div className="ratingSection">
           <label>Rating</label>
-          <div className={this.state.rating ? `ratingBox rate-${this.state.rating}-star` : "ratingBox"}>
-            {/* NOTE: spans are reversed in CSS! 1=5, 5=1 */}
-            <span onClick={() => {this.changeRating("5")}}>☆</span>
-            <span onClick={() => {this.changeRating("4")}}>☆</span>
-            <span onClick={() => {this.changeRating("3")}}>☆</span>
-            <span onClick={() => {this.changeRating("2")}}>☆</span>
-            <span onClick={() => {this.changeRating("1")}}>☆</span>
-          </div>
+          <StarRating 
+            handleChange={this.handleChange}
+            rating={this.state.rating}
+          />
         </div>
         <div className='formInputLayout'>
           <label>Ingredients</label>

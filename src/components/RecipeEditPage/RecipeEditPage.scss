@@ -1,4 +1,5 @@
 @import '../sassVariables.scss';
+@import '../Widgets/StarRating/StarRating.scss';
 
 ul, ol {
    padding-left: 1.8rem;
@@ -54,24 +55,6 @@ ul, ol {
   font-style: italic;
 }
 
-// Adapted from https://css-tricks.com/star-ratings/
-@mixin starStyle() {
-  color: darken(gold, 5%);
-  &:before {
-    content: "\2605";
-    position: absolute;
-    color: darken(gold, 5%);
-  }
-}
-
-@mixin emptyStarStyle() {
-  content: "\2606";
-  color: black;
-  &:before {
-    color: rgba(50, 50, 50, .1);
-  }
-}
-
 .ratingSection {
   display: flex;
   height: 2rem;
@@ -89,36 +72,6 @@ ul, ol {
     align-self: center;
     content: "\2606";
   }
-}
-
-// stars will fill based on state
-.ratingBox.rate-5-star > span {
-  @include starStyle();
-}
-.ratingBox.rate-4-star > span:nth-child(1) ~ span {
-    @include starStyle();
-}
-.ratingBox.rate-3-star > span:nth-child(2) ~ span {
-  @include starStyle();
-}
-.ratingBox.rate-2-star > span:nth-child(3) ~ span {
-  color: transparent;
-  @include starStyle();
-}
-.ratingBox.rate-1-star > span:nth-child(4) ~ span {
-  @include starStyle();
-}
-
-// hovering changes underlying unicode and changes subsequent spans; hovering overrides aforementioned styles
-.ratingBox {
-  unicode-bidi: bidi-override;
-  direction: rtl;
-  background-color: rgba(50, 50, 50, .1);
-  padding: 0 .3rem;
-  border-radius: 5px;
-  display: flex;
-  justify-content: center;
-  align-content: center;
 }
 
 // .formLayout used to overwrite specificity of star ratings
