@@ -31,8 +31,8 @@ class RecipeEditForm extends Component {
     this.props.onInputValidation(this._name);
 
     if (this.props.currentRecipe) {
-      if (this.props.recipes[this.props.currentRecipe].rating && (this.props.recipes[this.props.currentRecipe].rating !== this.state.rating)) {
-        this.setState({rating: this.props.recipes[this.props.currentRecipe].rating})
+      if (this.props.currentRecipe.rating && (this.props.currentRecipe.rating !== this.state.rating)) {
+        this.setState({rating: this.props.currentRecipe.rating})
       }
     }
   }
@@ -74,7 +74,15 @@ class RecipeEditForm extends Component {
   }
 
   render() {
-    const {currentRecipe, dispatch, isRouting, recipes, user } = this.props;
+    console.log(this.props)
+    console.log(this.state)
+    const {currentRecipe, currentRecipeName, dispatch, isRouting, recipes, user } = this.props;
+    
+    //format array props
+    const formatIngredients = currentRecipe ? this.readableArray(currentRecipe.ingredients) : null;
+    const formatIngredientsNotes = currentRecipe ? this.readableArray(currentRecipe.ingredientsNotes) : null;
+    const formatDirections = currentRecipe ? this.readableArray(currentRecipe.directions) : null;
+    const formatDirectionsNotes = currentRecipe ? this.readableArray(currentRecipe.directionsNotes) : null;
 
     //submit recipe to database and route to new recipe page
     const submitForm = (event) => {
@@ -109,8 +117,10 @@ class RecipeEditForm extends Component {
 
   
     //redirect on form submission
-    if (isRouting === true && this.state.createdRecipeId) {
+    if (isRouting === true && this.state.createdRecipeId && !this.props.currentRecipe) {
       return <Redirect to={`/recipe/${this.state.createdRecipeId}`} />
+    } else if (isRouting === true && this.props.currentRecipe) {
+      return <Redirect to={`/recipe/${this.props.currentRecipe}`} />
     }
 
   return (
@@ -119,7 +129,9 @@ class RecipeEditForm extends Component {
         <div className='formInputLayout'>
           <label>Recipe Name <span className={this.props.nameError ? 'errorMessage' : 'noErrorMessage'}>Please Enter a Name</span><span className={this.props.nameError ? 'noErrorMessage' : 'inputFieldNote'}>*  Required</span></label>
           <input
+            required
             type="text"
+            defaultValue={currentRecipe ? this.checkValue(currentRecipe.name) : null}
             id='name'
             ref={(input) => {this._name = input;}}
             className={this.props.nameError ? "inputError" : ""}
@@ -130,6 +142,7 @@ class RecipeEditForm extends Component {
           <label>Recipe Link <span className='inputFieldNote'>(URL Only)</span></label>
           <input
             type="url"
+            defaultValue={currentRecipe ? this.checkValue(currentRecipe.url) : null}
             id='url'
             ref={(input) => {this._url = input;}}
           ></input>
@@ -138,6 +151,7 @@ class RecipeEditForm extends Component {
           <label>Recipe Picture <span className='inputFieldNote'>(URL Only)</span></label>
           <input
             type="url"
+            defaultValue={currentRecipe ? this.checkValue(currentRecipe.imageLink) : null}
             id='imageLink'
             ref={(input) => {this._imageLink = input;}}
           ></input>
@@ -153,6 +167,7 @@ class RecipeEditForm extends Component {
           <label>Ingredients</label>
           <textarea
             id='ingredients'
+            defaultValue={formatIngredients}
             ref={(input) => {this._ingredients = input;}}
           ></textarea>
         </div>
@@ -160,6 +175,7 @@ class RecipeEditForm extends Component {
           <label>Ingredient Notes</label>
           <textarea
             id='ingredientsNotes'
+            defaultValue={formatIngredientsNotes}
             ref={(input) => {this._ingredientsNotes = input;}}
           ></textarea>
         </div>
@@ -167,6 +183,7 @@ class RecipeEditForm extends Component {
           <label>Directions</label>
           <textarea
             id='directions'
+            defaultValue={formatDirections}
             ref={(input) => {this._directions = input;}}
           ></textarea>
         </div>
@@ -174,6 +191,7 @@ class RecipeEditForm extends Component {
           <label>Direction Notes</label>
           <textarea
             id='directionsNotes'
+            defaultValue={formatDirectionsNotes}
             ref={(input) => {this._directionsNotes = input;}}
           ></textarea>
         </div>
@@ -199,7 +217,7 @@ const mapStateToProps = state => {
 };
 
 RecipeEditForm.propTypes = {
-  currentRecipe: PropTypes.string,
+  currentRecipe: PropTypes.object,
   recipes: PropTypes.object,
   isRouting: PropTypes.bool,
   user: PropTypes.object,

@@ -11,23 +11,13 @@ class RecipeEdit extends React.Component{
   constructor(props) {
     super(props);
     this.state = {
-      nameError: false,
-      currentRecipeName: null,
-      currentRecipe: null
+      nameError: false
     };
     this.handleInputValidation = this.handleInputValidation.bind(this);
   }
 
   componentDidMount() {
     window.scrollTo(0, 0);
-
-    if (this.props.location.pathname.includes("/edit-recipe/")) {
-      const recipeName = this.props.location.pathname.slice(13);
-      this.setState({
-        currentRecipeName: recipeName,
-        currentRecipe: this.props.recipes[recipeName] 
-      });
-    }
   }
 
   //Set nameError state based on name input value
@@ -59,13 +49,18 @@ class RecipeEdit extends React.Component{
     //       onInputValidation = {this.handleInputValidation}
     //     />;
     // }
+    let recipeName;
+    if (this.props.location.pathname.includes("/edit-recipe/")) {
+      recipeName = this.props.location.pathname.slice(13);
+    }
 
     return (
       <div className='contentContainer'>
         <div className='pageContentSection'>
           <NavBarBacksplash />
           <RecipeEditForm
-            currentRecipe = {this.props.location.pathname.slice(13)}
+            currentRecipe = {this.props.recipes[recipeName]}
+            currentRecipeName = {recipeName}
             nameError = {this.state.nameError}
             onInputValidation = {this.handleInputValidation}
           />;
