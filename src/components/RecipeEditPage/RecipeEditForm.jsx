@@ -87,8 +87,9 @@ class RecipeEditForm extends Component {
     //submit recipe to database and route to new recipe page
     const submitForm = (event) => {
       event.preventDefault();
-      let newRecipeList;
-      let newRecipeInfo = {
+
+      const recipeDetail = {
+        createdDate: !currentRecipe ? moment()._d : currentRecipe.createdDate ? currentRecipe.createdDate : moment()._d,
         name: this._name.value,
         url: this._url.value,
         imageLink: this._imageLink.value,
@@ -96,31 +97,33 @@ class RecipeEditForm extends Component {
         ingredients: this.createArray(this._ingredients.value),
         ingredientsNotes: this.createArray(this._ingredientsNotes.value),
         directions: this.createArray(this._directions.value),
-        directionsNotes: this.createArray(this._directionsNotes.value),
-        createdDate: moment()._d
+        directionsNotes: this.createArray(this._directionsNotes.value)
       }
-      const newRecipeId = v4()
-      this.setState({createdRecipeId: newRecipeId});
+
+      const recipeId = currentRecipeName ? currentRecipeName : v4();
+
+      if (!currentRecipe) {
+        this.setState({createdRecipeId: recipeId});
+      }
+
       if (recipes) {
-        recipes[newRecipeId] = newRecipeInfo;
-        newRecipeList = recipes;
+        recipes[recipeId] = recipeDetail;
       } else {
         const newRecipeObject = {
           recipes: {}
         };
-        newRecipeObject[newRecipeId] = newRecipeInfo;
-        newRecipeList = newRecipeObject;
+        newRecipeObject[recipeId] = recipeDetail;
+        recipes.recipes = newRecipeObject;
       }
-      dispatch(submitRecipe(newRecipeList, user));
+      dispatch(submitRecipe(recipes, user));
       dispatch(changeRoute(true));
     }
-
   
     //redirect on form submission
-    if (isRouting === true && this.state.createdRecipeId && !this.props.currentRecipe) {
+    if (isRouting === true && this.state.createdRecipeId) {
       return <Redirect to={`/recipe/${this.state.createdRecipeId}`} />
     } else if (isRouting === true && this.props.currentRecipe) {
-      return <Redirect to={`/recipe/${this.props.currentRecipe}`} />
+      return <Redirect to={`/recipe/${this.props.currentRecipeName}`} />
     }
 
   return (
