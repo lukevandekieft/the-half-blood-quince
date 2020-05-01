@@ -5,11 +5,15 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { submitRecipe, changeRoute } from './../../actions';
 import { Redirect } from 'react-router';
+import { v4 } from 'uuid';
+import moment from 'moment';
 
-class EditRecipeForm extends Component {
+class RecipeEditForm extends Component {
+
   constructor(props) {
     super(props);
     this.state = {
+      createdRecipeId: null,
       rating: null
     }
   }
@@ -25,13 +29,15 @@ class EditRecipeForm extends Component {
 //validate inputs on load
   componentDidMount() {
     this.props.onInputValidation(this._name);
-    
-    if (this.props.recipes[this.props.currentRecipe].rating && (this.props.recipes[this.props.currentRecipe].rating !== this.state.rating)) {
-      this.setState({rating: this.props.recipes[this.props.currentRecipe].rating})
+
+    if (this.props.currentRecipe) {
+      if (this.props.recipes[this.props.currentRecipe].rating && (this.props.recipes[this.props.currentRecipe].rating !== this.state.rating)) {
+        this.setState({rating: this.props.recipes[this.props.currentRecipe].rating})
+      }
     }
   }
 
-//turn array into display text
+  //turn array into display text
   readableArray = (array) => {
     if(array) {
       if(array.length === 0) {
@@ -42,7 +48,7 @@ class EditRecipeForm extends Component {
     }
   }
 
-//turn displayed text into array
+  //turn display text into array
   createArray = (string) => {
     if(string) {
       string = `\n\n${string}`;
@@ -54,7 +60,7 @@ class EditRecipeForm extends Component {
     }
   }
 
-//checks for null prop values
+  //checks for null prop values
   checkValue = (propValue) => {
     if(propValue) {
       return propValue;
@@ -63,47 +69,18 @@ class EditRecipeForm extends Component {
     }
   }
 
-  // createTagCheckboxes = () => {
-  //   const tags = [
-  //     "Breakfast",
-  //     "Appetizer",
-  //     "Main Course",
-  //     "Dessert",
-  //     "Drinks",
-  //     "Vegan",
-  //     "Gluten Free",
-  //     "Party Food",
-  //     "Slow Cooker",
-  //     "Healthy",
-  //     "Quick & Easy"
-  //   ]
-  //   for (const tag of tags) {
-  //       <Checkbox
-  //           label={label}
-  //           handleCheckboxChange={this.toggleCheckbox}
-  //           key={label}
-  //         />
-
-  //   }
-  // }
+  handleChange = (stateCategory, newValue) => {
+    this.setState({[stateCategory]: newValue})
+  }
 
   render() {
-    //destructure props from mapStateToProps
-    const {currentRecipe, dispatch, isRouting, recipes, user} = this.props;
-    const currentRecipeData = recipes[currentRecipe];
-    const {directions, directionsNotes, image, ingredients, ingredientsNotes, name, rating, url} = currentRecipeData;
+    const {currentRecipe, dispatch, isRouting, recipes, user } = this.props;
 
-    //format array props
-    const formatIngredients = this.readableArray(ingredients);
-    const formatIngredientsNotes = this.readableArray(ingredientsNotes);
-    const formatDirections = this.readableArray(directions);
-    const formatDirectionsNotes = this.readableArray(directionsNotes);
-
-    //on submission send added/edited recipe and route to said recipe
+    //submit recipe to database and route to new recipe page
     const submitForm = (event) => {
       event.preventDefault();
-      recipes[currentRecipe] = {
-        createdDate: currentRecipeData.createdDate ? currentRecipeData.createdDate : "",
+      let newRecipeList;
+      let newRecipeInfo = {
         name: this._name.value,
         url: this._url.value,
         imageLink: this._imageLink.value,
@@ -111,37 +88,48 @@ class EditRecipeForm extends Component {
         ingredients: this.createArray(this._ingredients.value),
         ingredientsNotes: this.createArray(this._ingredientsNotes.value),
         directions: this.createArray(this._directions.value),
-        directionsNotes: this.createArray(this._directionsNotes.value)
+        directionsNotes: this.createArray(this._directionsNotes.value),
+        createdDate: moment()._d
       }
-      dispatch(submitRecipe(recipes, user));
+      const newRecipeId = v4()
+      this.setState({createdRecipeId: newRecipeId});
+      if (recipes) {
+        recipes[newRecipeId] = newRecipeInfo;
+        newRecipeList = recipes;
+      } else {
+        const newRecipeObject = {
+          recipes: {}
+        };
+        newRecipeObject[newRecipeId] = newRecipeInfo;
+        newRecipeList = newRecipeObject;
+      }
+      dispatch(submitRecipe(newRecipeList, user));
       dispatch(changeRoute(true));
     }
 
-    if (isRouting === true) {
-      return <Redirect to={`/recipe/${currentRecipe}`} />
+  
+    //redirect on form submission
+    if (isRouting === true && this.state.createdRecipeId) {
+      return <Redirect to={`/recipe/${this.state.createdRecipeId}`} />
     }
 
-  console.log(this.state.rating)
   return (
     <div>
       <form className='formLayout' onSubmit={submitForm.bind(this)}>
         <div className='formInputLayout'>
           <label>Recipe Name <span className={this.props.nameError ? 'errorMessage' : 'noErrorMessage'}>Please Enter a Name</span><span className={this.props.nameError ? 'noErrorMessage' : 'inputFieldNote'}>*  Required</span></label>
           <input
-            required
             type="text"
-            defaultValue={this.checkValue(name)}
             id='name'
             ref={(input) => {this._name = input;}}
             className={this.props.nameError ? "inputError" : ""}
-            onChange={() => {this.props.onInputValidation(this._name)}}>
-          </input>
+            onChange={() => {this.props.onInputValidation(this._name)}}
+          ></input>
         </div>
         <div className='formInputLayout'>
           <label>Recipe Link <span className='inputFieldNote'>(URL Only)</span></label>
           <input
-            type="text"
-            defaultValue={this.checkValue(url)}
+            type="url"
             id='url'
             ref={(input) => {this._url = input;}}
           ></input>
@@ -149,8 +137,7 @@ class EditRecipeForm extends Component {
         <div className='formInputLayout'>
           <label>Recipe Picture <span className='inputFieldNote'>(URL Only)</span></label>
           <input
-            type="text"
-            defaultValue={this.checkValue(image)}
+            type="url"
             id='imageLink'
             ref={(input) => {this._imageLink = input;}}
           ></input>
@@ -165,7 +152,6 @@ class EditRecipeForm extends Component {
         <div className='formInputLayout'>
           <label>Ingredients</label>
           <textarea
-            defaultValue={formatIngredients}
             id='ingredients'
             ref={(input) => {this._ingredients = input;}}
           ></textarea>
@@ -173,7 +159,6 @@ class EditRecipeForm extends Component {
         <div className='formInputLayout'>
           <label>Ingredient Notes</label>
           <textarea
-            defaultValue={formatIngredientsNotes}
             id='ingredientsNotes'
             ref={(input) => {this._ingredientsNotes = input;}}
           ></textarea>
@@ -181,7 +166,6 @@ class EditRecipeForm extends Component {
         <div className='formInputLayout'>
           <label>Directions</label>
           <textarea
-            defaultValue={formatDirections}
             id='directions'
             ref={(input) => {this._directions = input;}}
           ></textarea>
@@ -189,22 +173,17 @@ class EditRecipeForm extends Component {
         <div className='formInputLayout'>
           <label>Direction Notes</label>
           <textarea
-            defaultValue={formatDirectionsNotes}
             id='directionsNotes'
             ref={(input) => {this._directionsNotes = input;}}
           ></textarea>
         </div>
-        {/* <div className='formInputLayout'>
-          <label>Recipe Tags</label>
-          {this.TagCheckboxes()}
-        </div> */}
         <div className='centerMe'>
           <button type="submit" className='navButtonStyle button-green'>Submit</button>
         </div>
       </form>
       <NavButton
-      linkPath={`/recipe/${currentRecipe}`}
-      linkText='Cancel Changes'
+      linkPath='/'
+      linkText='Cancel'
       color='red'
       />
     </div>
@@ -213,16 +192,16 @@ class EditRecipeForm extends Component {
 
 const mapStateToProps = state => {
   return {
-    recipes: state.recipes,
     isRouting: state.isRouting,
-    user: state.user
+    recipes: state.recipes,
+    user: state.user,
   };
 };
 
-EditRecipeForm.propTypes = {
+RecipeEditForm.propTypes = {
   currentRecipe: PropTypes.string,
-  isRouting: PropTypes.bool,
   recipes: PropTypes.object,
+  isRouting: PropTypes.bool,
   user: PropTypes.object,
 
   directions: PropTypes.array,
@@ -234,4 +213,4 @@ EditRecipeForm.propTypes = {
   url: PropTypes.string,
 }
 
-export default connect(mapStateToProps)(EditRecipeForm);
+export default connect(mapStateToProps)(RecipeEditForm);
