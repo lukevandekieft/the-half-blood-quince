@@ -164,6 +164,7 @@ class RecipeEditForm extends Component {
           <StarRating 
             handleChange={this.handleChange}
             rating={this.state.rating}
+            distplayType={"write"}
           />
         </div>
         <div className='formInputLayout'>
