@@ -2,8 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import AddRecipeForm from './AddRecipeForm';
-import EditRecipeForm from './EditRecipeForm';
 import RecipeEditForm from './RecipeEditForm';
 import NavBarBacksplash from '../NavBar/NavBarBacksplash';
 

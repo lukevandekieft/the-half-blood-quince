@@ -202,11 +202,20 @@ class RecipeEditForm extends Component {
           <button type="submit" className='navButtonStyle button-green'>Submit</button>
         </div>
       </form>
-      <NavButton
-      linkPath='/'
-      linkText='Cancel'
-      color='red'
-      />
+      { !currentRecipe && (
+        <NavButton
+        linkPath='/'
+        linkText='Cancel'
+        color='red'
+        />
+      )}
+      { currentRecipe && (
+        <NavButton
+        linkPath={`/recipe/${currentRecipeName}`}
+        linkText='Cancel Changes'
+        color='red'
+        />
+      )}
     </div>
   )};
 }
