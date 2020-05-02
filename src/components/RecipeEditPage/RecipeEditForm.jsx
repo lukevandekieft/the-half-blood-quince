@@ -218,7 +218,7 @@ class RecipeEditForm extends Component {
         />
       )}
     </div>
-  )};
+  )}
 }
 
 const mapStateToProps = state => {

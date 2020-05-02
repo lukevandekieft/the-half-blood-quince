@@ -31,22 +31,6 @@ class RecipeEdit extends React.Component{
 
   render() {
     console.log(this.state);
-    //Render "new" or "edit" form based on whether a currentRecipe exists
-    // let domDisplay;
-    // if (this.props.location.pathname.includes("/edit-recipe/")) {
-    //   domDisplay =
-    //     <EditRecipeForm
-    //       currentRecipe = {this.props.location.pathname.slice(13)}
-    //       nameError = {this.state.nameError}
-    //       onInputValidation = {this.handleInputValidation}
-    //     />;
-    // } else if (this.props.location.pathname.includes("/add-recipe")) {
-    //   domDisplay =
-    //     <AddRecipeForm
-    //       nameError = {this.state.nameError}
-    //       onInputValidation = {this.handleInputValidation}
-    //     />;
-    // }
     let recipeName;
     if (this.props.location.pathname.includes("/edit-recipe/")) {
       recipeName = this.props.location.pathname.slice(13);
@@ -54,15 +38,15 @@ class RecipeEdit extends React.Component{
 
     return (
       <div className='contentContainer'>
+        <NavBarBacksplash />
         <div className='pageContentSection'>
-          <NavBarBacksplash />
           <RecipeEditForm
             currentRecipe = {this.props.recipes[recipeName]}
             currentRecipeName = {recipeName}
             nameError = {this.state.nameError}
             onInputValidation = {this.handleInputValidation}
-          />;
-        </div>;
+          />
+        </div>
       </div>
     );
   }
