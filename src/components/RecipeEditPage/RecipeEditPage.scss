@@ -1,4 +1,5 @@
 @import '../sassVariables.scss';
+@import '../Widgets/StarRating/StarRating.scss';
 
 ul, ol {
    padding-left: 1.8rem;
@@ -35,6 +36,7 @@ ul, ol {
   &:focus {
     border: 1px solid transparent;
     outline: $input-error-color auto 5px;
+    box-shadow: $input-error-color auto 5px;
     -webkit-box-shadow: $input-error-color auto 5px;
   }
 }
@@ -52,3 +54,34 @@ ul, ol {
   color: grey;
   font-style: italic;
 }
+
+.ratingSection {
+  display: flex;
+  height: 2rem;
+  font-size: 1.5rem;
+  align-content: center;
+  box-sizing: border-box;
+  label {
+    margin-right: 1rem;
+    align-self: center;
+    font-size: 1rem;
+  }
+  span {
+    width: 1.5rem;
+    height: 100%;
+    align-self: center;
+    content: "\2606";
+  }
+}
+
+// .formLayout used to overwrite specificity of star ratings
+// defaults to 5 unfilled stars
+.formLayout .ratingSection .ratingBox:hover > span {
+  @include emptyStarStyle();
+}
+
+.formLayout .ratingSection .ratingBox > span:hover,
+.formLayout .ratingSection .ratingBox > span:hover ~ span {
+  @include starStyle();
+}
+

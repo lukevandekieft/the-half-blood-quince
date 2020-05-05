@@ -45,9 +45,4 @@ function IngredientsDisplay(props){
   );
 }
 
-IngredientsDisplay.propTypes = {
-  ingredients: PropTypes.array,
-  ingredientsNotes: PropTypes.array
-};
-
 export default IngredientsDisplay;

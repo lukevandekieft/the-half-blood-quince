@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import NavButton from '../Widgets/NavButton/NavButton';
+import StarRating from '../Widgets/StarRating/StarRating';
 import { connect } from 'react-redux';
 import { changePopupStatus } from '../../actions';
 import moment from 'moment';
 
-function MainRecipeDisplay({createdDate, currentRecipe, dispatch, imageLink, name, showPopup, url}){
+function MainRecipeDisplay({createdDate, currentRecipe, dispatch, imageLink, name, rating, showPopup, url}){
   const altText = `${name} Recipe`;
   const backgroundImage = {
     backgroundImage: `url(${imageLink})`
@@ -25,6 +26,12 @@ function MainRecipeDisplay({createdDate, currentRecipe, dispatch, imageLink, nam
         </div>
         {(createdDate) && (
           <p className='centerMe'><em>Added on {moment(createdDate).format('M/D/YYYY')}</em></p>
+        )}
+        {(rating) && (
+          <StarRating 
+            rating={rating}
+            displayType={"readOnly"}
+          />
         )}
       </div>
 
@@ -59,6 +66,7 @@ MainRecipeDisplay.propTypes = {
   currentRecipe: PropTypes.string,
   imageLink: PropTypes.string,
   name: PropTypes.string,
+  rating: PropTypes.number,
   showPopup: PropTypes.bool,
   url: PropTypes.string
 };

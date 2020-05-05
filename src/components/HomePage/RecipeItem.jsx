@@ -13,7 +13,6 @@ function RecipeItem({dispatch, image, name, user, valueKey}) {
   return (
     <div className='recipeItemBox'>
       <Link to={`/recipe/${valueKey}`}>
-        <h3>{name}</h3>
         <div className='recipeItemImageContainer'>
           <div className='imagePlaceholder'>
           </div>
@@ -21,6 +20,7 @@ function RecipeItem({dispatch, image, name, user, valueKey}) {
           </div>
         </div>
       </Link>
+      <h3>{name}</h3>
     </div>
   );
 }

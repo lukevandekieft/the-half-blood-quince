@@ -2,15 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import AddRecipeForm from './AddRecipeForm';
-import EditRecipeForm from './EditRecipeForm';
+import RecipeEditForm from './RecipeEditForm';
 import NavBarBacksplash from '../NavBar/NavBarBacksplash';
 
 class RecipeEdit extends React.Component{
   constructor(props) {
     super(props);
     this.state = {
-      nameError: false,
+      nameError: false
     };
     this.handleInputValidation = this.handleInputValidation.bind(this);
   }
@@ -31,29 +30,23 @@ class RecipeEdit extends React.Component{
   }
 
   render() {
-    //Render "new" or "edit" form based on whether a currentRecipe exists
-    let domDisplay;
+    console.log(this.state);
+    let recipeName;
     if (this.props.location.pathname.includes("/edit-recipe/")) {
-      domDisplay =
-        <EditRecipeForm
-          currentRecipe = {this.props.location.pathname.slice(13)}
-          nameError = {this.state.nameError}
-          onInputValidation = {this.handleInputValidation}
-        />;
-    } else if (this.props.location.pathname.includes("/add-recipe")) {
-      domDisplay =
-        <AddRecipeForm
-          nameError = {this.state.nameError}
-          onInputValidation = {this.handleInputValidation}
-        />;
+      recipeName = this.props.location.pathname.slice(13);
     }
 
     return (
       <div className='contentContainer'>
+        <NavBarBacksplash />
         <div className='pageContentSection'>
-          <NavBarBacksplash />
-          {domDisplay}
-        </div>;
+          <RecipeEditForm
+            currentRecipe = {this.props.recipes[recipeName]}
+            currentRecipeName = {recipeName}
+            nameError = {this.state.nameError}
+            onInputValidation = {this.handleInputValidation}
+          />
+        </div>
       </div>
     );
   }

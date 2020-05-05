@@ -52,15 +52,16 @@ class RecipeDetail extends React.Component {
               currentRecipe = {currentRecipe}
               imageLink = {recipes[currentRecipe].imageLink}
               name = {recipes[currentRecipe].name}
+              rating = {recipes[currentRecipe].rating}
               url = {recipes[currentRecipe].url}
             />
             <div className='directionDisplay'>
-            {(!recipes[currentRecipe].ingredients && !recipes[currentRecipe].ingredientsNotes && !recipes[currentRecipe].directions && !recipes[currentRecipe].directionsNotes) && (
-              <div className='emptyContentMessage'>
-                <h2>There's nothing here!</h2>
-                <p>Select <Link to={`/edit-recipe/`}>Edit Recipe</Link> to add ingredients, directions, and notes</p>
-              </div>
-            )}
+              {(!recipes[currentRecipe].ingredients && !recipes[currentRecipe].ingredientsNotes && !recipes[currentRecipe].directions && !recipes[currentRecipe].directionsNotes) && (
+                <div className='emptyContentMessage'>
+                  <h2>There's nothing here!</h2>
+                  <p>Select <Link to={`/edit-recipe/`}>Edit Recipe</Link> to add ingredients, directions, and notes</p>
+                </div>
+              )}
               <IngredientsDisplay
                 ingredients = {recipes[currentRecipe].ingredients}
                 ingredientsNotes = {recipes[currentRecipe].ingredientsNotes}

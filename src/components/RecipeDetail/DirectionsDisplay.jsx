@@ -43,9 +43,4 @@ function DirectionsDisplay(props){
   );
 }
 
-DirectionsDisplay.propTypes = {
-  directions: PropTypes.array,
-  directionsNotes: PropTypes.array
-};
-
 export default DirectionsDisplay;
