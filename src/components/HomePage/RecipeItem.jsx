@@ -11,17 +11,17 @@ function RecipeItem({dispatch, image, name, user, valueKey}) {
   };
 
   return (
-    <div className='recipeItemBox'>
-      <Link to={`/recipe/${valueKey}`}>
-        <div className='recipeItemImageContainer'>
-          <div className='imagePlaceholder'>
+    <Link to={`/recipe/${valueKey}`}>
+      <div className='recipeItemBox'>
+          <div className='recipeItemImageContainer'>
+            <div className='imagePlaceholder'>
+            </div>
+            <div className='recipeImage' style={backgroundImage}>
+            </div>
           </div>
-          <div className='recipeImage' style={backgroundImage}>
-          </div>
-        </div>
-      </Link>
-      <h3>{name}</h3>
-    </div>
+        <h3>{name}</h3>
+      </div>
+    </Link>
   );
 }
 

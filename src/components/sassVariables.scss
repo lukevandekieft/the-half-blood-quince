@@ -2,7 +2,7 @@
 $background-color: rgb(245, 245, 248);
 $brand-color: lighten(#fffc4c, 5%);
 $off-brand-color: #009933;
-$offsetColor: darken(brown, 20%);
+$offsetColor: darken(brown, 25%);
 $bright-color: #fff;
 $logo-color: #FFDF40;
 $login-primary: #3f4c6b;
@@ -23,7 +23,7 @@ $large-breakpoint: 1200px;
 
 //ICON SIZES
 $recipe-icon-size: 200px;
-$recipe-icon-padding: 40px;
+$recipe-icon-padding: 20px;
 $icon-height: $navbar-height * .9;
 $icon-height-md: $navbar-height-md * .9;
 
@@ -67,3 +67,10 @@ $icon-height-md: $navbar-height-md * .9;
     }
   }
 }
+
+
+//imagewidth: max 480 at 765 & belowB
+// 320 to 1300
+// back to 480 above
+// 40px font above 765, 24px below
+// 35 char limit on names
