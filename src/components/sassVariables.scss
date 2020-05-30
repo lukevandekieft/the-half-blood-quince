@@ -2,7 +2,7 @@
 $background-color: rgb(245, 245, 248);
 $brand-color: lighten(#fffc4c, 5%);
 $off-brand-color: #009933;
-$offsetColor: darken(brown, 25%);
+$offsetColor: darken(#3f4c6b, 25%);
 $bright-color: #fff;
 $logo-color: #FFDF40;
 $login-primary: #3f4c6b;
@@ -23,9 +23,10 @@ $large-breakpoint: 1200px;
 
 //ICON SIZES
 $recipe-icon-size: 200px;
-$recipe-icon-padding: 20px;
+$recipe-icon-padding: 16px;
 $icon-height: $navbar-height * .9;
 $icon-height-md: $navbar-height-md * .9;
+$icon-border-radius: 2%;
 
 //HOVER GRADIENT BUTTON MIXIN
 @mixin gradient-animation( $borderColor1, $borderColor2, $start1, $start2, $end1, $end2, $transTime ){
