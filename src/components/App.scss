@@ -32,6 +32,10 @@
   }
 }
 
+.functionLink {
+  cursor: pointer;
+}
+
 .pageContentSection.headerPage {
   min-height: calc(100vh - #{$header-height} - #{$navbar-height}  - #{$margin-lg});
 }

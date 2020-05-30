@@ -6,8 +6,9 @@ import { Redirect } from 'react-router';
 import moment from 'moment';
 
 import NavButton from '../Widgets/NavButton/NavButton';
+import RecipeItem from '../HomePage/RecipeItem';
 
-class RecipeItem extends React.Component {
+class RecipeSearchItem extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -60,17 +61,13 @@ class RecipeItem extends React.Component {
 
     return (
       <React.Fragment>
-        <div className='recipeItemBox' onClick={() => {handleClickCancel();}}>
-          <a>
-            <h3>{name}</h3>
-            <div className='recipeItemImageContainer'>
-              <div className='imagePlaceholder'>
-              </div>
-              <div className='recipeImage' style={backgroundImage}>
-              </div>
-            </div>
-          </a>
-        </div>
+        <a className="functionLink" onClick={() => {handleClickCancel();}}>
+          <RecipeItem
+            name = {name}
+            image = {image}
+            key = {valueKey}
+          />
+        </a>
         {this.state.recipeModalOpen ?
           <div className='popup'>
             <div className='popup-inner discoverPage'>
@@ -118,4 +115,4 @@ RecipeItem.propTypes = {
   valueKey: PropTypes.string
 };
 
-export default connect(mapStateToProps)(RecipeItem);
+export default connect(mapStateToProps)(RecipeSearchItem);
