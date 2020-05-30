@@ -61,7 +61,7 @@ class RecipeSearchItem extends React.Component {
 
     return (
       <React.Fragment>
-        <a className="functionLink" onClick={() => {handleClickCancel();}}>
+        <a className="clickEvent" onClick={() => {handleClickCancel();}}>
           <RecipeItem
             name = {name}
             image = {image}

@@ -70,11 +70,11 @@ class RecipeEditForm extends Component {
   }
 
   handleChange = (stateCategory, newValue) => {
+    console.log(`Changed ${stateCategory}`)
     this.setState({[stateCategory]: newValue})
   }
 
   render() {
-    console.log(this.props)
     console.log(this.state)
     const {currentRecipe, currentRecipeName, dispatch, isRouting, recipes, user } = this.props;
     
@@ -164,7 +164,7 @@ class RecipeEditForm extends Component {
           <StarRating 
             handleChange={this.handleChange}
             rating={this.state.rating}
-            distplayType={"write"}
+            displayType={"write"}
           />
         </div>
         <div className='formInputLayout'>
