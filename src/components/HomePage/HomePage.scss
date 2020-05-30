@@ -71,6 +71,9 @@
   }
   border-radius: $icon-border-radius / 2;
   overflow: hidden;  
+  .ratingBox {
+    font-size: 1.4rem;
+  }
 }
 
 .recipeItemImageContainer {
@@ -112,6 +115,10 @@
   background-size: cover;
   border-radius: $icon-border-radius;
   box-sizing: border-box;
+}
+
+.recipeItemTextContainer {
+  text-align: left;
 }
 
 @media (max-width: $small-breakpoint) {

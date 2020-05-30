@@ -1,10 +1,10 @@
 // Adapted from https://css-tricks.com/star-ratings/
 @mixin starStyle() {
-  color: darken(gold, 5%);
+  color: darken(gold, 7%);
   &:before {
     content: "\2605";
     position: absolute;
-    color: darken(gold, 5%);
+    color: darken(gold, 7%);
   }
 }
 
@@ -38,10 +38,7 @@
 .ratingBox {
   unicode-bidi: bidi-override;
   direction: rtl;
-  background-color: rgba(50, 50, 50, .1);
-  padding: 0 .3rem;
-  border-radius: 5px;
   display: flex;
-  justify-content: center;
-  align-content: center;
+  justify-content: left;
+  color: lighten(grey, 35%);
 }

@@ -2,7 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-function RecipeItem({dispatch, image, name, user}) {
+import StarRating from '../Widgets/StarRating/StarRating';
+
+function RecipeItem({dispatch, image, name, rating, user}) {
 
   //set background based on props
   const backgroundImage = {
@@ -17,7 +19,15 @@ function RecipeItem({dispatch, image, name, user}) {
         <div className='recipeImage' style={backgroundImage}>
         </div>
       </div>
-      <h3>{name}</h3>
+      <div className='recipeItemTextContainer'>
+        <h3>{name}</h3>
+        {rating && (
+          <StarRating 
+            rating={rating}
+            displayType={"readOnly"}
+          />
+        )}
+      </div>
     </div>
   );
 }
