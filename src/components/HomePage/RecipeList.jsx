@@ -26,7 +26,7 @@ const RecipeList = ({ location, recipes, searchValue }) => {
         Object.keys(recipes).map(index => {
           let recipe = recipes[index];
           if (searchValue === null || recipe.name.toLowerCase().includes(searchValue.toLowerCase())) {
-            return <Link to={`/recipe/${index}`}>
+            return <Link to={`/recipe/${index}`} className ="recipeLink">
               <RecipeItem
                 name = {recipe.name}
                 image = {recipe.imageLink}

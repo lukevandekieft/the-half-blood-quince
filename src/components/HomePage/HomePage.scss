@@ -139,11 +139,21 @@ $icon-grid-1: calc((#{$recipe-icon-size} * 2) + (#{$recipe-icon-padding} * 1) + 
 }
 @media (max-width: $icon-grid-2) {
   .recipeItemStyles {
-    grid-template-columns: repeat(2, auto);
+    grid-template-columns: repeat(2, 49%);
   };
+  .recipeItemBox {
+    width: 100%;
+  }
+  .recipeItemImageContainer {
+    width: 100%;
+  }
 }
 @media (max-width: $icon-grid-1) {
   .recipeItemStyles {
-    grid-template-columns: repeat(1, auto);
+    grid-template-columns: repeat(1, 100%);
+    grid-row-gap: $recipe-icon-padding * 4;
   };
+  .recipeItemImageContainer {
+    height: 300px;
+  }
 }
