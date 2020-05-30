@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 
 import RecipeItem from './RecipeItem';
 import RecipeSearchItem from '../DiscoverPage/RecipeSearchItem';
@@ -26,12 +26,13 @@ const RecipeList = ({ location, recipes, searchValue }) => {
         Object.keys(recipes).map(index => {
           let recipe = recipes[index];
           if (searchValue === null || recipe.name.toLowerCase().includes(searchValue.toLowerCase())) {
-            return <RecipeItem
-              name = {recipe.name}
-              image = {recipe.imageLink}
-              key = {index}
-              valueKey = {index}
-            />;
+            return <Link to={`/recipe/${index}`}>
+              <RecipeItem
+                name = {recipe.name}
+                image = {recipe.imageLink}
+                key = {index}
+              />
+            </Link>
           }
         })
       )}

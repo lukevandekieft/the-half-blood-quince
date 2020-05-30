@@ -1,9 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-function RecipeItem({dispatch, image, name, user, valueKey}) {
+function RecipeItem({dispatch, image, name, user}) {
 
   //set background based on props
   const backgroundImage = {
@@ -12,14 +11,12 @@ function RecipeItem({dispatch, image, name, user, valueKey}) {
 
   return (
     <div className='recipeItemBox'>
-      <Link to={`/recipe/${valueKey}`}>
-        <div className='recipeItemImageContainer'>
-          <div className='imagePlaceholder'>
-          </div>
-          <div className='recipeImage' style={backgroundImage}>
-          </div>
+      <div className='recipeItemImageContainer'>
+        <div className='imagePlaceholder'>
         </div>
-      </Link>
+        <div className='recipeImage' style={backgroundImage}>
+        </div>
+      </div>
       <h3>{name}</h3>
     </div>
   );
@@ -35,8 +32,7 @@ RecipeItem.propTypes = {
   image: PropTypes.string,
   keypair: PropTypes.string,
   name: PropTypes.string,
-  user: PropTypes.object,
-  valueKey: PropTypes.string
+  user: PropTypes.object
 };
 
 export default connect(mapStateToProps)(RecipeItem);
