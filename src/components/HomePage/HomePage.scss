@@ -55,17 +55,15 @@
   width: $recipe-icon-size;
   box-sizing: border-box !important;
   white-space: nowrap;
-  margin-bottom: $recipe-icon-padding * 3;
   // margin-left: $recipe-icon-padding;
   a {
     cursor: pointer;
   }
   h3 {
     box-sizing: border-box;
-    font-size: 18px !important;
-    height: 38px !important;
-    padding: 8px 0 !important;
-    margin: 0 !important;
+    font-size: 18px;
+    padding-top: 8px;
+    margin: 0;
     color: $offsetColor;
     text-overflow: ellipsis;
     overflow: hidden;
@@ -80,7 +78,6 @@
   height: $recipe-icon-size;
   position: relative;
   overflow: hidden;
-  margin-bottom: 8px;
 }
 
 .recipeItemStyles {
@@ -89,6 +86,8 @@
   grid-template-rows: auto;
   justify-content: center;
   grid-column-gap: $recipe-icon-padding;
+  grid-row-gap: $recipe-icon-padding * 3;
+  margin-bottom: $recipe-icon-padding * 3;
 };
 
 .recipeImage {
@@ -120,4 +119,31 @@
     padding: 1.5rem 0;
     font-size: 2rem;
   }
+}
+
+// create dynamic breakpoints specifically for the recipe grid.
+$icon-grid-4: calc((#{$recipe-icon-size} * 5) + (#{$recipe-icon-padding} * 4) + (#{$margin-lg} * 2));
+$icon-grid-3: calc((#{$recipe-icon-size} * 4) + (#{$recipe-icon-padding} * 3) + (#{$margin-lg} * 2));
+$icon-grid-2: calc((#{$recipe-icon-size} * 3) + (#{$recipe-icon-padding} * 2) + (#{$margin-lg} * 2));
+$icon-grid-1: calc((#{$recipe-icon-size} * 2) + (#{$recipe-icon-padding} * 1) + (#{$margin-lg} * 2));
+
+@media (max-width: $icon-grid-4) {
+  .recipeItemStyles {
+    grid-template-columns: repeat(4, auto);
+  };
+}
+@media (max-width: $icon-grid-3) {
+  .recipeItemStyles {
+    grid-template-columns: repeat(3, auto);
+  };
+}
+@media (max-width: $icon-grid-2) {
+  .recipeItemStyles {
+    grid-template-columns: repeat(2, auto);
+  };
+}
+@media (max-width: $icon-grid-1) {
+  .recipeItemStyles {
+    grid-template-columns: repeat(1, auto);
+  };
 }
