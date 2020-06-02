@@ -1,5 +1,5 @@
 // Adapted from https://css-tricks.com/star-ratings/
-$filled-star-color: darken(gold, 7%);
+@import '../../sassVariables.scss';
 $empty-star-color: lighten(grey, 35%);
 
 @mixin starStyle() {

@@ -34,7 +34,7 @@ function RecipeItem({dispatch, image, name, rating, user}) {
           )}
         </div>
         <div className='recipeItemButtonContainer'>
-          <div className="madeRecipeButton"></div>
+          <div className="untestedRecipeButton"></div>
         </div>
       </div>
     </div>
