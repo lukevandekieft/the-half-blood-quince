@@ -141,7 +141,7 @@
   color: white;
 }
 
-.madeRecipeButton {
+.completedRecipeButton {
   @include recipeButton();
   &:before {
     content: "\2713";

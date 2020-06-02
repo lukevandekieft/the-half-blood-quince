@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import StarRating from '../Widgets/StarRating/StarRating';
 
-function RecipeItem({dispatch, image, name, rating, user}) {
+function RecipeItem({completed, dispatch, image, name, rating, user}) {
 
   //set background based on props
   const backgroundImage = {
@@ -34,7 +34,7 @@ function RecipeItem({dispatch, image, name, rating, user}) {
           )}
         </div>
         <div className='recipeItemButtonContainer'>
-          <div className="untestedRecipeButton"></div>
+          <div className={completed === "completed" ? "completedRecipeButton" : completed === "untested" ? "untestedRecipeButton" : null}></div>
         </div>
       </div>
     </div>
