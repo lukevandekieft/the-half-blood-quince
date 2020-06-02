@@ -1,18 +1,21 @@
 // Adapted from https://css-tricks.com/star-ratings/
+$filled-star-color: darken(gold, 7%);
+$empty-star-color: lighten(grey, 35%);
+
 @mixin starStyle() {
-  color: darken(gold, 7%);
+  color: $filled-star-color;
   &:before {
     content: "\2605";
     position: absolute;
-    color: darken(gold, 7%);
+    color: $filled-star-color;
   }
 }
 
 @mixin emptyStarStyle() {
   content: "\2606";
-  color: black;
+  color: $empty-star-color;
   &:before {
-    color: rgba(50, 50, 50, .1);
+    color: $empty-star-color;
   }
 }
 
@@ -40,5 +43,5 @@
   direction: rtl;
   display: flex;
   justify-content: left;
-  color: lighten(grey, 35%);
+  color: $empty-star-color;
 }
