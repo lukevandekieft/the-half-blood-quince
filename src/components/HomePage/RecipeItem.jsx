@@ -23,14 +23,19 @@ function RecipeItem({dispatch, image, name, rating, user}) {
         <div className='recipeImage' style={backgroundImage}>
         </div>
       </div>
-      <div className='recipeItemTextContainer'>
-        <h3>{name}</h3>
-        {rating && (
-          <StarRating 
-            rating={rating}
-            displayType={"readOnly"}
-          />
-        )}
+      <div className='recipeBottomSection'>
+        <div className='recipeItemTextContainer'>
+          <h3>{name}</h3>
+          {rating && (
+            <StarRating 
+              rating={rating}
+              displayType={"readOnly"}
+            />
+          )}
+        </div>
+        <div className='recipeItemButtonContainer'>
+          <div className="madeRecipeButton"></div>
+        </div>
       </div>
     </div>
   );

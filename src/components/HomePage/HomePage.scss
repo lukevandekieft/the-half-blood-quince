@@ -60,7 +60,6 @@
   h3 {
     box-sizing: border-box;
     font-size: 18px;
-    padding-top: 8px;
     margin: 0;
     color: $offsetColor;
     overflow: hidden;
@@ -78,6 +77,13 @@
   height: $recipe-icon-size;
   position: relative;
   overflow: hidden;
+}
+
+.recipeBottomSection {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 12px;
 }
 
 .recipeItemStyles {
@@ -116,6 +122,31 @@
 
 .recipeItemTextContainer {
   text-align: left;
+}
+
+.recipeItemButtonContainer {
+  display: flex;
+  justify-content: center;
+}
+
+@mixin recipeButton() {
+  display: flex;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  font-weight: 900;
+  font-size: 20px;
+  color: white;
+}
+
+.madeRecipeButton {
+  @include recipeButton();
+  &:before {
+    content: "\2713";
+  }
+  background-color: lighten($off-brand-color, 5%);
 }
 
 @media (max-width: $small-breakpoint) {
