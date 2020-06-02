@@ -11,6 +11,10 @@ function RecipeItem({dispatch, image, name, rating, user}) {
     backgroundImage: `url(${image})`
   };
 
+  if (name.length > 35) {
+    name = `${name.slice(0, 35)}...`
+  }
+
   return (
     <div className='recipeItemBox'>
       <div className='recipeItemImageContainer'>
