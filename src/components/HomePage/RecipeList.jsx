@@ -32,6 +32,7 @@ const RecipeList = ({ location, recipes, searchValue }) => {
                 image = {recipe.imageLink}
                 key = {index}
                 rating = {recipe.rating}
+                recipeStatus = {recipe.recipeStatus}
               />
             </Link>
           }

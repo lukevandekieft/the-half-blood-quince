@@ -149,7 +149,7 @@
   background-color: lighten($off-brand-color, 5%);
 }
 
-.untestedRecipeButton {
+.unfinishedRecipeButton {
   @include recipeButton();
   &:before {
     content: "\2764";
