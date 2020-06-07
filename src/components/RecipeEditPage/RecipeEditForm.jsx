@@ -14,10 +14,12 @@ class RecipeEditForm extends Component {
     super(props);
     this.state = {
       createdRecipeId: null,
-      rating: null
+      rating: null,
+      recipeStatus: "unfinished"
     }
   }
 
+  _author = null;
   _name = null;
   _url = null;
   _imageLink = null;
@@ -91,6 +93,7 @@ class RecipeEditForm extends Component {
       event.preventDefault();
 
       const recipeDetail = {
+        author: this._author.value,
         createdDate: !currentRecipe ? moment()._d : currentRecipe.createdDate ? currentRecipe.createdDate : moment()._d,
         name: this._name.value,
         url: this._url.value,
@@ -102,6 +105,7 @@ class RecipeEditForm extends Component {
         directions: this.createArray(this._directions.value),
         directionsNotes: this.createArray(this._directionsNotes.value)
       }
+      console.log(recipeDetail)
 
       const recipeId = currentRecipeName ? currentRecipeName : v4();
 
@@ -161,6 +165,15 @@ class RecipeEditForm extends Component {
             defaultValue={currentRecipe ? this.checkValue(currentRecipe.imageLink) : null}
             id='imageLink'
             ref={(input) => {this._imageLink = input;}}
+          ></input>
+        </div>
+        <div className='formInputLayout'>
+          <label>Recipe Author</label>
+          <input
+            type="text"
+            defaultValue={currentRecipe ? this.checkValue(currentRecipe.author) : null}
+            id='author'
+            ref={(input) => {this._author = input;}}
           ></input>
         </div>
         <div className="ratingSection">

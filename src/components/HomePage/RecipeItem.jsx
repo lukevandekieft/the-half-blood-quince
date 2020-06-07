@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import StarRating from '../Widgets/StarRating/StarRating';
 
-function RecipeItem({dispatch, image, name, rating, recipeStatus, user}) {
+function RecipeItem({author, dispatch, image, name, rating, recipeStatus, user}) {
 
   //set background based on props
   const backgroundImage = {
@@ -26,6 +26,9 @@ function RecipeItem({dispatch, image, name, rating, recipeStatus, user}) {
       <div className='recipeBottomSection'>
         <div className='recipeItemTextContainer'>
           <h3>{name}</h3>
+          {author && (
+            <p>{author}</p>
+          )}
           {rating && (
             <StarRating 
               rating={rating}
@@ -49,7 +52,6 @@ const mapStateToProps = state => {
 
 RecipeItem.propTypes = {
   image: PropTypes.string,
-  keypair: PropTypes.string,
   name: PropTypes.string,
   user: PropTypes.object
 };

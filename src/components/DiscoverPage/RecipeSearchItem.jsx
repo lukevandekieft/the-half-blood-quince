@@ -61,11 +61,10 @@ class RecipeSearchItem extends React.Component {
 
     return (
       <React.Fragment>
-        <a className="clickEvent" onClick={() => {handleClickCancel();}}>
+        <a className="clickEvent" onClick={() => {handleClickCancel();}} key = {valueKey}>
           <RecipeItem
             name = {name}
             image = {image}
-            key = {valueKey}
           />
         </a>
         {this.state.recipeModalOpen ?
