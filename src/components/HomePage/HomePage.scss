@@ -128,6 +128,7 @@ $completed-icon-width: 35px;
 .recipeItemTextContainer {
   text-align: left;
   min-width: 0; // flex box defaults to not let container be smaller than content: when we want content to shrink (e.g. text) forcing min width allows content to wrap dynamically
+  padding-right: .6em;
   p {
     text-align: left;
     color: grey;
