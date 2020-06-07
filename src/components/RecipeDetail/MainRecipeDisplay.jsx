@@ -43,7 +43,7 @@ function MainRecipeDisplay({author, createdDate, currentRecipe, dispatch, imageL
         <div>
           {(url) && (
             <div className='centerMe'>
-              <button className='navButtonStyle button-green'><a className='linkStyle' href={url}>Link to Page</a></button>
+              <button className='navButtonStyle button-green'><a className='linkStyle' href={url} target="_blank" rel="noopener noreferrer">Link to Page</a></button>
             </div>
           )}
           <NavButton
