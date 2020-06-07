@@ -48,12 +48,13 @@ class RecipeDetail extends React.Component {
           <NavBarBacksplash />
           <div className='pageContentSection detailFlex'>
             <MainRecipeDisplay
-              createdDate = {recipes[currentRecipe].createdDate}
-              currentRecipe = {currentRecipe}
-              imageLink = {recipes[currentRecipe].imageLink}
-              name = {recipes[currentRecipe].name}
-              rating = {recipes[currentRecipe].rating}
-              url = {recipes[currentRecipe].url}
+              author={recipes[currentRecipe].author}
+              createdDate={recipes[currentRecipe].createdDate}
+              currentRecipe={currentRecipe}
+              imageLink={recipes[currentRecipe].imageLink}
+              name={recipes[currentRecipe].name}
+              rating={recipes[currentRecipe].rating}
+              url={recipes[currentRecipe].url}
             />
             <div className='directionDisplay'>
               {(!recipes[currentRecipe].ingredients && !recipes[currentRecipe].ingredientsNotes && !recipes[currentRecipe].directions && !recipes[currentRecipe].directionsNotes) && (
