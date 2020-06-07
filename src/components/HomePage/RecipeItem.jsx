@@ -15,6 +15,10 @@ function RecipeItem({author, dispatch, image, name, rating, recipeStatus, user})
     name = `${name.slice(0, 35)}...`
   }
 
+  if (author && author.length > 35) {
+    author = `${name.slice(0, 35)}...`
+  }
+
   return (
     <div className='recipeItemBox'>
       <div className='recipeItemImageContainer'>

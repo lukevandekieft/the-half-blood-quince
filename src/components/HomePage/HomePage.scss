@@ -1,5 +1,12 @@
 @import '../sassVariables.scss';
 
+// create dynamic breakpoints specifically for the recipe grid.
+$icon-grid-4: calc((#{$recipe-icon-size} * 5) + (#{$recipe-icon-padding} * 4) + (#{$margin-lg} * 2));
+$icon-grid-3: calc((#{$recipe-icon-size} * 4) + (#{$recipe-icon-padding} * 3) + (#{$margin-lg} * 2));
+$icon-grid-2: calc((#{$recipe-icon-size} * 3) + (#{$recipe-icon-padding} * 2) + (#{$margin-lg} * 2));
+$icon-grid-1: calc((#{$recipe-icon-size} * 2) + (#{$recipe-icon-padding} * 1) + (#{$margin-lg} * 2));
+
+$completed-icon-width: 35px; 
 
 //HEADER SECTION
 .headerSection {
@@ -54,19 +61,18 @@
 .recipeItemBox {
   width: $recipe-icon-size;
   box-sizing: border-box !important;
+  word-wrap: break-word;
   a {
     cursor: pointer;
   }
   h3 {
     box-sizing: border-box;
-    font-size: 1ypx;
+    font-size: 17px;
     margin: 0;
     color: $offsetColor;
-    overflow: hidden;
     font-weight: 400;
   }
-  border-radius: $icon-border-radius / 2;
-  overflow: hidden;  
+  border-radius: $icon-border-radius / 2; 
   .ratingBox {
     font-size: 1.4rem;
   }
@@ -76,7 +82,6 @@
   width: $recipe-icon-size;
   height: $recipe-icon-size;
   position: relative;
-  overflow: hidden;
 }
 
 .recipeBottomSection {
@@ -122,6 +127,7 @@
 
 .recipeItemTextContainer {
   text-align: left;
+  min-width: 0; // flex box defaults to not let container be smaller than content: when we want content to shrink (e.g. text) forcing min width allows content to wrap dynamically
   p {
     text-align: left;
     color: grey;
@@ -138,8 +144,8 @@
 
 @mixin recipeButton() {
   display: flex;
-  height: 35px;
-  width: 35px;
+  height: $completed-icon-width;
+  width: $completed-icon-width;
   border-radius: 50%;
   justify-content: center;
   align-items: center;
@@ -171,12 +177,6 @@
     font-size: 2rem;
   }
 }
-
-// create dynamic breakpoints specifically for the recipe grid.
-$icon-grid-4: calc((#{$recipe-icon-size} * 5) + (#{$recipe-icon-padding} * 4) + (#{$margin-lg} * 2));
-$icon-grid-3: calc((#{$recipe-icon-size} * 4) + (#{$recipe-icon-padding} * 3) + (#{$margin-lg} * 2));
-$icon-grid-2: calc((#{$recipe-icon-size} * 3) + (#{$recipe-icon-padding} * 2) + (#{$margin-lg} * 2));
-$icon-grid-1: calc((#{$recipe-icon-size} * 2) + (#{$recipe-icon-padding} * 1) + (#{$margin-lg} * 2));
 
 @media (max-width: $icon-grid-4) {
   .recipeItemStyles {
