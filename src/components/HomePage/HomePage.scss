@@ -131,13 +131,13 @@
 
 @mixin recipeButton() {
   display: flex;
-  height: 40px;
-  width: 40px;
+  height: 35px;
+  width: 35px;
   border-radius: 50%;
   justify-content: center;
   align-items: center;
   font-weight: 900;
-  font-size: 20px;
+  font-size: 22px;
   color: white;
 }
 
@@ -145,17 +145,18 @@
   @include recipeButton();
   &:before {
     content: "\2713";
+    transform: scaleX(1.2);
   }
   background-color: lighten($off-brand-color, 5%);
 }
 
-.unfinishedRecipeButton {
-  @include recipeButton();
-  &:before {
-    content: "\2764";
-  }
-  background-color: $filled-star-color;
-}
+// .unfinishedRecipeButton {
+//   @include recipeButton();
+//   &:before {
+//     content: "\2764";
+//   }
+//   background-color: $filled-star-color;
+// }
 
 @media (max-width: $small-breakpoint) {
   .headline {
