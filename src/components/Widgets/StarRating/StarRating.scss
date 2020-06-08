@@ -39,9 +39,8 @@ $empty-star-color: lighten(grey, 35%);
 
 // hovering changes underlying unicode and changes subsequent spans; hovering overrides aforementioned styles
 .ratingBox {
+  width: min-content;
   unicode-bidi: bidi-override;
   direction: rtl;
-  display: flex;
-  justify-content: left;
   color: $empty-star-color;
 }
