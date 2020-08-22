@@ -12,6 +12,12 @@ class LoginPage extends React.Component{
     window.scrollTo(0, 0);
   }
 
+  componentDidUpdate(prevProps) {
+    if (this.props.user !== prevProps.user) {
+        // this.fetchData(this.props.user)
+    }
+ }
+
   _loginEmail = null;
   _loginPassword = null;
 
@@ -72,6 +78,7 @@ class LoginPage extends React.Component{
                   ></input>
                 </div>
                 <button type="submit" className='loginButton email'>Login</button>
+                <p>{this.props.user ? this.props.user.message : null}</p>
               </form>
               <p className='signUpLink'>Don't have an account? <Link to='signup'>Sign up now</Link></p>
             </div>
@@ -84,6 +91,7 @@ class LoginPage extends React.Component{
 
 const mapStateToProps = state => {
   return {
+    user: state.user
   }
 };
 

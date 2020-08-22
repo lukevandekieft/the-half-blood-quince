@@ -39,7 +39,7 @@ export function newUserLogin(authProvider) {
       dispatch(watchUserLoad());
     }).catch(
       function(error) {
-        console.log(error)
+        dispatch(userLoginError(error));
       }
     );
   }
@@ -84,6 +84,13 @@ export const userLogin = (user) => {
   return ({
     type: types.USER_LOGIN,
     user
+  });
+}
+
+export const userLoginError = (error) => {
+  return ({
+    type: types.USER_LOGIN_ERROR,
+    error
   });
 }
 
