@@ -37,7 +37,11 @@ export function newUserLogin(authProvider) {
         dispatch(watchApiSearch(result));
       }
       dispatch(watchUserLoad());
-    })
+    }).catch(
+      function(error) {
+        console.log(error)
+      }
+    );
   }
 }
 
@@ -77,10 +81,10 @@ export function checkLoginStatus() {
 }
 
 export const userLogin = (user) => {
-return ({
-  type: types.USER_LOGIN,
-  user
-});
+  return ({
+    type: types.USER_LOGIN,
+    user
+  });
 }
 
 export function newUserLogout() {
