@@ -8,15 +8,22 @@ import google from'../../assets/images/google.svg';
 import twitter from'../../assets/images/twitter.svg';
 
 class LoginPage extends React.Component{
+  constructor(props) {
+    super(props);
+    this.state = {
+      loginLoading: false,
+    };
+  }
+
   componentDidMount() {
     window.scrollTo(0, 0);
   }
 
   componentDidUpdate(prevProps) {
-    if (this.props.user !== prevProps.user) {
-        // this.fetchData(this.props.user)
+    if (this.state.loginLoading && (this.props !== prevProps) && this.props.user.message) {
+      this.setState(({ loginLoading }) => ({ loginLoading: false }));
     }
- }
+  }
 
   _loginEmail = null;
   _loginPassword = null;
@@ -34,6 +41,7 @@ class LoginPage extends React.Component{
         email: this._loginEmail.value,
         password: this._loginPassword.value,
       }
+      this.setState(({ loginLoading }) => ({ loginLoading: true }));
       this.props.dispatch(newUserLogin(newUserInfo));
     };
 
@@ -77,7 +85,7 @@ class LoginPage extends React.Component{
                     ref={(input) => {this._loginPassword = input;}}
                   ></input>
                 </div>
-                <button type="submit" className='loginButton email'>Login</button>
+                <button type="submit" className='loginButton email'>{this.state.loginLoading ? "Logging in..." : "Login"}</button>
                 <p>{this.props.user ? this.props.user.message : null}</p>
               </form>
               <p className='signUpLink'>Don't have an account? <Link to='signup'>Sign up now</Link></p>

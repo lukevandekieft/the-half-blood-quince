@@ -6,7 +6,6 @@ export default (state = initialState.user, action) => {
   case types.USER_LOGIN:
     return Object.assign({}, action.user);
   case types.USER_LOGIN_ERROR:
-    console.log(action)
     return action.error;
   case types.USER_LOGOUT:
     return {
