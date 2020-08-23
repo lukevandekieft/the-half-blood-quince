@@ -1,27 +1,31 @@
 @import '../../sassVariables.scss';
 
 .navButtonStyle {
-  border-radius: 35px;
-  padding: .8rem;
-  color: $bright-color;
-  border: none;
-  text-decoration: none;
-  font-size: 1.2rem;
-  font-weight: 600;
-  margin: .8rem;
+  color: $bright-color !important;
+  font-size: 1.2rem !important;
+  margin: .8rem !important;
 }
 
 .button-green {
-  background: $off-brand-color;
+  background: $off-brand-color !important;
+  &:hover {
+    background: darken($off-brand-color, 5%) !important;
+  }
 }
 
 .button-red {
-  background: red;
+  background: red !important;
+  &:hover {
+    background: darken(red, 5%) !important;
+  }
 }
 
 .button-white {
-  background: white;
-  color: black;
+  background: white !important;
+  color: black !important;
+  &:hover {
+    background: darken(white, 10%) !important;
+  }
 }
 
 .linkStyle {

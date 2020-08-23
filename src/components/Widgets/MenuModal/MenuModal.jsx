@@ -35,7 +35,7 @@ function MenuModal(props) {
         <div className='accordion-list'>
           <div className='accordion-footer'>
             { (!props.user.uid || props.user.uid === 'initialLoadUser') && (
-              <button className='loginLogout' onClick={() => {handleLogin('google');}}>Login</button>)
+              <button className='loginLogout button-white' onClick={() => {handleLogin('google');}}>Login</button>)
             }
             { (props.user.uid && props.user.uid !== 'initialLoadUser') && (
               <React.Fragment>
@@ -60,7 +60,7 @@ function MenuModal(props) {
                     color='white'
                   />
                 </div>
-                <Button className='loginLogout' onClick={() => {handleLogout();}} variant="contained">Logout</Button>
+                <Button className='loginLogout button-white' onClick={() => {handleLogout();}} variant="contained">Logout</Button>
               </React.Fragment>
             )}
           </div>
