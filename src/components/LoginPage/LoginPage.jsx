@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { newUserLogin } from './../../actions';
 import { Link } from 'react-router-dom';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 import facebook from'../../assets/images/facebook.svg';
 import google from'../../assets/images/google.svg';
@@ -85,7 +86,12 @@ class LoginPage extends React.Component{
                     ref={(input) => {this._loginPassword = input;}}
                   ></input>
                 </div>
-                <button type="submit" className='loginButton email'>{this.state.loginLoading ? "Logging in..." : "Login"}</button>
+                <button type="submit" className='loginButton email'>
+                  {this.state.loginLoading ? 
+                  <CircularProgress size={24}/> : 
+                  "Login"}
+                </button>
+                
                 <p className="loginError">{this.props.user ? this.props.user.message : null}</p>
               </form>
               <p className='signUpLink'>Don't have an account? <Link to='signup'>Sign up now</Link></p>
