@@ -86,7 +86,7 @@ class RecipeEditForm extends Component {
   render() {
     console.log(this.state)
     const {currentRecipe, currentRecipeName, dispatch, isRouting, recipes, user } = this.props;
-    
+
     //format array props
     const formatIngredients = currentRecipe ? this.readableArray(currentRecipe.ingredients) : null;
     const formatIngredientsNotes = currentRecipe ? this.readableArray(currentRecipe.ingredientsNotes) : null;
@@ -195,28 +195,40 @@ class RecipeEditForm extends Component {
           <button onClick={() => {this.handleRadioChange("recipeStatus", "unfinished")}} type="button">Unfinished</button>
         </div>
         <div className='formInputLayout'>
-          <label>Ingredients</label>
-          <textarea
+          <TextField
             id='ingredients'
             defaultValue={formatIngredients}
             ref={(input) => {this._ingredients = input;}}
-          ></textarea>
+            label="Ingredients"
+            onChange={this.handleTextChange}
+            multiline
+            rows={4}
+            variant="outlined"
+          />
         </div>
         <div className='formInputLayout'>
-          <label>Ingredient Notes</label>
-          <textarea
+          <TextField
             id='ingredientsNotes'
             defaultValue={formatIngredientsNotes}
             ref={(input) => {this._ingredientsNotes = input;}}
-          ></textarea>
+            label="Ingredient Notes"
+            onChange={this.handleTextChange}
+            multiline
+            rows={4}
+            variant="outlined"
+          />
         </div>
         <div className='formInputLayout'>
-          <label>Directions</label>
-          <textarea
-            id='directions'
+          <TextField
+            id='_directions'
             defaultValue={formatDirections}
+            label="Directions"
             ref={(input) => {this._directions = input;}}
-          ></textarea>
+            onChange={this.handleTextChange}
+            multiline
+            rows={4}
+            variant="outlined"
+          />
         </div>
         <div className='formInputLayout'>
           <TextField
@@ -226,6 +238,7 @@ class RecipeEditForm extends Component {
             ref={(input) => {this._directionsNotes = input;}}
             onChange={this.handleTextChange}
             multiline
+            rows={4}
             variant="outlined"
           />
         </div>
