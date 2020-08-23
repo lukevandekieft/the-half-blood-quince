@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { newUserLogin, newUserLogout } from '../../../actions';
+import Button from '@material-ui/core/Button';
 
 import NavButton from '../NavButton/NavButton';
 
@@ -28,7 +29,7 @@ function MenuModal(props) {
   return (
     <div className={props.mainMenuShowing ? 'menuModal modal-open-style' : 'menuModal'}>
       <div className='modal-top'>
-        <i className='material-icons navButtonStyle' onClick={() => {props.onToggleMenu(props.mainMenuShowing);}} tabIndex="0">close</i>
+        <i className='material-icons' onClick={() => {props.onToggleMenu(props.mainMenuShowing);}} tabIndex="0">close</i>
       </div>
       <div className='modal-body'>
         <div className='accordion-list'>
@@ -59,7 +60,7 @@ function MenuModal(props) {
                     color='white'
                   />
                 </div>
-                <button className='loginLogout' onClick={() => {handleLogout();}}>Logout</button>
+                <Button className='loginLogout' onClick={() => {handleLogout();}} variant="contained">Logout</Button>
               </React.Fragment>
             )}
           </div>

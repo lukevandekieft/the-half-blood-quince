@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { submitRecipe } from '../../actions';
 import { Redirect } from 'react-router';
 import moment from 'moment';
+import Button from '@material-ui/core/Button';
 
 import NavButton from '../Widgets/NavButton/NavButton';
 import RecipeItem from '../HomePage/RecipeItem';
@@ -79,12 +80,13 @@ class RecipeSearchItem extends React.Component {
               </div>
               <div className='popup-buttons'>
                 <div className='centerMe'>
-                  <a href={url} target="_blank" rel="noopener noreferrer"><button className='navButtonStyle button-green'>Visit Recipe Site</button>
+                  <a href={url} target="_blank" rel="noopener noreferrer">
+                    <Button className='navButtonStyle button-green' variant="contained">Visit Recipe Site</Button>
                   </a>
                 </div>
-                <button onClick={() => {handleAddSearchRecipe();}} className='navButtonStyle button-green'>Add to My Recipes</button>
+                <Button onClick={() => {handleAddSearchRecipe();}} className='navButtonStyle button-green' variant="contained">Add to My Recipes</Button>
                 <div className='centerMe'>
-                  <button onClick={() => {handleClickCancel();}} className='navButtonStyle button-red'>Go Back</button>
+                  <Button onClick={() => {handleClickCancel();}} className='navButtonStyle button-red' variant="contained">Go Back</Button>
                 </div>
               </div>
             </div>

@@ -7,6 +7,7 @@ import { submitRecipe, changeRoute } from './../../actions';
 import { Redirect } from 'react-router';
 import { v4 } from 'uuid';
 import moment from 'moment';
+import Button from '@material-ui/core/Button';
 
 class RecipeEditForm extends Component {
 
@@ -222,7 +223,7 @@ class RecipeEditForm extends Component {
           ></textarea>
         </div>
         <div className='centerMe'>
-          <button type="submit" className='navButtonStyle button-green'>Submit</button>
+          <Button type="submit" className='navButtonStyle button-green' variant="contained">Submit</Button>
         </div>
       </form>
       { !currentRecipe && (

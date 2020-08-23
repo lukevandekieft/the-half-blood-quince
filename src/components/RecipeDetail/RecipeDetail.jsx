@@ -10,6 +10,7 @@ import Route404 from '../Route404/Route404'
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { changeRoute, changePopupStatus, removeRecipe } from '../../actions';
+import Button from '@material-ui/core/Button';
 
 class RecipeDetail extends React.Component {
 
@@ -82,11 +83,11 @@ class RecipeDetail extends React.Component {
                   <h1>Are you sure you want to delete this recipe?</h1>
                   <div className='popup-buttons'>
                     <div className='centerMe'>
-                      <Link to='/'><button className='navButtonStyle button-red' onClick={() => {this.handleClickDelete(currentRecipe);}}>Delete</button>
+                      <Link to='/'><Button className='navButtonStyle button-red' onClick={() => {this.handleClickDelete(currentRecipe);}} variant="contained">Delete</Button>
                       </Link>
                     </div>
                     <div className='centerMe'>
-                      <button onClick={this.handleClickCancel} className='navButtonStyle button-green'>Cancel</button>
+                      <Button onClick={this.handleClickCancel} className='navButtonStyle button-green' variant="contained">Cancel</Button>
                     </div>
                   </div>
                 </div>

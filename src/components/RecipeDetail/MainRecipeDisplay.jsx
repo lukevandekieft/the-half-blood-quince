@@ -5,6 +5,7 @@ import StarRating from '../Widgets/StarRating/StarRating';
 import { connect } from 'react-redux';
 import { changePopupStatus } from '../../actions';
 import moment from 'moment';
+import Button from '@material-ui/core/Button';
 
 function MainRecipeDisplay({author, createdDate, currentRecipe, dispatch, imageLink, name, rating, showPopup, url}){
   const altText = `${name} Recipe`;
@@ -43,7 +44,9 @@ function MainRecipeDisplay({author, createdDate, currentRecipe, dispatch, imageL
         <div>
           {(url) && (
             <div className='centerMe'>
-              <button className='navButtonStyle button-green'><a className='linkStyle' href={url} target="_blank" rel="noopener noreferrer">Link to Page</a></button>
+              <Button className='navButtonStyle button-green' variant="contained"> 
+                <a className='linkStyle' href={url} target="_blank" rel="noopener noreferrer">Link to Page</a>
+              </Button>
             </div>
           )}
           <NavButton
@@ -51,7 +54,7 @@ function MainRecipeDisplay({author, createdDate, currentRecipe, dispatch, imageL
             linkText='Edit Recipe'
           />
           <div className='centerMe' onClick={() => {handleTogglePopup();}}>
-            <button className='navButtonStyle button-red'>Delete Recipe</button>
+            <Button className='navButtonStyle button-red' variant="contained">Delete Recipe</Button>
           </div>
         </div>
       </div>
