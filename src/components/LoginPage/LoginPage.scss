@@ -103,6 +103,7 @@
           width: 100%;
         }
         input:-webkit-autofill {
+          box-shadow: 0 0 0px 1000px white inset;
           -webkit-box-shadow: 0 0 0px 1000px white inset;
         }
         ::placeholder {
@@ -125,6 +126,7 @@
           background-color: transparent;
         }
         input:-webkit-autofill {
+          box-shadow: 0 0 0px 1000px lighten($input-error-color, 48%) inset;
           -webkit-box-shadow: 0 0 0px 1000px lighten($input-error-color, 48%) inset;
         }
         ::placeholder {
