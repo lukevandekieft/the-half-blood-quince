@@ -86,7 +86,7 @@ class LoginPage extends React.Component{
                   ></input>
                 </div>
                 <button type="submit" className='loginButton email'>{this.state.loginLoading ? "Logging in..." : "Login"}</button>
-                <p>{this.props.user ? this.props.user.message : null}</p>
+                <p className="loginError">{this.props.user ? this.props.user.message : null}</p>
               </form>
               <p className='signUpLink'>Don't have an account? <Link to='signup'>Sign up now</Link></p>
             </div>
