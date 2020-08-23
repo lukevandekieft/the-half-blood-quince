@@ -2,12 +2,22 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-function RecipeItem({dispatch, image, name, user}) {
+import StarRating from '../Widgets/StarRating/StarRating';
+
+function RecipeItem({author, dispatch, image, name, rating, recipeStatus, user}) {
 
   //set background based on props
   const backgroundImage = {
     backgroundImage: `url(${image})`
   };
+
+  if (name.length > 35) {
+    name = `${name.slice(0, 35)}...`
+  }
+
+  if (author && author.length > 35) {
+    author = `${name.slice(0, 35)}...`
+  }
 
   return (
     <div className='recipeItemBox'>
@@ -17,7 +27,23 @@ function RecipeItem({dispatch, image, name, user}) {
         <div className='recipeImage' style={backgroundImage}>
         </div>
       </div>
-      <h3>{name}</h3>
+      <div className='recipeBottomSection'>
+        <div className='recipeItemTextContainer'>
+          <h3>{name}</h3>
+          {author && (
+            <p>{author}</p>
+          )}
+          {rating && (
+            <StarRating 
+              rating={rating}
+              displayType={"readOnly"}
+            />
+          )}
+        </div>
+        <div className='recipeItemButtonContainer'>
+          <div className={recipeStatus === "completed" ? "completedRecipeButton" : recipeStatus === "unfinished" ? "unfinishedRecipeButton" : null}></div>
+        </div>
+      </div>
     </div>
   );
 }
@@ -30,7 +56,6 @@ const mapStateToProps = state => {
 
 RecipeItem.propTypes = {
   image: PropTypes.string,
-  keypair: PropTypes.string,
   name: PropTypes.string,
   user: PropTypes.object
 };

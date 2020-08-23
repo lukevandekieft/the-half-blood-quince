@@ -1,5 +1,12 @@
 @import '../sassVariables.scss';
 
+// create dynamic breakpoints specifically for the recipe grid.
+$icon-grid-4: calc((#{$recipe-icon-size} * 5) + (#{$recipe-icon-padding} * 4) + (#{$margin-lg} * 2));
+$icon-grid-3: calc((#{$recipe-icon-size} * 4) + (#{$recipe-icon-padding} * 3) + (#{$margin-lg} * 2));
+$icon-grid-2: calc((#{$recipe-icon-size} * 3) + (#{$recipe-icon-padding} * 2) + (#{$margin-lg} * 2));
+$icon-grid-1: calc((#{$recipe-icon-size} * 2) + (#{$recipe-icon-padding} * 1) + (#{$margin-lg} * 2));
+
+$completed-icon-width: 35px; 
 
 //HEADER SECTION
 .headerSection {
@@ -54,30 +61,34 @@
 .recipeItemBox {
   width: $recipe-icon-size;
   box-sizing: border-box !important;
-  white-space: nowrap;
-  // margin-left: $recipe-icon-padding;
+  word-wrap: break-word;
   a {
     cursor: pointer;
   }
   h3 {
     box-sizing: border-box;
-    font-size: 18px;
-    padding-top: 8px;
+    font-size: 17px;
     margin: 0;
     color: $offsetColor;
-    text-overflow: ellipsis;
-    overflow: hidden;
     font-weight: 400;
   }
-  border-radius: $icon-border-radius / 2;
-  overflow: hidden;  
+  border-radius: $icon-border-radius / 2; 
+  .ratingBox {
+    font-size: 1.4rem;
+  }
 }
 
 .recipeItemImageContainer {
   width: $recipe-icon-size;
   height: $recipe-icon-size;
   position: relative;
-  overflow: hidden;
+}
+
+.recipeBottomSection {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 12px;
 }
 
 .recipeItemStyles {
@@ -114,18 +125,59 @@
   box-sizing: border-box;
 }
 
+.recipeItemTextContainer {
+  text-align: left;
+  min-width: 0; // flex box defaults to not let container be smaller than content: when we want content to shrink (e.g. text) forcing min width allows content to wrap dynamically
+  padding-right: .6em;
+  p {
+    text-align: left;
+    color: grey;
+    text-transform: uppercase;
+    font-size: .8em;
+    margin-top: .5em;
+  }
+}
+
+.recipeItemButtonContainer {
+  display: flex;
+  justify-content: center;
+}
+
+@mixin recipeButton() {
+  display: flex;
+  height: $completed-icon-width;
+  width: $completed-icon-width;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  font-weight: 900;
+  font-size: 22px;
+  color: white;
+}
+
+.completedRecipeButton {
+  @include recipeButton();
+  &:before {
+    content: "\2713";
+    transform: scaleX(1.2);
+  }
+  background-color: lighten($off-brand-color, 5%);
+}
+
+// .unfinishedRecipeButton {
+//   @include recipeButton();
+//   &:before {
+//     content: "\2764";
+//   }
+//   background-color: $filled-star-color;
+// }
+
 @media (max-width: $small-breakpoint) {
   .headline {
     padding: 1.5rem 0;
     font-size: 2rem;
   }
 }
-
-// create dynamic breakpoints specifically for the recipe grid.
-$icon-grid-4: calc((#{$recipe-icon-size} * 5) + (#{$recipe-icon-padding} * 4) + (#{$margin-lg} * 2));
-$icon-grid-3: calc((#{$recipe-icon-size} * 4) + (#{$recipe-icon-padding} * 3) + (#{$margin-lg} * 2));
-$icon-grid-2: calc((#{$recipe-icon-size} * 3) + (#{$recipe-icon-padding} * 2) + (#{$margin-lg} * 2));
-$icon-grid-1: calc((#{$recipe-icon-size} * 2) + (#{$recipe-icon-padding} * 1) + (#{$margin-lg} * 2));
 
 @media (max-width: $icon-grid-4) {
   .recipeItemStyles {
@@ -139,11 +191,21 @@ $icon-grid-1: calc((#{$recipe-icon-size} * 2) + (#{$recipe-icon-padding} * 1) + 
 }
 @media (max-width: $icon-grid-2) {
   .recipeItemStyles {
-    grid-template-columns: repeat(2, auto);
+    grid-template-columns: repeat(2, 49%);
   };
+  .recipeItemBox {
+    width: 100%;
+  }
+  .recipeItemImageContainer {
+    width: 100%;
+  }
 }
 @media (max-width: $icon-grid-1) {
   .recipeItemStyles {
-    grid-template-columns: repeat(1, auto);
+    grid-template-columns: repeat(1, 100%);
+    grid-row-gap: $recipe-icon-padding * 4;
   };
+  .recipeItemImageContainer {
+    height: 300px;
+  }
 }

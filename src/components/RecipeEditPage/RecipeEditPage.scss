@@ -77,11 +77,10 @@ ul, ol {
 // .formLayout used to overwrite specificity of star ratings
 // defaults to 5 unfilled stars
 .formLayout .ratingSection .ratingBox:hover > span {
-  @include emptyStarStyle();
+  @include starStyle();
 }
 
-.formLayout .ratingSection .ratingBox > span:hover,
 .formLayout .ratingSection .ratingBox > span:hover ~ span {
-  @include starStyle();
+  @include emptyStarStyle();
 }
 

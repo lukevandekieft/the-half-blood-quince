@@ -14,10 +14,12 @@ class RecipeEditForm extends Component {
     super(props);
     this.state = {
       createdRecipeId: null,
-      rating: null
+      rating: null,
+      recipeStatus: "unfinished"
     }
   }
 
+  _author = null;
   _name = null;
   _url = null;
   _imageLink = null;
@@ -30,10 +32,12 @@ class RecipeEditForm extends Component {
   componentDidMount() {
     this.props.onInputValidation(this._name);
 
-    if (this.props.currentRecipe) {
-      if (this.props.currentRecipe.rating && (this.props.currentRecipe.rating !== this.state.rating)) {
-        this.setState({rating: this.props.currentRecipe.rating})
-      }
+    if (this.props.currentRecipe && this.props.currentRecipe.rating && this.props.currentRecipe.rating !== this.state.rating) {
+      this.setState({rating: this.props.currentRecipe.rating})
+    }
+
+    if (this.props.currentRecipe && this.props.currentRecipe.recipeStatus && this.props.currentRecipe.recipeStatus !== this.state.recipeStatus) {
+      this.setState({recipeStatus: this.props.currentRecipe.recipeStatus})
     }
   }
 
@@ -70,11 +74,11 @@ class RecipeEditForm extends Component {
   }
 
   handleChange = (stateCategory, newValue) => {
+    console.log(`Changed ${stateCategory}`)
     this.setState({[stateCategory]: newValue})
   }
 
   render() {
-    console.log(this.props)
     console.log(this.state)
     const {currentRecipe, currentRecipeName, dispatch, isRouting, recipes, user } = this.props;
     
@@ -89,16 +93,19 @@ class RecipeEditForm extends Component {
       event.preventDefault();
 
       const recipeDetail = {
+        author: this._author.value,
         createdDate: !currentRecipe ? moment()._d : currentRecipe.createdDate ? currentRecipe.createdDate : moment()._d,
         name: this._name.value,
         url: this._url.value,
         imageLink: this._imageLink.value,
         rating: this.state.rating,
+        recipeStatus: this.state.recipeStatus,
         ingredients: this.createArray(this._ingredients.value),
         ingredientsNotes: this.createArray(this._ingredientsNotes.value),
         directions: this.createArray(this._directions.value),
         directionsNotes: this.createArray(this._directionsNotes.value)
       }
+      console.log(recipeDetail)
 
       const recipeId = currentRecipeName ? currentRecipeName : v4();
 
@@ -126,6 +133,7 @@ class RecipeEditForm extends Component {
       return <Redirect to={`/recipe/${this.props.currentRecipeName}`} />
     }
 
+  console.log(this.props)
   return (
     <div>
       <form className='formLayout' onSubmit={submitForm.bind(this)}>
@@ -159,13 +167,27 @@ class RecipeEditForm extends Component {
             ref={(input) => {this._imageLink = input;}}
           ></input>
         </div>
+        <div className='formInputLayout'>
+          <label>Recipe Author</label>
+          <input
+            type="text"
+            defaultValue={currentRecipe ? this.checkValue(currentRecipe.author) : null}
+            id='author'
+            ref={(input) => {this._author = input;}}
+          ></input>
+        </div>
         <div className="ratingSection">
           <label>Rating</label>
           <StarRating 
             handleChange={this.handleChange}
             rating={this.state.rating}
-            distplayType={"write"}
+            displayType={"write"}
           />
+        </div>
+        <div className='formInputLayout'>
+          <label>Recipe Status:</label>
+          <button onClick={() => {this.handleChange("recipeStatus", "completed")}} type="button">Completed</button>
+          <button onClick={() => {this.handleChange("recipeStatus", "unfinished")}} type="button">Unfinished</button>
         </div>
         <div className='formInputLayout'>
           <label>Ingredients</label>

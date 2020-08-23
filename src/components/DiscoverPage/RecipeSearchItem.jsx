@@ -61,11 +61,10 @@ class RecipeSearchItem extends React.Component {
 
     return (
       <React.Fragment>
-        <a className="functionLink" onClick={() => {handleClickCancel();}}>
+        <a className="clickEvent" onClick={() => {handleClickCancel();}} key = {valueKey}>
           <RecipeItem
             name = {name}
             image = {image}
-            key = {valueKey}
           />
         </a>
         {this.state.recipeModalOpen ?
@@ -80,7 +79,7 @@ class RecipeSearchItem extends React.Component {
               </div>
               <div className='popup-buttons'>
                 <div className='centerMe'>
-                  <a href={url}><button className='navButtonStyle button-green'>Visit Recipe Site</button>
+                  <a href={url} target="_blank" rel="noopener noreferrer"><button className='navButtonStyle button-green'>Visit Recipe Site</button>
                   </a>
                 </div>
                 <button onClick={() => {handleAddSearchRecipe();}} className='navButtonStyle button-green'>Add to My Recipes</button>

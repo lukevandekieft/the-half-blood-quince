@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { changePopupStatus } from '../../actions';
 import moment from 'moment';
 
-function MainRecipeDisplay({createdDate, currentRecipe, dispatch, imageLink, name, rating, showPopup, url}){
+function MainRecipeDisplay({author, createdDate, currentRecipe, dispatch, imageLink, name, rating, showPopup, url}){
   const altText = `${name} Recipe`;
   const backgroundImage = {
     backgroundImage: `url(${imageLink})`
@@ -37,10 +37,13 @@ function MainRecipeDisplay({createdDate, currentRecipe, dispatch, imageLink, nam
 
       <div className='mainDetailContainer'>
         <h1 className='centerMe'>{name}</h1>
+        {author && (
+          <h3 className='centerMe'>{author}</h3>
+        )}
         <div>
           {(url) && (
             <div className='centerMe'>
-              <button className='navButtonStyle button-green'><a className='linkStyle' href={url}>Link to Page</a></button>
+              <button className='navButtonStyle button-green'><a className='linkStyle' href={url} target="_blank" rel="noopener noreferrer">Link to Page</a></button>
             </div>
           )}
           <NavButton

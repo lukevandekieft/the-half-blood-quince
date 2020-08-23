@@ -71,6 +71,9 @@
         overflow: hidden;
       }
     };
+    .ratingBox {
+      font-size: 1.4rem;
+    }
   };
 
 @media (max-width: $small-breakpoint + 100) {

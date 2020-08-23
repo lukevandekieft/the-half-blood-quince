@@ -2,14 +2,28 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { newUserLogin } from './../../actions';
 import { Link } from 'react-router-dom';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 import facebook from'../../assets/images/facebook.svg';
 import google from'../../assets/images/google.svg';
 import twitter from'../../assets/images/twitter.svg';
 
 class LoginPage extends React.Component{
+  constructor(props) {
+    super(props);
+    this.state = {
+      loginLoading: false,
+    };
+  }
+
   componentDidMount() {
     window.scrollTo(0, 0);
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.state.loginLoading && (this.props !== prevProps) && this.props.user.message) {
+      this.setState(({ loginLoading }) => ({ loginLoading: false }));
+    }
   }
 
   _loginEmail = null;
@@ -28,6 +42,7 @@ class LoginPage extends React.Component{
         email: this._loginEmail.value,
         password: this._loginPassword.value,
       }
+      this.setState(({ loginLoading }) => ({ loginLoading: true }));
       this.props.dispatch(newUserLogin(newUserInfo));
     };
 
@@ -71,7 +86,13 @@ class LoginPage extends React.Component{
                     ref={(input) => {this._loginPassword = input;}}
                   ></input>
                 </div>
-                <button type="submit" className='loginButton email'>Login</button>
+                <button type="submit" className='loginButton email'>
+                  {this.state.loginLoading ? 
+                  <CircularProgress size={24}/> : 
+                  "Login"}
+                </button>
+                
+                <p className="loginError">{this.props.user ? this.props.user.message : null}</p>
               </form>
               <p className='signUpLink'>Don't have an account? <Link to='signup'>Sign up now</Link></p>
             </div>
@@ -84,6 +105,7 @@ class LoginPage extends React.Component{
 
 const mapStateToProps = state => {
   return {
+    user: state.user
   }
 };
 
