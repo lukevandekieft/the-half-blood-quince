@@ -8,6 +8,7 @@ import { Redirect } from 'react-router';
 import { v4 } from 'uuid';
 import moment from 'moment';
 import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
 
 class RecipeEditForm extends Component {
 
@@ -74,9 +75,12 @@ class RecipeEditForm extends Component {
     }
   }
 
-  handleChange = (stateCategory, newValue) => {
-    console.log(`Changed ${stateCategory}`)
+  handleRadioChange = (stateCategory, newValue) => {
     this.setState({[stateCategory]: newValue})
+  }
+
+  handleTextChange = (event) => {
+    this[event.target.id].value = event.target.value;
   }
 
   render() {
@@ -180,15 +184,15 @@ class RecipeEditForm extends Component {
         <div className="ratingSection">
           <label>Rating</label>
           <StarRating 
-            handleChange={this.handleChange}
+            handleRadioChange={this.handleRadioChange}
             rating={this.state.rating}
             displayType={"write"}
           />
         </div>
         <div className='formInputLayout'>
           <label>Recipe Status:</label>
-          <button onClick={() => {this.handleChange("recipeStatus", "completed")}} type="button">Completed</button>
-          <button onClick={() => {this.handleChange("recipeStatus", "unfinished")}} type="button">Unfinished</button>
+          <button onClick={() => {this.handleRadioChange("recipeStatus", "completed")}} type="button">Completed</button>
+          <button onClick={() => {this.handleRadioChange("recipeStatus", "unfinished")}} type="button">Unfinished</button>
         </div>
         <div className='formInputLayout'>
           <label>Ingredients</label>
@@ -215,12 +219,15 @@ class RecipeEditForm extends Component {
           ></textarea>
         </div>
         <div className='formInputLayout'>
-          <label>Direction Notes</label>
-          <textarea
-            id='directionsNotes'
+          <TextField
+            id='_directionsNotes'
             defaultValue={formatDirectionsNotes}
+            label="Direction Notes"
             ref={(input) => {this._directionsNotes = input;}}
-          ></textarea>
+            onChange={this.handleTextChange}
+            multiline
+            variant="outlined"
+          />
         </div>
         <div className='centerMe'>
           <Button type="submit" className='navButtonStyle button-green' variant="contained">Submit</Button>
