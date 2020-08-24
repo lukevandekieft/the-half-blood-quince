@@ -17,22 +17,21 @@ class RecipeEditForm extends Component {
     this.state = {
       createdRecipeId: null,
       rating: null,
-      recipeStatus: "unfinished"
+      recipeStatus: "unfinished",
+      _name: '',
+      _url: '',
+      _imageLink: '',
+      _author: '',
+      _ingredients: '',
+      _ingredientsNotes: '',
+      _directions: '',
+      _directionsNotes: ''
     }
   }
 
-  _author = null;
-  _name = null;
-  _url = null;
-  _imageLink = null;
-  _ingredients = null;
-  _ingredientsNotes = null;
-  _directions = null;
-  _directionsNotes = null;
-
 //validate inputs on load
   componentDidMount() {
-    this.props.onInputValidation(this._name);
+    const {currentRecipe, currentRecipeName, dispatch, isRouting, recipes, user } = this.props;
 
     if (this.props.currentRecipe && this.props.currentRecipe.rating && this.props.currentRecipe.rating !== this.state.rating) {
       this.setState({rating: this.props.currentRecipe.rating})
@@ -41,6 +40,22 @@ class RecipeEditForm extends Component {
     if (this.props.currentRecipe && this.props.currentRecipe.recipeStatus && this.props.currentRecipe.recipeStatus !== this.state.recipeStatus) {
       this.setState({recipeStatus: this.props.currentRecipe.recipeStatus})
     }
+
+    //format array props
+    const formatIngredients = currentRecipe ? this.readableArray(currentRecipe.ingredients) : '';
+    const formatIngredientsNotes = currentRecipe ? this.readableArray(currentRecipe.ingredientsNotes) : '';
+    const formatDirections = currentRecipe ? this.readableArray(currentRecipe.directions) : '';
+    const formatDirectionsNotes = currentRecipe ? this.readableArray(currentRecipe.directionsNotes) : '';
+    //set default input values
+    
+    this.state._name = (currentRecipe && currentRecipe.name ? currentRecipe.name : '');
+    this.state._url = (currentRecipe && currentRecipe.url ? currentRecipe.url : '');
+    this.state._imageLink = currentRecipe && currentRecipe.imageLink ? this._imageLink = currentRecipe.imageLink : '';
+    this.state._author = currentRecipe && currentRecipe.author ? this._author = currentRecipe.author : '';
+    this.state._ingredients = formatIngredients;
+    this.state._ingredientsNotes = formatIngredientsNotes;
+    this.state._directions = formatDirections;
+    this.state._directionsNotes = formatDirectionsNotes;
   }
 
   //turn array into display text
@@ -80,35 +95,29 @@ class RecipeEditForm extends Component {
   }
 
   handleTextChange = (event) => {
-    this[event.target.id].value = event.target.value;
+    this.setState({[event.target.id]: event.target.value})
   }
 
   render() {
-    console.log(this.state)
     const {currentRecipe, currentRecipeName, dispatch, isRouting, recipes, user } = this.props;
 
-    //format array props
-    const formatIngredients = currentRecipe ? this.readableArray(currentRecipe.ingredients) : null;
-    const formatIngredientsNotes = currentRecipe ? this.readableArray(currentRecipe.ingredientsNotes) : null;
-    const formatDirections = currentRecipe ? this.readableArray(currentRecipe.directions) : null;
-    const formatDirectionsNotes = currentRecipe ? this.readableArray(currentRecipe.directionsNotes) : null;
-
+    console.log(this.state);
     //submit recipe to database and route to new recipe page
     const submitForm = (event) => {
       event.preventDefault();
 
       const recipeDetail = {
-        author: this._author.value,
+        author: this.state._author,
         createdDate: !currentRecipe ? moment()._d : currentRecipe.createdDate ? currentRecipe.createdDate : moment()._d,
-        name: this._name.value,
-        url: this._url.value,
-        imageLink: this._imageLink.value,
+        name: this.state._name,
+        url: this.state._url,
+        imageLink: this.state._imageLink,
         rating: this.state.rating,
         recipeStatus: this.state.recipeStatus,
-        ingredients: this.createArray(this._ingredients.value),
-        ingredientsNotes: this.createArray(this._ingredientsNotes.value),
-        directions: this.createArray(this._directions.value),
-        directionsNotes: this.createArray(this._directionsNotes.value)
+        ingredients: this.createArray(this.state._ingredients),
+        ingredientsNotes: this.createArray(this.state._ingredientsNotes),
+        directions: this.createArray(this.state._directions),
+        directionsNotes: this.createArray(this.state._directionsNotes)
       }
       console.log(recipeDetail)
 
@@ -138,7 +147,6 @@ class RecipeEditForm extends Component {
       return <Redirect to={`/recipe/${this.props.currentRecipeName}`} />
     }
 
-  console.log(this.props)
   return (
     <div>
       <form className='formLayout' onSubmit={submitForm.bind(this)}>
@@ -147,38 +155,33 @@ class RecipeEditForm extends Component {
           <input
             required
             type="text"
-            defaultValue={currentRecipe ? this.checkValue(currentRecipe.name) : null}
-            id='name'
-            ref={(input) => {this._name = input;}}
+            defaultValue={this.state._name}
+            id='_name'
             className={this.props.nameError ? "inputError" : ""}
-            onChange={() => {this.props.onInputValidation(this._name)}}
           ></input>
         </div>
         <div className='formInputLayout'>
           <label>Recipe Link <span className='inputFieldNote'>(URL Only)</span></label>
           <input
             type="url"
-            defaultValue={currentRecipe ? this.checkValue(currentRecipe.url) : null}
-            id='url'
-            ref={(input) => {this._url = input;}}
+            defaultValue={this.state._url}
+            id='_url'
           ></input>
         </div>
         <div className='formInputLayout'>
           <label>Recipe Picture <span className='inputFieldNote'>(URL Only)</span></label>
           <input
             type="url"
-            defaultValue={currentRecipe ? this.checkValue(currentRecipe.imageLink) : null}
-            id='imageLink'
-            ref={(input) => {this._imageLink = input;}}
+            defaultValue={this.state._imageLink}
+            id='_imageLink'
           ></input>
         </div>
         <div className='formInputLayout'>
           <label>Recipe Author</label>
           <input
             type="text"
-            defaultValue={currentRecipe ? this.checkValue(currentRecipe.author) : null}
-            id='author'
-            ref={(input) => {this._author = input;}}
+            defaultValue={this.state._author}
+            id='_author'
           ></input>
         </div>
         <div className="ratingSection">
@@ -196,9 +199,8 @@ class RecipeEditForm extends Component {
         </div>
         <div className='formInputLayout'>
           <TextField
-            id='ingredients'
-            defaultValue={formatIngredients}
-            ref={(input) => {this._ingredients = input;}}
+            id='_ingredients'
+            defaultValue={this.state._ingredients}
             label="Ingredients"
             onChange={this.handleTextChange}
             multiline
@@ -208,9 +210,8 @@ class RecipeEditForm extends Component {
         </div>
         <div className='formInputLayout'>
           <TextField
-            id='ingredientsNotes'
-            defaultValue={formatIngredientsNotes}
-            ref={(input) => {this._ingredientsNotes = input;}}
+            id='_ingredientsNotes'
+            defaultValue={this.state._ingredientsNotes}
             label="Ingredient Notes"
             onChange={this.handleTextChange}
             multiline
@@ -221,9 +222,8 @@ class RecipeEditForm extends Component {
         <div className='formInputLayout'>
           <TextField
             id='_directions'
-            defaultValue={formatDirections}
+            defaultValue={this.state._directions}
             label="Directions"
-            ref={(input) => {this._directions = input;}}
             onChange={this.handleTextChange}
             multiline
             rows={4}
@@ -233,9 +233,8 @@ class RecipeEditForm extends Component {
         <div className='formInputLayout'>
           <TextField
             id='_directionsNotes'
-            defaultValue={formatDirectionsNotes}
+            defaultValue={this.state._directionsNotes}
             label="Direction Notes"
-            ref={(input) => {this._directionsNotes = input;}}
             onChange={this.handleTextChange}
             multiline
             rows={4}
