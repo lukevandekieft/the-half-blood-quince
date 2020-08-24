@@ -22,12 +22,12 @@ class RecipeEditForm extends Component {
     super(props);
     this.state = {
       createdRecipeId: null,
-      rating: null,
-      _recipeStatus: "unfinished",
       _name: '',
       _url: '',
       _imageLink: '',
       _author: '',
+      _rating: '',
+      _recipeStatus: "unfinished",
       _ingredients: '',
       _ingredientsNotes: '',
       _directions: '',
@@ -39,17 +39,14 @@ class RecipeEditForm extends Component {
   componentDidMount() {
     const {currentRecipe, currentRecipeName, dispatch, isRouting, recipes, user } = this.props;
 
-    if (currentRecipe && currentRecipe.rating && currentRecipe.rating !== this.state.rating) {
-      this.setState({rating: currentRecipe.rating})
-    }
-
     //set default input values
     this.setState({
-      _recipeStatus: currentRecipe && currentRecipe.recipeStatus && currentRecipe.recipeStatus !== this.state._recipeStatus ? currentRecipe.recipeStatus : "unfinished",
       _name: currentRecipe && currentRecipe.name ? currentRecipe.name : '',
       _url: currentRecipe && currentRecipe.url ? currentRecipe.url : '',
-      _imageLink: (currentRecipe && currentRecipe.imageLink) ? currentRecipe.imageLink : '',
-      _author: (currentRecipe && currentRecipe.author) ? currentRecipe.author : '',
+      _imageLink: currentRecipe && currentRecipe.imageLink ? currentRecipe.imageLink : '',
+      _author: currentRecipe && currentRecipe.author ? currentRecipe.author : '',
+      _rating: currentRecipe && currentRecipe.rating && currentRecipe.rating !== this.state.rating ? currentRecipe.rating : '',
+      _recipeStatus: currentRecipe && currentRecipe.recipeStatus && currentRecipe.recipeStatus !== this.state._recipeStatus ? currentRecipe.recipeStatus : "unfinished",
       _ingredients: currentRecipe ? this.readableArray(currentRecipe.ingredients) : '',
       _ingredientsNotes: currentRecipe ? this.readableArray(currentRecipe.ingredientsNotes) : '',
       _directions: currentRecipe ? this.readableArray(currentRecipe.directions) : '',
@@ -80,8 +77,8 @@ class RecipeEditForm extends Component {
     }
   }
 
-  handleRadioChange = (stateCategory, newValue) => {
-    this.setState({[stateCategory]: newValue})
+  handleRatingChange = (newValue) => {
+    this.setState({_rating: newValue})
   }
 
   handleTextChange = (event) => {
@@ -98,12 +95,12 @@ class RecipeEditForm extends Component {
     const submitForm = (event) => {
       event.preventDefault();
       const recipeDetail = {
-        author: this.state._author,
         createdDate: !currentRecipe ? moment()._d : currentRecipe.createdDate ? currentRecipe.createdDate : moment()._d,
         name: this.state._name,
         url: this.state._url,
         imageLink: this.state._imageLink,
-        rating: this.state.rating,
+        author: this.state._author,
+        rating: this.state._rating,
         recipeStatus: this.state._recipeStatus,
         ingredients: this.createArray(this.state._ingredients),
         ingredientsNotes: this.createArray(this.state._ingredientsNotes),
@@ -183,8 +180,9 @@ class RecipeEditForm extends Component {
         <div className="ratingSection">
           <label>Rating</label>
           <StarRating 
-            handleRadioChange={this.handleRadioChange}
-            rating={this.state.rating}
+            handleChange={this.handleRatingChange}
+            name='_rating'
+            rating={this.state._rating}
             displayType={"write"}
           />
         </div>
