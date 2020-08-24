@@ -33,29 +33,24 @@ class RecipeEditForm extends Component {
   componentDidMount() {
     const {currentRecipe, currentRecipeName, dispatch, isRouting, recipes, user } = this.props;
 
-    if (this.props.currentRecipe && this.props.currentRecipe.rating && this.props.currentRecipe.rating !== this.state.rating) {
-      this.setState({rating: this.props.currentRecipe.rating})
+    if (currentRecipe && currentRecipe.rating && currentRecipe.rating !== this.state.rating) {
+      this.setState({rating: currentRecipe.rating})
+    }
+    if (currentRecipe && currentRecipe.recipeStatus && currentRecipe.recipeStatus !== this.state.recipeStatus) {
+      this.setState({recipeStatus: currentRecipe.recipeStatus})
     }
 
-    if (this.props.currentRecipe && this.props.currentRecipe.recipeStatus && this.props.currentRecipe.recipeStatus !== this.state.recipeStatus) {
-      this.setState({recipeStatus: this.props.currentRecipe.recipeStatus})
-    }
-
-    //format array props
-    const formatIngredients = currentRecipe ? this.readableArray(currentRecipe.ingredients) : '';
-    const formatIngredientsNotes = currentRecipe ? this.readableArray(currentRecipe.ingredientsNotes) : '';
-    const formatDirections = currentRecipe ? this.readableArray(currentRecipe.directions) : '';
-    const formatDirectionsNotes = currentRecipe ? this.readableArray(currentRecipe.directionsNotes) : '';
     //set default input values
-    
-    this.state._name = (currentRecipe && currentRecipe.name ? currentRecipe.name : '');
-    this.state._url = (currentRecipe && currentRecipe.url ? currentRecipe.url : '');
-    this.state._imageLink = currentRecipe && currentRecipe.imageLink ? this._imageLink = currentRecipe.imageLink : '';
-    this.state._author = currentRecipe && currentRecipe.author ? this._author = currentRecipe.author : '';
-    this.state._ingredients = formatIngredients;
-    this.state._ingredientsNotes = formatIngredientsNotes;
-    this.state._directions = formatDirections;
-    this.state._directionsNotes = formatDirectionsNotes;
+    this.setState({
+      _name: currentRecipe && currentRecipe.name ? currentRecipe.name : '',
+      _url: currentRecipe && currentRecipe.url ? currentRecipe.url : '',
+      _imageLink: currentRecipe && currentRecipe.imageLink ? this._imageLink = currentRecipe.imageLink : '',
+      _author: currentRecipe && currentRecipe.author ? this._author = currentRecipe.author : '',
+      _ingredients: currentRecipe ? this.readableArray(currentRecipe.ingredients) : '',
+      _ingredientsNotes: currentRecipe ? this.readableArray(currentRecipe.ingredientsNotes) : '',
+      _directions: currentRecipe ? this.readableArray(currentRecipe.directions) : '',
+      _directionsNotes: currentRecipe ? this.readableArray(currentRecipe.directionsNotes) : ''
+    });
   }
 
   //turn array into display text
@@ -81,15 +76,6 @@ class RecipeEditForm extends Component {
     }
   }
 
-  //checks for null prop values
-  checkValue = (propValue) => {
-    if(propValue) {
-      return propValue;
-    } else {
-      return "";
-    }
-  }
-
   handleRadioChange = (stateCategory, newValue) => {
     this.setState({[stateCategory]: newValue})
   }
@@ -102,10 +88,9 @@ class RecipeEditForm extends Component {
     const {currentRecipe, currentRecipeName, dispatch, isRouting, recipes, user } = this.props;
 
     console.log(this.state);
-    //submit recipe to database and route to new recipe page
+
     const submitForm = (event) => {
       event.preventDefault();
-
       const recipeDetail = {
         author: this.state._author,
         createdDate: !currentRecipe ? moment()._d : currentRecipe.createdDate ? currentRecipe.createdDate : moment()._d,
@@ -119,14 +104,11 @@ class RecipeEditForm extends Component {
         directions: this.createArray(this.state._directions),
         directionsNotes: this.createArray(this.state._directionsNotes)
       }
-      console.log(recipeDetail)
-
       const recipeId = currentRecipeName ? currentRecipeName : v4();
 
       if (!currentRecipe) {
         this.setState({createdRecipeId: recipeId});
       }
-
       if (recipes) {
         recipes[recipeId] = recipeDetail;
       } else {
