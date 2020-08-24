@@ -27,7 +27,7 @@ class RecipeEditForm extends Component {
       _imageLink: '',
       _author: '',
       _rating: '',
-      _recipeStatus: "unfinished",
+      _recipeStatus: 'unfinished',
       _ingredients: '',
       _ingredientsNotes: '',
       _directions: '',
@@ -37,7 +37,7 @@ class RecipeEditForm extends Component {
 
 //validate inputs on load
   componentDidMount() {
-    const {currentRecipe, currentRecipeName, dispatch, isRouting, recipes, user } = this.props;
+    const {currentRecipe } = this.props;
 
     //set default input values
     this.setState({
@@ -136,45 +136,41 @@ class RecipeEditForm extends Component {
   return (
     <div>
       <form className='formLayout' onSubmit={submitForm.bind(this)}>
-        <div className='formInputLayout'>
+        <div className='formInputLayout inputSmall'>
           <TextField
             required
             id='_name'
-            defaultValue={this.state._name}
+            value={this.state._name}
             label="Recipe Name"
             onChange={this.handleTextChange}
             variant="outlined"
-            multiline
           />
         </div>
-        <div className='formInputLayout'>
+        <div className='formInputLayout inputSmall'>
           <TextField
             id='_url'
-            defaultValue={this.state._url}
+            value={this.state._url}
             label="Recipe Link (URL Only)"
             onChange={this.handleTextChange}
             variant="outlined"
-            multiline
           />
         </div>
         <div className='formInputLayout'>
           <TextField
             id='_imageLink'
-            defaultValue={this.state._imageLink}
+            value={this.state._imageLink}
             label="Recipe Picture (URL Only)"
             onChange={this.handleTextChange}
             variant="outlined"
-            multiline
           />
         </div>
         <div className='formInputLayout'>
           <TextField
             id="_author"
-            defaultValue={this.state._author}
+            value={this.state._author}
             label="Recipe Author"
             onChange={this.handleTextChange}
             variant="outlined"
-            multiline
           />
         </div>
         <div className="ratingSection">

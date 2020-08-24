@@ -16,12 +16,16 @@ ul, ol {
  margin: 2rem auto;
  display: flex;
  flex-direction: column;
- textarea, input {
-   margin-top: 1rem;
- }
  textarea {
    height: 12rem;
- }
+  }
+}
+
+.inputSmall {
+  textarea {
+
+    overflow: hidden !important;
+  }
 }
 
 .centerMe {
