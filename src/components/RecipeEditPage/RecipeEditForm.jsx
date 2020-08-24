@@ -44,8 +44,8 @@ class RecipeEditForm extends Component {
     this.setState({
       _name: currentRecipe && currentRecipe.name ? currentRecipe.name : '',
       _url: currentRecipe && currentRecipe.url ? currentRecipe.url : '',
-      _imageLink: currentRecipe && currentRecipe.imageLink ? this._imageLink = currentRecipe.imageLink : '',
-      _author: currentRecipe && currentRecipe.author ? this._author = currentRecipe.author : '',
+      _imageLink: (currentRecipe && currentRecipe.imageLink) ? currentRecipe.imageLink : '',
+      _author: (currentRecipe && currentRecipe.author) ? currentRecipe.author : '',
       _ingredients: currentRecipe ? this.readableArray(currentRecipe.ingredients) : '',
       _ingredientsNotes: currentRecipe ? this.readableArray(currentRecipe.ingredientsNotes) : '',
       _directions: currentRecipe ? this.readableArray(currentRecipe.directions) : '',
@@ -129,42 +129,50 @@ class RecipeEditForm extends Component {
       return <Redirect to={`/recipe/${this.props.currentRecipeName}`} />
     }
 
+  console.log(this.state)
   return (
     <div>
       <form className='formLayout' onSubmit={submitForm.bind(this)}>
         <div className='formInputLayout'>
-          <label>Recipe Name <span className={this.props.nameError ? 'errorMessage' : 'noErrorMessage'}>Please Enter a Name</span><span className={this.props.nameError ? 'noErrorMessage' : 'inputFieldNote'}>*  Required</span></label>
-          <input
+          <TextField
             required
-            type="text"
-            defaultValue={this.state._name}
             id='_name'
-            className={this.props.nameError ? "inputError" : ""}
-          ></input>
+            defaultValue={this.state._name}
+            label="Recipe Name"
+            onChange={this.handleTextChange}
+            variant="outlined"
+            multiline
+          />
         </div>
         <div className='formInputLayout'>
-          <label>Recipe Link <span className='inputFieldNote'>(URL Only)</span></label>
-          <input
-            type="url"
-            defaultValue={this.state._url}
+          <TextField
             id='_url'
-          ></input>
+            defaultValue={this.state._url}
+            label="Recipe Link (URL Only)"
+            onChange={this.handleTextChange}
+            variant="outlined"
+            multiline
+          />
         </div>
         <div className='formInputLayout'>
-          <label>Recipe Picture <span className='inputFieldNote'>(URL Only)</span></label>
-          <input
-            type="url"
-            defaultValue={this.state._imageLink}
+          <TextField
             id='_imageLink'
-          ></input>
+            defaultValue={this.state._imageLink}
+            label="Recipe Picture (URL Only)"
+            onChange={this.handleTextChange}
+            variant="outlined"
+            multiline
+          />
         </div>
         <div className='formInputLayout'>
-          <label>Recipe Author</label>
-          <input
-            type="text"
+          <TextField
+            id="_author"
             defaultValue={this.state._author}
-            id='_author'
-          ></input>
+            label="Recipe Author"
+            onChange={this.handleTextChange}
+            variant="outlined"
+            multiline
+          />
         </div>
         <div className="ratingSection">
           <label>Rating</label>
@@ -185,9 +193,9 @@ class RecipeEditForm extends Component {
             defaultValue={this.state._ingredients}
             label="Ingredients"
             onChange={this.handleTextChange}
+            variant="outlined"
             multiline
             rows={4}
-            variant="outlined"
           />
         </div>
         <div className='formInputLayout'>
@@ -196,9 +204,9 @@ class RecipeEditForm extends Component {
             defaultValue={this.state._ingredientsNotes}
             label="Ingredient Notes"
             onChange={this.handleTextChange}
+            variant="outlined"
             multiline
             rows={4}
-            variant="outlined"
           />
         </div>
         <div className='formInputLayout'>
@@ -207,9 +215,9 @@ class RecipeEditForm extends Component {
             defaultValue={this.state._directions}
             label="Directions"
             onChange={this.handleTextChange}
+            variant="outlined"
             multiline
             rows={4}
-            variant="outlined"
           />
         </div>
         <div className='formInputLayout'>
@@ -218,9 +226,9 @@ class RecipeEditForm extends Component {
             defaultValue={this.state._directionsNotes}
             label="Direction Notes"
             onChange={this.handleTextChange}
+            variant="outlined"
             multiline
             rows={4}
-            variant="outlined"
           />
         </div>
         <div className='centerMe'>
