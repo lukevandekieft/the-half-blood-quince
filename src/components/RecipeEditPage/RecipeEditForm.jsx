@@ -7,8 +7,14 @@ import { submitRecipe, changeRoute } from './../../actions';
 import { Redirect } from 'react-router';
 import { v4 } from 'uuid';
 import moment from 'moment';
+
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormControl from '@material-ui/core/FormControl';
+import FormLabel from '@material-ui/core/FormLabel';
 
 class RecipeEditForm extends Component {
 
@@ -17,7 +23,7 @@ class RecipeEditForm extends Component {
     this.state = {
       createdRecipeId: null,
       rating: null,
-      recipeStatus: "unfinished",
+      _recipeStatus: "unfinished",
       _name: '',
       _url: '',
       _imageLink: '',
@@ -36,12 +42,10 @@ class RecipeEditForm extends Component {
     if (currentRecipe && currentRecipe.rating && currentRecipe.rating !== this.state.rating) {
       this.setState({rating: currentRecipe.rating})
     }
-    if (currentRecipe && currentRecipe.recipeStatus && currentRecipe.recipeStatus !== this.state.recipeStatus) {
-      this.setState({recipeStatus: currentRecipe.recipeStatus})
-    }
 
     //set default input values
     this.setState({
+      _recipeStatus: currentRecipe && currentRecipe.recipeStatus && currentRecipe.recipeStatus !== this.state._recipeStatus ? currentRecipe.recipeStatus : "unfinished",
       _name: currentRecipe && currentRecipe.name ? currentRecipe.name : '',
       _url: currentRecipe && currentRecipe.url ? currentRecipe.url : '',
       _imageLink: (currentRecipe && currentRecipe.imageLink) ? currentRecipe.imageLink : '',
@@ -81,13 +85,15 @@ class RecipeEditForm extends Component {
   }
 
   handleTextChange = (event) => {
-    this.setState({[event.target.id]: event.target.value})
+    if (event.target.id) {
+      this.setState({[event.target.id]: event.target.value})
+    } else {
+      this.setState({[event.target.name]: event.target.value})
+    }
   }
 
   render() {
     const {currentRecipe, currentRecipeName, dispatch, isRouting, recipes, user } = this.props;
-
-    console.log(this.state);
 
     const submitForm = (event) => {
       event.preventDefault();
@@ -98,7 +104,7 @@ class RecipeEditForm extends Component {
         url: this.state._url,
         imageLink: this.state._imageLink,
         rating: this.state.rating,
-        recipeStatus: this.state.recipeStatus,
+        recipeStatus: this.state._recipeStatus,
         ingredients: this.createArray(this.state._ingredients),
         ingredientsNotes: this.createArray(this.state._ingredientsNotes),
         directions: this.createArray(this.state._directions),
@@ -183,9 +189,13 @@ class RecipeEditForm extends Component {
           />
         </div>
         <div className='formInputLayout'>
-          <label>Recipe Status:</label>
-          <button onClick={() => {this.handleRadioChange("recipeStatus", "completed")}} type="button">Completed</button>
-          <button onClick={() => {this.handleRadioChange("recipeStatus", "unfinished")}} type="button">Unfinished</button>
+          <FormControl component="fieldset">
+            <FormLabel component="legend">Recipe Status</FormLabel>
+            <RadioGroup aria-label="Recipe Status" name='_recipeStatus' value={this.state._recipeStatus} onChange={this.handleTextChange}>
+              <FormControlLabel value="completed" control={<Radio />} label="Completed" />
+              <FormControlLabel value="unfinished" control={<Radio />} label="Not Made" />
+            </RadioGroup>
+          </FormControl>
         </div>
         <div className='formInputLayout'>
           <TextField
