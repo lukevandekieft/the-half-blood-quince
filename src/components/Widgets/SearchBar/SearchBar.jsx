@@ -42,12 +42,12 @@ class SearchBar extends React.Component{
     if (searchValue && this.state.showCancelButton) {
       searchButton =
       <a className="searchButton" type='reset' onClick={() => {this.handleCancelSearch()}}>
-        <i className="fas fa-times iconStyle"></i>
+        <i className="fas fa-times"></i>
       </a>
     } else {
       searchButton =
       <button className="searchButton" type='submit'>
-        <i className="fa fa-search iconStyle"></i>
+        <i className="fa fa-search"></i>
       </button>
     }
 

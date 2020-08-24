@@ -8,37 +8,50 @@ import { Redirect } from 'react-router';
 import { v4 } from 'uuid';
 import moment from 'moment';
 
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormControl from '@material-ui/core/FormControl';
+import FormLabel from '@material-ui/core/FormLabel';
+
 class RecipeEditForm extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
       createdRecipeId: null,
-      rating: null,
-      recipeStatus: "unfinished"
+      _name: '',
+      _url: '',
+      _imageLink: '',
+      _author: '',
+      _rating: '',
+      _recipeStatus: 'unfinished',
+      _ingredients: '',
+      _ingredientsNotes: '',
+      _directions: '',
+      _directionsNotes: ''
     }
   }
 
-  _author = null;
-  _name = null;
-  _url = null;
-  _imageLink = null;
-  _ingredients = null;
-  _ingredientsNotes = null;
-  _directions = null;
-  _directionsNotes = null;
-
 //validate inputs on load
   componentDidMount() {
-    this.props.onInputValidation(this._name);
+    const {currentRecipe } = this.props;
 
-    if (this.props.currentRecipe && this.props.currentRecipe.rating && this.props.currentRecipe.rating !== this.state.rating) {
-      this.setState({rating: this.props.currentRecipe.rating})
-    }
-
-    if (this.props.currentRecipe && this.props.currentRecipe.recipeStatus && this.props.currentRecipe.recipeStatus !== this.state.recipeStatus) {
-      this.setState({recipeStatus: this.props.currentRecipe.recipeStatus})
-    }
+    //set default input values
+    this.setState({
+      _name: currentRecipe && currentRecipe.name ? currentRecipe.name : '',
+      _url: currentRecipe && currentRecipe.url ? currentRecipe.url : '',
+      _imageLink: currentRecipe && currentRecipe.imageLink ? currentRecipe.imageLink : '',
+      _author: currentRecipe && currentRecipe.author ? currentRecipe.author : '',
+      _rating: currentRecipe && currentRecipe.rating && currentRecipe.rating !== this.state.rating ? currentRecipe.rating : '',
+      _recipeStatus: currentRecipe && currentRecipe.recipeStatus && currentRecipe.recipeStatus !== this.state._recipeStatus ? currentRecipe.recipeStatus : "unfinished",
+      _ingredients: currentRecipe ? this.readableArray(currentRecipe.ingredients) : '',
+      _ingredientsNotes: currentRecipe ? this.readableArray(currentRecipe.ingredientsNotes) : '',
+      _directions: currentRecipe ? this.readableArray(currentRecipe.directions) : '',
+      _directionsNotes: currentRecipe ? this.readableArray(currentRecipe.directionsNotes) : ''
+    });
   }
 
   //turn array into display text
@@ -64,55 +77,41 @@ class RecipeEditForm extends Component {
     }
   }
 
-  //checks for null prop values
-  checkValue = (propValue) => {
-    if(propValue) {
-      return propValue;
+  handleRatingChange = (newValue) => {
+    this.setState({_rating: newValue})
+  }
+
+  handleTextChange = (event) => {
+    if (event.target.id) {
+      this.setState({[event.target.id]: event.target.value})
     } else {
-      return "";
+      this.setState({[event.target.name]: event.target.value})
     }
   }
 
-  handleChange = (stateCategory, newValue) => {
-    console.log(`Changed ${stateCategory}`)
-    this.setState({[stateCategory]: newValue})
-  }
-
   render() {
-    console.log(this.state)
     const {currentRecipe, currentRecipeName, dispatch, isRouting, recipes, user } = this.props;
-    
-    //format array props
-    const formatIngredients = currentRecipe ? this.readableArray(currentRecipe.ingredients) : null;
-    const formatIngredientsNotes = currentRecipe ? this.readableArray(currentRecipe.ingredientsNotes) : null;
-    const formatDirections = currentRecipe ? this.readableArray(currentRecipe.directions) : null;
-    const formatDirectionsNotes = currentRecipe ? this.readableArray(currentRecipe.directionsNotes) : null;
 
-    //submit recipe to database and route to new recipe page
     const submitForm = (event) => {
       event.preventDefault();
-
       const recipeDetail = {
-        author: this._author.value,
         createdDate: !currentRecipe ? moment()._d : currentRecipe.createdDate ? currentRecipe.createdDate : moment()._d,
-        name: this._name.value,
-        url: this._url.value,
-        imageLink: this._imageLink.value,
-        rating: this.state.rating,
-        recipeStatus: this.state.recipeStatus,
-        ingredients: this.createArray(this._ingredients.value),
-        ingredientsNotes: this.createArray(this._ingredientsNotes.value),
-        directions: this.createArray(this._directions.value),
-        directionsNotes: this.createArray(this._directionsNotes.value)
+        name: this.state._name,
+        url: this.state._url,
+        imageLink: this.state._imageLink,
+        author: this.state._author,
+        rating: this.state._rating,
+        recipeStatus: this.state._recipeStatus,
+        ingredients: this.createArray(this.state._ingredients),
+        ingredientsNotes: this.createArray(this.state._ingredientsNotes),
+        directions: this.createArray(this.state._directions),
+        directionsNotes: this.createArray(this.state._directionsNotes)
       }
-      console.log(recipeDetail)
-
       const recipeId = currentRecipeName ? currentRecipeName : v4();
 
       if (!currentRecipe) {
         this.setState({createdRecipeId: recipeId});
       }
-
       if (recipes) {
         recipes[recipeId] = recipeDetail;
       } else {
@@ -133,96 +132,111 @@ class RecipeEditForm extends Component {
       return <Redirect to={`/recipe/${this.props.currentRecipeName}`} />
     }
 
-  console.log(this.props)
+  console.log(this.state)
   return (
     <div>
       <form className='formLayout' onSubmit={submitForm.bind(this)}>
-        <div className='formInputLayout'>
-          <label>Recipe Name <span className={this.props.nameError ? 'errorMessage' : 'noErrorMessage'}>Please Enter a Name</span><span className={this.props.nameError ? 'noErrorMessage' : 'inputFieldNote'}>*  Required</span></label>
-          <input
+        <div className='formInputLayout inputSmall'>
+          <TextField
             required
-            type="text"
-            defaultValue={currentRecipe ? this.checkValue(currentRecipe.name) : null}
-            id='name'
-            ref={(input) => {this._name = input;}}
-            className={this.props.nameError ? "inputError" : ""}
-            onChange={() => {this.props.onInputValidation(this._name)}}
-          ></input>
+            id='_name'
+            value={this.state._name}
+            label="Recipe Name"
+            onChange={this.handleTextChange}
+            variant="outlined"
+          />
+        </div>
+        <div className='formInputLayout inputSmall'>
+          <TextField
+            id='_url'
+            value={this.state._url}
+            label="Recipe Link (URL Only)"
+            onChange={this.handleTextChange}
+            variant="outlined"
+          />
         </div>
         <div className='formInputLayout'>
-          <label>Recipe Link <span className='inputFieldNote'>(URL Only)</span></label>
-          <input
-            type="url"
-            defaultValue={currentRecipe ? this.checkValue(currentRecipe.url) : null}
-            id='url'
-            ref={(input) => {this._url = input;}}
-          ></input>
+          <TextField
+            id='_imageLink'
+            value={this.state._imageLink}
+            label="Recipe Picture (URL Only)"
+            onChange={this.handleTextChange}
+            variant="outlined"
+          />
         </div>
         <div className='formInputLayout'>
-          <label>Recipe Picture <span className='inputFieldNote'>(URL Only)</span></label>
-          <input
-            type="url"
-            defaultValue={currentRecipe ? this.checkValue(currentRecipe.imageLink) : null}
-            id='imageLink'
-            ref={(input) => {this._imageLink = input;}}
-          ></input>
-        </div>
-        <div className='formInputLayout'>
-          <label>Recipe Author</label>
-          <input
-            type="text"
-            defaultValue={currentRecipe ? this.checkValue(currentRecipe.author) : null}
-            id='author'
-            ref={(input) => {this._author = input;}}
-          ></input>
+          <TextField
+            id="_author"
+            value={this.state._author}
+            label="Recipe Author"
+            onChange={this.handleTextChange}
+            variant="outlined"
+          />
         </div>
         <div className="ratingSection">
           <label>Rating</label>
           <StarRating 
-            handleChange={this.handleChange}
-            rating={this.state.rating}
+            handleChange={this.handleRatingChange}
+            name='_rating'
+            rating={this.state._rating}
             displayType={"write"}
           />
         </div>
         <div className='formInputLayout'>
-          <label>Recipe Status:</label>
-          <button onClick={() => {this.handleChange("recipeStatus", "completed")}} type="button">Completed</button>
-          <button onClick={() => {this.handleChange("recipeStatus", "unfinished")}} type="button">Unfinished</button>
+          <FormControl component="fieldset">
+            <FormLabel component="legend">Recipe Status</FormLabel>
+            <RadioGroup aria-label="Recipe Status" name='_recipeStatus' value={this.state._recipeStatus} onChange={this.handleTextChange}>
+              <FormControlLabel value="completed" control={<Radio />} label="Completed" />
+              <FormControlLabel value="unfinished" control={<Radio />} label="Not Made" />
+            </RadioGroup>
+          </FormControl>
         </div>
         <div className='formInputLayout'>
-          <label>Ingredients</label>
-          <textarea
-            id='ingredients'
-            defaultValue={formatIngredients}
-            ref={(input) => {this._ingredients = input;}}
-          ></textarea>
+          <TextField
+            id='_ingredients'
+            defaultValue={this.state._ingredients}
+            label="Ingredients"
+            onChange={this.handleTextChange}
+            variant="outlined"
+            multiline
+            rows={4}
+          />
         </div>
         <div className='formInputLayout'>
-          <label>Ingredient Notes</label>
-          <textarea
-            id='ingredientsNotes'
-            defaultValue={formatIngredientsNotes}
-            ref={(input) => {this._ingredientsNotes = input;}}
-          ></textarea>
+          <TextField
+            id='_ingredientsNotes'
+            defaultValue={this.state._ingredientsNotes}
+            label="Ingredient Notes"
+            onChange={this.handleTextChange}
+            variant="outlined"
+            multiline
+            rows={4}
+          />
         </div>
         <div className='formInputLayout'>
-          <label>Directions</label>
-          <textarea
-            id='directions'
-            defaultValue={formatDirections}
-            ref={(input) => {this._directions = input;}}
-          ></textarea>
+          <TextField
+            id='_directions'
+            defaultValue={this.state._directions}
+            label="Directions"
+            onChange={this.handleTextChange}
+            variant="outlined"
+            multiline
+            rows={4}
+          />
         </div>
         <div className='formInputLayout'>
-          <label>Direction Notes</label>
-          <textarea
-            id='directionsNotes'
-            defaultValue={formatDirectionsNotes}
-            ref={(input) => {this._directionsNotes = input;}}
-          ></textarea>
+          <TextField
+            id='_directionsNotes'
+            defaultValue={this.state._directionsNotes}
+            label="Direction Notes"
+            onChange={this.handleTextChange}
+            variant="outlined"
+            multiline
+            rows={4}
+          />
         </div>
         <div className='centerMe'>
-          <button type="submit" className='navButtonStyle button-green'>Submit</button>
+          <Button type="submit" className='navButtonStyle button-green' variant="contained">Submit</Button>
         </div>
       </form>
       { !currentRecipe && (

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import Button from '@material-ui/core/Button';
 
 function NavButton(props) {
   const { linkPath, linkText, color } = props;
@@ -13,7 +14,7 @@ function NavButton(props) {
     
   return (
     <div className='centerMe'>
-      <Link to={linkPath}><button className={buttonStyle}>{linkText}</button>
+      <Link to={linkPath}><Button className={buttonStyle} variant="contained">{linkText}</Button>
       </Link>
     </div>
   );
