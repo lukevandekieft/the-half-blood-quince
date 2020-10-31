@@ -6,6 +6,13 @@ import { changePopupStatus } from '../../actions';
 import moment from 'moment';
 import Button from '@material-ui/core/Button';
 import Rating from '@material-ui/lab/Rating';
+///////////////////
+import TextField from '@material-ui/core/TextField';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
 
 function MainRecipeDisplay({author, createdDate, currentRecipe, dispatch, imageLink, name, rating, showPopup, url}){
   const altText = `${name} Recipe`;
@@ -16,6 +23,16 @@ function MainRecipeDisplay({author, createdDate, currentRecipe, dispatch, imageL
   const handleTogglePopup = () => {
     dispatch(changePopupStatus(!showPopup));
   };
+
+    const [open, setOpen] = React.useState(false);
+
+    const handleClickOpen = () => {
+      setOpen(true);
+    };
+  
+    const handleClose = () => {
+      setOpen(false);
+    };
 
   return (
     <div className='mainRecipeContainer'>
@@ -53,6 +70,34 @@ function MainRecipeDisplay({author, createdDate, currentRecipe, dispatch, imageL
           <div className='centerMe' onClick={() => {handleTogglePopup();}}>
             <Button className='navButtonStyle button-red' variant="contained">Delete Recipe</Button>
           </div>
+            <Button variant="outlined" color="primary" onClick={handleClickOpen}>
+              Delete Recipe
+            </Button>
+            <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
+              <DialogTitle id="form-dialog-title">Subscribe</DialogTitle>
+              <DialogContent>
+                <DialogContentText>
+                  To subscribe to this website, please enter your email address here. We will send updates
+                  occasionally.
+                </DialogContentText>
+                <TextField
+                  autoFocus
+                  margin="dense"
+                  id="name"
+                  label="Email Address"
+                  type="email"
+                  fullWidth
+                />
+              </DialogContent>
+              <DialogActions>
+                <Button onClick={handleClose} color="primary">
+                  Cancel
+                </Button>
+                <Button onClick={handleClose} color="primary">
+                  Subscribe
+                </Button>
+              </DialogActions>
+            </Dialog> 
         </div>
       </div>
     </div>

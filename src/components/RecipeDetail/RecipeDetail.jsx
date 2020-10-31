@@ -11,23 +11,8 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { changeRoute, changePopupStatus, removeRecipe } from '../../actions';
 import Button from '@material-ui/core/Button';
-///////////////////
-import TextField from '@material-ui/core/TextField';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogTitle from '@material-ui/core/DialogTitle';
-
 
 class RecipeDetail extends React.Component {
-  /////////////
-  constructor(props) {
-    super(props);
-    this.state = {
-      open: false // Initial value for our counter
-    };
-  }
 
   componentDidMount() {
     window.scrollTo(0, 0);
@@ -50,12 +35,6 @@ class RecipeDetail extends React.Component {
     const newPopup = !this.props.showPopup;
     this.props.dispatch(changePopupStatus(newPopup));
   };
-  
-  //////////////////
-  setOpen = () => {
-    console.log(this.state.open);
-    this.setState({open: !this.state.open})
-  }
 
   render(){
     const {recipes, showPopup } = this.props;
@@ -98,38 +77,7 @@ class RecipeDetail extends React.Component {
               linkPath='/'
               linkText='Go Back'
             /><div>
-
-            {}{}  
-            <Button variant="outlined" color="primary" onClick={this.setOpen}>
-              Open form dialog
-            </Button>
-            <Dialog open={this.state.open} onClose={this.setOpen} aria-labelledby="form-dialog-title">
-              <DialogTitle id="form-dialog-title">Subscribe</DialogTitle>
-              <DialogContent>
-                <DialogContentText>
-                  To subscribe to this website, please enter your email address here. We will send updates
-                  occasionally.
-                </DialogContentText>
-                <TextField
-                  autoFocus
-                  margin="dense"
-                  id="name"
-                  label="Email Address"
-                  type="email"
-                  fullWidth
-                />
-              </DialogContent>
-              <DialogActions>
-                <Button onClick={this.setOpen} color="primary">
-                  Cancel
-                </Button>
-                <Button onClick={this.setOpen} color="primary">
-                  Subscribe
-                </Button>
-              </DialogActions>
-            </Dialog>
           </div>
-          {}{}  
           
             {showPopup ?
               <div className='popup'>
