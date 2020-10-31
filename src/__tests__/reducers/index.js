@@ -5,7 +5,6 @@ import authReducer from './../../reducers/auth-reducer';
 import initialStateReducer from './../../reducers/initial-state-reducer';
 import isRoutingReducer from './../../reducers/is-routing-reducer';
 import mainMenuReducer from './../../reducers/main-menu-reducer';
-import popupReducer from './../../reducers/popup-reducer';
 import recipeReducer from './../../reducers/recipe-reducer';
 import rootReducer from './../../reducers/';
 import searchApiReducer from './../../reducers/search-api-reducer';
@@ -86,19 +85,6 @@ describe('Recipe App', () => {
     it('Should toggle main menu state.', () => {
       const action = actions.toggleMainMenu(false);
       expect(mainMenuReducer(initialState.mainMenuShowing, action)).toEqual(true);
-    });
-  });
-
-  describe('popupReducer', () => {
-    it('Should accept and return initial state.', () => {
-      expect(mainMenuReducer(initialState, { type: null })).toEqual(initialState)
-    });
-    it('Should toggle popup status on firing.', () => {
-      const sampleState = {
-        showPopup: true
-      };
-      const action = actions.changePopupStatus(sampleState);
-      expect(popupReducer(initialState.users, action)).toEqual(sampleState);
     });
   });
 

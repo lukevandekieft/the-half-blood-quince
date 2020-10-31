@@ -3,7 +3,6 @@ export const initialState = {
   loadedInitialState: false,
   mainMenuShowing: false,
   searchValue: null,
-  showPopup: false,
   user: {
     uid: 'initialLoadUser',
   },

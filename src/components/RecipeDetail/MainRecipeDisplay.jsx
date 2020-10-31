@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import NavButton from '../Widgets/NavButton/NavButton';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { changePopupStatus, removeRecipe } from '../../actions';
+import { removeRecipe } from '../../actions';
 import moment from 'moment';
 import Button from '@material-ui/core/Button';
 import Rating from '@material-ui/lab/Rating';
@@ -15,14 +15,10 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
-function MainRecipeDisplay({author, createdDate, currentRecipe, dispatch, imageLink, name, rating, showPopup, url, user}){
+function MainRecipeDisplay({author, createdDate, currentRecipe, dispatch, imageLink, name, rating, url, user}){
   const altText = `${name} Recipe`;
   const backgroundImage = {
     backgroundImage: `url(${imageLink})`
-  };
-
-  const handleTogglePopup = () => {
-    dispatch(changePopupStatus(!showPopup));
   };
 
     const [open, setOpen] = React.useState(false);
@@ -73,10 +69,7 @@ function MainRecipeDisplay({author, createdDate, currentRecipe, dispatch, imageL
             linkPath={`/edit-recipe/${currentRecipe}`}
             linkText='Edit Recipe'
           />
-          <div className='centerMe' onClick={() => {handleTogglePopup();}}>
-            <Button className='navButtonStyle button-red' variant="contained">Delete Recipe</Button>
-          </div>
-            <Button variant="outlined" color="primary" onClick={handleClickOpen}>
+            <Button variant="outlined" color="primary" className='navButtonStyle button-red' onClick={handleClickOpen}>
               Delete Recipe
             </Button>
             <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
@@ -112,7 +105,6 @@ function MainRecipeDisplay({author, createdDate, currentRecipe, dispatch, imageL
 
 const mapStateToProps = state => {
   return {
-    showPopup: state.showPopup,
     user: state.user,
   };
 };
@@ -122,7 +114,6 @@ MainRecipeDisplay.propTypes = {
   imageLink: PropTypes.string,
   name: PropTypes.string,
   rating: PropTypes.number,
-  showPopup: PropTypes.bool,
   url: PropTypes.string
 };
 

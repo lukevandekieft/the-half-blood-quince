@@ -9,7 +9,7 @@ import NavButton from '../Widgets/NavButton/NavButton';
 import Route404 from '../Route404/Route404'
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { changeRoute, changePopupStatus, removeRecipe } from '../../actions';
+import { changeRoute, removeRecipe } from '../../actions';
 import Button from '@material-ui/core/Button';
 
 class RecipeDetail extends React.Component {
@@ -22,22 +22,10 @@ class RecipeDetail extends React.Component {
   //Reset rerouting & popup if page is left
   componentWillUnmount() {
     this.props.dispatch(changeRoute(false));
-    this.props.dispatch(changePopupStatus(false));
-  };
-
-  //delete recipe from popup
-  handleClickDelete = (currentRecipe) => {
-    this.props.dispatch(removeRecipe(currentRecipe, this.props.user));
-  };
-
-  //close popup from popup
-  handleClickCancel = () => {
-    const newPopup = !this.props.showPopup;
-    this.props.dispatch(changePopupStatus(newPopup));
   };
 
   render(){
-    const {recipes, showPopup } = this.props;
+    const {recipes } = this.props;
     const currentRecipe = this.props.location.pathname.slice(8);
 
     console.log(this.props.user)
@@ -80,24 +68,6 @@ class RecipeDetail extends React.Component {
               linkText='Go Back'
             /><div>
           </div>
-          
-            {showPopup ?
-              <div className='popup'>
-                <div className='popup-inner'>
-                  <h1>Are you sure you want to delete this recipe?</h1>
-                  <div className='popup-buttons'>
-                    <div className='centerMe'>
-                      <Link to='/'><Button className='navButtonStyle button-red' onClick={() => {this.handleClickDelete(currentRecipe);}} variant="contained">Delete</Button>
-                      </Link>
-                    </div>
-                    <div className='centerMe'>
-                      <Button onClick={this.handleClickCancel} className='navButtonStyle button-green' variant="contained">Cancel</Button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              : null
-            }
           </div>
         </div>
       )}
@@ -109,7 +79,6 @@ class RecipeDetail extends React.Component {
 const mapStateToProps = state => {
   return {
     recipes: state.recipes,
-    showPopup: state.showPopup,
     user: state.user,
   };
 };
@@ -117,7 +86,6 @@ const mapStateToProps = state => {
 RecipeDetail.propTypes = {
   currentRecipe: PropTypes.string,
   recipes: PropTypes.object,
-  showPopup: PropTypes.bool,
   user: PropTypes.object,
 }
 
