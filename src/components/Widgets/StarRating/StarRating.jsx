@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import Rating from '@material-ui/lab/Rating';
+import Box from '@material-ui/core/Box';
+
 export default class StarRating extends Component {
 
 //validate inputs on load
@@ -12,14 +15,17 @@ export default class StarRating extends Component {
 
   render() {
     return (
-      <div className={this.props.rating ? `ratingBox rate-${this.props.rating}-star` : "ratingBox"}>
-        {/* NOTE: spans are reversed in CSS! 1=5, 5=1 */}
-        <span className={this.props.displayType === "write" ? "clickEvent" : null} onClick={this.props.displayType === "write" ? () => {this.props.handleChange(1)} : null}>★</span>
-        <span className={this.props.displayType === "write" ? "clickEvent" : null} onClick={this.props.displayType === "write" ? () => {this.props.handleChange(2)} : null}>★</span>
-        <span className={this.props.displayType === "write" ? "clickEvent" : null} onClick={this.props.displayType === "write" ? () => {this.props.handleChange(3)} : null}>★</span>
-        <span className={this.props.displayType === "write" ? "clickEvent" : null} onClick={this.props.displayType === "write" ? () => {this.props.handleChange(4)} : null}>★</span>
-        <span className={this.props.displayType === "write" ? "clickEvent" : null} onClick={this.props.displayType === "write" ? () => {this.props.handleChange(5)} : null}>★</span>
-      </div>
+        <Box component="fieldset" mb={3} borderColor="transparent">
+        <Rating
+          name="simple-controlled"
+          value={this.props.rating}
+          onChange={(event, newValue) => {
+            if (newValue) {
+              this.props.handleChange(newValue);
+            }
+          }}
+        />
+      </Box>
     )
   }
 }

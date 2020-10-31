@@ -1,68 +1,11 @@
 // Adapted from https://css-tricks.com/star-ratings/
 @import '../../sassVariables.scss';
 $empty-star-color: lighten(grey, 35%);
-
-@mixin starStyle() {
-  color: $filled-star-color;
-  &:before {
-    content: "\2605";
-    position: absolute;
-    color: $filled-star-color;
-  }
-}
+  // color: $filled-star-color;
 
 @mixin emptyStarStyle() {
-  content: "\2606";
-  color: $empty-star-color;
-  &:before {
-    color: $empty-star-color;
-  }
 }
 
-// stars will fill based on state
-.ratingBox > span {
-  @include emptyStarStyle();
-}
-.ratingBox.rate-5-star {
-  span {
-    @include starStyle();
-  }
-}
-.ratingBox.rate-4-star {
-  span:nth-child(1), span:nth-child(2), span:nth-child(3), span:nth-child(4) {
-    @include starStyle();
-  }
-  span:nth-child(5) {
-    @include emptyStarStyle();
-  }
-}
-.ratingBox.rate-3-star {
-  span:nth-child(1), span:nth-child(2), span:nth-child(3) {
-    @include starStyle();
-  }
-  span:nth-child(4), span:nth-child(5) {
-    @include emptyStarStyle();
-  }
-}
-.ratingBox.rate-2-star {
-  span:nth-child(1), span:nth-child(2) {
-    @include starStyle();
-  }
-  span:nth-child(3), span:nth-child(4), span:nth-child(5) {
-    @include emptyStarStyle();
-  }
-}
-.ratingBox.rate-1-star {
-  span:nth-child(1) {
-    @include starStyle();
-  }
-  span:nth-child(2), span:nth-child(3), span:nth-child(4), span:nth-child(5) {
-    @include emptyStarStyle();
-  }
-}
-
-// hovering changes underlying unicode and changes subsequent spans; hovering overrides aforementioned styles
-.ratingBox {
-  width: min-content;
-  color: $empty-star-color;
+@mixin starStyle() {
+  
 }
