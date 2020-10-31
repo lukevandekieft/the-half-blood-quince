@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Rating from '@material-ui/lab/Rating';
-import Box from '@material-ui/core/Box';
+import FormLabel from '@material-ui/core/FormLabel';
 
 export default class StarRating extends Component {
 
@@ -14,17 +14,18 @@ export default class StarRating extends Component {
 
   render() {
     return (
-        <Box component="fieldset" mb={3} borderColor="transparent">
-        <Rating
-          name="simple-controlled"
-          value={this.props.rating}
-          onChange={(event, newValue) => {
-            if (newValue) {
-              this.props.handleChange(newValue);
-            }
-          }}
-        />
-      </Box>
+        <div className="starBox">
+          <FormLabel component="legend">Rating</FormLabel>
+          <Rating
+            name="simple-controlled"
+            value={this.props.rating}
+            onChange={(event, newValue) => {
+              if (newValue) {
+                this.props.handleChange(newValue);
+              }
+            }}
+          />
+      </div>
     )
   }
 }

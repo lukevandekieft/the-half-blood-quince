@@ -3,8 +3,18 @@
 $empty-star-color: lighten(grey, 35%);
 
 .MuiRating-root {
-  color: darken(#FFDF40, 14%) !important;
+  color: darken(#FFDF40, 15%) !important;
 }
+
 .MuiRating-iconEmpty {
   color: lighten(rgba(0, 0, 0, 0.26), 25%) !important;
+}
+
+.starBox {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center;
+  legend {
+    margin-right: 2rem;
+  }
 }

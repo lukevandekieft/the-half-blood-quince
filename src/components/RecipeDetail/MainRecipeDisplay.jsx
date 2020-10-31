@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import { changePopupStatus } from '../../actions';
 import moment from 'moment';
 import Button from '@material-ui/core/Button';
+import Rating from '@material-ui/lab/Rating';
 
 function MainRecipeDisplay({author, createdDate, currentRecipe, dispatch, imageLink, name, rating, showPopup, url}){
   const altText = `${name} Recipe`;
@@ -29,10 +30,7 @@ function MainRecipeDisplay({author, createdDate, currentRecipe, dispatch, imageL
           <p className='centerMe'><em>Added on {moment(createdDate).format('M/D/YYYY')}</em></p>
         )}
         {(rating) && (
-          <StarRating 
-            rating={rating}
-            displayType={"readOnly"}
-          />
+          <Rating name="read-only" value={rating} readOnly />
         )}
       </div>
 

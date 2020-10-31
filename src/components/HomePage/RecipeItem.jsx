@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Rating from '@material-ui/lab/Rating';
-import Box from '@material-ui/core/Box';
 
 import StarRating from '../Widgets/StarRating/StarRating';
 

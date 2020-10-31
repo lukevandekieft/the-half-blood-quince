@@ -173,13 +173,10 @@ class RecipeEditForm extends Component {
             variant="outlined"
           />
         </div>
-        <div className="ratingSection">
-          <label>Rating</label>
+        <div>
           <StarRating 
             handleChange={this.handleRatingChange}
-            name='_rating'
             rating={this.state._rating}
-            displayType={"write"}
           />
         </div>
         <div className='formInputLayout'>
