@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import NavButton from '../Widgets/NavButton/NavButton';
 import { connect } from 'react-redux';
-import { changePopupStatus } from '../../actions';
+import { Link } from 'react-router-dom';
+import { changePopupStatus, removeRecipe } from '../../actions';
 import moment from 'moment';
 import Button from '@material-ui/core/Button';
 import Rating from '@material-ui/lab/Rating';
@@ -14,7 +15,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
-function MainRecipeDisplay({author, createdDate, currentRecipe, dispatch, imageLink, name, rating, showPopup, url}){
+function MainRecipeDisplay({author, createdDate, currentRecipe, dispatch, imageLink, name, rating, showPopup, url, user}){
   const altText = `${name} Recipe`;
   const backgroundImage = {
     backgroundImage: `url(${imageLink})`
@@ -33,6 +34,11 @@ function MainRecipeDisplay({author, createdDate, currentRecipe, dispatch, imageL
     const handleClose = () => {
       setOpen(false);
     };
+
+  //delete recipe from popup
+  const handleClickDelete = () => {
+    dispatch(removeRecipe(currentRecipe, user));
+  };
 
   return (
     <div className='mainRecipeContainer'>
@@ -93,9 +99,9 @@ function MainRecipeDisplay({author, createdDate, currentRecipe, dispatch, imageL
                 <Button onClick={handleClose} color="primary">
                   Cancel
                 </Button>
-                <Button onClick={handleClose} color="primary">
-                  Subscribe
-                </Button>
+                <Link to='/'><Button onClick={handleClickDelete} color="primary">
+                  Delete
+                </Button></Link>
               </DialogActions>
             </Dialog> 
         </div>
@@ -106,7 +112,8 @@ function MainRecipeDisplay({author, createdDate, currentRecipe, dispatch, imageL
 
 const mapStateToProps = state => {
   return {
-    showPopup: state.showPopup
+    showPopup: state.showPopup,
+    user: state.user,
   };
 };
 

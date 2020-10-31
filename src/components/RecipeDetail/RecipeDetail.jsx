@@ -40,6 +40,7 @@ class RecipeDetail extends React.Component {
     const {recipes, showPopup } = this.props;
     const currentRecipe = this.props.location.pathname.slice(8);
 
+    console.log(this.props.user)
     return (
       <React.Fragment>
       { !recipes[currentRecipe] ? (
@@ -56,6 +57,7 @@ class RecipeDetail extends React.Component {
               name={recipes[currentRecipe].name}
               rating={recipes[currentRecipe].rating}
               url={recipes[currentRecipe].url}
+              user={this.props.user}
             />
             <div className='directionDisplay'>
               {(!recipes[currentRecipe].ingredients && !recipes[currentRecipe].ingredientsNotes && !recipes[currentRecipe].directions && !recipes[currentRecipe].directionsNotes) && (
