@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Rating from '@material-ui/lab/Rating';
 
-import StarRating from '../Widgets/StarRating/StarRating';
-
 function RecipeItem({author, dispatch, image, name, rating, recipeStatus, user}) {
 
   //set background based on props

@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import NavButton from '../Widgets/NavButton/NavButton';
-import StarRating from '../Widgets/StarRating/StarRating';
 import { connect } from 'react-redux';
 import { changePopupStatus } from '../../actions';
 import moment from 'moment';
