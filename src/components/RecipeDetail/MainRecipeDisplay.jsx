@@ -59,18 +59,18 @@ function MainRecipeDisplay({author, createdDate, currentRecipe, dispatch, imageL
         <div>
           {(url) && (
             <div className='centerMe'>
-              <Button className='navButtonStyle button-green' variant="contained"> 
-                <a className='linkStyle' href={url} target="_blank" rel="noopener noreferrer">Link to Page</a>
+              <Button className='button-green' variant="contained"> 
+                <a className='linkStyle' href={url} target="_blank" rel="noopener noreferrer">Original Site</a>
               </Button>
             </div>
           )}
           <NavButton
             linkPath={`/edit-recipe/${currentRecipe}`}
-            linkText='Edit Recipe'
+            linkText='Edit'
           />
           <div className='centerMe'>
-            <Button variant="outlined" color="primary" className='navButtonStyle button-red' onClick={handleClickOpen}>
-              Delete Recipe
+            <Button variant="outlined" color="primary" className='button-red' onClick={handleClickOpen}>
+              Delete
             </Button>
             <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
               <DialogContent>

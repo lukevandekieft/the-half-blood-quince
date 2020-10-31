@@ -233,7 +233,7 @@ class RecipeEditForm extends Component {
           />
         </div>
         <div className='centerMe'>
-          <Button type="submit" className='navButtonStyle button-green' variant="contained">Submit</Button>
+          <Button type="submit" className='button-green' variant="contained">Submit</Button>
         </div>
       </form>
       { !currentRecipe && (

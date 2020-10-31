@@ -7,9 +7,9 @@ function NavButton(props) {
   const { linkPath, linkText, color } = props;
 
   //if color prop is passed then change class
-  let buttonStyle = 'navButtonStyle button-green';
+  let buttonStyle = 'button-green';
   if (color) {
-    buttonStyle = `navButtonStyle button-${color}`;
+    buttonStyle = `button-${color}`;
   }
     
   return (
