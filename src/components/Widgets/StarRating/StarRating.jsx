@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-
 import Rating from '@material-ui/lab/Rating';
 import Box from '@material-ui/core/Box';
 

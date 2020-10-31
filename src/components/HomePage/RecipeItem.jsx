@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import Rating from '@material-ui/lab/Rating';
+import Box from '@material-ui/core/Box';
 
 import StarRating from '../Widgets/StarRating/StarRating';
 
@@ -34,10 +36,7 @@ function RecipeItem({author, dispatch, image, name, rating, recipeStatus, user})
             <p>{author}</p>
           )}
           {rating && (
-            <StarRating 
-              rating={rating}
-              displayType={"readOnly"}
-            />
+            <Rating name="read-only" value={rating} readOnly />
           )}
         </div>
         <div className='recipeItemButtonContainer'>

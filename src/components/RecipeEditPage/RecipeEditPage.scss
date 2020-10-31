@@ -1,5 +1,4 @@
 @import '../sassVariables.scss';
-@import '../Widgets/StarRating/StarRating.scss';
 
 ul, ol {
    padding-left: 1.8rem;
@@ -70,14 +69,3 @@ ul, ol {
     content: "\2606";
   }
 }
-
-// .formLayout used to overwrite specificity of star ratings
-// defaults to 5 unfilled stars
-.formLayout .ratingSection .ratingBox:hover > span {
-  @include starStyle();
-}
-
-.formLayout .ratingSection .ratingBox > span:hover ~ span {
-  @include emptyStarStyle();
-}
-

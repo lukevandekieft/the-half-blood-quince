@@ -1,11 +1,10 @@
-// Adapted from https://css-tricks.com/star-ratings/
 @import '../../sassVariables.scss';
+
 $empty-star-color: lighten(grey, 35%);
-  // color: $filled-star-color;
 
-@mixin emptyStarStyle() {
+.MuiRating-root {
+  color: darken(#FFDF40, 14%) !important;
 }
-
-@mixin starStyle() {
-  
+.MuiRating-iconEmpty {
+  color: lighten(rgba(0, 0, 0, 0.26), 25%) !important;
 }
