@@ -5,11 +5,18 @@ import { updateSearchValue } from '../../actions';
 import { v4 } from 'uuid';
 import { Link } from 'react-router-dom';
 
+import FilterList from '../Widgets/FilterList/FilterList';
 import NavButton from '../Widgets/NavButton/NavButton';
 import RecipeList from './RecipeList';
 import SearchBar from '../Widgets/SearchBar/SearchBar';
 
 class HomePage extends React.Component{
+  constructor(props) {
+    super(props);
+    this.state = {
+      filterList: [],
+    }
+  }
 
   componentDidMount() {
     window.scrollTo(0, 0);
@@ -17,6 +24,14 @@ class HomePage extends React.Component{
 
   componentWillUnmount() {
     this.props.dispatch(updateSearchValue(null));
+  }
+
+  handleFilterChange = (tag) => {
+    if (this.state.filterList.includes(tag)) {
+      this.setState({filterList: this.state.filterList.filter(e => e !== tag)})
+    } else {
+      this.setState({filterList: this.state.filterList.concat(tag)})
+    }
   }
 
   render() {
@@ -34,11 +49,16 @@ class HomePage extends React.Component{
       <div className='contentContainer'>
         <div className='headerSection homePage'>
           <SearchBar />
+          <FilterList 
+            handleChange={this.handleFilterChange}
+            tags={this.state.filterList}
+          />
         </div>
         <div className='pageContentSection headerPage'>
           <h1 className='headline'>{headerMessage}</h1>
           {(user !== 'initialLoadUser') && (
             <RecipeList
+              filterList={this.state.filterList}
               recipes={recipes}
               searchValue={searchValue}
             />

@@ -5,7 +5,7 @@ import { withRouter, Link } from 'react-router-dom';
 import RecipeItem from './RecipeItem';
 import RecipeSearchItem from '../DiscoverPage/RecipeSearchItem';
 
-const RecipeList = ({ location, recipes, searchValue }) => {
+const RecipeList = ({ filterList, location, recipes, searchValue }) => {
 
   return (
     <div className='recipeItemStyles'>
@@ -25,7 +25,10 @@ const RecipeList = ({ location, recipes, searchValue }) => {
       { recipes && (location.pathname !== '/discover-recipes') && (
         Object.keys(recipes).map(index => {
           let recipe = recipes[index];
-          if (searchValue === null || recipe.name.toLowerCase().includes(searchValue.toLowerCase())) {
+          let recipeTags = recipe.tags ? recipe.tags : [];
+          let searchPass = searchValue ? recipe.name.toLowerCase().includes(searchValue.toLowerCase()) : true;
+          let filterPass = filterList.length > 0 ? recipeTags.some(r=> filterList.includes(r)) : true;
+          if (filterPass && searchPass) {
             return <Link to={`/recipe/${index}`} className ="recipeLink" key = {index}>
               <RecipeItem
                 author = {recipe.author}
