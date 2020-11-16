@@ -28,6 +28,7 @@ class RecipeEditForm extends Component {
       _imageLink: '',
       _author: '',
       _rating: '',
+      _tags: [],
       _recipeStatus: 'unfinished',
       _ingredients: '',
       _ingredientsNotes: '',
@@ -42,12 +43,13 @@ class RecipeEditForm extends Component {
 
     //set default input values
     this.setState({
-      _name: currentRecipe && currentRecipe.name ? currentRecipe.name : '',
-      _url: currentRecipe && currentRecipe.url ? currentRecipe.url : '',
-      _imageLink: currentRecipe && currentRecipe.imageLink ? currentRecipe.imageLink : '',
-      _author: currentRecipe && currentRecipe.author ? currentRecipe.author : '',
-      _rating: currentRecipe && currentRecipe.rating && currentRecipe.rating !== this.state.rating ? currentRecipe.rating : '',
-      _recipeStatus: currentRecipe && currentRecipe.recipeStatus && currentRecipe.recipeStatus !== this.state._recipeStatus ? currentRecipe.recipeStatus : "unfinished",
+      _name: currentRecipe?.name ? currentRecipe.name : '',
+      _url: currentRecipe?.url ? currentRecipe.url : '',
+      _imageLink: currentRecipe?.imageLink ? currentRecipe.imageLink : '',
+      _author: currentRecipe?.author ? currentRecipe.author : '',
+      _rating: currentRecipe?.rating !== this.state.rating ? currentRecipe.rating : '',
+      _tags: currentRecipe?.tags ? currentRecipe.tags : [],
+      _recipeStatus: currentRecipe?.recipeStatus && currentRecipe.recipeStatus !== this.state._recipeStatus ? currentRecipe.recipeStatus : "unfinished",
       _ingredients: currentRecipe ? this.readableArray(currentRecipe.ingredients) : '',
       _ingredientsNotes: currentRecipe ? this.readableArray(currentRecipe.ingredientsNotes) : '',
       _directions: currentRecipe ? this.readableArray(currentRecipe.directions) : '',
@@ -82,6 +84,14 @@ class RecipeEditForm extends Component {
     this.setState({_rating: newValue})
   }
 
+  handleTagChange = (tag) => {
+    if (this.state._tags.includes(tag)) {
+      this.setState({_tags: this.state._tags.filter(e => e !== tag)})
+    } else {
+      this.setState({_tags: this.state._tags.concat(tag)})
+    }
+  }
+
   handleTextChange = (event) => {
     if (event.target.id) {
       this.setState({[event.target.id]: event.target.value})
@@ -103,6 +113,7 @@ class RecipeEditForm extends Component {
         author: this.state._author,
         rating: this.state._rating,
         recipeStatus: this.state._recipeStatus,
+        tags: this.state._tags,
         ingredients: this.createArray(this.state._ingredients),
         ingredientsNotes: this.createArray(this.state._ingredientsNotes),
         directions: this.createArray(this.state._directions),
@@ -180,9 +191,12 @@ class RecipeEditForm extends Component {
             rating={this.state._rating}
           />
         </div>
-        {/* <div>
-          <FilterList />
-        </div> */}
+        <div>
+          <FilterList 
+            handleChange={this.handleTagChange}
+            tags={this.state._tags}
+          />
+        </div>
         <div className='formInputLayout'>
           <FormControl component="fieldset">
             <FormLabel component="legend">Recipe Status</FormLabel>

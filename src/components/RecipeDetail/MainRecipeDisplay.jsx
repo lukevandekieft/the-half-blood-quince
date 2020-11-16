@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { removeRecipe } from '../../actions';
 import moment from 'moment';
+
 import Button from '@material-ui/core/Button';
 import Rating from '@material-ui/lab/Rating';
 import TextField from '@material-ui/core/TextField';
@@ -13,8 +14,9 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import { Chip } from '@material-ui/core';
 
-function MainRecipeDisplay({author, createdDate, currentRecipe, dispatch, imageLink, name, rating, url, user}){
+function MainRecipeDisplay({author, createdDate, currentRecipe, dispatch, imageLink, name, rating, tags, url, user}){
   const altText = `${name} Recipe`;
   const backgroundImage = {
     backgroundImage: `url(${imageLink})`
@@ -49,6 +51,17 @@ function MainRecipeDisplay({author, createdDate, currentRecipe, dispatch, imageL
         {(rating) && (
           <Rating name="read-only" value={rating} readOnly />
         )}
+        { tags && (
+            tags.map(function(each){
+              return( 
+                <Chip 
+                  label={each} 
+                  size="small"
+                  color="primary" 
+                />
+              )
+            })
+         )} 
       </div>
 
       <div className='mainDetailContainer'>

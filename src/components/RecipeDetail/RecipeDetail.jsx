@@ -28,7 +28,6 @@ class RecipeDetail extends React.Component {
     const {recipes } = this.props;
     const currentRecipe = this.props.location.pathname.slice(8);
 
-    console.log(this.props.user)
     return (
       <React.Fragment>
       { !recipes[currentRecipe] ? (
@@ -44,6 +43,7 @@ class RecipeDetail extends React.Component {
               imageLink={recipes[currentRecipe].imageLink}
               name={recipes[currentRecipe].name}
               rating={recipes[currentRecipe].rating}
+              tags={recipes[currentRecipe].tags}
               url={recipes[currentRecipe].url}
               user={this.props.user}
             />
