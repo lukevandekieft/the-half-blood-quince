@@ -3,11 +3,13 @@ export const TagList = [
   "Appetizer",
   "Breakfast",
   "Dessert",
-  "Low Effort",
+  "Healthy",
+  "Quick",
+  "60 Minutes",
   "Easy Ingredients",
-  "Hour or Less",
-  "Guest Meal",
-  "Party Food",
-  "Slow Cooker",
-  "Healthy"
+  "Entertaining",
+  "Party Favor",
+  "Meal Prep",
+  "Instant Pot",
+  "Slow Cooker"
 ]
