@@ -1,0 +1,90 @@
+@import '../../sassVariables.scss';
+
+.searchModal {
+  height: 50vh;
+}
+
+/*Resize the wrap to see the search bar change!*/
+.searchBox {
+  width: 30%;
+  display: flex;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: $navbar-height / 2;
+  -webkit-box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.4);
+  box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.4);
+  border-radius: 35px;
+  padding: 0 10px;
+  overflow: hidden;
+  background-color: white;
+  & > input {
+    font-size: 20px;
+  }
+  input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+  }
+  transform: translate(-50%, -50%);
+
+  .searchButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    width: 40px;
+    padding: 0;
+    height: inherit;
+    text-align: center;
+    color: $offsetColor;
+    border: none;
+    font-size: 25px;
+    cursor: pointer;
+    &:focus {
+      outline: none;
+    }
+  }
+  .searchInput {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    outline: none;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    &:focus{
+      color: lighten($offsetColor, 10%);
+    }
+    &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+      color: $offsetColor;
+      opacity: 1; /* Firefox */
+    }
+    &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+      color: $offsetColor;
+    }
+    &::-ms-input-placeholder { /* Microsoft Edge */
+      color: $offsetColor;
+    }
+  }
+}
+
+@media (max-width: $small-breakpoint) {
+  .searchBox {
+    width: 70%;
+  }
+}
+@media (min-width: $small-breakpoint+1) and (max-width: $medium-breakpoint) {
+  .searchBox {
+    width: 50%;
+  }
+}
+@media (min-width: $medium-breakpoint+1) and (max-width: $large-breakpoint) {
+  .searchBox {
+    width: 40%;
+  }
+}
+@media (max-width: $large-breakpoint) {
+  .searchBox {
+    margin-top: $navbar-height-md / 2;
+  }
+}
