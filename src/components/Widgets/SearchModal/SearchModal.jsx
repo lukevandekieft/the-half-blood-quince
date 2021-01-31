@@ -1,8 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
-import { makeStyles } from '@material-ui/core/styles';
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
-import Button from '@material-ui/core/Button';
 import { connect } from 'react-redux';
 import { updateSearchValue, fetchApiSearchList } from '../../../actions';
 import { withRouter } from 'react-router-dom';

@@ -1,4 +1,5 @@
 export const initialState = {
+  filterList: [],
   isRouting: false,
   loadedInitialState: false,
   mainMenuShowing: false,

@@ -179,6 +179,12 @@ export const addRecipe = (newRecipeObject) => ({
   newRecipeObject: newRecipeObject
 });
 
+//FILTER RECIPES
+export const updateFilterList = (filterList) => ({
+  type: types.FILTER_LIST,
+  filterList: filterList
+});
+
 //SEARCH RECIPES
 export const updateSearchValue = (searchValue) => ({
   type: types.SEARCH,

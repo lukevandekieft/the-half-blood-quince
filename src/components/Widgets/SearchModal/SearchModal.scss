@@ -20,10 +20,10 @@
   padding: 0 10px;
   overflow: hidden;
   background-color: white;
-  & > p {
+  & > p, input {
     font-size: 20px;
   }
-  p:-webkit-autofill {
+  p:-webkit-autofill, input:-webkit-autofill {
     -webkit-box-shadow: 0 0 0px 1000px white inset;
   }
   &:hover {

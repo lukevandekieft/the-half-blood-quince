@@ -1,5 +1,6 @@
 export const ADD_RECIPE = 'ADD_RECIPE';
 export const CHANGE_ROUTE = 'CHANGE_ROUTE';
+export const FILTER_LIST = 'FILTER_LIST';
 export const LOAD_STATE = 'LOAD_STATE';
 export const RECEIVE_API_RECIPES = 'RECEIVE_API_RECIPES';
 export const SEARCH = 'SEARCH';

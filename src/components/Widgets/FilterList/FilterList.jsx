@@ -1,19 +1,41 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { TagList } from '../../../constants/TagList';
-
 import { Chip } from '@material-ui/core';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
-function FilterList(props) {  
+import { TagList } from '../../../constants/TagList';
+import { updateFilterList } from '../../../actions';
+
+class FilterList extends React.Component {  
+  constructor(props) {
+    super(props);
+  }
+
+  handleFilterChange = (tag) => {
+    if (this.props.filterList.includes(tag)) {
+      this.props.dispatch(
+        updateFilterList(
+          this.props.filterList.filter(e => e !== tag)
+        )
+      );
+    } else {
+      this.props.dispatch(
+        updateFilterList(
+          this.props.filterList.concat(tag)
+        )
+      );
+    }
+  }
   
-  const createCheckList = (array) => {
+  createCheckList = (array) => {
     if(array.length > 0){
-      return array.map(function(each) {
-        if (props.tags?.includes(each)) {
+      return array.map((each) => {
+        if (this.props.filterList?.includes(each)) {
           return(
             <Chip 
               label={each} 
-              onClick={() => props.handleChange(each)}
+              onClick={() => this.handleFilterChange(each)}
               size="small"
               color="primary" 
             />
@@ -22,26 +44,30 @@ function FilterList(props) {
           return(
             <Chip 
               label={each} 
-              onClick={() => props.handleChange(each)} 
+              onClick={() => this.handleFilterChange(each)} 
               size="small" 
             />
           )
         }
-      }, props)
+      }, this.props)
     } else {
       return []
     }
   }
 
-  return (
-    <React.Fragment>
-      {createCheckList(TagList)}
-    </React.Fragment>
-  );
+  render() {
+    return (
+      <React.Fragment>
+        {this.createCheckList(TagList)}
+      </React.Fragment>
+    );
+  }
 }
 
-FilterList.propTypes = {
-
+const mapStateToProps = state => {
+  return {
+    filterList: state.filterList
+  };
 };
 
-export default FilterList;
+export default withRouter(connect(mapStateToProps)(FilterList));

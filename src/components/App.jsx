@@ -31,7 +31,6 @@ import './Route404/Route404.scss';
 import './Widgets/MenuModal/MenuModal.scss';
 import './Widgets/Loader/Loader.scss';
 import './Widgets/NavButton/NavButton.scss';
-import './Widgets/SearchBar/SearchBar.scss';
 import './Widgets/SearchModal/SearchModal.scss';
 import './Widgets/StarRating/StarRating.scss';
 

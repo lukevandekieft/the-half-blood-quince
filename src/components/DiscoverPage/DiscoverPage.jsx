@@ -6,7 +6,7 @@ import { updateSearchValue } from '../../actions';
 import Loader from '../Widgets/Loader/Loader';
 import NavButton from '../Widgets/NavButton/NavButton';
 import RecipeList from '../HomePage/RecipeList';
-import SearchBar from '../Widgets/SearchBar/SearchBar';
+import SearchModal from '../Widgets/SearchModal/SearchModal';
 import edamam from '../../assets/images/edamam.png';
 
 class DiscoverPage extends React.Component{
@@ -57,7 +57,7 @@ class DiscoverPage extends React.Component{
     return (
       <div className='contentContainer'>
         <div className='headerSection discoverPage'>
-          <SearchBar />
+          <SearchModal />
         </div>
         <div className='pageContentSection headerPage'>
           {recipeDisplay}
