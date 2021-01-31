@@ -6,6 +6,7 @@
 
 /*Resize the wrap to see the search bar change!*/
 .searchBox {
+  border: none;
   width: 30%;
   display: flex;
   position: absolute;
@@ -19,11 +20,14 @@
   padding: 0 10px;
   overflow: hidden;
   background-color: white;
-  & > input {
+  & > p {
     font-size: 20px;
   }
-  input:-webkit-autofill {
+  p:-webkit-autofill {
     -webkit-box-shadow: 0 0 0px 1000px white inset;
+  }
+  &:hover {
+    cursor: pointer;
   }
   transform: translate(-50%, -50%);
 
@@ -71,6 +75,9 @@
 @media (max-width: $small-breakpoint) {
   .searchBox {
     width: 70%;
+  }
+  .searchModal {
+    height: 100vh;
   }
 }
 @media (min-width: $small-breakpoint+1) and (max-width: $medium-breakpoint) {

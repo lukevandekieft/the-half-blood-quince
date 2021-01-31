@@ -53,7 +53,6 @@ class HomePage extends React.Component{
             handleChange={this.handleFilterChange}
             tags={this.state.filterList}
           />
-          <SearchBar />
           <FilterList 
             handleChange={this.handleFilterChange}
             tags={this.state.filterList}

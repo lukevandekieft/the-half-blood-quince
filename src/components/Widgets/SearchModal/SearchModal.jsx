@@ -17,9 +17,6 @@ class SearchModal extends React.Component{
   }
 
   toggleMenuOpen = (menuBoolean) => (event) => {
-    if (event && event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
-      return;
-    }
     this.setState({ searchMenuOpen: menuBoolean });
   };
 
@@ -31,20 +28,17 @@ class SearchModal extends React.Component{
     if (this.props.location.pathname === '/discover-recipes') {
       this.props.dispatch(fetchApiSearchList(userInput, this.props.user));
     }
-    this.toggleMenuOpen(false);
+    this.setState({ searchMenuOpen: false });
   };
 
   // Modal containing search content
   searchModal = () => (
     <div
       role="presentation"
-      onClick={this.toggleMenuOpen(false)}
-      onKeyDown={this.toggleMenuOpen(false)}
-      className="searchModal"
+      className="searchModal" 
     >
-      Hello!
       <form className="searchBox" onSubmit={this.handleSearch.bind(this)}>
-        <input type="text" className="searchInput" id='recipeSearch' ref={ el => this.recipeSearch = el} onChange={this.handleChange} placeholder={this.state.placeholderText}/>
+        <input type="text" className="searchInput" id='recipeSearch' ref={ el => this.recipeSearch = el} placeholder={this.state.placeholderText}/>
         <button className="searchButton" type='submit'>
           <i className="fa fa-search"></i>
         </button>
@@ -64,7 +58,12 @@ class SearchModal extends React.Component{
 
     return (
       <div key={"top"}>
-        <Button onClick={this.toggleMenuOpen(true)}>Search</Button>
+        <button className="searchBox" onClick={this.toggleMenuOpen(true)}>
+          <p className="searchInput">{this.state.placeholderText}</p>
+          <div className="searchButton">
+            <i className="fa fa-search"></i>
+          </div>
+        </button>
         <SwipeableDrawer
           anchor={"top"}
           open={this.state["searchMenuOpen"]}
