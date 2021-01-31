@@ -1,3 +1,5 @@
+// NOTE: dead component? Don't see this used anywhere.
+
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -23,6 +25,7 @@ class AccordionItem extends React.Component {
   }
 
   render() {
+    console.log("menu?")
     return (
       <div className={this.state.accordionOpen ? 'accordion-item accordion-open' : 'accordion-item'}>
         <a className ='accordion-label' onClick={this.toggleAccordion}>

@@ -9,6 +9,7 @@ import FilterList from '../Widgets/FilterList/FilterList';
 import NavButton from '../Widgets/NavButton/NavButton';
 import RecipeList from './RecipeList';
 import SearchBar from '../Widgets/SearchBar/SearchBar';
+import SearchModal from '../Widgets/SearchModal/SearchModal';
 
 class HomePage extends React.Component{
   constructor(props) {
@@ -48,6 +49,10 @@ class HomePage extends React.Component{
     return (
       <div className='contentContainer'>
         <div className='headerSection homePage'>
+          <SearchModal 
+            handleChange={this.handleFilterChange}
+            tags={this.state.filterList}
+          />
           <SearchBar />
           <FilterList 
             handleChange={this.handleFilterChange}
