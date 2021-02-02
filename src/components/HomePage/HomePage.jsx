@@ -5,7 +5,6 @@ import { updateSearchValue } from '../../actions';
 import { v4 } from 'uuid';
 import { Link } from 'react-router-dom';
 
-import FilterList from '../Widgets/FilterList/FilterList';
 import NavButton from '../Widgets/NavButton/NavButton';
 import RecipeList from './RecipeList';
 import SearchModal from '../Widgets/SearchModal/SearchModal';
@@ -35,7 +34,6 @@ class HomePage extends React.Component{
       <div className='contentContainer'>
         <div className='headerSection homePage'>
           <SearchModal />
-          <FilterList />
         </div>
         <div className='pageContentSection headerPage'>
           <h1 className='headline'>{headerMessage}</h1>
