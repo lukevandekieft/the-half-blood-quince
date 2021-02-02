@@ -15,13 +15,13 @@ function MenuModal(props) {
     onToggleMenu(mainMenuShowing);
   };
 
-    //Logout current user & close modal
+  //Logout current user & close modal
   const handleLogout = () => {
     dispatch(newUserLogout());
     onToggleMenu(mainMenuShowing);
   };
 
-    //Close modal on click and create new recipe if going to 'edit-recipe' route
+  //Close modal on click and create new recipe if going to 'edit-recipe' route
   const handleRoute = (route) => {
     onToggleMenu(mainMenuShowing);
   };

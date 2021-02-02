@@ -12,6 +12,6 @@ export default class Route404 extends Component {
           <p>Click <Link to="/">here</Link> to return to the home page.</p>
         </div>
       </div>
-    )
+    );
   }
 }

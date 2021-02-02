@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 function IngredientsDisplay(props){
 
-// Format IngredientsNotes section
+  // Format IngredientsNotes section
   let headerSection = null;
   let formattedIngredientsNotes;
   if (props.ingredientsNotes) {

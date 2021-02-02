@@ -20,7 +20,7 @@ const render = (Component) => {
       <Provider store={store}>
         <Component />
       </Provider>
-      </BrowserRouter>,
+    </BrowserRouter>,
     document.getElementById('root')
   );
 };

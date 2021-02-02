@@ -14,8 +14,8 @@ import NavBar from './NavBar/NavBar.jsx';
 import PrivateRoute from './Routes/PrivateRoute.jsx';
 import PublicRoute from './Routes/PublicRoute.jsx';
 import RecipeDetail from './RecipeDetail/RecipeDetail.jsx';
-import RecipeEdit from './RecipeEditPage/RecipeEdit.jsx'
-import Route404 from './Route404/Route404.jsx'
+import RecipeEdit from './RecipeEditPage/RecipeEdit.jsx';
+import Route404 from './Route404/Route404.jsx';
 import SignUpPage from './SignUpPage/SignUpPage.jsx';
 import { toggleMainMenu, checkLoginStatus } from './../actions';
 

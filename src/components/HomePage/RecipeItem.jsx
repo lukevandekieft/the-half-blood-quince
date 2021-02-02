@@ -11,11 +11,11 @@ function RecipeItem({author, dispatch, image, name, rating, recipeStatus, user})
   };
 
   if (name.length > 35) {
-    name = `${name.slice(0, 35)}...`
+    name = `${name.slice(0, 35)}...`;
   }
 
   if (author && author.length > 35) {
-    author = `${name.slice(0, 35)}...`
+    author = `${name.slice(0, 35)}...`;
   }
 
   return (
@@ -37,7 +37,7 @@ function RecipeItem({author, dispatch, image, name, rating, recipeStatus, user})
           )}
         </div>
         <div className='recipeItemButtonContainer'>
-          <div className={recipeStatus === "completed" ? "completedRecipeButton" : recipeStatus === "unfinished" ? "unfinishedRecipeButton" : null}></div>
+          <div className={recipeStatus === 'completed' ? 'completedRecipeButton' : recipeStatus === 'unfinished' ? 'unfinishedRecipeButton' : null}></div>
         </div>
       </div>
     </div>

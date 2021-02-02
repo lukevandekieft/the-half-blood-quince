@@ -32,7 +32,7 @@ class RecipeEdit extends React.Component{
   render() {
     console.log(this.state);
     let recipeName;
-    if (this.props.location.pathname.includes("/edit-recipe/")) {
+    if (this.props.location.pathname.includes('/edit-recipe/')) {
       recipeName = this.props.location.pathname.slice(13);
     }
 

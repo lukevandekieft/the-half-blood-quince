@@ -26,13 +26,13 @@ class DiscoverPage extends React.Component{
     let headerMessage;
     if (searchTerm) {
       headerMessage =
-      <h1 className='headline'>{`Showing results for '${searchTerm}'`}</h1>;
+        <h1 className='headline'>{`Showing results for '${searchTerm}'`}</h1>;
     } else {
       headerMessage =
-      <div className='emptyContentMessage discoverPage'>
-        <h2>There's nothing here!</h2>
-        <p>Search above to discover your next big meal</p>
-      </div>
+        <div className='emptyContentMessage discoverPage'>
+          <h2>There's nothing here!</h2>
+          <p>Search above to discover your next big meal</p>
+        </div>;
     }
 
     let recipeDisplay;

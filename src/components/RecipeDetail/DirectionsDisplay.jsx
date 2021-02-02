@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 function DirectionsDisplay(props){
 
-//Format DirectionsNotes section
+  //Format DirectionsNotes section
   let headerSection;
   if (props.directionsNotes) {
     headerSection =

@@ -57,7 +57,7 @@ class RecipeSearchItem extends React.Component {
 
     //redirect on recipe Add
     if (this.state.recipeSaved === true) {
-      return <Redirect to={`/recipe/${valueKey}`} />
+      return <Redirect to={`/recipe/${valueKey}`} />;
     }
 
     return (

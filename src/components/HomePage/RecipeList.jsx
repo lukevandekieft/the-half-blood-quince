@@ -37,7 +37,7 @@ const RecipeList = ({ filterList, location, recipes, searchValue }) => {
                 rating = {recipe.rating}
                 recipeStatus = {recipe.recipeStatus}
               />
-            </Link>
+            </Link>;
           }
         })
       )}

@@ -22,15 +22,15 @@ function MainRecipeDisplay({author, createdDate, currentRecipe, dispatch, imageL
     backgroundImage: `url(${imageLink})`
   };
 
-    const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = React.useState(false);
 
-    const handleClickOpen = () => {
-      setOpen(true);
-    };
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
   
-    const handleClose = () => {
-      setOpen(false);
-    };
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   //delete recipe from popup
   const handleClickDelete = () => {
@@ -52,16 +52,16 @@ function MainRecipeDisplay({author, createdDate, currentRecipe, dispatch, imageL
           <Rating name="read-only" value={rating} readOnly />
         )}
         { tags && (
-            tags.map(function(each){
-              return( 
-                <Chip 
-                  label={each} 
-                  size="small"
-                  color="primary" 
-                />
-              )
-            })
-         )} 
+          tags.map(function(each){
+            return( 
+              <Chip 
+                label={each} 
+                size="small"
+                color="primary" 
+              />
+            );
+          })
+        )} 
       </div>
 
       <div className='mainDetailContainer'>
