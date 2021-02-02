@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { updateSearchValue, fetchApiSearchList } from '../../../actions';
 import { withRouter } from 'react-router-dom';
 import FilterList from '../FilterList/FilterList';
+import Icon from '@material-ui/core/Icon';
 
 class SearchModal extends React.Component{
   constructor(props) {
@@ -36,6 +37,7 @@ class SearchModal extends React.Component{
       role="presentation"
       className="searchModal" 
     >
+      <Icon onClick={this.toggleMenuOpen(false)}>close</Icon>
       <FilterList />
       <form className="searchBox" onSubmit={this.handleSearch.bind(this)}>
         <input type="text" className="searchInput" id='recipeSearch' ref={ el => this.recipeSearch = el} placeholder={this.state.placeholderText}/>
