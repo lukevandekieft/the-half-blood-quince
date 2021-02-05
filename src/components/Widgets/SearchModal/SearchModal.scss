@@ -8,6 +8,7 @@
 .searchBox {
   border: none;
   width: 30%;
+  height: 43px;
   display: flex;
   position: absolute;
   top: 50%;
@@ -38,7 +39,7 @@
     background-color: white;
     width: 40px;
     padding: 0;
-    height: inherit;
+    height: 100%;
     text-align: center;
     color: $offsetColor;
     border: none;
