@@ -12,7 +12,8 @@ class SearchModal extends React.Component{
     super(props);
     this.state = {
       placeholderText: null,
-      searchMenuOpen: false
+      searchMenuOpen: false,
+      searchValue: ''
     }
   }
 
@@ -28,7 +29,10 @@ class SearchModal extends React.Component{
     if (this.props.location.pathname === '/discover-recipes') {
       this.props.dispatch(fetchApiSearchList(userInput, this.props.user));
     }
-    this.setState({ searchMenuOpen: false });
+    this.setState({ 
+      searchMenuOpen: false,
+      searchValue: userInput
+     });
   };
 
   // Modal containing search content
@@ -40,7 +44,15 @@ class SearchModal extends React.Component{
       <Icon onClick={this.toggleMenuOpen(false)}>close</Icon>
       <FilterList />
       <form className="searchBox" onSubmit={this.handleSearch.bind(this)}>
-        <input type="text" className="searchInput" id='recipeSearch' ref={ el => this.recipeSearch = el} placeholder={this.state.placeholderText}/>
+        <input 
+          type="text" 
+          className="searchInput" 
+          id='recipeSearch'
+          defaultValue={this.state.searchValue}
+          ref={ el => this.recipeSearch = el} 
+          placeholder={this.state.placeholderText}
+          autoFocus={this.state.searchMenuOpen}
+        />
         <button className="searchButton" type='submit'>
           <i className="fa fa-search"></i>
         </button>
