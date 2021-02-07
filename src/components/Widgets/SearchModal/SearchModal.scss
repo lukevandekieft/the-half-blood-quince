@@ -96,3 +96,19 @@
     margin-top: $navbar-height-md / 2;
   }
 }
+
+// React Material Search Button
+
+.MuiFab-root {
+  margin: 0px !important;
+  top: auto !important;
+  right: 20px !important;
+  bottom: 20px !important;
+  left: auto !important;
+  position: fixed !important;
+  z-index: 10000;
+};
+
+@media (max-width: $medium-breakpoint) {
+
+}

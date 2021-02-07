@@ -6,6 +6,7 @@ import { updateSearchValue, fetchApiSearchList } from '../../../actions';
 import { withRouter } from 'react-router-dom';
 import FilterList from '../FilterList/FilterList';
 import Icon from '@material-ui/core/Icon';
+import Fab from '@material-ui/core/Fab';
 
 class SearchModal extends React.Component{
   constructor(props) {
@@ -86,6 +87,9 @@ class SearchModal extends React.Component{
         >
           {this.searchModal()}
         </SwipeableDrawer>
+        <Fab color="primary" aria-label="add" onClick={this.toggleMenuOpen(true)}>
+          <Icon>search</Icon>
+        </Fab>
       </div>
     );
   }

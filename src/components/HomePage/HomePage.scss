@@ -164,14 +164,6 @@ $completed-icon-width: 35px;
   background-color: lighten($off-brand-color, 5%);
 }
 
-// .unfinishedRecipeButton {
-//   @include recipeButton();
-//   &:before {
-//     content: "\2764";
-//   }
-//   background-color: $filled-star-color;
-// }
-
 @media (max-width: $small-breakpoint) {
   .headline {
     padding: 1.5rem 0;
