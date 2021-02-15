@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import Rating from '@material-ui/lab/Rating';
 import Chip from '@material-ui/core/Chip';
 
-function RecipeItem({author, dispatch, image, name, rating, recipeStatus, user}) {
+function RecipeItem({author, image, name, rating, recipeStatus}) {
 
   //set background based on props
   const backgroundImage = {

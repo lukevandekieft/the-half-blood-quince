@@ -22,7 +22,7 @@ function MenuModal(props) {
   };
 
   //Close modal on click and create new recipe if going to 'edit-recipe' route
-  const handleRoute = (route) => {
+  const handleRoute = () => {
     onToggleMenu(mainMenuShowing);
   };
 
