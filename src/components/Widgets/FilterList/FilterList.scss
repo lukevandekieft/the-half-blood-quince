@@ -1,0 +1,11 @@
+$filter-padding: 10px;
+
+.filterGrid {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  grid-template-rows: auto;
+  justify-content: center;
+  grid-column-gap: $filter-padding;
+  grid-row-gap: $filter-padding;
+  margin: $filter-padding;
+}

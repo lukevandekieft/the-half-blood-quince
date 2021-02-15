@@ -57,9 +57,9 @@ class FilterList extends React.Component {
 
   render() {
     return (
-      <React.Fragment>
+      <div className="filterGrid">
         {this.createCheckList(TagList)}
-      </React.Fragment>
+      </div>
     );
   }
 }

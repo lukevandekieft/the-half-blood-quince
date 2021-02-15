@@ -42,7 +42,7 @@ class SearchModal extends React.Component{
       role="presentation"
       className="searchModal" 
     >
-      <Icon onClick={this.toggleMenuOpen(false)}>close</Icon>
+      <Icon onClick={this.toggleMenuOpen(false)} className="closeIcon">close</Icon>
       <FilterList />
       <form className="searchBox" onSubmit={this.handleSearch.bind(this)}>
         <input 

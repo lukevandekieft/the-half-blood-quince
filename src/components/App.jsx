@@ -28,6 +28,7 @@ import './NavBar/NavBar.scss';
 import './RecipeDetail/RecipeDetail.scss';
 import './RecipeEditPage/RecipeEditPage.scss';
 import './Route404/Route404.scss';
+import './Widgets/FilterList/FilterList.scss';
 import './Widgets/MenuModal/MenuModal.scss';
 import './Widgets/Loader/Loader.scss';
 import './Widgets/NavButton/NavButton.scss';

@@ -73,6 +73,14 @@
   }
 }
 
+.closeIcon {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  z-index: 200;
+  cursor: pointer;
+}
+
 @media (max-width: $small-breakpoint) {
   .searchBox {
     width: 70%;
