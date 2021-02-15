@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Rating from '@material-ui/lab/Rating';
+import Chip from '@material-ui/core/Chip';
 
 function RecipeItem({author, dispatch, image, name, rating, recipeStatus, user}) {
 
@@ -25,6 +26,7 @@ function RecipeItem({author, dispatch, image, name, rating, recipeStatus, user})
         </div>
         <div className='recipeImage' style={backgroundImage}>
         </div>
+        <Chip label="New" className={recipeStatus === 'completed' ? 'completedRecipe' : 'newRecipe'}/>
       </div>
       <div className='recipeBottomSection'>
         <div className='recipeItemTextContainer'>
@@ -35,9 +37,6 @@ function RecipeItem({author, dispatch, image, name, rating, recipeStatus, user})
           {rating && (
             <Rating name="read-only" value={rating} readOnly />
           )}
-        </div>
-        <div className='recipeItemButtonContainer'>
-          <div className={recipeStatus === 'completed' ? 'completedRecipeButton' : recipeStatus === 'unfinished' ? 'unfinishedRecipeButton' : null}></div>
         </div>
       </div>
     </div>
