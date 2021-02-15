@@ -9,8 +9,7 @@ import NavButton from '../Widgets/NavButton/NavButton';
 import Route404 from '../Route404/Route404';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { changeRoute, removeRecipe } from '../../actions';
-import Button from '@material-ui/core/Button';
+import { changeRoute } from '../../actions';
 
 class RecipeDetail extends React.Component {
 

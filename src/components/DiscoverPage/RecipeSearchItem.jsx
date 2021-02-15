@@ -6,7 +6,6 @@ import { Redirect } from 'react-router';
 import moment from 'moment';
 import Button from '@material-ui/core/Button';
 
-import NavButton from '../Widgets/NavButton/NavButton';
 import RecipeItem from '../HomePage/RecipeItem';
 
 class RecipeSearchItem extends React.Component {

@@ -1,5 +1,4 @@
 import React from 'react';
-import clsx from 'clsx';
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 import { connect } from 'react-redux';
 import { updateSearchValue, fetchApiSearchList } from '../../../actions';
@@ -52,10 +51,10 @@ class SearchModal extends React.Component{
       <form className="searchBoxModal" onSubmit={this.handleSearch.bind(this)}>
         <Input 
           id="recipeSearch" 
+          type="search"
           placeholder="Search" 
           defaultValue={this.state.searchValue}
           ref={ el => this.recipeSearch = el} 
-          type="submit"
           autoFocus={window.innerWidth > 900 ? this.state.searchMenuOpen : false}
           endAdornment={
             <InputAdornment position="end">

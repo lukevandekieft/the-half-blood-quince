@@ -7,7 +7,7 @@ import Button from '@material-ui/core/Button';
 import NavButton from '../NavButton/NavButton';
 
 function MenuModal(props) {
-  const { dispatch, mainMenuShowing, onToggleMenu, user } = props;
+  const { dispatch, mainMenuShowing, onToggleMenu } = props;
 
   //Login OAuth providers
   const handleLogin = (provider) => {

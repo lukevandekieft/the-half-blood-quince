@@ -66,7 +66,7 @@ class DiscoverPage extends React.Component{
             linkText='Go To My Recipes'
           />
           <div className='edamamContainer'>
-            <a href='https://www.edamam.com/' className='edamam'><img src={edamam}/></a>
+            <a href='https://www.edamam.com/' className='edamam'><img src={edamam} alt="Edamam Logo"/></a>
           </div>
         </div>
       </div>

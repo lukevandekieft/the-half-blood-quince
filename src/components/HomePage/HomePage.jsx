@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { updateSearchValue } from '../../actions';
-import { v4 } from 'uuid';
 import { Link } from 'react-router-dom';
 
 import NavButton from '../Widgets/NavButton/NavButton';
@@ -20,7 +19,7 @@ class HomePage extends React.Component{
   }
 
   render() {
-    const {dispatch, recipes, searchValue, user } = this.props;
+    const {recipes, searchValue, user } = this.props;
 
     //Toggle recipe header when search is active
     let headerMessage;

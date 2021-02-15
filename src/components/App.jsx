@@ -1,7 +1,7 @@
 //Dependencies
 import React, { Component } from 'react';
 // import {BrowserRouter as Switch, withRouter } from 'react-router-dom';
-import { Route, Redirect, BrowserRouter, Switch, withRouter} from 'react-router-dom';
+import { Route, BrowserRouter, Switch, withRouter} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
@@ -40,7 +40,7 @@ class App extends Component {
     super(props);
     this.handleToggleMainMenu = this.handleToggleMainMenu.bind(this);
   }
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     this.props.dispatch(checkLoginStatus());
   }
 
