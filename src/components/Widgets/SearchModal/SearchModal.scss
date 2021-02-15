@@ -104,6 +104,10 @@
   }
   .searchModal {
     height: 100vh;
+    padding-top: 20px;
+  }
+  .searchBoxModal {
+    padding-top: 20px;
   }
 }
 @media (min-width: $small-breakpoint+1) and (max-width: $medium-breakpoint) {
