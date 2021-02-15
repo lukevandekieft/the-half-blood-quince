@@ -7,6 +7,9 @@ import { withRouter } from 'react-router-dom';
 import FilterList from '../FilterList/FilterList';
 import Icon from '@material-ui/core/Icon';
 import Fab from '@material-ui/core/Fab';
+import Input from '@material-ui/core/Input';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import IconButton from '@material-ui/core/IconButton';
 
 class SearchModal extends React.Component{
   constructor(props) {
@@ -42,21 +45,25 @@ class SearchModal extends React.Component{
       role="presentation"
       className="searchModal" 
     >
-      <Icon onClick={this.toggleMenuOpen(false)} className="closeIcon">close</Icon>
+      <IconButton onClick={this.toggleMenuOpen(false)} className="closeIcon">
+        <i className="fa fa-times"></i>
+      </IconButton>
       <FilterList />
-      <form className="searchBox" onSubmit={this.handleSearch.bind(this)}>
-        <input 
-          type="text" 
-          className="searchInput" 
-          id='recipeSearch'
+      <form className="searchBoxModal" onSubmit={this.handleSearch.bind(this)}>
+        <Input 
+          id="recipeSearch" 
+          placeholder="Search" 
           defaultValue={this.state.searchValue}
           ref={ el => this.recipeSearch = el} 
-          placeholder={this.state.placeholderText}
           autoFocus={this.state.searchMenuOpen}
+          endAdornment={
+            <InputAdornment position="end">
+              <IconButton className="searchButton" type='submit'>
+                <i className="fa fa-search"></i>
+              </IconButton>
+            </InputAdornment>
+          }
         />
-        <button className="searchButton" type='submit'>
-          <i className="fa fa-search"></i>
-        </button>
       </form>
     </div>
   );

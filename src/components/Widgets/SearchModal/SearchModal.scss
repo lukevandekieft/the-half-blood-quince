@@ -73,13 +73,29 @@
   }
 }
 
+.searchBoxModal {
+  input {
+    font-size: 1.3rem;
+  }
+  button {
+    background-color: rgba(0,0,0,0);
+    border: none;
+    font-size: 1.3rem;
+  }
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  width: 100%;
+}
+
 .closeIcon {
-  position: absolute;
-  top: 15px;
-  right: 15px;
+  position: absolute !important;
+  top: 5px;
+  right: 5px;
   z-index: 200;
   cursor: pointer;
   font-size: 2rem !important;
+  height: 46px;
 }
 
 @media (max-width: $small-breakpoint) {
