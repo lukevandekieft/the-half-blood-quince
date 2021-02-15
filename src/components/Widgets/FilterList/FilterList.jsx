@@ -37,7 +37,7 @@ class FilterList extends React.Component {
               label={each} 
               onClick={() => this.handleFilterChange(each)}
               size="small"
-              color="primary" 
+              color="primary"
             />
           )
         } else {
@@ -45,7 +45,8 @@ class FilterList extends React.Component {
             <Chip 
               label={each} 
               onClick={() => this.handleFilterChange(each)} 
-              size="small" 
+              size="small"
+              variant="outlined"
             />
           )
         }
@@ -57,8 +58,11 @@ class FilterList extends React.Component {
 
   render() {
     return (
-      <div className="filterGrid">
-        {this.createCheckList(TagList)}
+      <div className="filterBox">
+        <h3>Filters</h3>
+        <div className="filterGrid">
+          {this.createCheckList(TagList)}
+        </div>
       </div>
     );
   }
