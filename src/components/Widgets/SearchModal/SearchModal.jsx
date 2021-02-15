@@ -55,7 +55,8 @@ class SearchModal extends React.Component{
           placeholder="Search" 
           defaultValue={this.state.searchValue}
           ref={ el => this.recipeSearch = el} 
-          autoFocus={this.state.searchMenuOpen}
+          type="submit"
+          autoFocus={window.innerWidth > 900 ? this.state.searchMenuOpen : false}
           endAdornment={
             <InputAdornment position="end">
               <IconButton className="searchButton" type='submit'>
