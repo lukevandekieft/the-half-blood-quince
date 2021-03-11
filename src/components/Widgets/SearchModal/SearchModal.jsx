@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { updateSearchValue, fetchApiSearchList } from '../../../actions';
 import { withRouter } from 'react-router-dom';
 import FilterList from '../FilterList/FilterList';
+import { updateFilterList } from '../../../actions';
 import Icon from '@material-ui/core/Icon';
 import Fab from '@material-ui/core/Fab';
 import Input from '@material-ui/core/Input';
@@ -18,6 +19,14 @@ class SearchModal extends React.Component{
       searchMenuOpen: false,
       searchValue: ''
     }
+  }
+
+  componentWillUnmount() {
+    this.props.dispatch(
+      updateFilterList(
+        this.props.filterList.concat = []
+      )
+    );
   }
 
   toggleMenuOpen = (menuBoolean) => (event) => {
@@ -104,6 +113,7 @@ class SearchModal extends React.Component{
 
 const mapStateToProps = state => {
   return {
+    filterList: state.filterList,
     searchValue: state.searchValue,
     user: state.user,
   };
