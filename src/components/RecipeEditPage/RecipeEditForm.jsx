@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import NavButton from './../Widgets/NavButton/NavButton';
 import StarRating from './../Widgets/StarRating/StarRating';
-import FilterList from './../Widgets/FilterList/FilterList';
+import FilterList from '../Widgets/FilterList/FilterList';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { submitRecipe, changeRoute } from './../../actions';

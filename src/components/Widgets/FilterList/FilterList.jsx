@@ -8,7 +8,7 @@ import { updateFilterList } from '../../../actions';
 
 class FilterList extends React.Component {  
 
-  handleFilterChange = (tag) => {
+  handleGlobalFilterChange = (tag) => {
     if (this.props.filterList.includes(tag)) {
       this.props.dispatch(
         updateFilterList(
@@ -24,14 +24,14 @@ class FilterList extends React.Component {
     }
   }
   
-  createCheckList = (array) => {
+  createCheckList = (array, handlerFunction, filterList) => {
     if(array.length > 0){
       return array.map((each) => {
-        if (this.props.filterList?.includes(each)) {
+        if (filterList?.includes(each)) {
           return(
             <Chip 
               label={each} 
-              onClick={() => this.handleFilterChange(each)}
+              onClick={() => handlerFunction(each)}
               size="small"
               color="primary"
             />
@@ -40,7 +40,7 @@ class FilterList extends React.Component {
           return(
             <Chip 
               label={each} 
-              onClick={() => this.handleFilterChange(each)} 
+              onClick={() => handlerFunction(each)} 
               size="small"
               variant="outlined"
             />
@@ -53,11 +53,15 @@ class FilterList extends React.Component {
   }
 
   render() {
+    // if we're passing props then we have local state to use, like tags from a recipe. If no props are received we assume it's editing global search tags
+    const handlerFunction = this.props.handleChange ?? this.handleGlobalFilterChange;
+    const filtersInUse = this.props.tags ?? this.props.filterList;
+
     return (
       <div className="filterBox">
         <h3>Filters</h3>
         <div className="filterGrid">
-          {this.createCheckList(TagList)}
+          {this.createCheckList(TagList, handlerFunction, filtersInUse)}
         </div>
       </div>
     );
